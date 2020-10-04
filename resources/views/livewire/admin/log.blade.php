@@ -1,6 +1,6 @@
 <div class="py-8">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="bg-white overflow-hidden shadow sm:rounded-lg">            
+        <div class="bg-white overflow-hidden shadow sm:rounded-lg">
             <div class="text-sm p-2">
                 {{ $log_entries->links('livewire.admin.pagination') }}
             </div>
@@ -9,33 +9,41 @@
                     <tr class="bg-gray-100">
                         <th class="p-2 text-left text-sm font-bold text-gray-500 uppercase tracking-wider">Log ID</th>
                         <th class="p-2 text-left text-sm font-bold text-gray-500 uppercase tracking-wider">User</th>
-                        <th class="p-2 text-center text-sm font-bold text-gray-500 uppercase tracking-wider">&nbsp;</th>
-                        <th class="p-2 text-left text-sm font-bold text-gray-500 uppercase tracking-wider">Model</th>
-                        <th class="p-2 text-left text-sm font-bold text-gray-500 uppercase tracking-wider">Model ID</th>
-                        <th class="p-2 text-left text-sm font-bold text-gray-500 uppercase tracking-wider">Änderung</th>
+                        <th class="p-2 text-left text-sm font-bold text-gray-500 uppercase tracking-wider">&nbsp;</th>
+                        <th class="w-1/2 p-2 text-left text-sm font-bold text-gray-500 uppercase tracking-wider">Änderung</th>
                     </tr>
-                </thead>                                              
+                </thead>
                 <tbody class="divide-y divide-gray-200">
                     @foreach ($log_entries as $log_entry)
                         <tr class="{{ $loop->even ? "bg-gray-50" : null}} hover:bg-gray-100">
-                            <td class="p-2 text-left text-sm">{{ $log_entry->id }}</td>    
-                            <td class="p-2 text-left text-sm">{{ $log_entry->causer->name }}</td>    
-                            <td class="p-2 text-center text-sm">
+                            <td class="p-2 text-left text-sm">{{ $log_entry->id }}</td>
+                            <td class="p-2 text-left text-sm">{{ $log_entry->causer->name }}</td>
+                            <td class="p-2 align-middle">
                                 @switch($log_entry->description)
                                     @case('created')
-                                        <span class="inline-block p-1 text-xs font-bold rounded bg-green-100 text-green-800">Angelegt</span>
+                                        <span class="inline-block p-1 text-xs font-bold rounded bg-green-100 text-green-800">
+                                            <i class="fas fa-fw fa-plus-square"></i> Angelegt
+                                        </span>
                                         @break
                                     @case('updated')
-                                        <span class="inline-block p-1 text-xs font-bold rounded bg-yellow-100 text-yellow-800">Geändert</span>
-                                        @break                                    
+                                        <span class="inline-block p-1 text-xs font-bold rounded bg-yellow-100 text-yellow-800">
+                                            <i class="fas fa-fw fa-edit"></i> Geändert
+                                        </span>
+                                        @break
                                     @case('deleted')
-                                        <span class="inline-block p-1 text-xs font-bold rounded bg-red-100 text-red-800">Gelöscht</span>
+                                        <span class="inline-block p-1 text-xs font-bold rounded bg-red-100 text-red-800">
+                                            <i class="fas fa-fw fa-trash"></i> Gelöscht
+                                        </span>
                                         @break
                                 @endswitch
-                            </td>    
-                            <td class="p-2 text-left text-sm">{{ $log_entry->subject_type }}</td>
-                            <td class="p-2 text-left text-sm">{{ $log_entry->subject_id }}</td>                            
-                            <td class="p-2 text-left text-sm">                                
+                                <br>
+                                <span class="inline-block p-1 mt-2 rounded bg-gray-100">
+                                     {{ $log_entry->subject_type }} ID: <strong>{{ $log_entry->subject_id }}</strong>
+                                </span>
+
+
+                            </td>
+                            <td class="p-2 text-left text-sm">
                                 <ul>
                                     @foreach($log_entry->changes()->get('attributes') as $key => $value)
                                         <li>{{ $key ?? null }}: {{ $value ?? null }}</li>
@@ -49,7 +57,7 @@
                                         </ul>
                                     @endif
                                 <ul>
-                            </td>                            
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

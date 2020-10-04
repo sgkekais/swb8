@@ -15,7 +15,7 @@
                 @else
                     Neue Mannschaft anlegen
                 @endif
-            </div>            
+            </div>
             <form class="w-full max-w-lg">
                 <div class="p-3 sm:px-6">
                     <div class="flex flex-wrap -mx-3 mb-6">
@@ -56,15 +56,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex justify-end bg-gray-100 p-3">                                                
-                    <button wire:click="closeModal()" type="button" class="btn btn-gray mr-2">
+                <div class="flex justify-end bg-gray-100 p-3">
+                    <button wire:click="closeModal()" type="button" class="btn btn-gray mr-2 px-4 py-2">
                         Abbrechen
                     </button>
-                    <button wire:click.prevent="store()" type="button" class="btn btn-green ">
+                    <button wire:click.prevent="store()" type="button" class="btn btn-green px-4 py-2">
                         Speichern
                     </button>
                 </div>
-            </form>            
+            </form>
 
         </div>
     </div>

@@ -4,7 +4,7 @@
  */
 
 .btn {
-    @apply inline-flex items-center px-4 py-2 border border-transparent rounded-md uppercase tracking-wider text-sm leading-5 font-bold transition duration-150 ease-in-out;
+    @apply inline-flex items-center border border-transparent rounded-md uppercase tracking-wider text-sm leading-5 font-bold transition duration-150 ease-in-out;
 }
 .btn:hover {
 
