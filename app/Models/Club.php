@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Club extends Model
 {
     use HasFactory;
+    use LogsActivity;
 
     /**
      * The table associated with the model.
@@ -24,4 +26,12 @@ class Club extends Model
     protected $fillable = [
         'name', 'name_short', 'name_code', 'logo_url', 'owner', 'ah'
     ];
+
+    /**
+     * The attributes that should be logged.
+     * 
+     * @var array 
+     */     
+    protected static $logFillable = true;
+    protected static $logOnlyDirty = true;
 }

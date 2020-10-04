@@ -40,7 +40,7 @@
                         <th class="cursor-pointer p-2 text-left text-sm font-bold text-gray-500 uppercase tracking-wider" wire:click.prevent="sortBy('name_code')">@include('includes._sort-icon', ['field' => 'name_code']) Name - Code</th>
                         <th class="cursor-pointer p-2 text-center text-sm font-bold text-gray-500 uppercase tracking-wider" wire:click.prevent="sortBy('ah')">@include('includes._sort-icon', ['field' => 'ah']) AH</th>
                         <th class="cursor-pointer p-2 text-center text-sm font-bold text-gray-500 uppercase tracking-wider" wire:click.prevent="sortBy('owner')">@include('includes._sort-icon', ['field' => 'owner']) Unser</th>
-                        <th class="cursor-pointer p-2 text-cebter text-sm font-bold text-gray-500 uppercase tracking-wider">Aktionen</th>
+                        <th class="p-2 text-cebter text-sm font-bold text-gray-500 uppercase tracking-wider">Aktionen</th>
                     </tr>
                 </thead>                                              
                 <tbody class="divide-y divide-gray-200">

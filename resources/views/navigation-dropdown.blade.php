@@ -24,6 +24,9 @@
                     <x-jet-nav-link href="{{ route('clubs') }}" :active="request()->routeIs('clubs')">
                         Mannschaften
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('log') }}" :active="request()->routeIs('log')">
+                        Logbuch
+                    </x-jet-nav-link>                    
                 </div>
             </div>
 

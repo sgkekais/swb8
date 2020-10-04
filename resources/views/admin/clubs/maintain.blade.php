@@ -23,7 +23,7 @@
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
                                 Name
                             </label>
-                            <input wire:model="name" id="name" type="text" class="admin-form-input" placeholder="Name" required>
+                            <input wire:model="name" id="name" type="text" class="admin-form-input" placeholder="Schwarz-Weiß Bilk '79'" required>
                             @error('name')<p class="text-red-500 text-xs italic">{{ $message }}</p>@enderror
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name_short">
                                 Name - kurz
                             </label>
-                            <input wire:model="name_short" id="name_short" type="text" placeholder="Name kurz" class="admin-form-input" >
+                            <input wire:model="name_short" id="name_short" type="text" placeholder="SW Bilk" class="admin-form-input" >
                         </div>
                         <div class="w-full md:w-1/2 px-3">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name_code">

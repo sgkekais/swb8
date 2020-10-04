@@ -25,6 +25,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Admin functionality
     Route::prefix('admin')->group(function () {
+        // log
+        Route::view('log', 'admin.log')->name('log');
+
         // teams
         Route::view('clubs', 'admin.clubs.index')->name('clubs');
 
