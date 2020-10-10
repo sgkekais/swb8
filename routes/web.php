@@ -30,7 +30,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
         // teams
         Route::view('clubs', 'admin.clubs.index')->name('clubs');
-
+        // locations
+        Route::view('locations', 'admin.locations.index')->name('locations');
     });
 
 });
