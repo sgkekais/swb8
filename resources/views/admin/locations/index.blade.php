@@ -5,7 +5,8 @@
         </h2>
     </x-slot>
 
-    {{-- @livewire('admin.clubs') --}}
-    <livewire:datatable model="App\Models\Location" />
+    <livewire:admin.create-location />
+
+    <livewire:admin.locations-table />
 
 </x-app-layout>

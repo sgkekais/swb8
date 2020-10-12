@@ -5,6 +5,6 @@
         </h2>
     </x-slot>
 
-    @livewire('admin.clubs')
+    <livewire:admin.clubs />
 
 </x-app-layout>
