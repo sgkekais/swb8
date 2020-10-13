@@ -1,3 +1,4 @@
+{{-- TODO: Modal als Komponente? --}}
 <div>
     @if ($isOpen)
         <div class="fixed z-10 inset-0 overflow-y-auto">

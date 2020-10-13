@@ -12,7 +12,7 @@ class CreateLocation extends Component
 
     protected $rules = [
         'name' => 'required',
-        'url' => 'url'
+        'url' => 'url|nullable'
     ];
 
     public function openModal()
@@ -23,6 +23,7 @@ class CreateLocation extends Component
     public function closeModal()
     {
         $this->isOpen = false;
+        $this->resetInputFields();
     }
 
     public function resetInputFields()
@@ -47,9 +48,14 @@ class CreateLocation extends Component
             'url' => $this->url
         ]);
 
-        $this->closeModal();
-        $this->resetInputFields();
-        $this->emit('refreshLivewireDatatable');
+        session()->flash('success', 'Standort erfolgreich angelegt.');
+
+        return redirect()->to('admin/locations');
+
+        // $this->closeModal();
+        // $this->resetInputFields();
+        // $this->emit('refreshLivewireDatatable');
+
     }
 
     public function render()

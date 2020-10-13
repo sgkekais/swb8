@@ -5,6 +5,8 @@
         </h2>
     </x-slot>
 
+    @include('admin.includes._alert')
+
     <livewire:admin.create-location />
 
     <livewire:admin.locations-table />
