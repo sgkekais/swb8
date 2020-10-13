@@ -50,11 +50,11 @@ class CreateLocation extends Component
 
         session()->flash('success', 'Standort erfolgreich angelegt.');
 
-        return redirect()->to('admin/locations');
+        // return redirect()->to('admin/locations');
 
-        // $this->closeModal();
-        // $this->resetInputFields();
-        // $this->emit('refreshLivewireDatatable');
+        $this->closeModal();
+        $this->resetInputFields();
+        $this->emit('refreshLivewireDatatable');
 
     }
 
