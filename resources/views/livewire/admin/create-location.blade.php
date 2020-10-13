@@ -39,6 +39,7 @@
                                         URL
                                     </label>
                                     <input wire:model="url" id="url" type="text" placeholder="SWB" class="admin-form-input">
+                                    @error('url')<p class="text-red-500 text-xs italic">{{ $message }}</p>@enderror
                                 </div>
                             </div>
                             <div class="flex flex-wrap -mx-3 mb-6">

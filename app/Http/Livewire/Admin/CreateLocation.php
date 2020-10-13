@@ -7,11 +7,12 @@ use App\Models\Location;
 
 class CreateLocation extends Component
 {
-    public $name, $name_short, $note, $is_stadium, $url;
+    public $name, $name_short, $note, $is_stadium = 0, $url;
     public $isOpen = 0;
 
     protected $rules = [
-        'location.name' => 'required'
+        'name' => 'required',
+        'url' => 'url'
     ];
 
     public function openModal()
@@ -36,6 +37,16 @@ class CreateLocation extends Component
 
     public function store()
     {
+        $this->validate();
+
+        Location::create([
+            'name' => $this->name,
+            'name_short' => $this->name_short,
+            'note' => $this->note,
+            'is_stadium' => $this->is_stadium,
+            'url' => $this->url
+        ]);
+
         $this->closeModal();
         $this->resetInputFields();
         $this->emit('refreshLivewireDatatable');
