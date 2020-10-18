@@ -19,14 +19,18 @@ class LocationsTable extends LivewireDatatable
                 ->label('ID'),
             Column::name('name')
                 ->label('Name')
-                ->defaultSort('asc')
-                ->searchable(),
+                ->searchable()
+                ->editable()
+                ->defaultSort('asc'),
             Column::name('name_short')
-                ->label('-Kurz'),
+                ->label('-Kurz')
+                ->editable(),
             BooleanColumn::name('is_stadium')
-                ->label('Stadion?'),
+                ->label('Stadion?')
+                ->editable(),
             Column::name('url')
-                ->label('URL'),
+                ->label('URL')
+                ->editable(),
             Column::delete()
                 ->label('Löschen')
         ];
