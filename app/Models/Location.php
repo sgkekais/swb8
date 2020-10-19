@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Location extends Model
 {
     use HasFactory;
+    use LogsActivity;
 
     /**
      * The table associated with the model.
@@ -22,10 +24,14 @@ class Location extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'name_short',
-        'note',
-        'is_stadium',
-        'url'
+        'name', 'name_short', 'note', 'is_stadium', 'url'
     ];
+
+    /**
+     * The attributes that should be logged.
+     *
+     * @var array
+     */
+    protected static $logFillable = true;
+    protected static $logOnlyDirty = true;
 }
