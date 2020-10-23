@@ -1,4 +1,3 @@
-{{-- TODO: Modal als Komponente? --}}
 <div>
     @include('admin.includes._alert')
 
@@ -29,37 +28,30 @@
                                 </div>
                             </div>
                             <div class="flex flex-wrap -mx-3 mb-6">
-                                <div class="w-full px-3">
+                                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name_short">
                                         Name - kurz
                                     </label>
                                     <input wire:model="name_short" id="name_short" type="text" placeholder="SW Bilk" class="admin-form-input" >
                                 </div>
-                            </div>
-                            <div class="flex flex-wrap -mx-3 mb-6">
-                                <div class="w-full px-3">
-                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="url">
-                                        URL
+                                <div class="w-full md:w-1/2 px-3">
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name_code">
+                                        Code
                                     </label>
-                                    <input wire:model="url" id="url" type="text" placeholder="SWB" class="admin-form-input">
-                                    @error('url')<p class="text-red-500 text-xs italic">{{ $message }}</p>@enderror
-                                </div>
-                            </div>
-                            <div class="flex flex-wrap -mx-3 mb-6">
-                                <div class="w-full px-3">
-                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="url">
-                                        Notizen
-                                    </label>
-                                    <textarea wire:model="note" id="note" class="admin-form-input">
-
-                                    </textarea>
+                                    <input wire:model="name_code" id="name_code" type="text" placeholder="SWB" class="admin-form-input">
                                 </div>
                             </div>
                             <div class="mb-6 flex justify-start">
                                 <div class="flex items-center mr-3">
-                                    <input wire:model="is_stadium" id="is_stadium" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out">
-                                    <label for="is_stadium" class="ml-2 block leading-5 text-gray-900">
-                                        Ist Fußballplatz?
+                                    <input wire:model="ah" id="ah" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out">
+                                    <label for="ah" class="ml-2 block leading-5 text-gray-900">
+                                        Altherren-Team?
+                                    </label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input wire:model="owner" id="owner" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out">
+                                    <label for="owner" class="ml-2 block leading-5 text-gray-900">
+                                        Besitzer?
                                     </label>
                                 </div>
                             </div>
@@ -73,12 +65,11 @@
                             </button>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>
     @endif
-    <!-- create a new location, opens modal -->
+    <!-- create a new club, opens modal -->
     <div class="mb-2 flex justify-center sm:justify-start">
         <span class="block shadow rounded-md">
             <button wire:click="create()" class="btn btn-blue px-4 py-2">

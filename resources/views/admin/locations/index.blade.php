@@ -9,10 +9,6 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <livewire:admin.create-location />
 
-            <div class="text-xs text-gray-300">
-                Werte sind in Zellen editierbar.
-            </div>
-
             <livewire:admin.locations-table />
         </div>
     </div>

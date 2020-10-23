@@ -2,15 +2,15 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\Location;
+use App\Models\Club;
 use Mediconesystems\LivewireDatatables\BooleanColumn;
 use Mediconesystems\LivewireDatatables\Column;
 use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
 use Mediconesystems\LivewireDatatables\NumberColumn;
 
-class LocationsTable extends LivewireDatatable
+class ClubsTable extends LivewireDatatable
 {
-    public $model = Location::class;
+    public $model = Club::class;
 
     public $exportable = true;
 
@@ -27,14 +27,20 @@ class LocationsTable extends LivewireDatatable
             Column::name('name_short')
                 ->label('-Kurz')
                 ->editable(),
-            BooleanColumn::name('is_stadium')
-                ->label('Stadion?')
+            Column::name('name_code')
+                ->label('-Code')
                 ->editable(),
-            Column::name('url')
-                ->label('URL')
+            Column::name('logo_url')
+                ->label('Logo'),
+            BooleanColumn::name('owner')
+                ->label('Besitzer?')
+                ->editable(),
+            BooleanColumn::name('ah')
+                ->label('AH')
                 ->editable(),
             Column::delete()
                 ->label('Löschen')
+
         ];
     }
 }

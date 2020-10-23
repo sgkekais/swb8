@@ -8,7 +8,7 @@
         <div class="flex justify-between items-center mb-1">
             <div class="flex-grow h-10 flex items-center">
                 @if($this->searchableColumns()->count())
-                    <div class="w-96 flex rounded-lg shadow-sm">
+                    <div class="w-1/2 flex rounded-lg shadow-sm">
                         <div class="relative flex-grow focus-within:z-10">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" stroke="currentColor" fill="none">
@@ -115,7 +115,7 @@
                                 @elseif($column['type'] === 'checkbox')
                                     @include('datatables::checkbox', ['value' => $result->checkbox_attribute])
                                 @else
-                                    <div class="px-4 py-2 whitespace-no-wrap text-sm leading-5 text-gray-900 table-cell align-middle @if($column['align'] === 'right') text-right @elseif($column['align'] === 'center') text-center @else text-left @endif">
+                                    <div class="px-2 py-1 whitespace-no-wrap text-sm leading-5 text-gray-900 table-cell align-middle @if($column['align'] === 'right') text-right @elseif($column['align'] === 'center') text-center @else text-left @endif">
                                         {!! $result->{$column['name']} !!}
                                     </div>
                                 @endif
