@@ -1,7 +1,10 @@
 <div>
+    <div wire:loading>
+        <i class="fas fa-spinner fa-spin"></i>
+    </div>
     @include('admin.includes._alert')
 
-    @if ($isOpen)
+    @guest
         <div class="fixed z-10 inset-0 overflow-y-auto">
             <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
 
@@ -68,23 +71,61 @@
                 </div>
             </div>
         </div>
-    @endif
-    <x-jet-dialog-modal wire:model="showDialogModal">
+    @endguest
+    <x-jet-dialog-modal wire:model="isOpen">
         <x-slot name="title">
             Mannschaft anlegen
         </x-slot>
 
         <x-slot name="content">
-            hier Form
+            <form class="w-full max-w-lg">
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
+                            Name
+                        </label>
+                        <input wire:model="name" id="name" type="text" class="admin-form-input" placeholder="Schwarz-Weiß Bilk '79'" required>
+                        @error('name')<p class="text-red-500 text-xs italic">{{ $message }}</p>@enderror
+                    </div>
+                </div>
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name_short">
+                            Name - kurz
+                        </label>
+                        <input wire:model="name_short" id="name_short" type="text" placeholder="SW Bilk" class="admin-form-input" >
+                    </div>
+                    <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name_code">
+                            Code
+                        </label>
+                        <input wire:model="name_code" id="name_code" type="text" placeholder="SWB" class="admin-form-input">
+                    </div>
+                </div>
+                <div class="mb-6 flex justify-start">
+                    <div class="flex items-center mr-3">
+                        <input wire:model="ah" id="ah" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out">
+                        <label for="ah" class="ml-2 block leading-5 text-gray-900">
+                            Altherren-Team?
+                        </label>
+                    </div>
+                    <div class="flex items-center">
+                        <input wire:model="owner" id="owner" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out">
+                        <label for="owner" class="ml-2 block leading-5 text-gray-900">
+                            Besitzer?
+                        </label>
+                    </div>
+                </div>
+            </form>
         </x-slot>
 
         <x-slot name="footer">
-            <x-jet-secondary-button wire:click="$toggle('showDialogModal')" wire:loading.attr="disabled">
-                Nevermind
+            <x-jet-secondary-button wire:click="$toggle('isOpen')" wire:loading.attr="disabled">
+                Abbrechen
             </x-jet-secondary-button>
 
-            <x-jet-button class="ml-2" >
-                Anlagen
+            <x-jet-button wire:click.prevent="store()" class="ml-2" >
+                Speichern
             </x-jet-button>
         </x-slot>
     </x-jet-dialog-modal>
@@ -93,11 +134,6 @@
         <span class="block shadow rounded-md">
             <button wire:click="create()" class="btn btn-blue px-4 py-2">
                 Anlegen
-            </button>
-        </span>
-        <span class="block shadow rounded-md">
-            <button wire:click="openDialogModal()" class="btn btn-blue px-4 py-2">
-                Jetstream Modal Test
             </button>
         </span>
     </div>
