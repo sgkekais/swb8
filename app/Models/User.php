@@ -27,6 +27,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_admin',
+        'banned'
     ];
 
     /**
@@ -48,6 +50,8 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'is_admin' => 'boolean',
+        'banned' => 'boolean'
     ];
 
     /**
@@ -58,4 +62,20 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    /**
+     * @return mixed
+     */
+    public function isAdmin()
+    {
+        return $this->is_admin;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function isBanned()
+    {
+        return $this->banned;
+    }
 }

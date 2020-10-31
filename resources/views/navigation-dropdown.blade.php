@@ -5,9 +5,9 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('home') }}">
                         {{-- <x-jet-application-mark class="block h-9 w-auto" />--> --}}
-                        <img class="h-16" src="{{ asset('img/swblogo.png') }}">
+                        <img class="h-12" src="{{ asset('img/swblogo.png') }}">
                     </a>
                 </div>
 
@@ -16,15 +16,18 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('clubs') }}" :active="request()->routeIs('clubs')">
-                        Mannschaften
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('locations') }}" :active="request()->routeIs('locations')">
-                        Standorte
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('log') }}" :active="request()->routeIs('log')">
-                        Logbuch
-                    </x-jet-nav-link>
+                    @if(Auth::user()->isAdmin())
+                        <x-jet-nav-link href="{{ route('admin.clubs') }}" :active="request()->routeIs('admin.clubs')">
+                            Mannschaften
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('admin.locations') }}" :active="request()->routeIs('admin.locations')">
+                            Standorte
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('admin.log') }}" :active="request()->routeIs('admin.log')">
+                            Logbuch
+                        </x-jet-nav-link>
+                        Users
+                    @endif
                 </div>
             </div>
 

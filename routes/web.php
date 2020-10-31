@@ -15,16 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-   // Dashboard for all logged-in users
+Route::middleware(['auth:sanctum', 'verified', 'is_banned'])->group(function () {
+    // Dashboard for all logged-in users
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 
     // Admin functionality
-    Route::prefix('admin')->group(function () {
+    Route::prefix('admin')->name('admin.')->middleware('is_admin')->group(function () {
         // log
         Route::view('log', 'admin.log')->name('log');
 
