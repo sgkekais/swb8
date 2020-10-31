@@ -9,11 +9,17 @@ class CreateClub extends Component
 {
     public $name, $name_short, $name_code, $logo_url, $owner = 0, $ah = 0;
     public $isOpen = 0;
+    public $showDialogModal = false;
 
     protected $rules = [
         'name' => 'required',
         'logo_url' => 'url|nullable'
     ];
+
+    public function openDialogModal()
+    {
+        $this->showDialogModal = true;
+    }
 
     public function openModal()
     {

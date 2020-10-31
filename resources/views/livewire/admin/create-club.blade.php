@@ -14,7 +14,7 @@
 
                 <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
                     <div class="px-3 py-3 sm:px-6 bg-gray-200">
-                        Neuen Standort anlegen
+                        Neue Mannschaft anlegen
                     </div>
                     <form class="w-full max-w-lg">
                         <div class="p-3 sm:px-6">
@@ -69,6 +69,25 @@
             </div>
         </div>
     @endif
+    <x-jet-dialog-modal wire:model="showDialogModal">
+        <x-slot name="title">
+            Mannschaft anlegen
+        </x-slot>
+
+        <x-slot name="content">
+            hier Form
+        </x-slot>
+
+        <x-slot name="footer">
+            <x-jet-secondary-button wire:click="$toggle('showDialogModal')" wire:loading.attr="disabled">
+                Nevermind
+            </x-jet-secondary-button>
+
+            <x-jet-button class="ml-2" >
+                Anlagen
+            </x-jet-button>
+        </x-slot>
+    </x-jet-dialog-modal>
     <!-- create a new club, opens modal -->
     <div class="mb-2 flex justify-center sm:justify-start">
         <span class="block shadow rounded-md">
@@ -76,5 +95,12 @@
                 Anlegen
             </button>
         </span>
+        <span class="block shadow rounded-md">
+            <button wire:click="openDialogModal()" class="btn btn-blue px-4 py-2">
+                Jetstream Modal Test
+            </button>
+        </span>
     </div>
+
+
 </div>

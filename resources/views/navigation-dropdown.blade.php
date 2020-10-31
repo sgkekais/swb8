@@ -27,7 +27,9 @@
                             <x-jet-nav-link href="{{ route('admin.log') }}" :active="request()->routeIs('admin.log')">
                                 Logbuch
                             </x-jet-nav-link>
-                            Users
+                            <x-jet-nav-link>
+                                Users
+                            </x-jet-nav-link>
                         @endif
                     @endauth
                 </div>
