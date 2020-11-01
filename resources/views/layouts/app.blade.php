@@ -21,19 +21,19 @@
 
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-600">
+        <div class="min-h-screen bg-pattern">
             @livewire('navigation-dropdown')
 
-            @unless(request()->routeIs('home'))
+            {{-- @unless(request()->routeIs('home'))
                 <!-- Page Heading -->
-                <header class="bg-gray-700 shadow border-b border-gray-800">
-                    <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-                        <h2 class="font-bold uppercase text-green-500 leading-tight">
-                            {{ $header }}
-                        </h2>
-                    </div>
-                </header>
-            @endunless
+                    <header class="bg-gray-700 shadow border-b border-gray-800">
+                        <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+                            <h2 class="font-bold uppercase text-green-500 leading-tight">
+                                {{ $header }}
+                            </h2>
+                        </div>
+                    </header>
+            @endunless --}}
 
             <!-- Page Content -->
             <main>

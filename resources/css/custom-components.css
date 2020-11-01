@@ -68,11 +68,3 @@
 .btn-gray:active {
     @apply bg-gray-400;
 }
-
-
-.admin-form-input {
-    @apply appearance-none block w-full py-3 px-4 mb-3 border border-gray-300 rounded bg-white text-gray-700 leading-tight;
-}
-.admin-form-input:focus {
-    @apply outline-none border-blue-500
-}

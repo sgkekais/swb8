@@ -7,13 +7,27 @@ use Livewire\Component;
 
 class CreateClub extends Component
 {
-    public $name, $name_short, $name_code, $logo_url, $owner = 0, $ah = 0;
+    public ?Club $club = null;
     public $isOpen = false;
 
     protected $rules = [
-        'name' => 'required',
-        'logo_url' => 'url|nullable'
+        'club.name' => 'required',
+        'club.name_short' => 'nullable|string|max:10',
+        'club.name_code' => 'nullable|string|max:4',
+        'club.logo_url' => 'url|nullable',
+        'club.owner' => 'boolean',
+        'club.ah' => 'boolean'
     ];
+
+    protected $listeners = [
+        'editTableEntry' => 'edit',
+        'deleteTableEntry' => 'destroy'
+    ];
+
+    public function mount()
+    {
+        $this->club ??= new Club();
+    }
 
     public function openModal()
     {
@@ -28,11 +42,12 @@ class CreateClub extends Component
 
     public function resetInputFields()
     {
-        $this->reset();
+        $this->club = new Club();
     }
 
     public function create()
     {
+        $this->resetInputFields();
         $this->openModal();
     }
 
@@ -40,22 +55,28 @@ class CreateClub extends Component
     {
         $this->validate();
 
-        Club::create([
-            'name' => $this->name,
-            'name_short' => $this->name_short,
-            'name_code' => $this->name_code,
-            'ah' => $this->ah,
-            'owner' => $this->owner
-        ]);
+        $this->club->save();
 
         session()->flash('success', 'Mannschaft erfolgreich angelegt.');
 
-        // return redirect()->to('admin/locations');
-
         $this->closeModal();
-        $this->resetInputFields();
         $this->emit('refreshLivewireDatatable');
+    }
 
+    public function edit(Club $club)
+    {
+        $this->club = $club;
+        $this->openModal();
+    }
+
+    public function destroy(Club $club)
+    {
+        $this->club = $club;
+
+        $club->delete();
+
+        session()->flash('success', 'Mannschaft '.$this->club->id.' erfolgreich gelöscht.');
+        $this->emit('refreshLivewireDatatable');
     }
 
     public function render()

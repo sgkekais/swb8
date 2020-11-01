@@ -18,29 +18,24 @@ class ClubsTable extends LivewireDatatable
     {
         return [
             NumberColumn::name('id')
-                ->label('ID'),
+                ->label('ID')
+                ->defaultSort('desc'),
             Column::name('name')
                 ->label('Name')
-                ->searchable()
-                ->editable()
-                ->defaultSort('asc'),
+                ->searchable(),
             Column::name('name_short')
-                ->label('-Kurz')
-                ->editable(),
+                ->label('-Kurz'),
             Column::name('name_code')
-                ->label('-Code')
-                ->editable(),
+                ->label('-Code'),
             Column::name('logo_url')
                 ->label('Logo'),
             BooleanColumn::name('owner')
-                ->label('Besitzer?')
-                ->editable(),
+                ->label('Besitzer?'),
             BooleanColumn::name('ah')
-                ->label('AH')
-                ->editable(),
-            Column::delete()
-                ->label('Löschen')
-
+                ->label('AH'),
+            Column::callback(['id'], function ($id) {
+                return view('admin.includes.table-actions', ['id' => $id]);
+            })
         ];
     }
 }

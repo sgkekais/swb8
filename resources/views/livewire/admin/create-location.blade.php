@@ -1,6 +1,6 @@
 {{-- TODO: Modal als Komponente? --}}
 <div>
-    @include('admin.includes._alert')
+    @include('admin.includes.alert')
 
     @if ($isOpen)
         <div class="fixed z-10 inset-0 overflow-y-auto">

@@ -1,137 +1,73 @@
 <div>
-    <div wire:loading>
-        <i class="fas fa-spinner fa-spin"></i>
-    </div>
-    @include('admin.includes._alert')
+    @include('admin.includes.alert')
 
-    @guest
-        <div class="fixed z-10 inset-0 overflow-y-auto">
-            <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-
-                <div class="fixed inset-0 transition-opacity">
-                    <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
-                </div>
-
-                <!-- This element is to trick the browser into centering the modal contents. -->
-                <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
-
-                <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
-                    <div class="px-3 py-3 sm:px-6 bg-gray-200">
-                        Neue Mannschaft anlegen
-                    </div>
-                    <form class="w-full max-w-lg">
-                        <div class="p-3 sm:px-6">
-                            <div class="flex flex-wrap -mx-3 mb-6">
-                                <div class="w-full px-3">
-                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
-                                        Name
-                                    </label>
-                                    <input wire:model="name" id="name" type="text" class="admin-form-input" placeholder="Schwarz-Weiß Bilk '79'" required>
-                                    @error('name')<p class="text-red-500 text-xs italic">{{ $message }}</p>@enderror
-                                </div>
-                            </div>
-                            <div class="flex flex-wrap -mx-3 mb-6">
-                                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name_short">
-                                        Name - kurz
-                                    </label>
-                                    <input wire:model="name_short" id="name_short" type="text" placeholder="SW Bilk" class="admin-form-input" >
-                                </div>
-                                <div class="w-full md:w-1/2 px-3">
-                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name_code">
-                                        Code
-                                    </label>
-                                    <input wire:model="name_code" id="name_code" type="text" placeholder="SWB" class="admin-form-input">
-                                </div>
-                            </div>
-                            <div class="mb-6 flex justify-start">
-                                <div class="flex items-center mr-3">
-                                    <input wire:model="ah" id="ah" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out">
-                                    <label for="ah" class="ml-2 block leading-5 text-gray-900">
-                                        Altherren-Team?
-                                    </label>
-                                </div>
-                                <div class="flex items-center">
-                                    <input wire:model="owner" id="owner" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out">
-                                    <label for="owner" class="ml-2 block leading-5 text-gray-900">
-                                        Besitzer?
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex justify-end bg-gray-100 p-3">
-                            <button wire:click="closeModal()" type="button" class="btn btn-gray mr-2 px-4 py-2">
-                                Abbrechen
-                            </button>
-                            <button wire:click.prevent="store()" type="button" class="btn btn-green px-4 py-2">
-                                Speichern
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    @endguest
-    <x-jet-dialog-modal wire:model="isOpen">
+    <x-jet-dialog-modal wire:model="is_open">
         <x-slot name="title">
-            Mannschaft anlegen
+            <div class="font-semibold">
+                Mannschaft {{ $club->id ? $club->id." ändern" : "anlegen" }}
+            </div>
         </x-slot>
-
-        <x-slot name="content">
-            <form class="w-full max-w-lg">
-                <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full px-3">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
-                            Name
-                        </label>
-                        <input wire:model="name" id="name" type="text" class="admin-form-input" placeholder="Schwarz-Weiß Bilk '79'" required>
-                        @error('name')<p class="text-red-500 text-xs italic">{{ $message }}</p>@enderror
-                    </div>
+        <form class="w-full">
+            @csrf
+            <x-slot name="content">
+                <div class="mb-6">
+                    <x-jet-label for="club.name" class="flex justify-between">
+                        Name <i class="fas fa-fw fa-asterisk text-xs text-red-400"></i>
+                    </x-jet-label>
+                    <x-jet-input class="w-full" type="text" id="club.name" wire:model.defer="club.name" placeholder="Schwarz-Weiß Bilk '79" required />
+                    <x-jet-input-error for="club.name" />
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name_short">
-                            Name - kurz
-                        </label>
-                        <input wire:model="name_short" id="name_short" type="text" placeholder="SW Bilk" class="admin-form-input" >
+                        <x-jet-label for="club.name_short" value="Name - kurz" />
+                        <x-jet-input class="w-full" type="text" id="club.name_short" wire:model.defer="club.name_short" placeholder="SW Bilk" maxlength="10" />
+                        <x-jet-input-error for="club.name_short" />
                     </div>
                     <div class="w-full md:w-1/2 px-3">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name_code">
-                            Code
-                        </label>
-                        <input wire:model="name_code" id="name_code" type="text" placeholder="SWB" class="admin-form-input">
+                        <x-jet-label for="club.name_code" value="Name - kurz" />
+                        <x-jet-input class="w-full" type="text" id="club.name_code" wire:model.defer="club.name_code" placeholder="SWB" maxlength="4" />
+                        <x-jet-input-error for="club.name_code" />
                     </div>
+                </div>
+                <div class="mb-6">
+                    <x-jet-label for="club.logo_url" value="Logo-URL" />
+                    <x-jet-input class="w-full" type="text" id="club.logo_url" wire:model.defer="club.logo_url" required />
+                    <x-jet-input-error for="club.logo_url" />
                 </div>
                 <div class="mb-6 flex justify-start">
                     <div class="flex items-center mr-3">
-                        <input wire:model="ah" id="ah" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out">
-                        <label for="ah" class="ml-2 block leading-5 text-gray-900">
-                            Altherren-Team?
-                        </label>
-                    </div>
-                    <div class="flex items-center">
-                        <input wire:model="owner" id="owner" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out">
+                        <input wire:model="club.owner" id="owner" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out">
                         <label for="owner" class="ml-2 block leading-5 text-gray-900">
                             Besitzer?
                         </label>
                     </div>
+                    <div class="flex items-center">
+                        <input wire:model="club.ah" id="ah" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out">
+                        <label for="ah" class="ml-2 block leading-5 text-gray-900">
+                            Altherren-Team?
+                        </label>
+                    </div>
                 </div>
-            </form>
-        </x-slot>
-
-        <x-slot name="footer">
-            <x-jet-secondary-button wire:click="$toggle('isOpen')" wire:loading.attr="disabled">
-                Abbrechen
-            </x-jet-secondary-button>
-
-            <x-jet-button wire:click.prevent="store()" class="ml-2" >
-                Speichern
-            </x-jet-button>
-        </x-slot>
+            </x-slot>
+            <x-slot name="footer">
+                <div class="sm:flex sm:flex-row-reverse">
+                    <span class="flex w-full sm:w-auto mb-2 sm:mb-0 sm:ml-2">
+                        <x-jet-button wire:click.prevent="store()" class="w-full justify-center" >
+                            {{ $club->id ? "Übernehmen" : "Anlegen" }}
+                        </x-jet-button>
+                    </span>
+                    <span class="flex w-full sm:w-auto">
+                        <x-jet-secondary-button wire:click="closeModal()" wire:loading.attr="disabled" class="w-full justify-center">
+                            Abbrechen
+                        </x-jet-secondary-button>
+                    </span>
+                </div>
+            </x-slot>
+        </form>
     </x-jet-dialog-modal>
     <!-- create a new club, opens modal -->
-    <div class="mb-2 flex justify-center sm:justify-start">
-        <span class="block shadow rounded-md">
+    <div class="mb-4 flex justify-center sm:justify-start">
+        <span class="block shadow-xl rounded-md">
             <button wire:click="create()" class="btn btn-blue px-4 py-2">
                 Anlegen
             </button>

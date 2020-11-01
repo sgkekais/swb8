@@ -28,10 +28,30 @@ class Club extends Model
     ];
 
     /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'owner' => false,
+        'ah' => false
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'owner' => 'boolean',
+        'ah' => 'boolean'
+    ];
+
+    /**
      * The attributes that should be logged.
-     * 
-     * @var array 
-     */     
+     *
+     * @var array
+     */
     protected static $logFillable = true;
     protected static $logOnlyDirty = true;
 }
