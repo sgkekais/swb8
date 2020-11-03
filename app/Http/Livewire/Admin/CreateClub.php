@@ -8,7 +8,7 @@ use Livewire\Component;
 class CreateClub extends Component
 {
     public ?Club $club = null;
-    public $isOpen = false;
+    public $is_open = false;
 
     protected $rules = [
         'club.name' => 'required',
@@ -31,12 +31,12 @@ class CreateClub extends Component
 
     public function openModal()
     {
-        $this->isOpen = true;
+        $this->is_open = true;
     }
 
     public function closeModal()
     {
-        $this->isOpen = false;
+        $this->is_open = false;
         $this->resetInputFields();
     }
 
