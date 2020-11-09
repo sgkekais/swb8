@@ -30,9 +30,9 @@ class ClubsTable extends LivewireDatatable
             Column::name('logo_url')
                 ->label('Logo'),
             BooleanColumn::name('owner')
-                ->label('Besitzer?'),
+                ->label('Besitzer?')->alignCenter(),
             BooleanColumn::name('ah')
-                ->label('AH'),
+                ->label('AH')->alignCenter(),
             Column::callback(['id'], function ($id) {
                 return view('admin.includes.table-actions', ['id' => $id]);
             })

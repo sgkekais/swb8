@@ -9,10 +9,11 @@ class CreateClub extends Component
 {
     public ?Club $club = null;
     public $is_open = false;
+    public $is_open_delete = false;
 
     protected $rules = [
         'club.name' => 'required',
-        'club.name_short' => 'nullable|string|max:10',
+        'club.name_short' => 'nullable|string|max:15',
         'club.name_code' => 'nullable|string|max:4',
         'club.logo_url' => 'url|nullable',
         'club.owner' => 'boolean',
@@ -21,7 +22,7 @@ class CreateClub extends Component
 
     protected $listeners = [
         'editTableEntry' => 'edit',
-        'deleteTableEntry' => 'destroy'
+        'deleteTableEntry' => 'delete'
     ];
 
     public function mount()
@@ -34,10 +35,20 @@ class CreateClub extends Component
         $this->is_open = true;
     }
 
+    public function openDeleteModal()
+    {
+        $this->is_open_delete = true;
+    }
+
     public function closeModal()
     {
         $this->is_open = false;
         $this->resetInputFields();
+    }
+
+    public function closeDeleteModal()
+    {
+        $this->is_open_delete = false;
     }
 
     public function resetInputFields()
@@ -69,11 +80,19 @@ class CreateClub extends Component
         $this->openModal();
     }
 
+    public function delete(Club $club)
+    {
+        $this->club = $club;
+        $this->openDeleteModal();
+    }
+
     public function destroy(Club $club)
     {
         $this->club = $club;
 
         $club->delete();
+
+        $this->closeDeleteModal();
 
         session()->flash('success', 'Mannschaft '.$this->club->id.' erfolgreich gelöscht.');
         $this->emit('refreshLivewireDatatable');
