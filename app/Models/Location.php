@@ -28,6 +28,24 @@ class Location extends Model
     ];
 
     /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'is_stadium' => true
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'is_stadium' => 'boolean'
+    ];
+
+    /**
      * The attributes that should be logged.
      *
      * @var array

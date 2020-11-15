@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-gray-800 border-b border-gray-900">
+<nav x-data="{ open: false }" class="bg-gray-200 border-b border-gray-300">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20">
@@ -7,8 +7,11 @@
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('home') }}">
                         {{-- <x-jet-application-mark class="block h-9 w-auto" />--> --}}
-                        <img class="h-12" src="{{ asset('img/swblogo50inv.png') }}">
+                        <img class="h-12" src="{{ asset('img/swblogo50.png') }}">
                     </a>
+                    <span class="font-uppercase font-bold tracking-tighter text-gray-700 text-lg">
+                        {{ env('APP_NAME') }}
+                    </span>
                 </div>
 
                 <!-- Navigation Links -->
@@ -18,18 +21,29 @@
                             {{ __('Dashboard') }}
                         </x-jet-nav-link>
                         @if(Auth::user()->isAdmin())
-                            <x-jet-nav-link href="{{ route('admin.clubs') }}" :active="request()->routeIs('admin.clubs')">
-                                Mannschaften
-                            </x-jet-nav-link>
-                            <x-jet-nav-link href="{{ route('admin.locations') }}" :active="request()->routeIs('admin.locations')">
-                                Standorte
-                            </x-jet-nav-link>
-                            <x-jet-nav-link href="{{ route('admin.log') }}" :active="request()->routeIs('admin.log')">
-                                Logbuch
-                            </x-jet-nav-link>
-                            <x-jet-nav-link>
-                                Users
-                            </x-jet-nav-link>
+                            <x-jet-dropdown align="left">
+                                <x-slot name="trigger">
+                                    <x-jet-nav-link>
+                                        Verwaltung
+                                    </x-jet-nav-link>
+                                </x-slot>
+                                <x-slot name="content">
+                                    <x-jet-dropdown-link href="{{ route('admin.clubs') }}" :active="request()->routeIs('admin.clubs')">
+                                        Mannschaften
+                                    </x-jet-dropdown-link>
+                                    <x-jet-dropdown-link href="{{ route('admin.locations') }}" :active="request()->routeIs('admin.locations')">
+                                        Standorte
+                                    </x-jet-dropdown-link>
+                                    <x-jet-dropdown-link href="{{ route('admin.log') }}" :active="request()->routeIs('admin.log')">
+                                        Logbuch
+                                    </x-jet-dropdown-link>
+                                    <x-jet-dropdown-link>
+                                        Users
+                                    </x-jet-dropdown-link>
+                                </x-slot>
+
+                            </x-jet-dropdown>
+
                         @endif
                     @endauth
                 </div>

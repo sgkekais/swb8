@@ -1,89 +1,89 @@
-{{-- TODO: Modal als Komponente? --}}
 <div>
     @include('admin.includes.alert')
 
-    @if ($isOpen)
-        <div class="fixed z-10 inset-0 overflow-y-auto">
-            <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-
-                <div class="fixed inset-0 transition-opacity">
-                    <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
-                </div>
-
-                <!-- This element is to trick the browser into centering the modal contents. -->
-                <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
-
-                <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
-                    <div class="px-3 py-3 sm:px-6 bg-gray-200">
-                        Neuen Standort anlegen
-                    </div>
-                    <form class="w-full max-w-lg">
-                        <div class="p-3 sm:px-6">
-                            <div class="flex flex-wrap -mx-3 mb-6">
-                                <div class="w-full px-3">
-                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
-                                        Name
-                                    </label>
-                                    <input wire:model="name" id="name" type="text" class="admin-form-input" placeholder="Schwarz-Weiß Bilk '79'" required>
-                                    @error('name')<p class="text-red-500 text-xs italic">{{ $message }}</p>@enderror
-                                </div>
-                            </div>
-                            <div class="flex flex-wrap -mx-3 mb-6">
-                                <div class="w-full px-3">
-                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name_short">
-                                        Name - kurz
-                                    </label>
-                                    <input wire:model="name_short" id="name_short" type="text" placeholder="SW Bilk" class="admin-form-input" >
-                                </div>
-                            </div>
-                            <div class="flex flex-wrap -mx-3 mb-6">
-                                <div class="w-full px-3">
-                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="url">
-                                        URL
-                                    </label>
-                                    <input wire:model="url" id="url" type="text" placeholder="SWB" class="admin-form-input">
-                                    @error('url')<p class="text-red-500 text-xs italic">{{ $message }}</p>@enderror
-                                </div>
-                            </div>
-                            <div class="flex flex-wrap -mx-3 mb-6">
-                                <div class="w-full px-3">
-                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="url">
-                                        Notizen
-                                    </label>
-                                    <textarea wire:model="note" id="note" class="admin-form-input">
-
-                                    </textarea>
-                                </div>
-                            </div>
-                            <div class="mb-6 flex justify-start">
-                                <div class="flex items-center mr-3">
-                                    <input wire:model="is_stadium" id="is_stadium" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out">
-                                    <label for="is_stadium" class="ml-2 block leading-5 text-gray-900">
-                                        Ist Fußballplatz?
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex justify-end bg-gray-100 p-3">
-                            <button wire:click="closeModal()" type="button" class="btn btn-gray mr-2 px-4 py-2">
-                                Abbrechen
-                            </button>
-                            <button wire:click.prevent="store()" type="button" class="btn btn-green px-4 py-2">
-                                Speichern
-                            </button>
-                        </div>
-                    </form>
-
-                </div>
+    {{-- delete confirmation --}}
+    <x-jet-confirmation-modal wire:model="is_open_delete">
+        <x-slot name="title">
+            Standort {{ $location->id }} löschen
+        </x-slot>
+        <x-slot name="content">
+            Möchten Sie den Standort wirklich löschen?
+        </x-slot>
+        <x-slot name="footer">
+            <x-jet-secondary-button wire:click="closeDeleteModal()">
+                Abbrechen
+            </x-jet-secondary-button>
+            <x-jet-danger-button wire:click="destroy({{ $location->id }})">
+                Löschen
+            </x-jet-danger-button>
+        </x-slot>
+    </x-jet-confirmation-modal>
+    {{-- create or maintain modal --}}
+    <x-jet-dialog-modal wire:model="is_open">
+        <x-slot name="title">
+            <div class="font-semibold">
+                Standort {{ $location->id ? $location->id." ändern" : "anlegen" }}
             </div>
-        </div>
-    @endif
-    <!-- create a new location, opens modal -->
-    <div class="mb-2 flex justify-center sm:justify-start">
-        <span class="block shadow rounded-md">
+        </x-slot>
+        <form class="w-full">
+            @csrf
+            <x-slot name="content">
+                <div class="mb-6">
+                    <x-jet-label for="location.name" class="flex justify-between">
+                        Name <i class="fas fa-fw fa-asterisk text-xs text-red-400"></i>
+                    </x-jet-label>
+                    <x-jet-input class="w-full" type="text" id="location.name" wire:model.defer="location.name" placeholder="Schwarz-Weiß Bilk '79" required />
+                    <x-jet-input-error for="location.name" />
+                </div>
+                <div class="mb-6">
+                    <x-jet-label for="location.name_short" value="Name - kurz" />
+                    <x-jet-input class="w-full" type="text" id="location.name_short" wire:model.defer="location.name_short" placeholder="SW Bilk" maxlength="15" />
+                    <x-jet-input-error for="location.name_short" />
+                </div>
+                <div class="mb-6">
+                    <x-jet-label for="location.url" value="URL" />
+                    <x-jet-input class="w-full" type="text" id="location.url" wire:model.defer="location.url" />
+                    <x-jet-input-error for="location.url" />
+                </div>
+                <div class="mb-6">
+                    <x-jet-label for="location.note" value="Notiz" />
+                    <textarea class="w-full form-input rounded-md shadow-sm" id="location.note" wire:model.defer="location.note" rows="3">
+
+                    </textarea>
+                </div>
+                <div class="mb-6 flex justify-start">
+                    <div class="flex items-center mr-3">
+                        <input wire:model="location.is_stadium" id="is_stadium" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out">
+                        <label for="is_stadium" class="ml-2 block leading-5 text-gray-900">
+                            Ist Stadion?
+                        </label>
+                    </div>
+                </div>
+            </x-slot>
+            <x-slot name="footer">
+                <div class="sm:flex sm:flex-row-reverse">
+                    <span class="flex w-full sm:w-auto mb-2 sm:mb-0 sm:ml-2">
+                        <x-jet-button wire:click.prevent="store()" class="w-full justify-center" >
+                            {{ $location->id ? "Übernehmen" : "Anlegen" }}
+                        </x-jet-button>
+                    </span>
+                    <span class="flex w-full sm:w-auto">
+                        <x-jet-secondary-button wire:click="closeModal()" wire:loading.attr="disabled" class="w-full justify-center">
+                            Abbrechen
+                        </x-jet-secondary-button>
+                    </span>
+                </div>
+            </x-slot>
+        </form>
+    </x-jet-dialog-modal>
+    {{-- create a new location, opens modal --}}
+    <div class="mb-4 flex justify-center sm:justify-start">
+        <span class="block shadow-xl rounded-md">
             <button wire:click="create()" class="btn btn-blue px-4 py-2">
                 Anlegen
             </button>
         </span>
     </div>
+
+
 </div>

@@ -18,23 +18,21 @@ class LocationsTable extends LivewireDatatable
     {
         return [
             NumberColumn::name('id')
-                ->label('ID'),
+                ->label('ID')
+                ->defaultSort('desc'),
             Column::name('name')
                 ->label('Name')
-                ->searchable()
-                ->editable()
-                ->defaultSort('asc'),
+                ->searchable(),
             Column::name('name_short')
-                ->label('-Kurz')
-                ->editable(),
+                ->label('-Kurz'),
             BooleanColumn::name('is_stadium')
                 ->label('Stadion?')
-                ->editable(),
+                ->alignCenter(),
             Column::name('url')
-                ->label('URL')
-                ->editable(),
-            Column::delete()
-                ->label('Löschen')
+                ->label('URL'),
+            Column::callback(['id'], function ($id) {
+                return view('admin.includes.table-actions', ['id' => $id]);
+            })
         ];
     }
 }
