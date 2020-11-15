@@ -24,7 +24,24 @@ class Match extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'name_short', 'name_code', 'logo_url', 'owner', 'ah'
+        'match_type_id',
+        'matchweek',
+        'team_home',
+        'team_away',
+        'goals_home',
+        'goals_home_ht',
+        'goals_home_pen',
+        'goals_home_rated',
+        'goals_away',
+        'goals_away_ht',
+        'goals_away_pen',
+        'goals_away_rated',
+        'match_details',
+        'rescheduled_to_fixture_id',
+        'rescheduled_by_team',
+        'reschedule_reason',
+        'published',
+        'cancelled'
     ];
 
     /**
@@ -33,8 +50,8 @@ class Match extends Model
      * @var array
      */
     protected $attributes = [
-        'owner' => false,
-        'ah' => false
+        'published' => false,
+        'cancelled' => false
     ];
 
     /**
@@ -43,8 +60,8 @@ class Match extends Model
      * @var array
      */
     protected $casts = [
-        'owner' => 'boolean',
-        'ah' => 'boolean'
+        'published' => 'boolean',
+        'cancelled' => 'boolean'
     ];
 
     /**
@@ -54,4 +71,8 @@ class Match extends Model
      */
     protected static $logFillable = true;
     protected static $logOnlyDirty = true;
+
+    public function matchType() {
+        return $this->belongsTo('App\Models\MatchType');
+    }
 }
