@@ -32,6 +32,9 @@ Route::middleware(['auth:sanctum', 'verified', 'is_banned'])->group(function () 
         Route::view('clubs', 'admin.clubs.index')->name('clubs');
         // locations
         Route::view('locations', 'admin.locations.index')->name('locations');
+
+        // match types
+        Route::view('match-types', 'admin.match_types.index')->name('match-types');
     });
 
 });

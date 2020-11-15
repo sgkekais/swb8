@@ -34,6 +34,9 @@
                                     <x-jet-dropdown-link href="{{ route('admin.locations') }}" :active="request()->routeIs('admin.locations')">
                                         Standorte
                                     </x-jet-dropdown-link>
+                                    <x-jet-dropdown-link href="{{ route('admin.match-types') }}" :active="request()->routeIs('admin.match-types')">
+                                        Spielarten
+                                    </x-jet-dropdown-link>
                                     <x-jet-dropdown-link href="{{ route('admin.log') }}" :active="request()->routeIs('admin.log')">
                                         Logbuch
                                     </x-jet-dropdown-link>
