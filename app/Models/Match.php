@@ -72,7 +72,24 @@ class Match extends Model
     protected static $logFillable = true;
     protected static $logOnlyDirty = true;
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function matchType() {
         return $this->belongsTo('App\Models\MatchType');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function teamHome() {
+        return $this->belongsTo('App\Models\Club', 'team_home');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function teamAway() {
+        return $this->belongsTo('App\Models\Club', 'team_away');
     }
 }

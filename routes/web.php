@@ -25,16 +25,18 @@ Route::middleware(['auth:sanctum', 'verified', 'is_banned'])->group(function () 
 
     // Admin functionality
     Route::prefix('admin')->name('admin.')->middleware('is_admin')->group(function () {
-        // log
+        // Log
         Route::view('log', 'admin.log')->name('log');
 
-        // teams
+        // Teams
         Route::view('clubs', 'admin.clubs.index')->name('clubs');
-        // locations
+        // Locations
         Route::view('locations', 'admin.locations.index')->name('locations');
 
-        // match types
+        // Match types
         Route::view('match-types', 'admin.match_types.index')->name('match-types');
+        // Matches
+        Route::view('matches', 'admin.matches.index')->name('matches');
     });
 
 });

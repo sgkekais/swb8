@@ -37,6 +37,9 @@
                                     <x-jet-dropdown-link href="{{ route('admin.match-types') }}" :active="request()->routeIs('admin.match-types')">
                                         Spielarten
                                     </x-jet-dropdown-link>
+                                    <x-jet-dropdown-link href="{{ route('admin.matches') }}" :active="request()->routeIs('admin.matches')">
+                                        Paarungen
+                                    </x-jet-dropdown-link>
                                     <x-jet-dropdown-link href="{{ route('admin.log') }}" :active="request()->routeIs('admin.log')">
                                         Logbuch
                                     </x-jet-dropdown-link>

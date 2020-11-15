@@ -34,4 +34,8 @@ class MatchType extends Model
      */
     protected static $logFillable = true;
     protected static $logOnlyDirty = true;
+
+    public function matches () {
+        return $this->hasMany('App\Models\Match');
+    }
 }
