@@ -24,6 +24,7 @@ class Match extends Model
      * @var array
      */
     protected $fillable = [
+        'date_id',
         'match_type_id',
         'matchweek',
         'team_home',
@@ -75,6 +76,13 @@ class Match extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
+    public function date() {
+        return $this->belongsTo('App\Models\Date');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function matchType() {
         return $this->belongsTo('App\Models\MatchType');
     }
@@ -92,4 +100,6 @@ class Match extends Model
     public function teamAway() {
         return $this->belongsTo('App\Models\Club', 'team_away');
     }
+
+    // TODO: rescheduled
 }

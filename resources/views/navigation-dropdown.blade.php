@@ -28,24 +28,27 @@
                                     </x-jet-nav-link>
                                 </x-slot>
                                 <x-slot name="content">
+                                    <!-- Site Management -->
+                                    <div class="block px-4 py-2 text-xs text-gray-400">
+                                        {{ __('Seite verwalten') }}
+                                    </div>
+                                    <x-jet-dropdown-link href="{{ route('admin.matches') }}" :active="request()->routeIs('admin.matches')">
+                                        <i class="far fa-fw fa-calendar-alt"></i> Termine
+                                    </x-jet-dropdown-link>
+                                    <div class="border-t border-gray-200"></div>
+                                    <x-jet-dropdown-link href="{{ route('admin.matches') }}" :active="request()->routeIs('admin.matches')">
+                                        <i class="far fa-fw fa-handshake"></i> Paarungen - löschen!
+                                    </x-jet-dropdown-link>
                                     <x-jet-dropdown-link href="{{ route('admin.clubs') }}" :active="request()->routeIs('admin.clubs')">
-                                        Mannschaften
+                                        <i class="fas fa-fw fa-shield-alt"></i> Mannschaften
                                     </x-jet-dropdown-link>
                                     <x-jet-dropdown-link href="{{ route('admin.locations') }}" :active="request()->routeIs('admin.locations')">
-                                        Standorte
+                                        <i class="fas fa-fw fa-map-marked-alt"></i> Standorte
                                     </x-jet-dropdown-link>
                                     <x-jet-dropdown-link href="{{ route('admin.match-types') }}" :active="request()->routeIs('admin.match-types')">
-                                        Spielarten
+                                        <i class="fas fa-handshake"></i> Spielarten
                                     </x-jet-dropdown-link>
-                                    <x-jet-dropdown-link href="{{ route('admin.matches') }}" :active="request()->routeIs('admin.matches')">
-                                        Paarungen
-                                    </x-jet-dropdown-link>
-                                    <x-jet-dropdown-link href="{{ route('admin.log') }}" :active="request()->routeIs('admin.log')">
-                                        Logbuch
-                                    </x-jet-dropdown-link>
-                                    <x-jet-dropdown-link>
-                                        Users
-                                    </x-jet-dropdown-link>
+
                                 </x-slot>
 
                             </x-jet-dropdown>
@@ -54,49 +57,56 @@
                     @endauth
                 </div>
             </div>
+            <div class="flex">
+                <x-jet-nav-link href="{{ route('admin.log') }}" :active="request()->routeIs('admin.log')">
+                    Logbuch
+                </x-jet-nav-link>
+                <x-jet-nav-link>
+                    Users
+                </x-jet-nav-link>
+            </div>
 
+            <!-- Settings Dropdown -->
+            <div class="hidden sm:flex sm:items-center sm:ml-6">
+                @auth
+                    <x-jet-dropdown align="right" width="48">
+                        <x-slot name="trigger">
+                            <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
+                                <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                            </button>
+                        </x-slot>
 
-                <!-- Settings Dropdown -->
-                <div class="hidden sm:flex sm:items-center sm:ml-6">
-                    @auth
-                        <x-jet-dropdown align="right" width="48">
-                            <x-slot name="trigger">
-                                <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
-                                    <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
-                                </button>
-                            </x-slot>
+                        <x-slot name="content">
+                            <!-- Account Management -->
+                            <div class="block px-4 py-2 text-xs text-gray-400">
+                                {{ __('Account verwalten') }}
+                            </div>
 
-                            <x-slot name="content">
-                                <!-- Account Management -->
-                                <div class="block px-4 py-2 text-xs text-gray-400">
-                                    {{ __('Manage Account') }}
-                                </div>
+                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                                {{ __('Profil') }}
+                            </x-jet-dropdown-link>
 
-                                <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                    {{ __('Profile') }}
+                            <div class="border-t border-gray-100"></div>
+
+                            <!-- Authentication -->
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                                <x-jet-dropdown-link href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault();
+                                                                this.closest('form').submit();">
+                                    {{ __('Logout') }}
                                 </x-jet-dropdown-link>
-
-                                <div class="border-t border-gray-100"></div>
-
-                                <!-- Authentication -->
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-
-                                    <x-jet-dropdown-link href="{{ route('logout') }}"
-                                                        onclick="event.preventDefault();
-                                                                    this.closest('form').submit();">
-                                        {{ __('Logout') }}
-                                    </x-jet-dropdown-link>
-                                </form>
-                            </x-slot>
-                        </x-jet-dropdown>
-                        @endauth
-                        @guest
-                            <a href="{{ route('login') }}" class="inline-flex items-center text-sm font-bold leading-5 uppercase text-gray-400 hover:text-gray-200 focus:outline-none focus:text-gray-200 transition duration-150 ease-in-out">
-                                Login
-                            </a>
-                        @endguest
-                </div>
+                            </form>
+                        </x-slot>
+                    </x-jet-dropdown>
+                @endauth
+                @guest
+                    <a href="{{ route('login') }}" class="inline-flex items-center text-sm font-bold leading-5 uppercase text-gray-400 hover:text-gray-200 focus:outline-none focus:text-gray-200 transition duration-150 ease-in-out">
+                        Login
+                    </a>
+                @endguest
+            </div>
 
 
 
