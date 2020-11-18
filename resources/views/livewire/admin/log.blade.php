@@ -16,8 +16,17 @@
                 <tbody class="divide-y divide-gray-200">
                     @foreach ($log_entries as $log_entry)
                         <tr class="{{ $loop->even ? "bg-gray-50" : null}} hover:bg-gray-100">
-                            <td class="p-2 text-left text-sm">{{ $log_entry->id }}</td>
-                            <td class="p-2 text-left text-sm">{{ $log_entry->causer->name }}</td>
+                            <td class="p-2 text-left text-sm">
+                                {{ $log_entry->id }}
+                            </td>
+                            <td class="p-2 text-left text-sm">
+                                <div class="flex w-full font-bold">
+                                    {{ $log_entry->causer->name }}
+                                </div>
+                                <div class="flex w-full">
+                                    {{ $log_entry->updated_at->diffForHumans() }}
+                                </div>
+                            </td>
                             <td class="p-2 align-middle">
                                 @switch($log_entry->description)
                                     @case('created')

@@ -30,12 +30,15 @@
                                 <x-slot name="content">
                                     <!-- Site Management -->
                                     <div class="block px-4 py-2 text-xs text-gray-400">
-                                        {{ __('Seite verwalten') }}
+                                        {{ __('Termine') }}
                                     </div>
                                     <x-jet-dropdown-link href="{{ route('admin.matches') }}" :active="request()->routeIs('admin.matches')">
                                         <i class="far fa-fw fa-calendar-alt"></i> Termine
                                     </x-jet-dropdown-link>
                                     <div class="border-t border-gray-200"></div>
+                                    <div class="block px-4 py-2 text-xs text-gray-400">
+                                        {{ __('Verwaltung') }}
+                                    </div>
                                     <x-jet-dropdown-link href="{{ route('admin.matches') }}" :active="request()->routeIs('admin.matches')">
                                         <i class="far fa-fw fa-handshake"></i> Paarungen - löschen!
                                     </x-jet-dropdown-link>
@@ -46,9 +49,11 @@
                                         <i class="fas fa-fw fa-map-marked-alt"></i> Standorte
                                     </x-jet-dropdown-link>
                                     <x-jet-dropdown-link href="{{ route('admin.match-types') }}" :active="request()->routeIs('admin.match-types')">
-                                        <i class="fas fa-handshake"></i> Spielarten
+                                        <i class="fas fa-fw fa-handshake"></i> Spielarten
                                     </x-jet-dropdown-link>
-
+                                    <x-jet-dropdown-link href="{{ route('admin.date-types') }}" :active="request()->routeIs('admin.date-types')">
+                                        <i class="fas fa-fw fa-calendar-alt"></i> Terminarten
+                                    </x-jet-dropdown-link>
                                 </x-slot>
 
                             </x-jet-dropdown>
@@ -57,14 +62,18 @@
                     @endauth
                 </div>
             </div>
-            <div class="flex">
-                <x-jet-nav-link href="{{ route('admin.log') }}" :active="request()->routeIs('admin.log')">
-                    Logbuch
-                </x-jet-nav-link>
-                <x-jet-nav-link>
-                    Users
-                </x-jet-nav-link>
-            </div>
+            @auth
+                @if (Auth::user()->isAdmin())
+                    <div class="flex">
+                        <x-jet-nav-link href="{{ route('admin.log') }}" :active="request()->routeIs('admin.log')">
+                            Logbuch
+                        </x-jet-nav-link>
+                        <x-jet-nav-link>
+                            Users
+                        </x-jet-nav-link>
+                    </div>
+                @endif
+            @endauth
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
