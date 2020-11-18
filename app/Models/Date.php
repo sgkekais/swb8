@@ -32,6 +32,9 @@ class Date extends Model
         'note',
         'published',
         'cancelled',
+        'poll_begins',
+        'poll_ends',
+        'poll_is_open'
     ];
 
     /**
@@ -41,7 +44,8 @@ class Date extends Model
      */
     protected $attributes = [
         'published' => false,
-        'cancelled' => false
+        'cancelled' => false,
+        'poll_is_open' => true
     ];
 
     /**
@@ -51,7 +55,8 @@ class Date extends Model
      */
     protected $casts = [
         'published' => 'boolean',
-        'cancelled' => 'boolean'
+        'cancelled' => 'boolean',
+        'poll_is_open' => 'boolean'
     ];
 
     /**
