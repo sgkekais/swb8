@@ -11,7 +11,12 @@ use Mediconesystems\LivewireDatatables\NumberColumn;
 
 class DateTable extends LivewireDatatable
 {
-    public $model = Date::class;
+    // public $model = Date::class;
+
+    public function builder()
+    {
+        return $dates = Date::query()->with('dateType');
+    }
 
     public function columns()
     {
@@ -19,19 +24,21 @@ class DateTable extends LivewireDatatable
             NumberColumn::name('id')
                 ->label('ID')
                 ->defaultSort('desc'),
-            NumberColumn::name('date_type_id')
+            Column::callback('dateType.id', function ($datetype_id) {
+                switch($datetype_id) {
+                    case 1: return '<i class="fas fa-fw fa-poll"></i>';
+                    case 2: return '<i class="far fa-fw fa-futbol"></i>';
+                    case 3: return '<i class="fas fa-fw fa-trophy"></i>';
+                    case 4: return '<i class="fas fa-fw fa-glass-cheers"></i>';
+                }
+            }),
+            NumberColumn::name('datetype.description')
                 ->label('Date Type ID'),
-            NumberColumn::name('location_id')
+            NumberColumn::name('location.name')
                 ->label('Location ID'),
-            DateColumn::name('date_time')
-                ->label('date time'),
-            Column::name('name_short')
-                ->label('-Kurz'),
-            BooleanColumn::name('is_stadium')
-                ->label('Stadion?')
-                ->alignCenter(),
-            Column::name('url')
-                ->label('URL'),
+            DateColumn::name('datetime')
+                ->label('date time')
+                ->format('d.m.Y H:s'),
             Column::callback(['id'], function ($id) {
                 return view('admin.includes.table-actions', ['id' => $id]);
             })

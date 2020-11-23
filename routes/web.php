@@ -35,6 +35,8 @@ Route::middleware(['auth:sanctum', 'verified', 'is_banned'])->group(function () 
 
         // Date Types
         Route::view('date-types', 'admin.date_types.index')->name('date-types');
+        // Dates
+        Route::view('dates', 'admin.dates.index')->name('dates');
         // Match types
         Route::view('match-types', 'admin.match_types.index')->name('match-types');
         // Matches

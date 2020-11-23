@@ -47,7 +47,7 @@
                 </div>
                 <div class="mb-6">
                     <x-jet-label for="location.note" value="Notiz" />
-                    <textarea class="w-full form-input rounded-md shadow-sm" id="location.note" wire:model.defer="location.note" rows="3">
+                    <textarea class="w-full form-textarea rounded-md shadow-sm" id="location.note" wire:model.defer="location.note" rows="3">
 
                     </textarea>
                 </div>

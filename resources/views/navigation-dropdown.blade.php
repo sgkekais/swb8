@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-gray-200 border-b border-gray-300">
+<nav x-data="{ open: false }" class="bg-gray-100 border-b border-gray-300">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20">
@@ -32,7 +32,7 @@
                                     <div class="block px-4 py-2 text-xs text-gray-400">
                                         {{ __('Termine') }}
                                     </div>
-                                    <x-jet-dropdown-link href="{{ route('admin.matches') }}" :active="request()->routeIs('admin.matches')">
+                                    <x-jet-dropdown-link href="{{ route('admin.dates') }}" :active="request()->routeIs('admin.dates')">
                                         <i class="far fa-fw fa-calendar-alt"></i> Termine
                                     </x-jet-dropdown-link>
                                     <div class="border-t border-gray-200"></div>

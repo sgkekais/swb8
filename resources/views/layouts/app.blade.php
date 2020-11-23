@@ -8,7 +8,7 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -26,9 +26,9 @@
 
             @if(request()->route()->getPrefix() == '/admin')
                 <!-- Page Heading -->
-                <header class="bg-gray-100 shadow border-b border-gray-200">
+                <header class="">
                     <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-                        <h2 class="font-bold uppercase text-green-500 leading-tight">
+                        <h2 class="font-extrabold uppercase text-green-500 text-xl leading-tight">
                             {{ $header }}
                         </h2>
                     </div>

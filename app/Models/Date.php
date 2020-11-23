@@ -76,6 +76,30 @@ class Date extends Model
     protected static $logFillable = true;
     protected static $logOnlyDirty = true;
 
+    /* SCOPES */
+
+    /**
+     * Scope a query to only include dates that are published
+     * @param $query
+     * @param bool $true
+     * @return mixed
+     */
+    public function scopePublished($query, $true = true) {
+        return $query->where('published', $true);
+    }
+
+    /**
+     * Scope a query to only include dates that are cancelled
+     * @param $query
+     * @param bool $true
+     * @return mixed
+     */
+    public function scopeCancelled($query, $true = true) {
+        return $query->where('cancelled', $true);
+    }
+
+    /* RELATIONSHIPS */
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
