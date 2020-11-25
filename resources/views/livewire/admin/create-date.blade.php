@@ -32,21 +32,30 @@
                     <x-jet-label for="location">
                         Standort
                     </x-jet-label>
-                    <select id="location" wire:model="location" class="form-select">
-                        <option selected="selected" disabled>{{ $location }}</option>
-
+                    <select id="location" wire:model="date.location_id" class="form-select w-full">
+                        <option selected="selected">Nicht festgelegt</option>
+                        @foreach($locations as $location)
+                            <option value="{{ $location->id }}">{{ $location->name }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="mb-6">
                     <x-jet-label for="date_type">
                         Terminart
                     </x-jet-label>
-                    <select id="date_type" wire:model="date_type" class="form-select">
-                        <option selected="selected" disabled>{{ $date_type }}</option>
-                        @foreach($date_types as $dt)
-                            <option value="{{ $dt->id }}">{{ $dt->description }}</option>
-                        @endforeach
-                    </select>
+                    <div class="flex">
+                        <select id="date_type" wire:model="date.date_type_id" class="form-select">
+                            <option selected="selected">Nicht festgelegt</option>
+                            @foreach($date_types as $date_type)
+                                <option value="{{ $date_type->id }}">{{ $date_type->description }}</option>
+                            @endforeach
+                        </select>
+                        <div class="ml-2 text-green-500">
+                            @isset($date->date_type_id)
+                                {{ \App\Models\DateType::find($date->date_type_id)->description }} ausgewählt
+                            @endisset
+                         </div>
+                    </div>
                 </div>
             </x-slot>
             <x-slot name="footer">
