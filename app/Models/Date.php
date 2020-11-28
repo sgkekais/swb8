@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -66,6 +67,8 @@ class Date extends Model
      */
     protected $dates = [
         'datetime',
+        'poll_begins',
+        'poll_ends'
     ];
 
     /**
@@ -105,6 +108,13 @@ class Date extends Model
      */
     public function dateType() {
         return $this->belongsTo('App\Models\DateType');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function dateOptions() {
+        return $this->hasMany('App\Models\DateOption');
     }
 
     /**
