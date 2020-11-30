@@ -46,7 +46,7 @@ class Date extends Model
     protected $attributes = [
         'published' => false,
         'cancelled' => false,
-        'poll_is_open' => true
+        'poll_is_open' => false
     ];
 
     /**

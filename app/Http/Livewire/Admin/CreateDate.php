@@ -20,7 +20,7 @@ class CreateDate extends Component
     public $date_types = [];
     public $locations = [];
     public $clubs = [];
-    public $date_options;
+    public Collection $date_options;
 
     protected $listeners = [
         'editTableEntry' => 'edit',
@@ -31,8 +31,8 @@ class CreateDate extends Component
     {
         $this->date ??= new Date();
         $this->date_option ??= new DateOption();
-        $this->date_options ??= collect();
         $this->match ??= new Match();
+        $this->date_options = collect();
     }
 
     protected $rules = [
@@ -81,23 +81,44 @@ class CreateDate extends Component
 
     public function resetInputFields()
     {
-        $this->reset();
         $this->date = new Date();
         $this->match = new Match();
         $this->date_option = new DateOption();
+        $this->date_options = collect();
     }
 
     public function addDateOption()
     {
         $this->date_options->push($this->date_option);
-        $this->date_option = new DateOption();
     }
 
-    public function store()
+    public  function removeDateOption($key)
+    {
+        $this->date_options->pull($key);
+    }
+
+    public function store(Date $date)
     {
         // validate
 
-        // store date, match, tournament, date_options
+        // store date, match, tournament, date_options depending on date->date_type_id
+
+        switch ($date->date_type_id) {
+
+            case (1 | 4):
+                // general poll (1) or party (4) -> save date with multiple date_options
+                break;
+
+            case (2):
+                // match -> save date with poll = date->datetime (begins -14 days, ends = datetime) and match
+                break;
+
+            case (3):
+                // tournament -> save date with tournament
+                break;
+        }
+
+
 
         $this->resetInputFields();
     }

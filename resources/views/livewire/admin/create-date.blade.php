@@ -57,7 +57,7 @@
                             <x-jet-label class="text-green-600" for="title">
                                 Titel
                             </x-jet-label>
-                            <x-jet-input class="w-full" type="text" id="title" wire:model="date.title" />
+                            <x-jet-input class="w-full" type="text" id="title" wire:model.defer="date.title" />
                             <x-jet-input-error for="title" />
                         </div>
                         <div class="w-2/6">
@@ -76,7 +76,7 @@
                             <x-jet-label class="text-green-600" for="description">
                                 Beschreibung
                             </x-jet-label>
-                            <textarea id="description" class="form-textarea w-full shadow-sm" wire:model="date.description">
+                            <textarea id="description" class="form-textarea w-full shadow-sm" wire:model.defer="date.description">
 
                             </textarea>
                         </div>
@@ -84,7 +84,7 @@
                             <x-jet-label class="text-green-600" for="note">
                                 Interne Notiz, nur für Admins sichtbar
                             </x-jet-label>
-                            <textarea id="note" class="form-textarea w-full shadow-sm" wire:model="date.note">
+                            <textarea id="note" class="form-textarea w-full shadow-sm" wire:model.defer="date.note">
 
                             </textarea>
                         </div>
@@ -94,7 +94,7 @@
                         <x-jet-label class="text-green-600" for="location">
                             Wo?
                         </x-jet-label>
-                        <select id="location" wire:model="date.location_id" class="form-select w-full shadow-sm">
+                        <select id="location" wire:model.defer="date.location_id" class="form-select w-full shadow-sm">
                             <option selected="selected">Nicht festgelegt</option>
                             @foreach($locations as $location)
                                 <option value="{{ $location->id }}">({{ $location->id }}) {{ $location->name }}</option>
@@ -102,25 +102,32 @@
                         </select>
                     </div>
                     <!-- date published / cancelled -->
-                    <div class="mb-6 flex items-center space-x-4">
+                    <div class="flex items-center space-x-4">
                         <div class="flex">
                             <x-jet-input wire:model="date.published" id="published" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out shadow-sm"/>
-                            <x-jet-label class="text-green-600" for="published" class="ml-2 block leading-5" >
+                            <x-jet-label for="published" class="ml-2 block leading-5 text-green-600" >
                                 Veröffentlichen?
                             </x-jet-label>
                         </div>
                         <div class="flex">
                             <x-jet-input wire:model="date.cancelled" id="cancelled" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out shadow-sm"/>
-                            <x-jet-label class="text-green-600" for="cancelled" class="ml-2 block leading-5" >
+                            <x-jet-label for="cancelled" class="ml-2 block leading-5 text-green-600" >
                                 Abgesagt?
                             </x-jet-label>
                         </div>
+                    </div>
+                    <div class="mb-6">
+                        @if ($date->published)
+                            <span class="text-sm text-green-500">Termin für alle sichtbar.</span>
+                        @else
+                            <span class="text-sm text-yellow-500">Termin ist noch nicht sichtbar.</span>
+                        @endif
                     </div>
                     <!-- poll options -->
                     <div class="font-semibold text-lg w-full border-b border-green-300 mb-6">
                         Die zugehörige Umfrage pflegen
                         <ul>
-                            <li></li>
+                            <li>Erklärung?</li>
                         </ul>
                     </div>
                     <div class="mb-6 flex items-center space-x-4">
@@ -135,45 +142,49 @@
                             <x-jet-label class="text-green-600" for="poll_ends">
                                 Umfrageschluss
                             </x-jet-label>
-                            <x-jet-input class="w-full" type="text" id="poll_ends" wire:model="date.poll_ends" value="{{ $date->datetime ?: null }}"/>
+                            <x-jet-input class="w-full" type="text" id="poll_ends" wire:model="date.poll_ends" />
                             <x-jet-input-error for="datetime" />
                         </div>
-                        <div class="flex items-end space-x-2">
+                        <div class="flex space-x-2">
                             <x-jet-input id="poll_is_open" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out shadow-sm" />
-                            <x-jet-label class="text-green-600" for="poll_is_open" class="" wire:model="date.poll_is_open">
+                            <x-jet-label class="ml-2 block leading-5 text-green-600" for="poll_is_open" wire:model="date.poll_is_open">
                                 Umfrage offen?
                             </x-jet-label>
                         </div>
                     </div>
-                    @if ($date->date_type_id == 1 || $date->date_type_id == 4)
-                        <div class="mb-6 flex items-end space-x-4">
-                            <div class="w-1/2">
-                                <x-jet-label for="date_option" class="text-green-600">
-                                    Umfrageoptionen
-                                </x-jet-label>
-                                <x-jet-input id="date_option" type="text" class="w-full" wire:model="date_option.description" />
-                            </div>
-                            <div class="flex">
-                                <x-jet-button wire:click="addDateOption()" class="w-full justify-center" >
-                                    Hinzufügen
-                                </x-jet-button>
-                            </div>
-                        </div>
-                    @endif
-                    @isset ($date_options)
-                        @foreach ($date_options as $date_option)
+                    <div>
+                        @if ($date->date_type_id == 1 || $date->date_type_id == 4)
                             <div class="mb-6 flex items-end space-x-4">
                                 <div class="w-1/2">
-                                    {{ $date_option->description }}
+                                    <x-jet-label class="text-green-600" for="date_option" >
+                                        Umfrageoptionen
+                                    </x-jet-label>
+                                    <x-jet-input id="date_option" type="text" class="w-full" wire:model.lazy="date_option.description" />
                                 </div>
                                 <div class="flex">
-                                    <x-jet-danger-button {{-- wire:click.prevent="store()" --}} class="w-full justify-center" >
+                                    <x-jet-button wire:click="addDateOption" class="w-full justify-center" >
+                                        Hinzufügen
+                                    </x-jet-button>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                    {{ $date_options }}
+                    <div>
+                        @foreach ($date_options as $key => $value)
+                            <div class="mb-6 flex items-end items-stretch space-x-4">
+                                <div class="w-1/2 p-1 border border-gray-200 rounded bg-gray-100 text-gray-700">
+                                    <span class="font-semibold">Option {{ $loop->iteration }}:</span> {{ $value['description'] }}
+                                </div>
+                                <div class="flex">
+                                    <x-jet-danger-button wire:click="removeDateOption({{ $key }})" class="w-full justify-center" >
                                         Entfernen
                                     </x-jet-danger-button>
                                 </div>
                             </div>
                         @endforeach
-                    @endisset
+                    </div>
+
                     {{-- date type
                             -> 1 poll
                             -> 2 match
@@ -298,6 +309,4 @@
             </button>
         </span>
     </div>
-
-
 </div>
