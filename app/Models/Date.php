@@ -57,7 +57,10 @@ class Date extends Model
     protected $casts = [
         'published' => 'boolean',
         'cancelled' => 'boolean',
-        'poll_is_open' => 'boolean'
+        'poll_is_open' => 'boolean',
+        'datetime' => 'datetime:Y-m-d H:s',
+        'poll_begins' => 'date:Y-m-d',
+        'poll_ends' => 'date:Y-m-d'
     ];
 
     /**
@@ -66,9 +69,9 @@ class Date extends Model
      * @var array
      */
     protected $dates = [
-        'datetime',
-        'poll_begins',
-        'poll_ends'
+        // 'datetime',
+        // 'poll_begins',
+        // 'poll_ends'
     ];
 
     /**
@@ -129,5 +132,9 @@ class Date extends Model
      */
     public function match() {
         return $this->hasOne('App\Models\Match');
+    }
+
+    public function tournament() {
+        return $this->hasOne('App\Models\Tournament');
     }
 }

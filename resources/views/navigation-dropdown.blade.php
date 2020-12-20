@@ -30,18 +30,18 @@
                                 <x-slot name="content">
                                     <!-- Site Management -->
                                     <div class="block px-4 py-2 text-xs text-gray-400">
-                                        {{ __('Termine') }}
+                                        {{ __('Umfragen & Spiele') }}
                                     </div>
                                     <x-jet-dropdown-link href="{{ route('admin.dates') }}" :active="request()->routeIs('admin.dates')">
                                         <i class="far fa-fw fa-calendar-alt"></i> Termine
+                                    </x-jet-dropdown-link>
+                                    <x-jet-dropdown-link href="{{ route('admin.matches') }}" :active="request()->routeIs('admin.matches')">
+                                        <i class="far fa-fw fa-handshake"></i> Spiele
                                     </x-jet-dropdown-link>
                                     <div class="border-t border-gray-200"></div>
                                     <div class="block px-4 py-2 text-xs text-gray-400">
                                         {{ __('Verwaltung') }}
                                     </div>
-                                    <x-jet-dropdown-link href="{{ route('admin.matches') }}" :active="request()->routeIs('admin.matches')">
-                                        <i class="far fa-fw fa-handshake"></i> Paarungen - löschen!
-                                    </x-jet-dropdown-link>
                                     <x-jet-dropdown-link href="{{ route('admin.clubs') }}" :active="request()->routeIs('admin.clubs')">
                                         <i class="fas fa-fw fa-shield-alt"></i> Mannschaften
                                     </x-jet-dropdown-link>

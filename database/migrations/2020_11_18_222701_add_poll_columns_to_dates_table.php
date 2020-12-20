@@ -15,9 +15,9 @@ class AddPollColumnsToDatesTable extends Migration
     {
         Schema::table('dates', function (Blueprint $table) {
             //
-            $table->dateTime('poll_begins')->nullable();
-            $table->dateTime('poll_ends')->nullable();
-            $table->boolean('poll_is_open')->default(1);
+            $table->date('poll_begins')->nullable();
+            $table->date('poll_ends')->nullable();
+            $table->boolean('poll_is_open')->default(0);
         });
     }
 

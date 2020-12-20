@@ -16,7 +16,7 @@ class CreateDatesTable extends Migration
         Schema::create('dates', function (Blueprint $table) {
             $table->id();
             $table->foreignId('date_type_id')->constrained()->onUpdate('cascade')->onDelete('restrict');
-            $table->foreignId('location_id')->constrained()->onUpdate('cascade')->onDelete('restrict');
+            $table->foreignId('location_id')->constrained()->onUpdate('cascade')->onDelete('restrict')->nullable();
             $table->dateTime('datetime')->nullable();
             $table->string('title')->nullable();
             $table->text('description')->nullable();

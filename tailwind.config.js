@@ -4,7 +4,9 @@ module.exports = {
     purge: [
         './vendor/laravel/jetstream/**/*.blade.php',
         './storage/framework/views/*.php',
-        './resources/views/**/*.blade.php',
+        './resources/**/*.blade.php',
+        './resources/**/*.js',
+        './resources/**/*.vue',
     ],
 
     theme: {
@@ -19,5 +21,9 @@ module.exports = {
         opacity: ['responsive', 'hover', 'focus', 'disabled'],
     },
 
-    plugins: [require('@tailwindcss/ui')],
+    plugins: [
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/typography'),
+        require('@tailwindcss/aspect-ratio'),
+    ],
 };

@@ -39,6 +39,13 @@ class MatchTypeSeeder extends Seeder
                 'created_at'    => $timestamp,
                 'updated_at'    => $timestamp,
             ],
+            3 => [
+                'id'            => 4,
+                'description'   => 'Play-Off',
+                'description_short' => 'PO',
+                'created_at'    => $timestamp,
+                'updated_at'    => $timestamp,
+            ],
         ]);
     }
 }
