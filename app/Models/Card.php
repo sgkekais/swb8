@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 
-class MatchType extends Model
+class Card extends Model
 {
     use HasFactory;
     use LogsActivity;
@@ -16,7 +16,7 @@ class MatchType extends Model
      *
      * @var string
      */
-    protected $table = 'match_types';
+    protected $table = 'cards';
 
     /**
      * The attributes that are mass assignable.
@@ -24,25 +24,10 @@ class MatchType extends Model
      * @var array
      */
     protected $fillable = [
-        'description', 'description_short', 'is_point_match'
-    ];
-
-    /**
-     * The model's default values for attributes.
-     *
-     * @var array
-     */
-    protected $attributes = [
-        'is_point_match' => false,
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'is_point_match' => 'boolean',
+        'match_id',
+        'player_id',
+        'color',
+        'note'
     ];
 
     /**
@@ -53,7 +38,11 @@ class MatchType extends Model
     protected static $logFillable = true;
     protected static $logOnlyDirty = true;
 
-    public function matches () {
-        return $this->hasMany('App\Models\Match');
+    public function match() {
+        return $this->belongsTo('App\Models\Match');
+    }
+
+    public function player() {
+        return $this->belongsTo('App\Models\Player');
     }
 }

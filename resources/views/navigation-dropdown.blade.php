@@ -42,6 +42,12 @@
                                     <div class="block px-4 py-2 text-xs text-gray-400">
                                         {{ __('Verwaltung') }}
                                     </div>
+                                    <x-jet-dropdown-link href="{{ route('admin.player-statuses') }}" :active="request()->routeIs('admin.player-statuses')">
+                                        <i class="fas fa-fw fa-user-tag"></i> Spieler-Status
+                                    </x-jet-dropdown-link>
+                                    <x-jet-dropdown-link href="{{ route('admin.players') }}" :active="request()->routeIs('admin.players')">
+                                        <i class="fas fa-fw fa-user-friends"></i> Spieler
+                                    </x-jet-dropdown-link>
                                     <x-jet-dropdown-link href="{{ route('admin.clubs') }}" :active="request()->routeIs('admin.clubs')">
                                         <i class="fas fa-fw fa-shield-alt"></i> Mannschaften
                                     </x-jet-dropdown-link>

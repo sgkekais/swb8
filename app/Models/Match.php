@@ -101,5 +101,13 @@ class Match extends Model
         return $this->belongsTo('App\Models\Club', 'team_away');
     }
 
+    public function goals() {
+        return $this->hasMany('App\Models\Goal');
+    }
+
+    public function cards() {
+        return $this->hasMany('App\Models\Card');
+    }
+
     // TODO: rescheduled
 }

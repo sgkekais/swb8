@@ -28,6 +28,9 @@ Route::middleware(['auth:sanctum', 'verified', 'is_banned'])->group(function () 
         // Log
         Route::view('log', 'admin.log')->name('log');
 
+        // Players
+        Route::view('player-statuses', 'admin.player_statuses.index')->name('player-statuses');
+        Route::view('players', 'admin.players.index')->name('players');
         // Teams
         Route::view('clubs', 'admin.clubs.index')->name('clubs');
         // Locations

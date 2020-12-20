@@ -2,15 +2,15 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\MatchType;
+use App\Models\PlayerStatus;
 use Mediconesystems\LivewireDatatables\BooleanColumn;
 use Mediconesystems\LivewireDatatables\Column;
 use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
 use Mediconesystems\LivewireDatatables\NumberColumn;
 
-class MatchTypeTable extends LivewireDatatable
+class PlayerStatusTable extends LivewireDatatable
 {
-    public $model = MatchType::class;
+    public $model = PlayerStatus::class;
 
     public function columns()
     {
@@ -21,11 +21,8 @@ class MatchTypeTable extends LivewireDatatable
             Column::name('description')
                 ->label('Beschreibung')
                 ->searchable(),
-            Column::name('description_short')
-                ->label('Abk.')
-                ->searchable(),
-            BooleanColumn::name('is_point_match')
-                ->label('Punktspiel?'),
+            BooleanColumn::name('can_play')
+                ->label('Kann spielen?'),
             Column::callback(['id'], function ($id) {
                 return view('admin.includes.table-actions', ['id' => $id]);
             })
