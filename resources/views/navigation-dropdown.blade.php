@@ -36,7 +36,16 @@
                                         <i class="far fa-fw fa-calendar-alt"></i> Termine
                                     </x-jet-dropdown-link>
                                     <x-jet-dropdown-link href="{{ route('admin.matches') }}" :active="request()->routeIs('admin.matches')">
-                                        <i class="far fa-fw fa-handshake"></i> Spiele
+                                        <i class="fas fa-fw fa-stopwatch"></i> Spiele
+                                    </x-jet-dropdown-link>
+                                    <x-jet-dropdown-link href="{{ route('admin.cards') }}" :active="request()->routeIs('admin.cards')">
+                                        <i class="far fa-fw fa-copy"></i> Kartenübersicht
+                                    </x-jet-dropdown-link>
+                                    <x-jet-dropdown-link href="{{ route('admin.goals') }}" :active="request()->routeIs('admin.goals')">
+                                        <i class="far fa-fw fa-futbol"></i> Torübersicht
+                                    </x-jet-dropdown-link>
+                                    <x-jet-dropdown-link href="{{ route('admin.assists') }}" :active="request()->routeIs('admin.assists')">
+                                        <i class="far fa-fw fa-handshake"></i> Vorlagenübersicht
                                     </x-jet-dropdown-link>
                                     <div class="border-t border-gray-200"></div>
                                     <div class="block px-4 py-2 text-xs text-gray-400">

@@ -19,6 +19,9 @@ class MatchTable extends LivewireDatatable
             NumberColumn::name('id')
                 ->label('ID')
                 ->defaultSort('desc'),
+            Column::callback('date_id', function ($date_id) {
+                 return "<a href='".route('admin.dates', ['date_id_of_match' => $date_id])."' class='text-blue-700'>".$date_id."</a>";
+            })->label('Termin-ID'),
             Column::name('matchType.description_short')
                 ->label('Art')
                 ->alignCenter(),

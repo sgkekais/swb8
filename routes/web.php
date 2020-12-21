@@ -31,6 +31,12 @@ Route::middleware(['auth:sanctum', 'verified', 'is_banned'])->group(function () 
         // Players
         Route::view('player-statuses', 'admin.player_statuses.index')->name('player-statuses');
         Route::view('players', 'admin.players.index')->name('players');
+        // Cards
+        Route::view('cards', 'admin.cards.index')->name('cards');
+        // Goals
+        Route::view('goals', 'admin.goals.index')->name('goals');
+        // Assists
+        Route::view('assists', 'admin.assists.index')->name('assists');
         // Teams
         Route::view('clubs', 'admin.clubs.index')->name('clubs');
         // Locations

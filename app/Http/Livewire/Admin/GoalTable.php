@@ -2,15 +2,15 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\Location;
+use App\Models\Goal;
 use Mediconesystems\LivewireDatatables\BooleanColumn;
 use Mediconesystems\LivewireDatatables\Column;
 use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
 use Mediconesystems\LivewireDatatables\NumberColumn;
 
-class LocationsTable extends LivewireDatatable
+class GoalTable extends LivewireDatatable
 {
-    public $model = Location::class;
+    public $model = Goal::class;
 
     public $exportable = true;
 
@@ -20,20 +20,21 @@ class LocationsTable extends LivewireDatatable
             NumberColumn::name('id')
                 ->label('ID')
                 ->defaultSort('desc'),
-            Column::name('name')
-                ->label('Name')
+            NumberColumn::name('match_id')
+                ->label('Match')
+                ->filterable(),
+            NumberColumn::name('player_id')
+                ->label('Spieler')
+                ->filterable()
                 ->searchable(),
-            Column::name('name_short')
-                ->label('-Kurz'),
-            BooleanColumn::name('is_stadium')
-                ->label('Stadion?')
+            Column::name('score')
+                ->label('Ergebnis')
                 ->alignCenter()
                 ->filterable(),
-            Column::name('url')
-                ->label('URL'),
-            Column::callback(['id'], function ($id) {
-                return view('admin.includes.table-actions', ['id' => $id]);
-            })
+            BooleanColumn::name('penalty')
+                ->label('11m')
+                ->alignCenter()
+                ->filterable()
         ];
     }
 }
