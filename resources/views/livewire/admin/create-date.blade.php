@@ -1,24 +1,28 @@
 <div>
     @include('admin.includes.alert')
 
-    {{-- delete confirmation
+    <!-- delete confirmation -->
     <x-jet-confirmation-modal wire:model="is_open_delete">
         <x-slot name="title">
-            Mannschaft {{ $club->id }} löschen
+            Termin {{ $date->id }} löschen
         </x-slot>
         <x-slot name="content">
-            Möchten Sie die Mannschaft wirklich löschen?
+            <p>Möchten Sie diesen Termin wirklich löschen?</p>
+            Löscht auch:
+            <ul>
+
+            </ul>
         </x-slot>
         <x-slot name="footer">
             <x-jet-secondary-button wire:click="closeDeleteModal()">
                 Abbrechen
             </x-jet-secondary-button>
-            <x-jet-danger-button wire:click="destroy({{ $club->id }})">
+            <x-jet-danger-button wire:click="destroy({{ $date->id }})">
                 Löschen
             </x-jet-danger-button>
         </x-slot>
     </x-jet-confirmation-modal>
-     create or maintain modal --}}
+    <!-- create or maintain modal -->
     <x-jet-dialog-modal wire:model="is_open">
         <x-slot name="title">
             <div class="font-semibold">
@@ -59,6 +63,7 @@
                             @endisset
                         </div>
                     </div>
+                    <x-jet-input-error for="date.date_type_id" />
                 </div>
                 @if($date->date_type_id && $date->date_type_id != "")
                     <!-- title and datetime -->
@@ -140,6 +145,7 @@
                         Die zugehörige Umfrage pflegen
                     </div>
                     <div class="bg-gray-100 p-1 mb-3">
+                        <i class="far fa-fw fa-lightbulb"></i>
                         @isset ($selectedDateType)
                             @switch ($selectedDateType->id)
                                 @case (1)
@@ -172,7 +178,7 @@
                             <x-jet-input class="w-full" type="date" id="poll_ends" wire:model.lazy="date.poll_ends"/>
                             <x-jet-input-error for="date.poll_ends" />
                         </div>
-                        <div class="flex space-x-2">e
+                        <div class="flex space-x-2">
                             <x-jet-input wire:model="date.poll_is_open" id="poll_is_open" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out shadow-sm" />
                             <x-jet-label class="ml-2 block leading-5 text-green-600" for="poll_is_open">
                                 Umfrage offen?
@@ -345,6 +351,7 @@
             </x-slot>
             <x-slot name="footer">
                 <div class="sm:flex sm:flex-row-reverse">
+                    <x-jet-validation-errors />
                     <span class="flex w-full sm:w-auto mb-2 sm:mb-0 sm:ml-2">
                         @if ($date->date_type_id && $date->date_type_id != "")
                             <x-jet-button wire:click.prevent="store()" class="w-full justify-center" >
@@ -363,10 +370,8 @@
     </x-jet-dialog-modal>
     {{-- create a new date, opens modal --}}
     <div class="mb-4 flex justify-center sm:justify-start">
-        <span class="block shadow-xl rounded-md">
-            <button wire:click="create()" class="btn btn-blue px-4 py-2">
-                Anlegen
-            </button>
-        </span>
+        <x-confirmation-button wire:click="create()">
+            Anlegen
+        </x-confirmation-button>
     </div>
 </div>

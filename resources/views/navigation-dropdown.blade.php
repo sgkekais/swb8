@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-black">
+<nav x-data="{ open: false }" class="">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div class="relative flex items-center justify-between h-16">
@@ -13,35 +13,34 @@
                     </svg>
                 </button>
             </div>
-            <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('home') }}">
-                        {{-- <x-jet-application-mark class="block h-9 w-auto" />--> --}}
-                        <img class="h-12" src="{{ asset('img/swblogo50inv.png') }}">
-                    </a>
-                    <span class="hidden lg:inline-block font-uppercase font-bold tracking-tighter text-gray-700 text-lg">
+            <!-- Logo -->
+            <div class="flex flex-grow">
+                {{--<a href="{{ route('home') }}">
+                    <x-jet-application-mark class="block h-9 w-auto" />
+                     <img class="h-12" src="{{ asset('img/swblogo50inv.png') }}">
+                </a>--}}
+                <span class="hidden lg:inline-block font-uppercase font-bold tracking-tighter text-gray-700 text-lg">
                         {{ env('APP_NAME') }}
                     </span>
-                </div>
-                <!-- END Logo -->
+            </div>
+            <div class="flex flex-grow items-center sm:items-stretch sm:justify-center">
                 <!-- Navigation Links -->
-                <div class="hidden sm:block sm:ml-6">
+                <div class="hidden sm:block">
                     <div class="flex space-x-4">
                         @auth
-                            <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                            <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" class="py-3">
                                 {{ __('Dashboard') }}
                             </x-jet-nav-link>
                             @if(Auth::user()->isAdmin())
                                 <x-jet-dropdown align="left">
                                     <x-slot name="trigger">
-                                        <x-jet-nav-link>
-                                            Verwaltung
+                                        <x-jet-nav-link :active="request()->routeIs('admin.*')" class="py-3">
+                                            Verwaltung <i class="inline-block ml-1 fas fa-sort-down"></i>
                                         </x-jet-nav-link>
                                     </x-slot>
                                     <x-slot name="content">
                                         <!-- Site Management -->
-                                        <div class="block px-4 py-2 text-xs text-gray-400">
+                                        <div class="block px-4 py-2 text-xs text-primary-600">
                                             {{ __('Umfragen & Spiele') }}
                                         </div>
                                         <x-jet-dropdown-link href="{{ route('admin.dates') }}" :active="request()->routeIs('admin.dates')">
@@ -62,8 +61,8 @@
                                         <x-jet-dropdown-link href="{{ route('admin.tournaments') }}" :active="request()->routeIs('admin.tournaments')">
                                             <i class="fas fa-fw fa-hotdog"></i> Turniere
                                         </x-jet-dropdown-link>
-                                        <div class="border-t border-gray-200"></div>
-                                        <div class="block px-4 py-2 text-xs text-gray-400">
+                                        <div class="border-t border-gray-300"></div>
+                                        <div class="block px-4 py-2 text-xs text-primary-600">
                                             {{ __('Verwaltung') }}
                                         </div>
                                         <x-jet-dropdown-link href="{{ route('admin.player-statuses') }}" :active="request()->routeIs('admin.player-statuses')">
@@ -100,8 +99,11 @@
                 </div>
                 <!-- END Navigation Links -->
             </div>
+
+
+            <!-- END Logo -->
             <!-- Settings Dropdown -->
-            <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            <div class="flex flex-grow justify-end items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 @auth
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">

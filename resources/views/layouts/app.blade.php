@@ -24,13 +24,14 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-white">
+
             @livewire('navigation-dropdown')
 
             @if(request()->route()->getPrefix() == '/admin')
                 <!-- Page Heading -->
                 <header class="">
                     <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-                        <h2 class="font-extrabold uppercase text-green-500 text-xl leading-tight">
+                        <h2 class="font-extrabold uppercase text-primary-500 text-xl leading-tight ">
                             {{ $header }}
                         </h2>
                     </div>

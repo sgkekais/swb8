@@ -14,6 +14,8 @@ class CardTable extends LivewireDatatable
 
     public $exportable = true;
 
+    public $perPage = 15;
+
     public function columns()
     {
         return [

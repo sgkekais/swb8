@@ -16,6 +16,7 @@ use Livewire\Component;
 class CreateDate extends Component
 {
     public $is_open = false;
+    public $is_open_delete = false;
     public ?Date $date = null;
     public ?Match $match = null;
     public ?DateOption $date_option = null;
@@ -54,7 +55,7 @@ class CreateDate extends Component
         'date.poll_is_open' => 'boolean',
         'date_option.description' => 'nullable',
         'date_options.*.description' => 'nullable',
-        'match.match_type_id' => 'required',
+        'match.match_type_id' => '',
         'match.team_home' => 'nullable',
         'match.team_away' => 'nullable',
         'match.goals_home' => 'nullable|numeric|min:0',
@@ -71,7 +72,6 @@ class CreateDate extends Component
         'tournament.title' => 'nullable',
         'tournament.description' => 'nullable',
         'tournament.place' => 'nullable',
-
     ];
 
     public function openModal()
@@ -79,10 +79,20 @@ class CreateDate extends Component
         $this->is_open = true;
     }
 
+    public function openDeleteModal()
+    {
+        $this->is_open_delete = true;
+    }
+
     public function closeModal()
     {
         $this->is_open = false;
         $this->resetInputFields();
+    }
+
+    public function closeDeleteModal()
+    {
+        $this->is_open_delete = false;
     }
 
     public function create()
@@ -152,6 +162,25 @@ class CreateDate extends Component
         $this->date_options = $date->dateOptions;
         $this->tournament = $date->tournament;
         $this->openModal();
+    }
+
+    public function delete(Date $date)
+    {
+        $this->date = $date;
+        $this->match = $date->match;
+        $this->date_options = $date->dateOptions;
+        $this->tournament = $date->tournament;
+        $this->openDeleteModal();
+    }
+
+    public function destroy(Date $date)
+    {
+        $date->delete();
+
+        $this->closeDeleteModal();
+
+        session()->flash('success', 'Standort '.$this->date->id.' erfolgreich gelöscht.');
+        $this->emit('refreshLivewireDatatable');
     }
 
     public function render()

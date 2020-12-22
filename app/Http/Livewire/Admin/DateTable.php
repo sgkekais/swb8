@@ -31,17 +31,24 @@ class DateTable extends LivewireDatatable
                 ->searchable(),
             Column::callback('dateType.id', function ($datetype_id) {
                 switch($datetype_id) {
-                    case 1: return '<i class="fas fa-fw fa-poll"></i>';
-                    case 2: return '<i class="far fa-fw fa-futbol"></i>';
-                    case 3: return '<i class="fas fa-fw fa-trophy"></i>';
-                    case 4: return '<i class="fas fa-fw fa-glass-cheers"></i>';
+                    case 1:
+                        return '<i class="fas fa-fw fa-poll"></i>';
+                    case 2:
+                        return '<i class="far fa-fw fa-futbol"></i>';
+                    case 3:
+                        return '<i class="fas fa-fw fa-trophy"></i>';
+                    case 4:
+                        return '<i class="fas fa-fw fa-glass-cheers"></i>';
+                    default:
+                        '';
                 }
-            }),
+            })
+                ->label('Art')->alignCenter(),
             Column::name('datetype.description')
-                ->label('Date Type ID')
+                ->label('')
                 ->filterable($this->dateTypeDescriptions),
             NumberColumn::name('location.name')
-                ->label('Location ID'),
+                ->label('Ort'),
             Column::callback('datetime', function ($datetime) {
                 $date = Carbon::make($datetime);
                 return $date ? $date->format('Y-m-d') : null;

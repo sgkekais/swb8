@@ -78,4 +78,9 @@ class User extends Authenticatable
     {
         return $this->banned;
     }
+
+    public function dateOptions()
+    {
+        return $this->belongsToMany('App\Models\DateOption')->withPivot('attend')->withTimestamps();
+    }
 }
