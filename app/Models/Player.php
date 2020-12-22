@@ -72,6 +72,6 @@ class Player extends Model
     }
 
     public function cards() {
-        return $this->hasMany('App\Model\Card');
+        return $this->hasMany('App\Models\Card');
     }
 }

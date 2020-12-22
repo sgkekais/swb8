@@ -8,7 +8,9 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+        {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"> --}}
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -21,7 +23,7 @@
 
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-pattern">
+        <div class="min-h-screen bg-white">
             @livewire('navigation-dropdown')
 
             @if(request()->route()->getPrefix() == '/admin')

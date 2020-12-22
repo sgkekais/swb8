@@ -50,6 +50,8 @@ Route::middleware(['auth:sanctum', 'verified', 'is_banned'])->group(function () 
         Route::view('match-types', 'admin.match_types.index')->name('match-types');
         // Matches
         Route::view('matches', 'admin.matches.index')->name('matches');
+        // Tournaments
+        Route::view('tournaments', 'admin.tournaments.index')->name('tournaments');
     });
 
 });

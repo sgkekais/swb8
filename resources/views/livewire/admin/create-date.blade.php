@@ -75,7 +75,7 @@
                                 <x-jet-label class="text-green-600" for="datetime">
                                     Wann?
                                 </x-jet-label>
-                                <x-jet-input class="w-full" type="text" id="datetime" wire:model.lazy="date.datetime" />
+                                <x-jet-input class="w-full" type="datetime-local" id="datetime" wire:model.lazy="date.datetime" />
                                 <x-jet-input-error for="date.datetime" />
                             @endunless
                         </div>
@@ -162,17 +162,17 @@
                             <x-jet-label class="text-green-600" for="poll_begins">
                                 Umfragebeginn
                             </x-jet-label>
-                            <x-jet-input class="w-full" type="text" id="poll_begins" wire:model.lazy="date.poll_begins" />
+                            <x-jet-input class="w-full" type="date" id="poll_begins" wire:model.lazy="date.poll_begins" />
                             <x-jet-input-error for="date.poll_begins" />
                         </div>
                         <div class="w-2/6">
                             <x-jet-label class="text-green-600" for="poll_ends">
                                 Umfrageschluss
                             </x-jet-label>
-                            <x-jet-input class="w-full" type="text" id="poll_ends" wire:model.lazy="date.poll_ends"/>
+                            <x-jet-input class="w-full" type="date" id="poll_ends" wire:model.lazy="date.poll_ends"/>
                             <x-jet-input-error for="date.poll_ends" />
                         </div>
-                        <div class="flex space-x-2">
+                        <div class="flex space-x-2">e
                             <x-jet-input wire:model="date.poll_is_open" id="poll_is_open" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out shadow-sm" />
                             <x-jet-label class="ml-2 block leading-5 text-green-600" for="poll_is_open">
                                 Umfrage offen?

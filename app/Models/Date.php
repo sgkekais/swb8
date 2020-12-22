@@ -58,7 +58,7 @@ class Date extends Model
         'published' => 'boolean',
         'cancelled' => 'boolean',
         'poll_is_open' => 'boolean',
-        'datetime' => 'datetime:Y-m-d H:s',
+        'datetime' => 'datetime:Y-m-d\TH:i',
         'poll_begins' => 'date:Y-m-d',
         'poll_ends' => 'date:Y-m-d'
     ];
