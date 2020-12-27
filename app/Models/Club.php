@@ -54,4 +54,12 @@ class Club extends Model
      */
     protected static $logFillable = true;
     protected static $logOnlyDirty = true;
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function players()
+    {
+        return $this->belongsToMany('App\Models\Player')->withTimestamps();
+    }
 }

@@ -79,8 +79,16 @@ class User extends Authenticatable
         return $this->banned;
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function dateOptions()
     {
         return $this->belongsToMany('App\Models\DateOption')->withPivot('attend')->withTimestamps();
+    }
+
+    public function player()
+    {
+        return $this->hasOne('App\Models\Player');
     }
 }

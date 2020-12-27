@@ -20,8 +20,8 @@
                      <img class="h-12" src="{{ asset('img/swblogo50inv.png') }}">
                 </a>--}}
                 <span class="hidden lg:inline-block font-uppercase font-bold tracking-tighter text-gray-700 text-lg">
-                        {{ env('APP_NAME') }}
-                    </span>
+                    <a href="{{ route('home') }}">{{ env('APP_NAME') }}</a>
+                </span>
             </div>
             <div class="flex flex-grow items-center sm:items-stretch sm:justify-center">
                 <!-- Navigation Links -->

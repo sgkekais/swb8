@@ -34,7 +34,8 @@ class DateOption extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function date() {
+    public function date()
+    {
         return $this->belongsTo('App\Models\Date');
     }
 
@@ -42,7 +43,8 @@ class DateOption extends Model
      * The users that took part (attend 0 / 1)
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function users() {
+    public function users()
+    {
         return $this->belongsToMany('App\Models\User')->withPivot('attend')->withTimestamps();
     }
 }

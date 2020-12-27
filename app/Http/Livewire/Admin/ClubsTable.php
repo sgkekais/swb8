@@ -12,14 +12,18 @@ class ClubsTable extends LivewireDatatable
 {
     public $model = Club::class;
 
-    public $exportable = true;
+    // public $exportable = true;
+
+  /*  public function builder()
+    {
+        return Club::withCount('players');
+    }*/
 
     public function columns()
     {
         return [
             NumberColumn::name('id')
-                ->label('ID')
-                ->defaultSort('desc'),
+                ->label('ID'),
             Column::name('name')
                 ->label('Name')
                 ->searchable(),
@@ -30,9 +34,12 @@ class ClubsTable extends LivewireDatatable
             Column::name('logo_url')
                 ->label('Logo'),
             BooleanColumn::name('owner')
-                ->label('Besitzer?')->alignCenter(),
+                ->label('Besitzer?')->alignCenter()
+                ->defaultSort('desc'),
             BooleanColumn::name('ah')
                 ->label('AH')->alignCenter(),
+            Column::name('players.id:count')
+                ->label('Spieler'),
             Column::callback(['id'], function ($id) {
                 return view('admin.includes.table-actions', ['id' => $id]);
             })

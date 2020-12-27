@@ -54,25 +54,45 @@
                 </div>
                 <div class="mb-6 flex justify-start">
                     <div class="flex items-center mr-3">
-                        <input wire:model="club.owner" id="owner" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out">
+                        <input wire:model="club.owner" id="owner" type="checkbox" class="">
                         <label for="owner" class="ml-2 block leading-5 text-gray-900">
                             Besitzer?
                         </label>
                     </div>
                     <div class="flex items-center">
-                        <input wire:model="club.ah" id="ah" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out">
+                        <input wire:model="club.ah" id="ah" type="checkbox" class="">
                         <label for="ah" class="ml-2 block leading-5 text-gray-900">
                             Altherren-Team?
                         </label>
                     </div>
                 </div>
+                <div class="mb-6">
+                    <div class="">Spieler zuordnen</div>
+                    @foreach($all_players as $player)
+                        <div class="flex items-center">
+                            <input
+                                wire:key="{{ $player->id }}"
+                                wire:model="selected_players"
+                                name="player_{{ $player->id }}"
+                                class="text-primary-300 border border-black"
+                                type="checkbox"
+                                value="{{ $player->id }}" />
+                            <label for="player_{{ $player->id }}" class="ml-2 block leading-5 text-gray-900 w-1/3">
+                                {{ $player->first_name.", ".$player->last_name }}
+                            </label>
+                            <div class="">
+                                {{ $player->playerStatus->description }}
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </x-slot>
             <x-slot name="footer">
                 <div class="sm:flex sm:flex-row-reverse">
                     <span class="flex w-full sm:w-auto mb-2 sm:mb-0 sm:ml-2">
-                        <x-jet-button wire:click.prevent="store()" class="w-full justify-center" >
+                        <x-confirmation-button wire:click.prevent="store()" class="" >
                             {{ $club->id ? "Übernehmen" : "Anlegen" }}
-                        </x-jet-button>
+                        </x-confirmation-button>
                     </span>
                     <span class="flex w-full sm:w-auto">
                         <x-jet-secondary-button wire:click="closeModal()" wire:loading.attr="disabled" class="w-full justify-center">
@@ -86,9 +106,9 @@
     {{-- create a new club, opens modal --}}
     <div class="mb-4 flex justify-center sm:justify-start">
         <span class="block shadow-xl rounded-md">
-            <button wire:click="create()" class="btn btn-blue px-4 py-2">
+            <x-confirmation-button wire:click="create()">
                 Anlegen
-            </button>
+            </x-confirmation-button>
         </span>
     </div>
 

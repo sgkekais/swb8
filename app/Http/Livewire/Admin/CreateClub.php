@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Club;
+use App\Models\Player;
 use Livewire\Component;
 
 class CreateClub extends Component
@@ -10,6 +11,8 @@ class CreateClub extends Component
     public ?Club $club = null;
     public $is_open = false;
     public $is_open_delete = false;
+    public $all_players = null;
+    public $selected_players = [];
 
     protected $rules = [
         'club.name' => 'required',
@@ -28,6 +31,7 @@ class CreateClub extends Component
     public function mount()
     {
         $this->club ??= new Club();
+        $this->all_players = Player::orderBy('first_name')->with('PlayerStatus')->get();
     }
 
     public function openModal()
@@ -54,6 +58,7 @@ class CreateClub extends Component
     public function resetInputFields()
     {
         $this->club = new Club();
+        $this->selected_players = [];
     }
 
     public function create()
@@ -67,6 +72,7 @@ class CreateClub extends Component
         $this->validate();
 
         $this->club->save();
+        $this->club->players()->sync($this->selected_players);
 
         session()->flash('success', 'Mannschaft erfolgreich angelegt.');
 
@@ -77,6 +83,9 @@ class CreateClub extends Component
     public function edit(Club $club)
     {
         $this->club = $club;
+        $this->selected_players = Club::find($this->club->id)->players()->pluck('id')->toArray();
+        //dd($this->selected_players);
+        $this->selected_players = array_map('strval',$this->selected_players);
         $this->openModal();
     }
 

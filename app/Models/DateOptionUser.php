@@ -12,4 +12,17 @@ class DateOptionUser extends Pivot
      * @var string
      */
     protected $table = 'date_option_user';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'attend'
+    ];
+
+    protected $casts = [
+        'attend' => 'boolean'
+    ];
 }

@@ -55,23 +55,63 @@ class Player extends Model
     protected static $logFillable = true;
     protected static $logOnlyDirty = true;
 
-    public function user() {
+    /**
+     * A player can be linked to a user
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
         return $this->belongsTo('App\Models\User');
     }
 
-    public function playerStatus() {
+    public function dateOptions()
+    {
+        return $this->hasManyThrough('App\Models\DateOptionUser', 'App\Models\User');
+    }
+
+    /**
+     * A player belongs to one or many clubs
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function clubs()
+    {
+        return $this->belongsToMany('App\Models\Club')->withTimestamps();
+    }
+
+    /**
+     * A player has a 'status' (e.g. active, passive, injured, ...)
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function playerStatus()
+    {
         return $this->belongsTo('App\Models\PlayerStatus');
     }
 
-    public function goals() {
+    /**
+     * A player has one or many goals
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function goals()
+    {
         return $this->hasMany('App\Models\Goal');
     }
 
-    public function assists() {
+    /**
+     * A player has one or many assists
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function assists()
+    {
         return $this->hasMany('App\Models\Assist');
     }
 
-    public function cards() {
+    /**
+     * A player has one or many cards
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function cards()
+    {
         return $this->hasMany('App\Models\Card');
     }
+
 }
