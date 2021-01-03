@@ -15,18 +15,33 @@
         <form class="w-full">
             @csrf
             <x-slot name="content">
-                <!-- match type -->
-                <div class="mb-6">
-                    <x-jet-label class="text-green-600" for="match_type">
-                        Art des Spiels
-                    </x-jet-label>
-                    <div class="flex items-center">
-                        <select id="date_type" wire:model="match.match_type_id" class="form-select shadow-sm" autocomplete="off">
-                            <option selected="selected" value="">Bitte auswählen</option>
-                            @foreach($match_types as $match_type)
-                                <option value="{{ $match_type->id }}">{{ $match_type->description }}</option>
-                            @endforeach
-                        </select>
+                <!-- match type and season-->
+                <div class="mb-6 flex items-center space-x-4">
+                    <div>
+                        <x-jet-label class="text-green-600" for="match_type">
+                            Art des Spiels
+                        </x-jet-label>
+                        <div class="flex items-center">
+                            <select id="match_type" wire:model="match.match_type_id" class="form-select shadow-sm" autocomplete="off">
+                                <option selected="selected" value="">Bitte auswählen</option>
+                                @foreach($match_types as $match_type)
+                                    <option value="{{ $match_type->id }}">{{ $match_type->description }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <x-jet-label class="text-green-600" for="season_id">
+                            Saison
+                        </x-jet-label>
+                        <div class="flex items-center">
+                            <select id="season_id" wire:model="match.season_id" class="form-select shadow-sm" autocomplete="off">
+                                <option selected="selected" value="">Bitte auswählen</option>
+                                @foreach($seasons as $season)
+                                    <option value="{{ $season->id }}">{{ $season->title }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <!-- home and away club + result -->

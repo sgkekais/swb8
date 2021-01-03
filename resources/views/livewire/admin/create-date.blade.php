@@ -37,12 +37,12 @@
         <form class="w-full">
             @csrf
             <x-slot name="content">
-                <div class="font-semibold text-lg w-full border-b border-green-300 mb-6">
+                <div class="font-semibold text-lg w-full border-b border-green-700 mb-6">
                     Allgemeines
                 </div>
                 <!-- date type -->
                 <div class="mb-6">
-                    <x-jet-label class="text-green-600" for="date_type">
+                    <x-jet-label class="" for="date_type">
                         Art des Termins
                     </x-jet-label>
                     <div class="flex items-center">
@@ -52,16 +52,6 @@
                                 <option value="{{ $date_type->id }}">{{ $date_type->description }}</option>
                             @endforeach
                         </select>
-                        <div class="ml-2 text-green-500">
-                            @isset($date->date_type_id)
-                                @php
-                                    $selectedDateType = \App\Models\DateType::find($date->date_type_id);
-                                @endphp
-                                @isset ($selectedDateType)
-                                    {{ $selectedDateType->description }} ausgewählt
-                                @endisset
-                            @endisset
-                        </div>
                     </div>
                     <x-jet-input-error for="date.date_type_id" />
                 </div>
@@ -69,7 +59,7 @@
                     <!-- title and datetime -->
                     <div class="mb-6 flex items-center space-x-4">
                         <div class="w-4/6">
-                            <x-jet-label class="text-green-600" for="title">
+                            <x-jet-label class="" for="title">
                                 Titel
                             </x-jet-label>
                             <x-jet-input class="w-full" type="text" id="title" wire:model.lazy="date.title" />
@@ -77,7 +67,7 @@
                         </div>
                         <div class="w-2/6">
                             @unless($date->date_type_id == 1)
-                                <x-jet-label class="text-green-600" for="datetime">
+                                <x-jet-label class="" for="datetime">
                                     Wann?
                                 </x-jet-label>
                                 <x-jet-input class="w-full" type="datetime-local" id="datetime" wire:model.lazy="date.datetime" />
@@ -88,7 +78,7 @@
                     <!-- description and note -->
                     <div class="mb-6 flex items-center space-x-4">
                         <div class="w-4/6">
-                            <x-jet-label class="text-green-600" for="description">
+                            <x-jet-label class="" for="description">
                                 Beschreibung
                             </x-jet-label>
                             <textarea id="description" class="form-textarea w-full shadow-sm" wire:model.lazy="date.description">
@@ -97,7 +87,7 @@
                             <x-jet-input-error for="date.description" />
                         </div>
                         <div class="w-2/6">
-                            <x-jet-label class="text-green-600" for="note">
+                            <x-jet-label class="" for="note">
                                 Interne Notiz, nur für Admins sichtbar
                             </x-jet-label>
                             <textarea id="note" class="form-textarea w-full shadow-sm" wire:model.lazy="date.note">
@@ -106,9 +96,31 @@
                             <x-jet-input-error for="date.note" />
                         </div>
                     </div>
+                    <!-- clubs -->
+                    <div class=" font-bold uppercase">
+                        Gültig für
+                    </div>
+                    <div class="mb-6 flex items-center space-x-4">
+                        @foreach ($owned_clubs as $owned_club)
+                            <div class="flex items-center space-x-2">
+                                <x-jet-input
+                                    wire:key="{{ $owned_club->id }}"
+                                    wire:model.defer="assigned_clubs"
+                                    name="owned_club_{{ $owned_club->id }}"
+                                    class="text-primary-400 border border-black"
+                                    type="checkbox"
+                                    value="{{ $owned_club->id }}" />
+                                <label class="" for="owned_club_{{ $owned_club->id }}">
+                                    {{ $owned_club->name_short }}
+                                </label>
+                            </div>
+
+                        @endforeach
+                    </div>
+
                     <!-- location -->
                     <div class="mb-6">
-                        <x-jet-label class="text-green-600" for="location">
+                        <x-jet-label class="" for="location">
                             Wo?
                         </x-jet-label>
                         <select id="location" wire:model.lazy="date.location_id" class="form-select w-full shadow-sm">
@@ -122,26 +134,26 @@
                     <div class="flex items-center space-x-4">
                         <div class="flex">
                             <x-jet-input wire:model="date.published" id="published" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out shadow-sm"/>
-                            <x-jet-label for="published" class="ml-2 block leading-5 text-green-600" >
+                            <x-jet-label for="published" class="ml-2 block leading-5 " >
                                 Veröffentlichen?
                             </x-jet-label>
                         </div>
                         <div class="flex">
                             <x-jet-input wire:model="date.cancelled" id="cancelled" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out shadow-sm"/>
-                            <x-jet-label for="cancelled" class="ml-2 block leading-5 text-green-600" >
+                            <x-jet-label for="cancelled" class="ml-2 block leading-5 " >
                                 Abgesagt?
                             </x-jet-label>
                         </div>
                     </div>
                     <div class="mb-3">
                         @if ($date->published)
-                            <span class="text-sm text-green-500">Termin für alle sichtbar.</span>
+                            <span class="text-sm text-primary-700">Termin für alle sichtbar.</span>
                         @else
-                            <span class="text-sm text-yellow-500">Termin ist noch nicht sichtbar.</span>
+                            <span class="text-sm text-gray-500">Termin ist noch nicht sichtbar.</span>
                         @endif
                     </div>
                     <!-- poll options -->
-                    <div class="font-semibold text-lg w-full border-b border-green-300 mb-3">
+                    <div class="font-semibold text-lg w-full border-b border-green-700 mb-3">
                         Die zugehörige Umfrage pflegen
                     </div>
                     <div class="bg-gray-100 p-1 mb-3">
@@ -165,14 +177,14 @@
                     </div>
                     <div class="mb-6 flex items-center space-x-4">
                         <div class="w-2/6">
-                            <x-jet-label class="text-green-600" for="poll_begins">
+                            <x-jet-label class="" for="poll_begins">
                                 Umfragebeginn
                             </x-jet-label>
                             <x-jet-input class="w-full" type="date" id="poll_begins" wire:model.lazy="date.poll_begins" />
                             <x-jet-input-error for="date.poll_begins" />
                         </div>
                         <div class="w-2/6">
-                            <x-jet-label class="text-green-600" for="poll_ends">
+                            <x-jet-label class="" for="poll_ends">
                                 Umfrageschluss
                             </x-jet-label>
                             <x-jet-input class="w-full" type="date" id="poll_ends" wire:model.lazy="date.poll_ends"/>
@@ -180,7 +192,7 @@
                         </div>
                         <div class="flex space-x-2">
                             <x-jet-input wire:model="date.poll_is_open" id="poll_is_open" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out shadow-sm" />
-                            <x-jet-label class="ml-2 block leading-5 text-green-600" for="poll_is_open">
+                            <x-jet-label class="ml-2 block leading-5 " for="poll_is_open">
                                 Umfrage offen?
                             </x-jet-label>
                         </div>
@@ -189,7 +201,7 @@
                         @if ($date->date_type_id == 1 || $date->date_type_id == 4)
                             <div class="mb-6 flex items-end space-x-4">
                                 <div class="w-1/2">
-                                    <x-jet-label class="text-green-600" for="date_option" >
+                                    <x-jet-label class="" for="date_option" >
                                         Umfrageoptionen
                                         <br>
                                         {{ $date_option }}
@@ -225,27 +237,42 @@
 
                     @switch ($date->date_type_id)
                         @case (2)
-                            <div class="font-semibold text-lg w-full border-b border-green-300 mb-6">
+                            <div class="font-semibold text-lg w-full border-b border-primary-700 mb-6">
                                 Das zugehörige Spiel {{ $match->id ? "bearbeiten (ID: ".$match->id.")" : "anlegen" }}
                             </div>
-                            <!-- match type -->
-                            <div class="mb-6">
-                                <x-jet-label class="text-green-600" for="match_type">
-                                    Art des Spiels
-                                </x-jet-label>
-                                <div class="flex items-center">
-                                    <select id="date_type" wire:model="match.match_type_id" class="form-select shadow-sm" autocomplete="off">
-                                        <option selected="selected" value="">Bitte auswählen</option>
-                                        @foreach($match_types as $match_type)
-                                            <option value="{{ $match_type->id }}">{{ $match_type->description }}</option>
-                                        @endforeach
-                                    </select>
+                            <!-- match type and season-->
+                            <div class="mb-6 flex items-center space-x-4">
+                                <div>
+                                    <x-jet-label class="" for="match_type">
+                                        Art des Spiels
+                                    </x-jet-label>
+                                    <div class="flex items-center">
+                                        <select id="match_type" wire:model="match.match_type_id" class="form-select shadow-sm" autocomplete="off">
+                                            <option selected="selected" value="">Bitte auswählen</option>
+                                            @foreach($match_types as $match_type)
+                                                <option value="{{ $match_type->id }}">{{ $match_type->description }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <x-jet-label class="" for="season_id">
+                                        Saison
+                                    </x-jet-label>
+                                    <div class="flex items-center">
+                                        <select id="season_id" wire:model="match.season_id" class="form-select shadow-sm" autocomplete="off">
+                                            <option selected="selected" value="">Bitte auswählen</option>
+                                            @foreach($seasons as $season)
+                                                <option value="{{ $season->id }}">{{ $season->title }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <!-- home and away club + result -->
                             <div class="mb-6 flex space-x-4 items-center">
                                 <div class="flex-grow">
-                                    <x-jet-label class="text-green-600 text-center" for="match">
+                                    <x-jet-label class=" text-center" for="match">
                                         Heim
                                     </x-jet-label>
                                     <select id="match" wire:model="match.team_home" class="form-select w-full shadow-sm">
@@ -257,25 +284,25 @@
                                 </div>
                                 <!-- result -->
                                 <div class="flex flex-col flex-none space-y-1 w-1/6">
-                                    <x-jet-label class="text-green-600 text-center" value="Ergebnis" />
+                                    <x-jet-label class=" text-center" value="Ergebnis" />
                                     <div class="flex flex-row items-center space-x-1">
                                         <x-jet-input id="goals_home" type="text" class="w-full text-center" wire:model="match.goals_home" />
                                         <span class="block">:</span>
                                         <x-jet-input id="goals_away" type="text" class="w-full text-center" wire:model="match.goals_away" />
                                     </div>
-                                    <x-jet-label class="text-green-600 text-center" value="Halbzeit" />
+                                    <x-jet-label class=" text-center" value="Halbzeit" />
                                     <div class="flex flex-row items-center space-x-1">
                                         <x-jet-input id="goals_home_ht" type="text" class="w-full text-center" wire:model="match.goals_home_ht" />
                                         <span class="block">:</span>
                                         <x-jet-input id="goals_away_ht" type="text" class="w-full text-center" wire:model="match.goals_away_ht" />
                                     </div>
-                                    <x-jet-label class="text-green-600 text-center" value="11m" />
+                                    <x-jet-label class=" text-center" value="11m" />
                                     <div class="flex flex-row items-center space-x-1">
                                         <x-jet-input id="goals_home_pen" type="text" class="w-full text-center" wire:model="match.goals_home_pen" />
                                         <span class="block">:</span>
                                         <x-jet-input id="goals_away_pen" type="text" class="w-full text-center" wire:model="match.goals_away_pen" />
                                     </div>
-                                    <x-jet-label class="text-green-600 text-center" value="Wertung" />
+                                    <x-jet-label class=" text-center" value="Wertung" />
                                     <div class="flex flex-row items-center space-x-1">
                                         <x-jet-input id="goals_home_rated" type="text" class="w-full text-center" wire:model="match.goals_home_rated" />
                                         <span class="block">:</span>
@@ -283,7 +310,7 @@
                                     </div>
                                 </div>
                                 <div class="flex-grow">
-                                    <x-jet-label class="text-green-600 text-center" for="match">
+                                    <x-jet-label class=" text-center" for="match">
                                         Gast
                                     </x-jet-label>
                                     <select id="match" wire:model="match.team_away" class="form-select w-full shadow-sm">
@@ -296,7 +323,7 @@
                             </div>
                             <!-- match details -->
                             <div class="mb-6">
-                                <x-jet-label class="text-green-600" for="match_details">
+                                <x-jet-label class="" for="match_details">
                                     Spieldetails
                                 </x-jet-label>
                                 <textarea id="match_details" class="form-textarea w-full shadow-sm" wire:model="match.match_details">
@@ -307,38 +334,38 @@
                             <div class="mb-6 flex items-center space-x-4">
                                 <div class="flex">
                                     <x-jet-input wire:model="match.published" id="published" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out shadow-sm"/>
-                                    <x-jet-label class="text-green-600" for="published" class="ml-2 block leading-5" >
+                                    <x-jet-label class="" for="published" class="ml-2 block leading-5" >
                                         Veröffentlichen?
                                     </x-jet-label>
                                 </div>
                                 <div class="flex">
                                     <x-jet-input wire:model="match.cancelled" id="cancelled" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out shadow-sm"/>
-                                    <x-jet-label class="text-green-600" for="cancelled" class="ml-2 block leading-5" >
+                                    <x-jet-label class="" for="cancelled" class="ml-2 block leading-5" >
                                         Abgesagt?
                                     </x-jet-label>
                                 </div>
                             </div>
                             @break
                         @case (3)
-                            <div class="font-semibold text-lg w-full border-b border-green-300 mb-6">
+                            <div class="font-semibold text-lg w-full border-b border-primary-700 mb-6">
                                 Das zugehörige Turnier {{ $tournament->id ? "bearbeiten (ID: ".$tournament->id.")" : "anlegen" }}
                             </div>
                             <div class="mb-6">
-                                <x-jet-label class="text-green-600" for="tournament_title">
+                                <x-jet-label class="" for="tournament_title">
                                     Titel des Turniers
                                 </x-jet-label>
                                 <x-jet-input class="w-full" type="text" id="tournament_title" wire:model.lazy="tournament.title" />
                                 <x-jet-input-error for="tournament.title" />
                             </div>
                             <div class="mb-6">
-                                <x-jet-label class="text-green-600" for="tournament_desc">
+                                <x-jet-label class="" for="tournament_desc">
                                     Beschreibung des Turniers
                                 </x-jet-label>
                                 <x-jet-input class="w-full" type="text" id="tournament_desc" wire:model.lazy="tournament.description" />
                                 <x-jet-input-error for="tournament.description" />
                             </div>
                             <div class="mb-6">
-                                <x-jet-label class="text-green-600" for="tournament_place">
+                                <x-jet-label class="" for="tournament_place">
                                     Platz (Textfeld)
                                 </x-jet-label>
                                 <x-jet-input class="w-1/4" type="text" id="tournament_place" wire:model.lazy="tournament.place" />
@@ -354,9 +381,9 @@
                     <x-jet-validation-errors />
                     <span class="flex w-full sm:w-auto mb-2 sm:mb-0 sm:ml-2">
                         @if ($date->date_type_id && $date->date_type_id != "")
-                            <x-jet-button wire:click.prevent="store()" class="w-full justify-center" >
+                            <x-confirmation-button wire:click.prevent="store()" class="w-full justify-center" >
                                 Speichern
-                            </x-jet-button>
+                            </x-confirmation-button>
                         @endif
                     </span>
                     <span class="flex w-full sm:w-auto">

@@ -1,6 +1,6 @@
 <nav x-data="{ open: false }" class="">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto {{-- px-2 sm:px-6 lg:px-8>--}}">
         <div class="relative flex items-center justify-between h-16">
             <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 <!-- Mobile menu button-->
@@ -14,96 +14,136 @@
                 </button>
             </div>
             <!-- Logo -->
-            <div class="flex flex-grow">
+            <div class="flex flex-grow justify-center sm:flex-grow-0 sm:pr-0 sm:justify-start">
                 {{--<a href="{{ route('home') }}">
                     <x-jet-application-mark class="block h-9 w-auto" />
                      <img class="h-12" src="{{ asset('img/swblogo50inv.png') }}">
-                </a>--}}
-                <span class="hidden lg:inline-block font-uppercase font-bold tracking-tighter text-gray-700 text-lg">
+                </a>
+                <span class="uppercase font-bold tracking-tighter text-gray-700 text-lg">
                     <a href="{{ route('home') }}">{{ env('APP_NAME') }}</a>
-                </span>
+                </span>--}}
+                <a href="{{ route('home') }}" class="bg-white block md:p-4">
+                    <x-jet-application-mark class="block h-12 md:h-24 w-auto md:mt-12" title="{{ env('APP_NAME') }}"/>
+                </a>
             </div>
-            <div class="flex flex-grow items-center sm:items-stretch sm:justify-center">
-                <!-- Navigation Links -->
+            <!-- END Logo -->
+            <!-- Navigation Links -->
+            <div class="hidden sm:block flex flex-grow items-center sm:items-stretch sm:justify-center">
                 <div class="hidden sm:block">
-                    <div class="flex space-x-4">
-                        @auth
-                            <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" class="py-3">
-                                {{ __('Dashboard') }}
-                            </x-jet-nav-link>
-                            @if(Auth::user()->isAdmin())
+                    <div class="flex space-x-4 justify-between">
+                        <div class="flex space-x-2 pl-4">
+                            @foreach(\App\Models\Club::owner()->orderByDesc('name_code')->get() as $nav_club)
                                 <x-jet-dropdown align="left">
                                     <x-slot name="trigger">
-                                        <x-jet-nav-link :active="request()->routeIs('admin.*')" class="py-3">
-                                            Verwaltung <i class="inline-block ml-1 fas fa-sort-down"></i>
+                                        <x-jet-nav-link class="py-3 cursor-pointer" :active="request()->segment(2) == $nav_club->id">
+                                            {{ __($nav_club->name_code) }} <i class="inline-block ml-1 fas fa-sort-down"></i>
                                         </x-jet-nav-link>
                                     </x-slot>
                                     <x-slot name="content">
-                                        <!-- Site Management -->
-                                        <div class="block px-4 py-2 text-xs text-primary-600">
-                                            {{ __('Umfragen & Spiele') }}
-                                        </div>
-                                        <x-jet-dropdown-link href="{{ route('admin.dates') }}" :active="request()->routeIs('admin.dates')">
-                                            <i class="far fa-fw fa-calendar-alt"></i> Termine
+                                        <x-jet-dropdown-link href="{{ route('club.schedule', $nav_club) }}" :active="request()->segment(2) == $nav_club->id">
+                                            <i class="far fa-fw fa-calendar-alt"></i> Spielplan
                                         </x-jet-dropdown-link>
-                                        <x-jet-dropdown-link href="{{ route('admin.matches') }}" :active="request()->routeIs('admin.matches')">
-                                            <i class="fas fa-fw fa-stopwatch"></i> Spiele
+                                        <x-jet-dropdown-link>
+                                            <i class="far fa-fw fa-futbol"></i> Tore & Assists
                                         </x-jet-dropdown-link>
-                                        <x-jet-dropdown-link href="{{ route('admin.cards') }}" :active="request()->routeIs('admin.cards')">
+                                        <x-jet-dropdown-link>
                                             <i class="far fa-fw fa-copy"></i> Karten
                                         </x-jet-dropdown-link>
-                                        <x-jet-dropdown-link href="{{ route('admin.goals') }}" :active="request()->routeIs('admin.goals')">
-                                            <i class="far fa-fw fa-futbol"></i> Tore
+                                        <x-jet-dropdown-link>
+                                            <i class="far fa-fw fa-copy"></i> Kader
                                         </x-jet-dropdown-link>
-                                        <x-jet-dropdown-link href="{{ route('admin.assists') }}" :active="request()->routeIs('admin.assists')">
-                                            <i class="far fa-fw fa-handshake"></i> Vorlagen
-                                        </x-jet-dropdown-link>
-                                        <x-jet-dropdown-link href="{{ route('admin.tournaments') }}" :active="request()->routeIs('admin.tournaments')">
-                                            <i class="fas fa-fw fa-hotdog"></i> Turniere
-                                        </x-jet-dropdown-link>
-                                        <div class="border-t border-gray-300"></div>
-                                        <div class="block px-4 py-2 text-xs text-primary-600">
-                                            {{ __('Verwaltung') }}
-                                        </div>
-                                        <x-jet-dropdown-link href="{{ route('admin.player-statuses') }}" :active="request()->routeIs('admin.player-statuses')">
-                                            <i class="fas fa-fw fa-user-tag"></i> Spieler-Status
-                                        </x-jet-dropdown-link>
-                                        <x-jet-dropdown-link href="{{ route('admin.players') }}" :active="request()->routeIs('admin.players')">
-                                            <i class="fas fa-fw fa-user-friends"></i> Spieler
-                                        </x-jet-dropdown-link>
-                                        <x-jet-dropdown-link href="{{ route('admin.clubs') }}" :active="request()->routeIs('admin.clubs')">
-                                            <i class="fas fa-fw fa-shield-alt"></i> Mannschaften
-                                        </x-jet-dropdown-link>
-                                        <x-jet-dropdown-link href="{{ route('admin.locations') }}" :active="request()->routeIs('admin.locations')">
-                                            <i class="fas fa-fw fa-map-marked-alt"></i> Standorte
-                                        </x-jet-dropdown-link>
-                                        <x-jet-dropdown-link href="{{ route('admin.match-types') }}" :active="request()->routeIs('admin.match-types')">
-                                            <i class="fas fa-fw fa-handshake"></i> Spielarten
-                                        </x-jet-dropdown-link>
-                                        <x-jet-dropdown-link href="{{ route('admin.date-types') }}" :active="request()->routeIs('admin.date-types')">
-                                            <i class="fas fa-fw fa-calendar-alt"></i> Terminarten
-                                        </x-jet-dropdown-link>
-                                        <x-jet-dropdown-link href="{{ route('admin.log') }}" :active="request()->routeIs('admin.log')">
-                                            <i class="fas fa-fw fa-history"></i> Logbuch
-                                        </x-jet-dropdown-link>
-                                        <x-jet-dropdown-link href="{{ route('admin.log') }}" :active="request()->routeIs('admin.log')">
-                                            <i class="fas fa-fw fa-user"></i> Users
-                                        </x-jet-dropdown-link>
+
                                     </x-slot>
-
                                 </x-jet-dropdown>
+                            @endforeach
+                            <x-jet-nav-link href="#" class="py-3">
+                                Kalender
+                            </x-jet-nav-link>
+                            <x-jet-nav-link href="#" class="py-3">
+                                Verein
+                            </x-jet-nav-link>
+                        </div>
 
-                            @endif
+                        @auth
+                            <div class="flex space-x-2">
+                                <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" class="py-3">
+                                    Mein Verein
+                                </x-jet-nav-link>
+                                @if(Auth::user()->isAdmin())
+                                    <x-jet-dropdown align="left">
+                                        <x-slot name="trigger">
+                                            <x-jet-nav-link :active="request()->routeIs('admin.*')" class="py-3 cursor-pointer">
+                                                Verwaltung <i class="inline-block ml-1 fas fa-sort-down"></i>
+                                            </x-jet-nav-link>
+                                        </x-slot>
+                                        <x-slot name="content">
+                                            <!-- Site Management -->
+                                            <div class="block px-4 py-2 text-xs text-primary-600">
+                                                {{ __('Umfragen & Spiele') }}
+                                            </div>
+                                            <x-jet-dropdown-link href="{{ route('admin.dates') }}" :active="request()->routeIs('admin.dates')">
+                                                <i class="far fa-fw fa-calendar-alt"></i> Termine
+                                            </x-jet-dropdown-link>
+                                            <x-jet-dropdown-link href="{{ route('admin.matches') }}" :active="request()->routeIs('admin.matches')">
+                                                <i class="fas fa-fw fa-stopwatch"></i> Spiele
+                                            </x-jet-dropdown-link>
+                                            <x-jet-dropdown-link href="{{ route('admin.cards') }}" :active="request()->routeIs('admin.cards')">
+                                                <i class="far fa-fw fa-copy"></i> Karten
+                                            </x-jet-dropdown-link>
+                                            <x-jet-dropdown-link href="{{ route('admin.goals') }}" :active="request()->routeIs('admin.goals')">
+                                                <i class="far fa-fw fa-futbol"></i> Tore
+                                            </x-jet-dropdown-link>
+                                            <x-jet-dropdown-link href="{{ route('admin.assists') }}" :active="request()->routeIs('admin.assists')">
+                                                <i class="far fa-fw fa-handshake"></i> Vorlagen
+                                            </x-jet-dropdown-link>
+                                            <x-jet-dropdown-link href="{{ route('admin.tournaments') }}" :active="request()->routeIs('admin.tournaments')">
+                                                <i class="fas fa-fw fa-hotdog"></i> Turniere
+                                            </x-jet-dropdown-link>
+                                            <x-jet-dropdown-link href="{{ route('admin.seasons') }}" :active="request()->routeIs('admin.seasons')">
+                                                <i class="fas fa-fw fa-sync"></i> Saisons
+                                            </x-jet-dropdown-link>
+                                            <div class="border-t border-gray-300"></div>
+                                            <div class="block px-4 py-2 text-xs text-primary-600">
+                                                {{ __('Verwaltung') }}
+                                            </div>
+                                            <x-jet-dropdown-link href="{{ route('admin.player-statuses') }}" :active="request()->routeIs('admin.player-statuses')">
+                                                <i class="fas fa-fw fa-user-tag"></i> Spieler-Status
+                                            </x-jet-dropdown-link>
+                                            <x-jet-dropdown-link href="{{ route('admin.players') }}" :active="request()->routeIs('admin.players')">
+                                                <i class="fas fa-fw fa-user-friends"></i> Spieler
+                                            </x-jet-dropdown-link>
+                                            <x-jet-dropdown-link href="{{ route('admin.clubs') }}" :active="request()->routeIs('admin.clubs')">
+                                                <i class="fas fa-fw fa-shield-alt"></i> Mannschaften
+                                            </x-jet-dropdown-link>
+                                            <x-jet-dropdown-link href="{{ route('admin.locations') }}" :active="request()->routeIs('admin.locations')">
+                                                <i class="fas fa-fw fa-map-marked-alt"></i> Standorte
+                                            </x-jet-dropdown-link>
+                                            <x-jet-dropdown-link href="{{ route('admin.match-types') }}" :active="request()->routeIs('admin.match-types')">
+                                                <i class="fas fa-fw fa-handshake"></i> Spielarten
+                                            </x-jet-dropdown-link>
+                                            <x-jet-dropdown-link href="{{ route('admin.date-types') }}" :active="request()->routeIs('admin.date-types')">
+                                                <i class="fas fa-fw fa-calendar-alt"></i> Terminarten
+                                            </x-jet-dropdown-link>
+                                            <x-jet-dropdown-link href="{{ route('admin.log') }}" :active="request()->routeIs('admin.log')">
+                                                <i class="fas fa-fw fa-history"></i> Logbuch
+                                            </x-jet-dropdown-link>
+                                            <x-jet-dropdown-link href="#">
+                                                <i class="fas fa-fw fa-user"></i> Users
+                                            </x-jet-dropdown-link>
+                                        </x-slot>
+
+                                    </x-jet-dropdown>
+
+                                @endif
+                            </div>
+
                         @endauth
                     </div>
                 </div>
-                <!-- END Navigation Links -->
             </div>
-
-
-            <!-- END Logo -->
+            <!-- END Navigation Links -->
             <!-- Settings Dropdown -->
-            <div class="flex flex-grow justify-end items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            <div class="flex justify-end items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 @auth
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">
@@ -115,11 +155,11 @@
                         <x-slot name="content">
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Account verwalten') }}
+                                Account verwalten
                             </div>
 
                             <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Profil') }}
+                                Einstellungen
                             </x-jet-dropdown-link>
 
                             <div class="border-t border-gray-100"></div>

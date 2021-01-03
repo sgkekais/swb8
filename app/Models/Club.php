@@ -55,6 +55,11 @@ class Club extends Model
     protected static $logFillable = true;
     protected static $logOnlyDirty = true;
 
+    public function scopeOwner($query)
+    {
+        return $query->where('owner',1);
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
@@ -62,4 +67,28 @@ class Club extends Model
     {
         return $this->belongsToMany('App\Models\Player')->withTimestamps();
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function dates()
+    {
+        return $this->belongsToMany('App\Models\Date')->withTimestamps();
+    }
+
+    public function homeMatches()
+    {
+        return $this->hasMany(Match::class, 'team_home');
+    }
+
+    public function awayMatches()
+    {
+        return $this->hasMany(Match::class, 'team_away');
+    }
+
+    public function matches()
+    {
+        return $this->homeMatches->merge($this->awayMatches);
+    }
+
 }

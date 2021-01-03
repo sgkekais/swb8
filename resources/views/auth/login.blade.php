@@ -11,37 +11,39 @@
                 {{ session('status') }}
             </div>
         @endif
-
+        <div class="mb-6">
+            <h1 class="uppercase">Login</h1>
+        </div>
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
             <div>
                 <x-jet-label value="{{ __('Email') }}" />
-                <x-jet-input class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                <x-input-text type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <div class="mt-4">
                 <x-jet-label value="{{ __('Password') }}" />
-                <x-jet-input class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+                <x-input-text type="password" name="password" required autocomplete="current-password"  />
             </div>
 
             <div class="block mt-4">
                 <label class="flex items-center">
-                    <input type="checkbox" class="form-checkbox shadow-sm" name="remember">
+                    <x-input-checkbox name="remember" />
                     <span class="ml-2 text-sm">{{ __('Merken?') }}</span>
                 </label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="flex items-center justify-end mt-4 space-x-2">
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-500 hover:text-green-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
 
-                <x-jet-button class="ml-4">
+                <x-confirmation-button class="">
                     {{ __('Login') }}
-                </x-jet-button>
+                </x-confirmation-button>
             </div>
         </form>
     </x-jet-authentication-card>

@@ -75,7 +75,7 @@ class Player extends Model
      */
     public function clubs()
     {
-        return $this->belongsToMany('App\Models\Club')->withTimestamps();
+        return $this->belongsToMany('App\Models\Club')->withPivot('number')->withTimestamps();
     }
 
     /**

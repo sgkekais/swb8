@@ -1,9 +1,12 @@
-<div class="min-h-screen flex flex-col justify-center items-center bg-pattern">
+<div class="min-h-screen flex flex-col justify-center items-center"
+    style="background-image: url('img/bg-3.jpg'); background-position: bottom; background-size: cover; background-repeat: no-repeat">
     <div>
         {{ $logo }}
     </div>
-
-    <div class="w-10/12 sm:max-w-md mt-6 px-6 py-4 bg-gray-100 shadow-xl overflow-hidden rounded-lg">
-        {{ $slot }}
+    <div class="relative w-10/12 sm:max-w-md mt-6">
+        <div class="absolute bg-primary-600 top-0.5 -right-0.5 -bottom-0.5 left-0.5" style="transform-origin: 50% 50% 0px;border-radius: 0%;"></div>
+        <div class="relative p-4 bg-white border border-black">
+            {{ $slot }}
+        </div>
     </div>
 </div>

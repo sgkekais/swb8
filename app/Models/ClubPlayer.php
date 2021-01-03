@@ -7,4 +7,7 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 class ClubPlayer extends Pivot
 {
     //
+    protected $fillable = [
+        'number'
+    ];
 }

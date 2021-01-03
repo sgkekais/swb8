@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Goal;
+use App\Models\Player;
 use Mediconesystems\LivewireDatatables\BooleanColumn;
 use Mediconesystems\LivewireDatatables\Column;
 use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
@@ -14,18 +15,20 @@ class GoalTable extends LivewireDatatable
 
     public $exportable = true;
 
+    public $perPage = 15;
+
     public function columns()
     {
         return [
             NumberColumn::name('id')
                 ->label('ID')
                 ->defaultSort('desc'),
-            NumberColumn::name('match_id')
-                ->label('Match')
-                ->filterable(),
-            NumberColumn::name('player_id')
+            Column::callback('match_id', function ($match_id) {
+                return "<a href='".route('admin.matches', ['match_id' => $match_id])."' class='text-blue-700'>".$match_id."</a>";
+            })->label('Match-ID'),
+            Column::name('player.nickname')
                 ->label('Spieler')
-                ->filterable()
+                ->filterable($this->players)
                 ->searchable(),
             Column::name('score')
                 ->label('Ergebnis')
@@ -37,4 +40,10 @@ class GoalTable extends LivewireDatatable
                 ->filterable()
         ];
     }
+
+    public function getPlayersProperty ()
+    {
+        return Player::orderBy('nickname')->pluck('nickname');
+    }
+
 }

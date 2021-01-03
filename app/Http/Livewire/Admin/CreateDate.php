@@ -9,6 +9,7 @@ use App\Models\DateType;
 use App\Models\Location;
 use App\Models\Match;
 use App\Models\MatchType;
+use App\Models\Season;
 use App\Models\Tournament;
 use Illuminate\Support\Collection;
 use Livewire\Component;
@@ -26,6 +27,9 @@ class CreateDate extends Component
     public $locations = [];
     public $clubs = [];
     public Collection $date_options;
+    public $assigned_clubs = [];
+    public $owned_clubs = [];
+    public $seasons = [];
 
     protected $listeners = [
         'editTableEntry' => 'edit',
@@ -39,6 +43,8 @@ class CreateDate extends Component
         $this->tournament ??= new Tournament();
         $this->date_option ??= new DateOption();
         $this->date_options = $this->date->dateOptions;
+        $this->owned_clubs = Club::owner()->get();
+        $this->seasons = Season::orderBy('number', 'desc')->get();
     }
 
     protected $rules = [
@@ -56,6 +62,7 @@ class CreateDate extends Component
         'date_option.description' => 'nullable',
         'date_options.*.description' => 'nullable',
         'match.match_type_id' => '',
+        'match.season_id' => '',
         'match.team_home' => 'nullable',
         'match.team_away' => 'nullable',
         'match.goals_home' => 'nullable|numeric|min:0',
@@ -107,6 +114,7 @@ class CreateDate extends Component
         $this->tournament = new Tournament();
         $this->date_option = new DateOption();
         $this->date_options = $this->date->dateOptions;
+        $this->assigned_clubs = [];
     }
 
     public function addDateOption()
@@ -138,6 +146,8 @@ class CreateDate extends Component
                 // we have to  a) check if options were removed and delete these, and b) save any new options
 
             }
+            // sync the clubs
+            $this->date->clubs()->sync($this->assigned_clubs);
 
         } elseif ($this->date->date_type_id == 2) {
             // match -> save date with poll = date->datetime (begins -14 days, ends = datetime) and match
@@ -161,6 +171,8 @@ class CreateDate extends Component
         $this->match = $date->match;
         $this->date_options = $date->dateOptions;
         $this->tournament = $date->tournament;
+        $this->assigned_clubs = $this->date->clubs()->get()->pluck('id')->toArray();
+        $this->assigned_clubs = array_map('strval', $this->assigned_clubs);
         $this->openModal();
     }
 

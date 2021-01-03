@@ -17,6 +17,13 @@ Route::get('/', function () {
     return view('index');
 })->name('home');
 
+// fixtures -> how?
+Route::prefix('team')->name('club.')->group(function () {
+    Route::get('/{club}/spielplan',Schedule::class )->name('schedule');
+});
+// goals & assists
+// cards
+
 Route::middleware(['auth:sanctum', 'verified', 'is_banned'])->group(function () {
     // Dashboard for all logged-in users
     Route::get('/dashboard', function () {
@@ -52,6 +59,8 @@ Route::middleware(['auth:sanctum', 'verified', 'is_banned'])->group(function () 
         Route::view('matches', 'admin.matches.index')->name('matches');
         // Tournaments
         Route::view('tournaments', 'admin.tournaments.index')->name('tournaments');
+        // Seasons
+        Route::view('seasons', 'admin.seasons.index')->name('seasons');
     });
 
 });

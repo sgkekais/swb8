@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin;
 use App\Models\Club;
 use App\Models\Match;
 use App\Models\MatchType;
+use App\Models\Season;
 use Livewire\Component;
 
 class CreateMatch extends Component
@@ -14,6 +15,7 @@ class CreateMatch extends Component
     public $match_types = [];
     public $locations = [];
     public $clubs = [];
+    public $seasons = [];
 
     protected $listeners = [
         'editTableEntry' => 'edit',
@@ -23,6 +25,7 @@ class CreateMatch extends Component
     public function mount()
     {
         $this->match ??= new Match();
+        $this->seasons = Season::orderBy('number', 'desc')->get();
     }
 
     protected $rules = [

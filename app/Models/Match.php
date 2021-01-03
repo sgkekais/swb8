@@ -26,6 +26,7 @@ class Match extends Model
     protected $fillable = [
         'date_id',
         'match_type_id',
+        'season_id',
         'matchweek',
         'team_home',
         'team_away',
@@ -76,36 +77,47 @@ class Match extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function date() {
+    public function date()
+    {
         return $this->belongsTo('App\Models\Date');
+    }
+
+    public function season()
+    {
+        return $this->hasOne('App\Models\Season');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function matchType() {
+    public function matchType()
+    {
         return $this->belongsTo('App\Models\MatchType');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function teamHome() {
+    public function teamHome()
+    {
         return $this->belongsTo('App\Models\Club', 'team_home');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function teamAway() {
+    public function teamAway()
+    {
         return $this->belongsTo('App\Models\Club', 'team_away');
     }
 
-    public function goals() {
+    public function goals()
+    {
         return $this->hasMany('App\Models\Goal');
     }
 
-    public function cards() {
+    public function cards()
+    {
         return $this->hasMany('App\Models\Card');
     }
 

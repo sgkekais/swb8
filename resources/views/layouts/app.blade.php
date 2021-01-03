@@ -11,7 +11,7 @@
         {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"> --}}
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
@@ -22,21 +22,21 @@
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.6.0/dist/alpine.js" defer></script>
 
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-mono antialiased">
         <div class="min-h-screen bg-white">
 
-            @livewire('navigation-dropdown')
+            <div class="h-64" style="background-image: url({{ asset('img/bg-1.jpg') }}); background-position: center; background-size: cover">
+                @livewire('navigation-dropdown')
+            </div>
 
-            @if(request()->route()->getPrefix() == '/admin')
-                <!-- Page Heading -->
-                <header class="">
-                    <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-                        <h2 class="font-extrabold uppercase text-primary-500 text-xl leading-tight ">
-                            {{ $header }}
-                        </h2>
-                    </div>
-                </header>
-            @endunless
+            <!-- Page Heading -->
+            <header class="">
+                <div class="-mt-20 bg-white max-w-7xl mx-auto p-6 ">
+                    <h1 class="font-sans font-extrabold text-2xl tracking-tighter">
+                        {{ $header }}
+                    </h1>
+                </div>
+            </header>
 
             <!-- Page Content -->
             <main>

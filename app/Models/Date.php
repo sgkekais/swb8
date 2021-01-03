@@ -109,32 +109,48 @@ class Date extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function dateType() {
+    public function dateType()
+    {
         return $this->belongsTo('App\Models\DateType');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function dateOptions() {
+    public function dateOptions()
+    {
         return $this->hasMany('App\Models\DateOption');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function location() {
+    public function location()
+    {
         return $this->belongsTo('App\Models\Location');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function match() {
+    public function match()
+    {
         return $this->hasOne('App\Models\Match');
     }
 
-    public function tournament() {
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function tournament()
+    {
         return $this->hasOne('App\Models\Tournament');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function clubs()
+    {
+        return $this->belongsToMany('App\Models\Club')->withTimestamps();
     }
 }

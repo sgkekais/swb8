@@ -13,10 +13,11 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Roboto Mono', ...defaultTheme.fontFamily.sans],
+                sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
+                mono: ['Roboto Mono', ...defaultTheme.fontFamily.mono],
             },
             colors: {
-                'primary': colors.lime,
+                'primary': colors.green,
             },
         },
     },

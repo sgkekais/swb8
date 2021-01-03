@@ -8,14 +8,14 @@
         <div class="flex justify-between items-center mb-1">
             <div class="flex-grow h-10 flex items-center">
                 @if($this->searchableColumns()->count())
-                    <div class="w-3/4 flex rounded-lg">
+                    <div class="w-1/2 flex rounded-lg">
                         <div class="relative flex-grow focus-within:z-10">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <svg class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" stroke="currentColor" fill="none">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                 </svg>
                             </div>
-                            <input wire:model="search" class="form-input bg-gray-200 border-none block w-full rounded-md pl-10 transition ease-in-out duration-150 " placeholder="Suche in Spalte {{ $this->searchableColumns()->map->label->join(', ') }}" />
+                            <input wire:model="search" type="text" class="w-full pl-10 " placeholder="Suche in Spalte {{ $this->searchableColumns()->map->label->join(', ') }}" />
                             <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
                                 <button wire:click="$set('search', null)" class="text-gray-400 hover:text-red-500 focus:outline-none">
                                     <x-icons.x-circle class="h-5 w-5 stroke-current" />
@@ -55,8 +55,8 @@
             </div>
         @endif
 
-        <div class="bg-gray-100 shadow sm:rounded-lg mt-4">
-            <div class="rounded-lg @unless($this->hidePagination) rounded-b-none @endif max-w-screen overflow-x-scroll bg-white">
+        <div class="mt-4">
+            <div class="border border-black @unless($this->hidePagination) border-b-0 @endif max-w-screen overflow-x-scroll bg-white">
                 <div class="table align-middle min-w-full">
                     @unless($this->hideHeader)
                         <div class="table-row divide-x divide-gray-200">
@@ -125,11 +125,11 @@
                 </div>
             </div>
             @unless($this->hidePagination)
-                <div class="rounded-lg rounded-t-none max-w-screen rounded-lg border-b border-gray-200 text-gray-600">
+                <div class="max-w-screen border border-black border-t-0 text-gray-600">
                     <div class="p-2 sm:flex items-center justify-between">
                         <div class="my-2 sm:my-0 flex items-center">
-                            <div class="mr-2">Zeige</div>
-                            <select name="perPage" class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" wire:model="perPage">
+                            <div class="mr-2 font-bolder">Zeige</div>
+                            <select name="perPage" class="mt-1 pl-3 pr-10 py-2 sm:text-sm sm:leading-5" wire:model="perPage">
                                 <option value="10">15</option>
                                 <option value="25">25</option>
                                 <option value="50">50</option>
@@ -149,7 +149,7 @@
                         </div>
 
                         <div class="flex justify-end">
-                            Ergebnis <span class="inline-block px-1 font-bold">{{ $this->results->firstItem() }} - {{ $this->results->lastItem() }}</span> von
+                            Ergebnis <span class="inline-block px-1 font-bold">{{ $this->results->firstItem() }}-{{ $this->results->lastItem() }}</span> von
                             <span class="inline-block px-1 font-bold">{{ $this->results->total() }}</span>
                         </div>
                     </div>
