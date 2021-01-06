@@ -3,12 +3,8 @@
         Paarungen
     </x-slot>
 
-    <div class="py-8">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <livewire:admin.create-match />
+    <livewire:admin.create-match />
 
-            <livewire:admin.match-table />
-        </div>
-    </div>
+    <livewire:admin.match-table />
 
 </x-app-layout>

@@ -26,6 +26,7 @@ class CreatePlayer extends Component
         'player.left' => 'date|nullable',
         'player.public_note' => 'nullable',
         'player.internal_note' => 'nullable',
+        'player.is_public' => 'boolean',
     ];
 
     protected $listeners = [

@@ -30,7 +30,7 @@
             <x-slot name="content">
                 <div class="flex mb-6 space-x-2">
                     <div class="">
-                        <x-jet-label class="text-green-600" for="player_status">
+                        <x-jet-label class="" for="player_status">
                             Spieler-Status
                         </x-jet-label>
                         <select id="player_status" wire:model="player.player_status_id" class="shadow-sm" autocomplete="off">
@@ -48,7 +48,7 @@
                         @endif
                     </div>
                     <div class="">
-                        <x-jet-label class="text-green-600" for="user_id">
+                        <x-jet-label class="" for="user_id">
                             User
                         </x-jet-label>
                         <select id="user_id" wire:model="player.user_id" class="shadow-sm" autocomplete="off">
@@ -125,18 +125,24 @@
                         <x-jet-input-error for="player.internal_note" />
                     </div>
                 </div>
+                <div class="mb-6 flex items-center space-x-2">
+                    <x-input-checkbox name="is_public" id="is_public" wire:model="player.is_public" />
+                    <x-input-checkbox-label for="is_public">
+                        Öffentlich sichtbar?
+                    </x-input-checkbox-label>
+                </div>
             </x-slot>
             <x-slot name="footer">
                 <div class="sm:flex sm:flex-row-reverse">
                     <span class="flex w-full sm:w-auto mb-2 sm:mb-0 sm:ml-2">
-                        <x-jet-button wire:click.prevent="store()" class="w-full justify-center" >
+                        <x-confirmation-button wire:click.prevent="store()" >
                             {{ $player->id ? "Übernehmen" : "Anlegen" }}
-                        </x-jet-button>
+                        </x-confirmation-button>
                     </span>
                     <span class="flex w-full sm:w-auto">
-                        <x-jet-secondary-button wire:click="closeModal()" wire:loading.attr="disabled" class="w-full justify-center">
+                        <x-button wire:click="closeModal()" wire:loading.attr="disabled" >
                             Abbrechen
-                        </x-jet-secondary-button>
+                        </x-button>
                     </span>
                 </div>
             </x-slot>
@@ -144,11 +150,9 @@
     </x-jet-dialog-modal>
     {{-- create a new player, opens modal --}}
     <div class="mb-4 flex justify-center sm:justify-start">
-        <span class="block shadow-xl rounded-md">
-            <button wire:click="create()" class="btn btn-blue px-4 py-2">
-                Anlegen
-            </button>
-        </span>
+        <x-confirmation-button wire:click="create()">
+            Anlegen
+        </x-confirmation-button>
     </div>
 
 

@@ -56,15 +56,30 @@ class Goal extends Model
     protected static $logFillable = true;
     protected static $logOnlyDirty = true;
 
-    public function match() {
+    /**
+     * A goal belongs to a match
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function match()
+    {
         return $this->belongsTo('App\Models\Match');
     }
 
-    public function player() {
+    /**
+     * A goal belongs to a player
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function player()
+    {
         return $this->belongsTo('App\Models\Player');
     }
 
-    public function assist() {
+    /**
+     * A goal might have an assist
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function assist()
+    {
         return $this->hasOne('App\Models\Assist');
     }
 

@@ -103,16 +103,14 @@
                     <div class="mb-6 flex items-center space-x-4">
                         @foreach ($owned_clubs as $owned_club)
                             <div class="flex items-center space-x-2">
-                                <x-jet-input
+                                <x-input-checkbox
                                     wire:key="{{ $owned_club->id }}"
                                     wire:model.defer="assigned_clubs"
                                     name="owned_club_{{ $owned_club->id }}"
-                                    class="text-primary-400 border border-black"
-                                    type="checkbox"
                                     value="{{ $owned_club->id }}" />
-                                <label class="" for="owned_club_{{ $owned_club->id }}">
+                                <x-input-checkbox-label class="" for="owned_club_{{ $owned_club->id }}">
                                     {{ $owned_club->name_short }}
-                                </label>
+                                </x-input-checkbox-label>
                             </div>
 
                         @endforeach
@@ -131,19 +129,15 @@
                         </select>
                     </div>
                     <!-- date published / cancelled -->
-                    <div class="flex items-center space-x-4">
-                        <div class="flex">
-                            <x-jet-input wire:model="date.published" id="published" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out shadow-sm"/>
-                            <x-jet-label for="published" class="ml-2 block leading-5 " >
-                                Veröffentlichen?
-                            </x-jet-label>
-                        </div>
-                        <div class="flex">
-                            <x-jet-input wire:model="date.cancelled" id="cancelled" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out shadow-sm"/>
-                            <x-jet-label for="cancelled" class="ml-2 block leading-5 " >
-                                Abgesagt?
-                            </x-jet-label>
-                        </div>
+                    <div class="flex items-center space-x-2">
+                        <x-input-checkbox wire:model="date.published" id="published" />
+                        <x-input-checkbox-label for="published">
+                            Veröffentlichen?
+                        </x-input-checkbox-label>
+                        <x-input-checkbox wire:model="date.cancelled" id="cancelled" />
+                        <x-input-checkbox-label for="cancelled">
+                            Abgesagt?
+                        </x-input-checkbox-label>
                     </div>
                     <div class="mb-3">
                         @if ($date->published)
@@ -191,10 +185,10 @@
                             <x-jet-input-error for="date.poll_ends" />
                         </div>
                         <div class="flex space-x-2">
-                            <x-jet-input wire:model="date.poll_is_open" id="poll_is_open" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out shadow-sm" />
-                            <x-jet-label class="ml-2 block leading-5 " for="poll_is_open">
+                            <x-input-checkbox wire:model="date.poll_is_open" id="poll_is_open" />
+                            <x-input-checkbox-label for="poll_is_open">
                                 Umfrage offen?
-                            </x-jet-label>
+                            </x-input-checkbox-label>
                         </div>
                     </div>
                     <div>
@@ -387,9 +381,9 @@
                         @endif
                     </span>
                     <span class="flex w-full sm:w-auto">
-                        <x-jet-secondary-button wire:click="closeModal()" wire:loading.attr="disabled" class="w-full justify-center">
+                        <x-button wire:click="closeModal()" wire:loading.attr="disabled" class="w-full justify-center">
                             Abbrechen
-                        </x-jet-secondary-button>
+                        </x-button>
                     </span>
                 </div>
             </x-slot>

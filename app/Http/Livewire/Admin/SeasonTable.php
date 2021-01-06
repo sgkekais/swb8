@@ -26,7 +26,10 @@ class SeasonTable extends LivewireDatatable
                 ->searchable(),
             Column::name('description')
                 ->label('Beschreibung')
+                ->truncate(50)
                 ->searchable(),
+            BooleanColumn::name('is_ah_season')
+                ->filterable(),
             Column::callback(['id'], function ($id) {
                 return view('admin.includes.table-actions', ['id' => $id]);
             })

@@ -33,7 +33,8 @@ class Player extends Model
         'joined',
         'left',
         'public_note',
-        'internal_note'
+        'internal_note',
+        'is_public'
     ];
 
     /**
@@ -45,6 +46,7 @@ class Player extends Model
         'joined' => 'date:Y-m-d',
         'left' => 'date:Y-m-d',
         'dob' => 'date:Y-m-d',
+        'is_public' => 'boolean'
     ];
 
     /**
@@ -54,6 +56,19 @@ class Player extends Model
      */
     protected static $logFillable = true;
     protected static $logOnlyDirty = true;
+
+    /**
+     * SCOPES
+     */
+
+    public function scopeIsPublic($query, $true)
+    {
+        return $query->where('is_public', $true);
+    }
+
+    /**
+     * RELATIONSHIPS
+     */
 
     /**
      * A player can be linked to a user

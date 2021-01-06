@@ -52,34 +52,32 @@
                     <x-jet-input class="w-full" type="text" id="club.logo_url" wire:model.defer="club.logo_url" required />
                     <x-jet-input-error for="club.logo_url" />
                 </div>
-                <div class="mb-6 flex justify-start">
-                    <div class="flex items-center mr-3">
-                        <input wire:model="club.owner" id="owner" type="checkbox" class="">
-                        <label for="owner" class="ml-2 block leading-5 text-gray-900">
+                <div class="mb-6 flex justify-start space-x-2">
+                    <div class="flex items-center space-x-2">
+                        <x-input-checkbox wire:model="club.owner" id="owner" />
+                        <x-input-checkbox-label for="owner">
                             Besitzer?
-                        </label>
+                        </x-input-checkbox-label>
                     </div>
-                    <div class="flex items-center">
-                        <input wire:model="club.ah" id="ah" type="checkbox" class="">
-                        <label for="ah" class="ml-2 block leading-5 text-gray-900">
+                    <div class="flex items-center space-x-2">
+                        <x-input-checkbox wire:model="club.ah" id="ah" />
+                        <x-input-checkbox-label for="ah">
                             Altherren-Team?
-                        </label>
+                        </x-input-checkbox-label>
                     </div>
                 </div>
                 <div class="mb-6">
                     <div class="">Spieler zuordnen</div>
                     @foreach($all_players as $player)
-                        <div class="flex items-center">
-                            <input
+                        <div class="flex items-center space-x-3">
+                            <x-input-checkbox
                                 wire:key="{{ $player->id }}"
                                 wire:model="selected_players"
                                 name="player_{{ $player->id }}"
-                                class="text-primary-300 border border-black"
-                                type="checkbox"
                                 value="{{ $player->id }}" />
-                            <label for="player_{{ $player->id }}" class="ml-2 block leading-5 text-gray-900 w-1/3">
+                            <x-input-checkbox-label for="player_{{ $player->id }}" class="w-1/3">
                                 {{ $player->first_name.", ".$player->last_name }}
-                            </label>
+                            </x-input-checkbox-label>
                             <div class="">
                                 {{ $player->playerStatus->description }}
                             </div>
@@ -95,9 +93,9 @@
                         </x-confirmation-button>
                     </span>
                     <span class="flex w-full sm:w-auto">
-                        <x-jet-secondary-button wire:click="closeModal()" wire:loading.attr="disabled" class="w-full justify-center">
+                        <x-button wire:click="closeModal()" wire:loading.attr="disabled" >
                             Abbrechen
-                        </x-jet-secondary-button>
+                        </x-button>
                     </span>
                 </div>
             </x-slot>
@@ -105,11 +103,9 @@
     </x-jet-dialog-modal>
     {{-- create a new club, opens modal --}}
     <div class="mb-4 flex justify-center sm:justify-start">
-        <span class="block shadow-xl rounded-md">
-            <x-confirmation-button wire:click="create()">
-                Anlegen
-            </x-confirmation-button>
-        </span>
+        <x-confirmation-button wire:click="create()">
+            Anlegen
+        </x-confirmation-button>
     </div>
 
 

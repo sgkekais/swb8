@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Player;
+use App\Models\PlayerStatus;
+use Mediconesystems\LivewireDatatables\BooleanColumn;
 use Mediconesystems\LivewireDatatables\Column;
 use Mediconesystems\LivewireDatatables\DateColumn;
 use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
@@ -18,8 +20,9 @@ class PlayerTable extends LivewireDatatable
             NumberColumn::name('id')
                 ->label('ID')
                 ->defaultSort('desc'),
-            Column::name('player_status_id')
-                ->label('Status'),
+            Column::name('PlayerStatus.description')
+                ->label('Status')
+                ->filterable($this->playerStatusDescription),
             Column::name('user_id')
                 ->label('User'),
             Column::name('first_name')
@@ -43,9 +46,15 @@ class PlayerTable extends LivewireDatatable
             Column::name('internal_note')
                 ->label('Notiz (int.)')
                 ->truncate(),
+            BooleanColumn::name('is_public')->label('Öffentl.'),
             Column::callback(['id'], function ($id) {
                 return view('admin.includes.table-actions', ['id' => $id]);
             })
         ];
+    }
+
+    public function getPlayerStatusDescriptionProperty()
+    {
+        return PlayerStatus::all()->pluck('description');
     }
 }

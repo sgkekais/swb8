@@ -44,25 +44,25 @@
                 </div>
                 <!-- match published / cancelled -->
                 <div class="mb-6 flex items-center space-x-4">
-                    <div class="flex">
-                        <x-jet-input wire:model="match_type.is_point_match" id="point_match" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out shadow-sm"/>
-                        <x-jet-label class="text-green-600" for="point_match" class="ml-2 block leading-5" >
+                    <div class="flex space-x-2">
+                        <x-input-checkbox wire:model="match_type.is_point_match" id="point_match" />
+                        <x-input-checkbox-label for="point_match">
                             Punktspiel?
-                        </x-jet-label>
+                        </x-input-checkbox-label>
                     </div>
                 </div>
             </x-slot>
             <x-slot name="footer">
                 <div class="sm:flex sm:flex-row-reverse">
                     <span class="flex w-full sm:w-auto mb-2 sm:mb-0 sm:ml-2">
-                        <x-jet-button wire:click.prevent="store()" class="w-full justify-center" >
+                        <x-confirmation-button wire:click.prevent="store()" >
                             {{ $match_type->id ? "Übernehmen" : "Anlegen" }}
-                        </x-jet-button>
+                        </x-confirmation-button>
                     </span>
                     <span class="flex w-full sm:w-auto">
-                        <x-jet-secondary-button wire:click="closeModal()" wire:loading.attr="disabled" class="w-full justify-center">
+                        <x-button wire:click="closeModal()" wire:loading.attr="disabled" >
                             Abbrechen
-                        </x-jet-secondary-button>
+                        </x-button>
                     </span>
                 </div>
             </x-slot>
@@ -70,11 +70,9 @@
     </x-jet-dialog-modal>
     {{-- create a new match type, opens modal --}}
     <div class="mb-4 flex justify-center sm:justify-start">
-        <span class="block shadow-xl rounded-md">
-            <button wire:click="create()" class="btn btn-blue px-4 py-2">
-                Anlegen
-            </button>
-        </span>
+        <x-confirmation-button wire:click="create()" >
+            Anlegen
+        </x-confirmation-button>
     </div>
 
 

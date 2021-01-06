@@ -55,4 +55,19 @@ class Season extends Model
     {
         return $this->hasMany('App\Models\Match');
     }
+
+    public function goals()
+    {
+        return $this->hasManyThrough('App\Models\Goal', 'App\Models\Match');
+    }
+
+    public function cards()
+    {
+        return $this->hasManyThrough('App\Models\Card', 'App\Models\Match');
+    }
+
+    public function assists()
+    {
+        return $this->hasManyThrough('App\Models\Assist', 'App\Models\Match');
+    }
 }

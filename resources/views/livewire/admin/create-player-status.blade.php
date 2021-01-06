@@ -36,26 +36,24 @@
                     <x-jet-input-error for="player_status.description" />
                 </div>
                 <!-- can play? -->
-                <div class="mb-6 flex items-center space-x-4">
-                    <div class="flex">
-                        <x-jet-input wire:model="player_status.can_play" id="can_play" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out shadow-sm"/>
-                        <x-jet-label class="text-green-600" for="can_play" class="ml-2 block leading-5" >
-                            Kann spielen?
-                        </x-jet-label>
-                    </div>
+                <div class="mb-6 flex items-center space-x-2">
+                    <x-input-checkbox wire:model="player_status.can_play" id="can_play" />
+                    <x-input-checkbox-label for="can_play">
+                        Kann spielen?
+                    </x-input-checkbox-label>
                 </div>
             </x-slot>
             <x-slot name="footer">
                 <div class="sm:flex sm:flex-row-reverse">
                     <span class="flex w-full sm:w-auto mb-2 sm:mb-0 sm:ml-2">
-                        <x-jet-button wire:click.prevent="store()" class="w-full justify-center" >
+                        <x-confirmation-button wire:click.prevent="store()" >
                             {{ $player_status->id ? "Übernehmen" : "Anlegen" }}
-                        </x-jet-button>
+                        </x-confirmation-button>
                     </span>
                     <span class="flex w-full sm:w-auto">
-                        <x-jet-secondary-button wire:click="closeModal()" wire:loading.attr="disabled" class="w-full justify-center">
+                        <x-button wire:click="closeModal()" wire:loading.attr="disabled">
                             Abbrechen
-                        </x-jet-secondary-button>
+                        </x-button>
                     </span>
                 </div>
             </x-slot>
@@ -64,9 +62,9 @@
     {{-- create a new player status, opens modal --}}
     <div class="mb-4 flex justify-center sm:justify-start">
         <span class="block shadow-xl rounded-md">
-            <button wire:click="create()" class="btn btn-blue px-4 py-2">
+            <x-confirmation-button wire:click="create()">
                 Anlegen
-            </button>
+            </x-confirmation-button>
         </span>
     </div>
 

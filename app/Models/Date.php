@@ -82,7 +82,37 @@ class Date extends Model
     protected static $logFillable = true;
     protected static $logOnlyDirty = true;
 
-    /* SCOPES */
+    /*
+     * --------------------------------------------------------------------------
+     * ACCESSORS
+     * --------------------------------------------------------------------------
+     */
+
+    /**
+     * Format the datetime attribute to a DATE string, for easy display in the date table TODO: accessors don't work in livewiredatatable
+     * @param $value
+     * @return mixed
+     */
+    public function getDateAttribute($value)
+    {
+        return $this->datetime ? $this->datetime->toDateString() : null;
+    }
+
+    /**
+     * Format the datetime attribute to a TIME string, for easy display in the date table
+     * @param $value
+     * @return null
+     */
+    public function getTimeAttribute($value)
+    {
+        return $this->datetime ? $this->datetime->toTimeString() : null;
+    }
+
+    /*
+     * --------------------------------------------------------------------------
+     * SCOPES
+     * --------------------------------------------------------------------------
+     */
 
     /**
      * Scope a query to only include dates that are published
@@ -90,7 +120,8 @@ class Date extends Model
      * @param bool $true
      * @return mixed
      */
-    public function scopePublished($query, $true = true) {
+    public function scopePublished($query, $true = true)
+    {
         return $query->where('published', $true);
     }
 
@@ -100,11 +131,16 @@ class Date extends Model
      * @param bool $true
      * @return mixed
      */
-    public function scopeCancelled($query, $true = true) {
+    public function scopeCancelled($query, $true = true)
+    {
         return $query->where('cancelled', $true);
     }
 
-    /* RELATIONSHIPS */
+    /*
+     * --------------------------------------------------------------------------
+     * RELATIONSHIPS
+     * --------------------------------------------------------------------------
+     */
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

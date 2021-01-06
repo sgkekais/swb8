@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class input-checkbox extends Component
+class InputCheckbox extends Component
 {
     /**
      * Create a new component instance.

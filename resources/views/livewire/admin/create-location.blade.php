@@ -53,24 +53,24 @@
                 </div>
                 <div class="mb-6 flex justify-start">
                     <div class="flex items-center mr-3">
-                        <input wire:model="location.is_stadium" id="is_stadium" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out">
-                        <label for="is_stadium" class="ml-2 block leading-5 text-gray-900">
+                        <x-input-checkbox wire:model="location.is_stadium" id="is_stadium" />
+                        <x-input-checkbox-label for="is_stadium">
                             Ist Stadion?
-                        </label>
+                        </x-input-checkbox-label>
                     </div>
                 </div>
             </x-slot>
             <x-slot name="footer">
                 <div class="sm:flex sm:flex-row-reverse">
                     <span class="flex w-full sm:w-auto mb-2 sm:mb-0 sm:ml-2">
-                        <x-jet-button wire:click.prevent="store()" class="w-full justify-center" >
+                        <x-confirmation-button wire:click.prevent="store()" >
                             {{ $location->id ? "Übernehmen" : "Anlegen" }}
-                        </x-jet-button>
+                        </x-confirmation-button>
                     </span>
                     <span class="flex w-full sm:w-auto">
-                        <x-jet-secondary-button wire:click="closeModal()" wire:loading.attr="disabled" class="w-full justify-center">
+                        <x-button wire:click="closeModal()" wire:loading.attr="disabled" >
                             Abbrechen
-                        </x-jet-secondary-button>
+                        </x-button>
                     </span>
                 </div>
             </x-slot>
@@ -78,11 +78,9 @@
     </x-jet-dialog-modal>
     {{-- create a new location, opens modal --}}
     <div class="mb-4 flex justify-center sm:justify-start">
-        <span class="block shadow-xl rounded-md">
-            <button wire:click="create()" class="btn btn-blue px-4 py-2">
-                Anlegen
-            </button>
-        </span>
+        <x-confirmation-button wire:click="create()" >
+            Anlegen
+        </x-confirmation-button>
     </div>
 
 

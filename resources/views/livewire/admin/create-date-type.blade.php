@@ -39,14 +39,14 @@
             <x-slot name="footer">
                 <div class="sm:flex sm:flex-row-reverse">
                     <span class="flex w-full sm:w-auto mb-2 sm:mb-0 sm:ml-2">
-                        <x-jet-button wire:click.prevent="store()" class="w-full justify-center" >
+                        <x-confirmation-button wire:click.prevent="store()" >
                             {{ $date_type->id ? "Übernehmen" : "Anlegen" }}
-                        </x-jet-button>
+                        </x-confirmation-button>
                     </span>
                     <span class="flex w-full sm:w-auto">
-                        <x-jet-secondary-button wire:click="closeModal()" wire:loading.attr="disabled" class="w-full justify-center">
+                        <x-button wire:click="closeModal()" wire:loading.attr="disabled" >
                             Abbrechen
-                        </x-jet-secondary-button>
+                        </x-button>
                     </span>
                 </div>
             </x-slot>
@@ -54,10 +54,8 @@
     </x-jet-dialog-modal>
     {{-- create a new date type, opens modal --}}
     <div class="mb-4 flex justify-center sm:justify-start">
-        <span class="block shadow-xl rounded-md">
-            <button wire:click="create()" class="btn btn-blue px-4 py-2">
-                Anlegen
-            </button>
-        </span>
+        <x-confirmation-button wire:click="create()" >
+            Anlegen
+        </x-confirmation-button>
     </div>
 </div>

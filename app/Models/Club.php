@@ -55,9 +55,14 @@ class Club extends Model
     protected static $logFillable = true;
     protected static $logOnlyDirty = true;
 
-    public function scopeOwner($query)
+    public function scopeOwner($query, $true)
     {
-        return $query->where('owner',1);
+        return $query->where('owner', $true);
+    }
+
+    public function scopeAH($query, $true)
+    {
+        return $query->where('ah', $true);
     }
 
     /**

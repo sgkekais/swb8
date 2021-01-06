@@ -32,7 +32,10 @@
                 <div class="hidden sm:block">
                     <div class="flex space-x-4 justify-between">
                         <div class="flex space-x-2 pl-4">
-                            @foreach(\App\Models\Club::owner()->orderByDesc('name_code')->get() as $nav_club)
+                            <x-jet-nav-link href="{{ route('calendar', ['monat' => \Carbon\Carbon::now()->translatedFormat('F')]) }}" :active="request()->routeIs('calendar')" class="py-3">
+                                Kalender
+                            </x-jet-nav-link>
+                            @foreach(\App\Models\Club::owner(true)->orderByDesc('name_code')->get() as $nav_club)
                                 <x-jet-dropdown align="left">
                                     <x-slot name="trigger">
                                         <x-jet-nav-link class="py-3 cursor-pointer" :active="request()->segment(2) == $nav_club->id">
@@ -40,28 +43,37 @@
                                         </x-jet-nav-link>
                                     </x-slot>
                                     <x-slot name="content">
-                                        <x-jet-dropdown-link href="{{ route('club.schedule', $nav_club) }}" :active="request()->segment(2) == $nav_club->id">
+                                        <x-jet-dropdown-link href="{{ route('club.schedule', $nav_club) }}" :active="request()->segment(2) == $nav_club->id && request()->segment(3) === 'spielplan'">
                                             <i class="far fa-fw fa-calendar-alt"></i> Spielplan
                                         </x-jet-dropdown-link>
-                                        <x-jet-dropdown-link>
+                                        <x-jet-dropdown-link href="{{ route('club.scorers', $nav_club) }}" :active="request()->segment(2) == $nav_club->id && request()->segment(3) === 'scorers'">
                                             <i class="far fa-fw fa-futbol"></i> Tore & Assists
                                         </x-jet-dropdown-link>
                                         <x-jet-dropdown-link>
                                             <i class="far fa-fw fa-copy"></i> Karten
                                         </x-jet-dropdown-link>
                                         <x-jet-dropdown-link>
-                                            <i class="far fa-fw fa-copy"></i> Kader
+                                            <i class="fas fa-fw fa-users"></i> Kader
                                         </x-jet-dropdown-link>
 
                                     </x-slot>
                                 </x-jet-dropdown>
                             @endforeach
-                            <x-jet-nav-link href="#" class="py-3">
-                                Kalender
-                            </x-jet-nav-link>
-                            <x-jet-nav-link href="#" class="py-3">
-                                Verein
-                            </x-jet-nav-link>
+                            <x-jet-dropdown align="left">
+                                <x-slot name="trigger">
+                                    <x-jet-nav-link class="py-3 cursor-pointer">
+                                        Verein <i class="inline-block ml-1 fas fa-sort-down"></i>
+                                    </x-jet-nav-link>
+                                </x-slot>
+                                <x-slot name="content">
+                                    <x-jet-dropdown-link>
+                                        <i class="fas fa-fw fa-info-circle"></i> Über uns
+                                    </x-jet-dropdown-link>
+                                    <x-jet-dropdown-link>
+                                        <i class="fas fa-fw fa-book"></i> Ewigenlisten
+                                    </x-jet-dropdown-link>
+                                </x-slot>
+                            </x-jet-dropdown>
                         </div>
 
                         @auth
@@ -78,8 +90,8 @@
                                         </x-slot>
                                         <x-slot name="content">
                                             <!-- Site Management -->
-                                            <div class="block px-4 py-2 text-xs text-primary-600">
-                                                {{ __('Umfragen & Spiele') }}
+                                            <div class="block px-4 py-2 text-xs text-primary-700">
+                                                Umfragen & Spiele
                                             </div>
                                             <x-jet-dropdown-link href="{{ route('admin.dates') }}" :active="request()->routeIs('admin.dates')">
                                                 <i class="far fa-fw fa-calendar-alt"></i> Termine
@@ -103,8 +115,8 @@
                                                 <i class="fas fa-fw fa-sync"></i> Saisons
                                             </x-jet-dropdown-link>
                                             <div class="border-t border-gray-300"></div>
-                                            <div class="block px-4 py-2 text-xs text-primary-600">
-                                                {{ __('Verwaltung') }}
+                                            <div class="block px-4 py-2 text-xs text-primary-700">
+                                                Verwaltung
                                             </div>
                                             <x-jet-dropdown-link href="{{ route('admin.player-statuses') }}" :active="request()->routeIs('admin.player-statuses')">
                                                 <i class="fas fa-fw fa-user-tag"></i> Spieler-Status

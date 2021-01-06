@@ -74,7 +74,14 @@ class Match extends Model
     protected static $logFillable = true;
     protected static $logOnlyDirty = true;
 
+    /*
+     * --------------------------------------------------------------------------
+     * RELATIONSHIPS
+     * --------------------------------------------------------------------------
+     */
+
     /**
+     * A match belongs to a Date
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function date()
@@ -82,12 +89,17 @@ class Match extends Model
         return $this->belongsTo('App\Models\Date');
     }
 
+    /**
+     * A match belongs to a Season
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function season()
     {
-        return $this->hasOne('App\Models\Season');
+        return $this->belongsTo('App\Models\Season');
     }
 
     /**
+     * A match belongs to a MatchType
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function matchType()
@@ -96,6 +108,7 @@ class Match extends Model
     }
 
     /**
+     * A match belongs to a team (home)
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function teamHome()
@@ -104,6 +117,7 @@ class Match extends Model
     }
 
     /**
+     * A match belongs to a team (away)
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function teamAway()
@@ -111,11 +125,19 @@ class Match extends Model
         return $this->belongsTo('App\Models\Club', 'team_away');
     }
 
+    /**
+     * A match has many goals
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function goals()
     {
         return $this->hasMany('App\Models\Goal');
     }
 
+    /**
+     * A match has many cards
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function cards()
     {
         return $this->hasMany('App\Models\Card');

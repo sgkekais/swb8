@@ -31,8 +31,8 @@
 
             <!-- Page Heading -->
             <header class="">
-                <div class="-mt-20 bg-white max-w-7xl mx-auto p-6 ">
-                    <h1 class="font-sans font-extrabold text-2xl tracking-tighter">
+                <div class="-mt-16 sm:-mt-20 bg-white max-w-7xl mx-auto p-4 sm:p-6">
+                    <h1 class="font-sans font-extrabold text-3xl tracking-tighter">
                         {{ $header }}
                     </h1>
                 </div>
@@ -40,7 +40,11 @@
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                <div class="min-h-screen">
+                    <div class="max-w-7xl mx-auto p-4 sm:px-6">
+                        {{ $slot }}
+                    </div>
+                </div>
             </main>
         </div>
 

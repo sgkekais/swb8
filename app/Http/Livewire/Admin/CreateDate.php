@@ -43,7 +43,7 @@ class CreateDate extends Component
         $this->tournament ??= new Tournament();
         $this->date_option ??= new DateOption();
         $this->date_options = $this->date->dateOptions;
-        $this->owned_clubs = Club::owner()->get();
+        $this->owned_clubs = Club::owner(true)->get();
         $this->seasons = Season::orderBy('number', 'desc')->get();
     }
 

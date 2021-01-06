@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class input-text extends Component
+class InputText extends Component
 {
     /**
      * Create a new component instance.
