@@ -9,11 +9,16 @@
             @endforeach
         </select>
     </div>
-    <div class>
-        {{ $season->description }}
-    </div>
     <div class="" wire:loading>
-        <i class="fas fa-circle-notch fa-spin"></i>
+        <i class="far fa-futbol fa-spin"></i>
+    </div>
+    <div class="flex items-center p-4 bg-gray-100 space-x-4" wire:loading.remove>
+        <div class="">
+            <i class="far fa-lightbulb"></i>
+        </div>
+        <div>
+            {{ $matches->first()->season->description }}
+        </div>
     </div>
     <table class="w-full" wire:loading.remove>
         @php

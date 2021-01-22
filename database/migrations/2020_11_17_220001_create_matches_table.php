@@ -15,7 +15,7 @@ class CreateMatchesTable extends Migration
     {
         Schema::create('matches', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('date_id')->constrained()->onUpdate('cascade')->onDelete('restrict');
+            $table->foreignId('date_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('match_type_id')->constrained()->onUpdate('cascade')->onDelete('restrict');
             $table->tinyInteger('matchweek')->nullable();
             $table->unsignedBigInteger('team_home')->nullable();

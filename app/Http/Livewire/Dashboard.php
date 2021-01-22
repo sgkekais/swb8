@@ -15,6 +15,7 @@ class Dashboard extends Component
     public function mount ()
     {
         $this->user_player = auth()->user()->player;
+        // $this->user_player = Player::find('2');
         $this->players = Player::isPublic(true)->orderBy('nickname')->get();
         $this->vs_player = $this->user_player;
     }

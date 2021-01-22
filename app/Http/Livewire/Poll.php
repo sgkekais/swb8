@@ -11,12 +11,13 @@ class Poll extends Component
     // public $users_already_synced_options;
     public $checked_options = [];
     public $saved = 0;
+    public $header = "Rückmeldung zu Termin";
 
     public function mount(Date $date)
     {
         $this->date = $date;
         $this->date->load('dateOptions');
-        $this->checked_options = auth()->user()->dateOptions()->with('date')->get()->where('date.id', 665)->where('pivot.attend',1)->pluck('id')->toArray();
+        $this->checked_options = auth()->user()->dateOptions()->with('date')->get()->where('date.id', $this->date->id)->where('pivot.attend',1)->pluck('id')->toArray();
         // convert integer vals to strings to avoid problems with pre-checked boxes
         $this->checked_options = array_map('strval', $this->checked_options);
     }
@@ -49,6 +50,6 @@ class Poll extends Component
 
     public function render()
     {
-        return view('livewire.poll');
+        return view('livewire.poll')->layout('layouts.app', ['header' => $this->header]);;
     }
 }

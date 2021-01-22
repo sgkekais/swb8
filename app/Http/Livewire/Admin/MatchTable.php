@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Club;
 use App\Models\Match;
+use App\Models\MatchType;
 use Mediconesystems\LivewireDatatables\BooleanColumn;
 use Mediconesystems\LivewireDatatables\Column;
 use Mediconesystems\LivewireDatatables\DateColumn;
@@ -32,12 +33,13 @@ class MatchTable extends LivewireDatatable
             })->label('Termin-ID'),
             DateColumn::name('date.datetime')
                 ->label('Datum')
-                ->format('Y-m-d H:m')
+                ->format('Y-m-d H:i')
                 ->searchable()
                 ->defaultSort('desc'),
             Column::name('matchType.description_short')
                 ->label('Art')
-                ->alignCenter(),
+                ->alignCenter()
+                ->filterable($this->match_type_description_short),
             Column::name('matchweek')
                 ->label('SW')
                 ->alignCenter(),
@@ -52,8 +54,11 @@ class MatchTable extends LivewireDatatable
             // Column::name('teamAway.name')->label('Gast')->searchable(),
             Column::callback(['team_away'], function ($team_away) {
                 return Club::find($team_away)->name;
-            })->label('Auswärts'),
-            Column::name('cards.id:count'),
+            })->label('Gast'),
+            Column::name('cards.id:count')
+                ->label('Karten'),
+            Column::name('goals.id:count')
+                ->label('Tore'),
             Column::callback(['match_details'], function ($match_details) {
                 return $match_details ? 'X' : null;
             })->label('Details?')->alignCenter(),
@@ -67,5 +72,10 @@ class MatchTable extends LivewireDatatable
                 return view('admin.includes.table-actions', ['id' => $id]);
             })
         ];
+    }
+
+    public function getMatchTypeDescriptionShortProperty()
+    {
+        return MatchType::orderBy('description_short')->pluck('description_short');
     }
 }

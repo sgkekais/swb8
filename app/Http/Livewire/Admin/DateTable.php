@@ -38,7 +38,8 @@ class DateTable extends LivewireDatatable
             }),
             NumberColumn::name('id')
                 ->label('ID')
-                ->searchable(),
+                ->searchable()
+                ->defaultSort('desc'),
             Column::callback('dateType.id', function ($datetype_id) {
                 switch($datetype_id) {
                     case 1:
@@ -60,18 +61,6 @@ class DateTable extends LivewireDatatable
                 ->filterable($this->dateTypeDescriptions),
             BooleanColumn::name('published')
                 ->label('Sichtbar?'),
-            Column::name('dateOptions.description')
-                ->label('Optionen'),
-            DateColumn::name('poll_begins')
-                ->label('Umfragebeginn')
-                ->format('Y-m-d')
-                ->filterable(),
-            DateColumn::name('poll_ends')
-                ->label('-schluss')
-                ->format('Y-m-d')
-                ->filterable(),
-            BooleanColumn::name('poll_is_open')
-                ->label('-Offen?'),
             Column::name('clubs.name_short')
                 ->label('für')
                 ->filterable(),
@@ -87,6 +76,18 @@ class DateTable extends LivewireDatatable
                 ->label('Uhrzeit'),
             NumberColumn::name('location.name')
                 ->label('Ort'),
+            Column::name('dateOptions.description')
+                ->label('Optionen'),
+            DateColumn::name('poll_begins')
+                ->label('Umfragebeginn')
+                ->format('Y-m-d')
+                ->filterable(),
+            DateColumn::name('poll_ends')
+                ->label('-schluss')
+                ->format('Y-m-d')
+                ->filterable(),
+            BooleanColumn::name('poll_is_open')
+                ->label('-Offen?'),
         ];
     }
 

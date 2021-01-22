@@ -13,10 +13,12 @@ class Calendar extends Component
     public $selectable_years = [];
     public $selected_year = "";
     public $dates = [];
+    public $today = null;
 
     public function mount()
     {
-        $this->selected_year = Carbon::now()->format('Y');
+        $this->today = Carbon::today();
+        $this->selected_year = $this->today->format('Y');
     }
 
     public function render()

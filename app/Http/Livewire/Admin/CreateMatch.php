@@ -25,6 +25,7 @@ class CreateMatch extends Component
     public function mount()
     {
         $this->match ??= new Match();
+        $this->match->load('cards','goals.assists');
         $this->seasons = Season::orderBy('number', 'desc')->get();
     }
 

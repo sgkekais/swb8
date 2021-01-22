@@ -20,7 +20,7 @@ class DateTypeSeeder extends Seeder
         DB::table('date_types')->insert([
             0 => [
                 'id'            => 1,
-                'description'   => 'Allg. Umfrage',
+                'description'   => 'Umfrage',
                 'created_at'    => $timestamp,
                 'updated_at'    => $timestamp,
             ],
@@ -38,7 +38,7 @@ class DateTypeSeeder extends Seeder
             ],
             3 => [
                 'id'            => 4,
-                'description'   => 'Feier',
+                'description'   => 'Termin/Feier',
                 'created_at'    => $timestamp,
                 'updated_at'    => $timestamp,
             ],

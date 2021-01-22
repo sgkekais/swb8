@@ -149,19 +149,48 @@ class CreateDate extends Component
             // sync the clubs
             $this->date->clubs()->sync($this->assigned_clubs);
 
-        } elseif ($this->date->date_type_id == 2) {
-            // match -> save date with poll = date->datetime (begins -14 days, ends = datetime) and match
-            $this->date->save();
-            $this->date->match()->save($this->match);
+        } elseif ($this->date->date_type_id == 2 || $this->date->date_type_id == 3) {
+            /*
+             *  match -> save date with poll = date->datetime (begins -28 days, ends = datetime - 1)
+             *  and match or tournament
+             *  and one date option
+             */
 
-        } elseif ($this->date->date_type_id == 3)  {
-            // tournament -> save date with tournament
+            // set the poll dates if these are null
+            if ($this->date->datetime)
+            {
+                if (!$this->date->poll_begins)
+                {
+                    $this->date->poll_begins = $this->date->datetime->subWeeks(4);
+                }
+                if (!$this->date->poll_ends)
+                {
+                    $this->date->poll_ends = $this->date->datetime->subDay();
+                }
+            }
+            // save the date
             $this->date->save();
-            $this->date->tournament()->save($this->tournament);
+            // sync the selected clubs
+            $this->date->clubs()->sync($this->assigned_clubs);
+            if ($this->date->date_type_id == 2)
+            {
+                // give match same id as date and save
+                $this->match->id = $this->date->id;
+                $this->date->match()->save($this->match);
+            } elseif ($this->date->date_type_id == 3) {
+                // // give tournament same id as date and save
+                $this->tournament->id = $this->date->id;
+                $this->date->tournament()->save($this->tournament);
+            }
+            // save the date option for the match or tournament
+            $new_date_option = new DateOption([
+                'description' => 'Komme'
+            ]);
+            $this->date->dateOptions()->save($new_date_option);
         }
 
-        $this->closeModal();
         session()->flash('success', 'Termin erfolgreich '.($this->date->id ? 'geändert' : 'angelegt.'));
+        $this->closeModal();
         $this->emit('refreshLivewireDatatable');
     }
 
@@ -191,16 +220,16 @@ class CreateDate extends Component
 
         $this->closeDeleteModal();
 
-        session()->flash('success', 'Standort '.$this->date->id.' erfolgreich gelöscht.');
+        session()->flash('success', 'Termin '.$this->date->id.' erfolgreich gelöscht.');
         $this->emit('refreshLivewireDatatable');
     }
 
     public function render()
     {
-        $this->date_types = DateType::all();
+        $this->date_types = DateType::orderBy('description')->get();
         $this->locations = Location::orderBy('name')->get();
         $this->clubs = Club::orderBy('name')->get();
-        $this->match_types = MatchType::all();
+        $this->match_types = MatchType::orderBy('description')->get();
         return view('livewire.admin.create-date');
     }
 }

@@ -14,8 +14,8 @@ class CreateDateOptionUserTable extends Migration
     public function up()
     {
         Schema::create('date_option_user', function (Blueprint $table) {
-            $table->foreignId('date_option_id')->constrained()->onUpdate('cascade')->onDelete('restrict');
-            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('restrict');
+            $table->foreignId('date_option_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->boolean('attend')->default(0);
             $table->timestamps();
         });

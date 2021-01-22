@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateClubDateTable extends Migration
+class CreateQuotesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateClubDateTable extends Migration
      */
     public function up()
     {
-        Schema::create('club_date', function (Blueprint $table) {
-            $table->foreignId('club_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('date_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+        Schema::create('quotes', function (Blueprint $table) {
+            $table->id();
+            $table->string('author');
+            $table->text('quote');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateClubDateTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('club_date');
+        Schema::dropIfExists('quotes');
     }
 }

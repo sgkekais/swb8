@@ -1,12 +1,17 @@
 <div>
     {{-- Care about people's approval and you will be their prisoner. --}}
 
-    Hello
+    Terminart
     <br>
+    Titel
     <br>
-    Umfragentest
+    Beschreibung
     <br>
+    Spiel
     <br>
+    Turnier
+    <br>
+    etc.
     <h2 class="text-primary-500 font-bold">
         {{ $date->title }}
     </h2>
@@ -43,12 +48,10 @@
             </div>
             @foreach ($date->dateOptions as $date_option)
                 <div class="table-cell p-4 text-center">
-                    <x-jet-input
+                    <x-input-checkbox
                         wire:key="{{ $date_option->id }}"
                         wire:model.defer="checked_options"
                         name="date_option_{{ $date_option->id }}"
-                        class="text-primary-300 border border-black"
-                        type="checkbox"
                         value="{{ $date_option->id }}" />
                 </div>
             @endforeach
@@ -70,15 +73,10 @@
                 </div>
             </div>
         </div>
-        <div class="table-row-group">
-            <div class="table-cell">
-                @json($checked_options)
-            </div>
-        </div>
-
         <!-- poll participants -->
         <!-- assign club to date as 'valid for this club or multiple clubs' -->
         <!-- teilgenommen / nicht teilgenommen, status can play -->
+        <!-- TODO: date clubs -> wie nicht doppelt? intersect? -->
         @foreach(\App\Models\Club::find(33)->players()->orderBy('first_name')->get() as $player)
             <div class="table-row-group divide-x divide-black">
                 <div class="table-cell">

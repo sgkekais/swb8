@@ -14,12 +14,12 @@
             </ul>
         </x-slot>
         <x-slot name="footer">
-            <x-jet-secondary-button wire:click="closeDeleteModal()">
+            <x-button wire:click="closeDeleteModal()">
                 Abbrechen
-            </x-jet-secondary-button>
-            <x-jet-danger-button wire:click="destroy({{ $date->id }})">
+            </x-button>
+            <x-delete-button wire:click="destroy({{ $date->id }})">
                 Löschen
-            </x-jet-danger-button>
+            </x-delete-button>
         </x-slot>
     </x-jet-confirmation-modal>
     <!-- create or maintain modal -->
@@ -122,7 +122,7 @@
                             Wo?
                         </x-jet-label>
                         <select id="location" wire:model.lazy="date.location_id" class="form-select w-full shadow-sm">
-                            <option selected="selected" value="">Nicht festgelegt</option>
+                            <option selected="selected" value="NULL">Nicht festgelegt</option>
                             @foreach($locations as $location)
                                 <option value="{{ $location->id }}">({{ $location->id }}) {{ $location->name }}</option>
                             @endforeach
@@ -152,19 +152,19 @@
                     </div>
                     <div class="bg-gray-100 p-1 mb-3">
                         <i class="far fa-fw fa-lightbulb"></i>
-                        @isset ($selectedDateType)
-                            @switch ($selectedDateType->id)
+                        @isset ($date->date_type_id)
+                            @switch ($date->date_type_id)
                                 @case (1)
-                                Bei Terminart {{ $selectedDateType->description }} sind mehrere Umfrageoptionen möglich.
+                                Bei Terminart {{ $date->dateType->description }} sind mehrere Umfrageoptionen möglich.
                                 @break
                                 @case (2)
-                                Bei Terminart {{ $selectedDateType->description }} ist nur eine Umfrageoption (Teilnahme) vorgesehen.
+                                Bei Terminart {{ $date->dateType->description }} ist nur eine Umfrageoption (Teilnahme) vorgesehen. Umfrageende ist automatisch der Tag vor Datum des Spiels. Umfragebeginn ist automatisch vier Wochen vor Datum des Spiels, wenn leer gelassen.
                                 @break
                                 @case (3)
-                                Bei Terminart {{ $selectedDateType->description }}  ist nur eine Umfrageoption (Teilnahme) vorgesehen.
+                                Bei Terminart {{ $date->dateType->description }}  ist nur eine Umfrageoption (Teilnahme) vorgesehen. Umfrageende ist automatisch der Tag vor Datum des Spiels. Umfragebeginn ist automatisch vier Wochen vor Datum des Spiels, wenn leer gelassen.
                                 @break
                                 @case (4)
-                                Bei Terminart {{ $selectedDateType->description }}  sind mehrere Umfrageoptionen möglich.
+                                Bei Terminart {{ $date->dateType->description }}  sind mehrere Umfrageoptionen möglich.
                                 @break
                             @endswitch
                         @endisset
@@ -194,7 +194,7 @@
                     <div>
                         @if ($date->date_type_id == 1 || $date->date_type_id == 4)
                             <div class="mb-6 flex items-end space-x-4">
-                                <div class="w-1/2">
+                                <div class="w-full">
                                     <x-jet-label class="" for="date_option" >
                                         Umfrageoptionen
                                         <br>
@@ -202,10 +202,10 @@
                                     </x-jet-label>
                                     <x-jet-input id="date_option" type="text" class="w-full" wire:model.lazy="date_option.description" />
                                 </div>
-                                <div class="flex">
-                                    <x-jet-button wire:click="addDateOption()" class="w-full justify-center" >
+                                <div class="">
+                                    <x-confirmation-button wire:click="addDateOption()" class="" >
                                         Hinzufügen
-                                    </x-jet-button>
+                                    </x-confirmation-button>
                                 </div>
                             </div>
                         @endif
@@ -213,17 +213,17 @@
                     <div>
                         {{ $date_options }}
                         @foreach ($date_options as $key => $value)
-                            <div class="mb-6 flex items-end items-stretch space-x-4">
-                                <div class="flex w-1/2 p-1 border border-gray-200 rounded bg-gray-100 text-gray-700">
-                                    <x-jet-label class="text-green-600" for="">
+                            <div class="mb-6 flex items-center space-x-4">
+                                <div class="flex p-1 flex-grow border border-gray-200 bg-gray-100 text-gray-700">
+                                    <label class="text-primary-600" for="date_option_description{{ $key }}">
                                         <span class="font-semibold">Option {{ $loop->iteration }}:</span>
-                                    </x-jet-label>
-                                    <x-jet-input id="date_option_description" type="text" class="w-full" wire:model="date_options.{{ $key }}.description"/>
+                                    </label>
+                                    <x-jet-input id="date_option_description{{ $key }}" type="text" class="w-full" wire:model="date_options.{{ $key }}.description"/>
                                 </div>
-                                <div class="flex">
-                                    <x-jet-danger-button wire:click="removeDateOption({{ $key }})" class="w-full justify-center" >
+                                <div class="">
+                                    <x-delete-button wire:click="removeDateOption({{ $key }})" class="" >
                                         Entfernen
-                                    </x-jet-danger-button>
+                                    </x-delete-button>
                                 </div>
                             </div>
                         @endforeach

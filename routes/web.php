@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Route::get('/kalender', Calendar::class)->name('calendar');
 
+Route::get('/umfrage/{date}', Poll::class)->name('poll');
+
 /*
  * --------------------------------------------------------------------------
  * Frontpage Club Routes

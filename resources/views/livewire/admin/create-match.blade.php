@@ -107,31 +107,39 @@
                 </div>
                 <!-- match published / cancelled -->
                 <div class="mb-6 flex items-center space-x-4">
-                    <div class="flex">
-                        <x-jet-input wire:model="match.published" id="published" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out shadow-sm"/>
-                        <x-jet-label class="text-green-600" for="published" class="ml-2 block leading-5" >
-                            Veröffentlichen?
-                        </x-jet-label>
+                    <x-input-checkbox wire:model="match.published" id="published" />
+                    <x-input-checkbox-label for="published">
+                        Veröffentlichen?
+                    </x-input-checkbox-label>
+                    <x-input-checkbox  wire:model="match.cancelled" id="cancelled" />
+                    <x-input-checkbox-label for="cancelled">
+                        Abgesagt?
+                    </x-input-checkbox-label>
+                </div>
+                <!-- cards -->
+                <div class="mb-6">
+                    <div class="border-b border-gray-300">
+                        <h2 class="font-sans font-extrabold text-lg tracking-tighter uppercase text-primary-600">Karten</h2>
                     </div>
-                    <div class="flex">
-                        <x-jet-input wire:model="match.cancelled" id="cancelled" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out shadow-sm"/>
-                        <x-jet-label class="text-green-600" for="cancelled" class="ml-2 block leading-5" >
-                            Abgesagt?
-                        </x-jet-label>
+                </div>
+                <!-- goals and assists -->
+                <div class="mb-6">
+                    <div class="border-b border-gray-300">
+                        <h2 class="font-sans font-extrabold text-lg tracking-tighter uppercase text-primary-600">Tore & Vorlagen</h2>
                     </div>
                 </div>
             </x-slot>
             <x-slot name="footer">
                 <div class="sm:flex sm:flex-row-reverse">
                     <span class="flex w-full sm:w-auto mb-2 sm:mb-0 sm:ml-2">
-                        <x-jet-button wire:click.prevent="store()" class="w-full justify-center" >
+                        <x-confirmation-button wire:click.prevent="store()" >
                             Speichern
-                        </x-jet-button>
+                        </x-confirmation-button>
                     </span>
                     <span class="flex w-full sm:w-auto">
-                        <x-jet-secondary-button wire:click="closeModal()" wire:loading.attr="disabled" class="w-full justify-center">
+                        <x-button wire:click="closeModal()" wire:loading.attr="disabled" >
                             Abbrechen
-                        </x-jet-secondary-button>
+                        </x-button>
                     </span>
                 </div>
             </x-slot>
