@@ -22,7 +22,7 @@
                 <span class="uppercase font-bold tracking-tighter text-gray-700 text-lg">
                     <a href="{{ route('home') }}">{{ env('APP_NAME') }}</a>
                 </span>--}}
-                <a href="{{ route('home') }}" class="bg-white block md:p-4">
+                <a href="{{ route('home') }}" class="bg-white block md:p-4 border border-t-0 border-black">
                     <x-jet-application-mark class="block h-12 md:h-24 w-auto md:mt-12" title="{{ env('APP_NAME') }}"/>
                 </a>
             </div>
