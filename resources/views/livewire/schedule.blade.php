@@ -31,6 +31,7 @@
             <tr class="border-b border-gray-300 h-16">
                 <td class="px-2">
                     <div class="flex justify-center">
+                        {{ $match->id }}
                         @if ($match->matchType->id == 1)
                             <i class="far fa-handshake fa-lg text-blue-600"></i>
                         @elseif ($match->matchType->id == 2)
@@ -57,18 +58,23 @@
                 <td class=" text-right text-lg tracking-tighter">
                     {{ $match->teamHome->name }}
                 </td>
-                <td class=" tracking-tighter text-center">
-                    <div class="font-extrabold text-xl
+                <td class=" tracking-tighter text-center ">
+                    <div class="font-extrabold text-xl p-1 bg-gray-900 rounded
                         @if (($match->teamHome->owner && ($match->goals_home > $match->goals_away)) ||
                                 ($match->teamAway->owner && ($match->goals_home < $match->goals_away)))
                             text-primary-600
-                        @elseif ($match->goals_home == $match->goals_away || $match->goals_home == NULL || $match->goals_away == NULL)
-
-                        @else
+                        @elseif (($match->teamHome->owner && ($match->goals_home < $match->goals_away)) ||
+                                ($match->teamAway->owner && ($match->goals_home > $match->goals_away)))
                             text-red-500
+                        @else
+                            text-gray-200
                         @endif
                     ">
-                        {{ $match->goals_home }}:{{ $match->goals_away }}
+                        @unless ($match->date->datetime > $today)
+                            {{ $match->goals_home }}:{{ $match->goals_away }}
+                        @else
+                            <small class="text-xs">{{ $match->date->datetime->diffForHumans() }}</small>
+                        @endunless
                     </div>
                     <div class="text-base">
                         ({{ $match->goals_home_ht }}:{{ $match->goals_away_ht }})
@@ -78,7 +84,11 @@
                     {{ $match->teamAway->name }}
                 </td>
                 <td class="">
-                    {{ $match->date->location->name }}
+                    @isset($match->date->location)
+                        {{ $match->date->location->name }}
+                    @else
+                        -
+                    @endisset
                 </td>
                 <td class=" text-center">
                     @if ($match->matchType->is_point_match)

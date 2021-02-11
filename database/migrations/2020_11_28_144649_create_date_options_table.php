@@ -15,7 +15,7 @@ class CreateDateOptionsTable extends Migration
     {
         Schema::create('date_options', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('date_id')->constrained()->onUpdate('cascade')->onDelete('restrict');
+            $table->foreignId('date_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->string('description');
             $table->timestamps();
         });

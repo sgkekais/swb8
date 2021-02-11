@@ -1,15 +1,18 @@
 @if (session()->has('success'))
-    <div class="mb-4 border border-l-4 border-primary-600" role="alert" x-data="{ show: true }" x-show="show">
-        <div class="flex w-full rounded-t p-2 bg-white text-green-700 font-bold justify-between">
-            <span class="flex">
-                Erfolg
+    <div class="relative" role="alert" x-data="{ show: true }" x-show="show">
+        <div class="absolute bg-primary-600 top-0.5 -right-0.5 -bottom-0.5 left-0.5" style="transform-origin: 50% 50% 0px;border-radius: 0%;"></div>
+        <div class="relative mb-4 border border-black" >
+            <div class="flex w-full p-2 bg-primary-600 text-white font-bold justify-between">
+            <span class="flex items-center">
+                <i class="fas fa-fw fa-check-circle pr-2"></i> Erfolg
             </span>
-            <button type="button" class="flex font-sans font-extrabold" x-on:click="show = false">
-                X
-            </button>
-        </div>
-        <div class="flex w-full rounded-b p-2 bg-gray-100">
-            {{ session('success') }}
+                <button type="button" class="flex font-sans font-extrabold" x-on:click="show = false">
+                    X
+                </button>
+            </div>
+            <div class="flex w-full p-2 bg-white">
+                {{ session('success') }}
+            </div>
         </div>
     </div>
 @endif

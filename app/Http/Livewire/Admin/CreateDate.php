@@ -183,10 +183,12 @@ class CreateDate extends Component
                 $this->date->tournament()->save($this->tournament);
             }
             // save the date option for the match or tournament
-            $new_date_option = new DateOption([
-                'description' => 'Komme'
-            ]);
-            $this->date->dateOptions()->save($new_date_option);
+            if (!$this->date->dateOptions()->count() > 0) {
+                $new_date_option = new DateOption([
+                    'description' => 'Komme'
+                ]);
+                $this->date->dateOptions()->save($new_date_option);
+            }
         }
 
         session()->flash('success', 'Termin erfolgreich '.($this->date->id ? 'geändert' : 'angelegt.'));

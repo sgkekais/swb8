@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Club;
 use App\Models\Season;
+use Carbon\Carbon;
 use Livewire\Component;
 
 class Schedule extends Component
@@ -14,6 +15,7 @@ class Schedule extends Component
     public $seasons = [];
     public $selected_season = "";
     public $matches = [];
+    public $today = null;
 
     public function mount(Club $club)
     {
@@ -23,6 +25,7 @@ class Schedule extends Component
         {
             $this->selected_season = $this->seasons->first()->id;
         }
+        $this->today = Carbon::now();
     }
 
     protected $rules =  [

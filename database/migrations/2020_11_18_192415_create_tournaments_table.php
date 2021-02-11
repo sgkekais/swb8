@@ -15,7 +15,7 @@ class CreateTournamentsTable extends Migration
     {
         Schema::create('tournaments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('date_id')->constrained()->onUpdate('cascade')->onDelete('restrict');
+            $table->foreignId('date_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->string('title')->nullable();
             $table->string('description')->nullable();
             $table->string('place')->nullable();
