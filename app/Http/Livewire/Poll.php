@@ -43,7 +43,7 @@ class Poll extends Component
         // dd($date_options_to_be_synced);
 
         // sync the data
-        auth()->user()->dateOptions()->sync($date_options_to_be_synced);
+        auth()->user()->dateOptions()->sync($date_options_to_be_synced, false);
 
         $this->saved = 1;
     }

@@ -135,6 +135,11 @@ class CreateDate extends Component
         // store date, match, tournament, date_options depending on date->date_type_id
         // general poll (1) or party (4) -> save date with multiple date_options
         if ($this->date->date_type_id == 1 || $this->date->date_type_id == 4) {
+            // since general polls have no "date", set poll begin = datetime
+            if ($this->date->date_type_id == 1)
+            {
+                $this->date->datetime = $this->date->poll_begins;
+            }
             $this->date->save();
             // only create new dateoptions if the date doesn't have any yet
             if (!$this->date->dateOptions()->count() > 0) {

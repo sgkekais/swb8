@@ -46,7 +46,7 @@
                         Art des Termins
                     </x-jet-label>
                     <div class="flex items-center">
-                        <select id="date_type" wire:model="date.date_type_id" class="form-select shadow-sm" autocomplete="off">
+                        <select id="date_type" wire:model="date.date_type_id" class="form-select shadow-sm" autocomplete="off" {{ $date->id ? "disabled" : null }}>
                             <option selected="selected" value="">Bitte auswählen</option>
                             @foreach($date_types as $date_type)
                                 <option value="{{ $date_type->id }}">{{ $date_type->description }}</option>
