@@ -27,9 +27,14 @@
             @foreach ($dates->groupBy(function ($d) {return \Carbon\Carbon::parse($d->datetime)->translatedFormat('F');} ) as $key => $date_group)
                 <div class="flex flex-col">
                     <h2 class="my-3 font-sans font-black text-2xl" id="{{ $key }}">{{ $key }}</h2>
-                    <div class="divide-y divide-gray-300 border-l-2 border-primary-600">
+                    <div class="border-l-2 border-primary-600">
                         @foreach ($date_group as $date)
-                            <div class="flex items-center space-x-3 {{ $date->cancelled ? "text-gray-500 line-through" : null }}">
+                            <div class="pl-4 pt-2 flex items-center space-x-2">
+                                @foreach ($date->clubs as $club)
+                                    <div class="text-sm font-bold tracking-tighter {{ $club->ah ? "text-gray-700" : "text-primary-600" }}">{{ $club->name_code }}</div>
+                                @endforeach
+                            </div>
+                            <div class="flex items-center space-x-3 border-b border-gray-300 {{ $date->cancelled ? "text-gray-500 line-through" : null }}">
                                 {{-- date and time --}}
                                 <div class="p-4 flex flex-col text-center">
                                     <div>
@@ -75,15 +80,17 @@
                                         @unless ($date->dateType->id == 2)
                                             <span class="text-xs">{{ $date->dateType->description }}</span>
                                         @endunless
-                                            <div class="text-xs">
-                                                @if ($date->poll_begins && $today < $date->poll_begins)
-                                                    (<i class="far fa-calendar-check text-gray-600" title="Rückmelden"></i> Umfrage öffnet am {{ $date->poll_begins->isoFormat('Do MMM') }})
-                                                @endif
-                                            </div>
+                                        <div class="text-xs">
+                                            @if ($date->poll_begins && $today < $date->poll_begins)
+                                                (<i class="far fa-calendar-check text-gray-600" title="Rückmelden"></i> Umfrage öffnet am {{ $date->poll_begins->isoFormat('Do MMM') }})
+                                            @elseif ($date->poll_begins && $date->poll_ends && $today >= $date->poll_begins && $today <= $date->poll_ends)
+                                                (<i class="far fa-calendar-check text-gray-600" title="Rückmelden"></i> Umfrage endet {{ $date->poll_ends->diffForHumans() }})
+                                            @endif
+                                        </div>
                                     </div>
-                                    <div class="flex flex-row items-center space-x-2 divide-x divide-gray-300">
+                                    <div class="flex flex-row items-center space-x-2">
                                         @unless ($date->dateType->id == 1)
-                                            <div class="">
+                                            <div class="font-bold">
                                                 {{ $date->datetime->format('H:i') }}
                                             </div>
                                         @endunless
@@ -100,14 +107,20 @@
                                                     </div>
                                                 @break
                                                 @case (2)
-                                                    <div class="flex">
-                                                        <div>
+                                                    <div class="flex items-center space-x-1">
+                                                        <div class="tracking-tighter">
                                                             {{ $date->match->teamHome->name  }}
                                                         </div>
-                                                        <div class="rounded bg-gray-300">
-                                                            :
+                                                        <div class="rounded bg-gray-300 p-1 text-sm tracking-tighter">
+                                                            @if ($date->match->isRated())
+                                                                {{ $date->match->goals_home_rated }}:{{ $date->match->goals_away_rated }}
+                                                            @elseif ($date->match->isPlayed())
+                                                                {{ $date->match->goals_home }}:{{ $date->match->goals_away }}
+                                                            @else
+                                                                -:-
+                                                            @endif
                                                         </div>
-                                                        <div>
+                                                        <div class="tracking-tighter">
                                                             {{ $date->match->teamAway->name }}
                                                         </div>
                                                     </div>
@@ -119,6 +132,9 @@
                                                         </div>
                                                         <div class="text-xs">
                                                             {{ $date->tournament->description }}
+                                                        </div>
+                                                        <div class="">
+                                                            {{ $date->tournament->place }}
                                                         </div>
                                                     </div>
                                                     @break
@@ -137,29 +153,31 @@
                                 </div>
                                 {{-- poll --}}
                                 {{-- is date valid for me, i.e. date->clubs contains at least one of player->clubs --}}
-                                @if ($date->clubs->intersect(auth()->user()->player->clubs) && $date->poll_begins && $date->poll_ends)
-                                    <div class="flex flex-grow justify-end items-center space-x-2">
-                                        {{-- if open -> participate in poll --}}
-                                        <div class="flex flex-col space-y-1 text-right">
-                                            @if ($date->poll_is_open && $today >= $date->poll_begins && $today <= $date->poll_ends)
-                                                <a href="{{ route('poll', $date) }}" class="flex justify-end">
-                                                    <x-button>
-                                                        <i class="far fa-calendar-plus fa-lg " title="Rückmelden"></i>
-                                                    </x-button>
-                                                </a>
-                                                <div class="text-xs">
-                                                    @if (auth()->user()->dateOptions()->where('date_id', $date->id)->count() > 0)
-                                                        <span class="text-primary-600">Du hast teilgenommen</span>
-                                                    @else
-                                                        <span class="text-red-600">Du hast noch nicht teilgenommen</span>
-                                                    @endif
-                                                </div>
-                                            @endif
+                                @auth
+                                    @if ($date->clubs->intersect(auth()->user()->player->clubs) && $date->poll_begins && $date->poll_ends)
+                                        <div class="flex flex-grow justify-end items-center space-x-2">
+                                            {{-- if open -> participate in poll --}}
+                                            <div class="flex flex-col space-y-1 text-right">
+                                                @if ($date->poll_is_open && $today >= $date->poll_begins && $today <= $date->poll_ends)
+                                                    <a href="{{ route('poll', $date) }}" class="flex justify-end">
+                                                        <x-button>
+                                                            <i class="far fa-calendar-plus pr-1" title="Rückmelden" ></i>Rückmelden
+                                                        </x-button>
+                                                    </a>
+                                                    <div class="text-xs">
+                                                        @if (auth()->user()->dateOptions()->where('date_id', $date->id)->count() > 0)
+                                                            <span class="text-primary-600">Du hast teilgenommen</span>
+                                                        @else
+                                                            <span class="text-red-600">Du hast noch nicht teilgenommen</span>
+                                                        @endif
+                                                    </div>
+                                                @endif
 
+                                            </div>
                                         </div>
-                                    </div>
-                                    {{----}}
-                                @endif
+                                    @endif
+                                @endauth
+
                             </div>
                         @endforeach
                     </div>

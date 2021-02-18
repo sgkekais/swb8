@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 11, 2021 at 09:39 PM
+-- Generation Time: Feb 18, 2021 at 07:55 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.12
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `swb8`
 --
+CREATE DATABASE IF NOT EXISTS `swb8` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `swb8`;
 
 -- --------------------------------------------------------
 
@@ -89,7 +91,14 @@ INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_type`, `su
 (41, 'default', 'updated', 'App\\Models\\Date', 668, 'App\\Models\\User', 1, '{\"old\": [], \"attributes\": []}', '2021-02-11 17:59:18', '2021-02-11 17:59:18'),
 (42, 'default', 'updated', 'App\\Models\\Date', 668, 'App\\Models\\User', 1, '{\"old\": [], \"attributes\": []}', '2021-02-11 17:59:50', '2021-02-11 17:59:50'),
 (43, 'default', 'updated', 'App\\Models\\Date', 668, 'App\\Models\\User', 1, '{\"old\": [], \"attributes\": []}', '2021-02-11 18:00:05', '2021-02-11 18:00:05'),
-(44, 'default', 'updated', 'App\\Models\\Date', 668, 'App\\Models\\User', 1, '{\"old\": [], \"attributes\": []}', '2021-02-11 18:00:47', '2021-02-11 18:00:47');
+(44, 'default', 'updated', 'App\\Models\\Date', 668, 'App\\Models\\User', 1, '{\"old\": [], \"attributes\": []}', '2021-02-11 18:00:47', '2021-02-11 18:00:47'),
+(45, 'default', 'created', 'App\\Models\\Date', 669, 'App\\Models\\User', 1, '{\"attributes\": {\"note\": null, \"title\": null, \"datetime\": null, \"cancelled\": false, \"poll_ends\": \"2021-02-14\", \"published\": false, \"description\": null, \"location_id\": null, \"poll_begins\": \"2021-02-11\", \"date_type_id\": 1, \"poll_is_open\": false}}', '2021-02-12 14:46:52', '2021-02-12 14:46:52'),
+(46, 'default', 'updated', 'App\\Models\\Date', 669, 'App\\Models\\User', 1, '{\"old\": {\"published\": false}, \"attributes\": {\"published\": true}}', '2021-02-12 14:47:05', '2021-02-12 14:47:05'),
+(47, 'default', 'deleted', 'App\\Models\\Date', 669, 'App\\Models\\User', 1, '{\"attributes\": {\"note\": null, \"title\": null, \"datetime\": null, \"cancelled\": false, \"poll_ends\": \"2021-02-14\", \"published\": true, \"description\": null, \"location_id\": null, \"poll_begins\": \"2021-02-11\", \"date_type_id\": 1, \"poll_is_open\": false}}', '2021-02-12 14:47:55', '2021-02-12 14:47:55'),
+(48, 'default', 'created', 'App\\Models\\Date', 670, 'App\\Models\\User', 1, '{\"attributes\": {\"note\": null, \"title\": null, \"datetime\": \"2021-02-11T00:00\", \"cancelled\": false, \"poll_ends\": \"2021-02-14\", \"published\": true, \"description\": null, \"location_id\": null, \"poll_begins\": \"2021-02-11\", \"date_type_id\": 1, \"poll_is_open\": false}}', '2021-02-12 14:48:39', '2021-02-12 14:48:39'),
+(49, 'default', 'updated', 'App\\Models\\Date', 670, 'App\\Models\\User', 1, '{\"old\": [], \"attributes\": []}', '2021-02-12 17:29:24', '2021-02-12 17:29:24'),
+(50, 'default', 'updated', 'App\\Models\\Date', 670, 'App\\Models\\User', 1, '{\"old\": {\"title\": null, \"description\": null}, \"attributes\": {\"title\": \"Titel der Umfrage\", \"description\": \"Umfragen sind toll.\"}}', '2021-02-12 17:30:01', '2021-02-12 17:30:01'),
+(51, 'default', 'updated', 'App\\Models\\Date', 665, 'App\\Models\\User', 1, '{\"old\": {\"datetime\": \"2021-02-04T00:29\", \"poll_begins\": \"2021-12-22\"}, \"attributes\": {\"datetime\": \"2021-02-01T00:00\", \"poll_begins\": \"2021-02-01\"}}', '2021-02-18 16:50:15', '2021-02-18 16:50:15');
 
 -- --------------------------------------------------------
 
@@ -1129,7 +1138,8 @@ INSERT INTO `club_date` (`club_id`, `date_id`, `created_at`, `updated_at`) VALUE
 (34, 665, '2020-12-29 13:41:04', '2020-12-29 13:41:04'),
 (33, 665, '2021-01-08 12:10:59', '2021-01-08 12:10:59'),
 (34, 666, '2021-01-08 12:11:53', '2021-01-08 12:11:53'),
-(33, 668, '2021-01-10 14:41:40', '2021-01-10 14:41:40');
+(33, 668, '2021-01-10 14:41:40', '2021-01-10 14:41:40'),
+(33, 670, '2021-02-12 17:29:24', '2021-02-12 17:29:24');
 
 -- --------------------------------------------------------
 
@@ -1781,9 +1791,10 @@ INSERT INTO `dates` (`id`, `date_type_id`, `location_id`, `datetime`, `title`, `
 (660, 2, 1, '2020-09-25 20:45:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (661, 2, 1, '2020-10-26 20:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 23:18:13', NULL, NULL, 0),
 (662, 2, 1, '2020-10-09 20:45:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2021-01-02 16:48:58', NULL, NULL, 0),
-(665, 1, NULL, '2021-02-04 00:29:00', 'Umfragetest', 'Hier kommt ein super toller Beschreibungstext hin.', NULL, 1, 0, '2020-12-22 22:34:54', '2021-01-08 12:10:59', '2021-12-22', '2021-12-27', 1),
+(665, 1, NULL, '2021-02-01 00:00:00', 'Umfragetest', 'Hier kommt ein super toller Beschreibungstext hin.', NULL, 1, 0, '2020-12-22 22:34:54', '2021-02-18 16:50:15', '2021-02-01', '2021-12-27', 1),
 (666, 4, 15, '2021-03-01 09:15:00', 'Pandemieende', 'Das ist das E N D E!', NULL, 1, 0, '2021-01-05 23:24:33', '2021-01-10 14:35:41', '2021-01-01', '2021-02-28', 1),
-(668, 2, NULL, '2021-03-10 20:15:00', NULL, NULL, NULL, 1, 0, '2021-01-10 14:33:22', '2021-02-11 18:00:47', '2021-01-01', '2021-03-09', 1);
+(668, 2, NULL, '2021-03-10 20:15:00', NULL, NULL, NULL, 1, 0, '2021-01-10 14:33:22', '2021-02-11 18:00:47', '2021-01-01', '2021-03-09', 1),
+(670, 1, NULL, '2021-02-11 00:00:00', 'Titel der Umfrage', 'Umfragen sind toll.', NULL, 1, 0, '2021-02-12 14:48:39', '2021-02-12 17:30:01', '2021-02-11', '2021-02-14', 0);
 
 -- --------------------------------------------------------
 
@@ -1829,7 +1840,8 @@ CREATE TABLE `date_option_user` (
 
 INSERT INTO `date_option_user` (`date_option_id`, `user_id`, `attend`, `created_at`, `updated_at`) VALUES
 (11, 2, 0, NULL, '2020-12-27 14:40:17'),
-(14, 1, 1, '2021-01-10 14:44:35', '2021-02-10 17:51:23');
+(14, 1, 0, '2021-02-12 17:36:09', '2021-02-12 17:38:27'),
+(13, 1, 0, '2021-02-15 14:16:53', '2021-02-15 14:16:53');
 
 -- --------------------------------------------------------
 
@@ -3740,6 +3752,13 @@ CREATE TABLE `password_resets` (
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `password_resets`
+--
+
+INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
+('kvnkaiser@gmail.com', '$2y$10$UV4q7PJzGiJIuKz3i0qAkOFBArtx4ahc1ybh3hu8XMFhHIZgyqkZi', '2021-02-18 16:09:37');
+
 -- --------------------------------------------------------
 
 --
@@ -4067,7 +4086,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('BO4lZEuIHn6N623xfclUPK9fsZVT2oKfuKmlAYMD', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36 Edg/88.0.705.63', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiTHduczNSVkpVYjlrQ1U5VmYyREY4bWdsZEQ4RWxzNnhMOWpwRTZJNyI7czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJGUzbW00aG5TalFFU0phek95SnVvMXVBeERGMHpjSDVJTmw4c3pqdmd1WndtQ2V0WDVEcFlhIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCRlM21tNGhuU2pRRVNKYXpPeUp1bzF1QXhERjB6Y0g1SU5sOHN6anZndVp3bUNldFg1RHBZYSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzk6Imh0dHA6Ly9zd2I4LnRlc3Qva2FsZW5kZXI/bW9uYXQ9RmVicnVhciI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1613067244);
+('QrVuACVoAHEhDW2pgDSYsxYUJUzWGTLRIK0lhAoq', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36 Edg/88.0.705.68', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiS2haR29GSXpvVWl5SGZPUm1IRUVsUjRlSE5YbnBtenE0aHRRYk1kRSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly9zd2I4LnRlc3QvYWRtaW4vc2Vhc29ucyI7fXM6MzoidXJsIjthOjA6e31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkeDR3d0RqcTVmbXYuUHVVMGdDMm1DLm1zOENtMEgzZGYudmF5QWhycVN2dEhxdHJGdGFSVmkiO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJHg0d3dEanE1Zm12LlB1VTBnQzJtQy5tczhDbTBIM2RmLnZheUFocnFTdnRIcXRyRnRhUlZpIjt9', 1613667576);
 
 -- --------------------------------------------------------
 
@@ -4155,7 +4174,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `current_team_id`, `profile_photo_path`, `is_admin`, `banned`, `created_at`, `updated_at`) VALUES
-(1, 'Kevin', 'kvnkaiser@gmail.com', NULL, '$2y$10$e3mm4hnSjQESJazOyJuo1uAxDF0zcH5INl8szjvguZwmCetX5DpYa', NULL, NULL, 'gcLRBycuVEXmX0uvp8v5hh4B24ryxNN3QydPLJe8BTybV0h0ZxZaZTvhaLLX', NULL, 'profile-photos/4YROFwscZCzGxRwmwFaaTSitSJ3xPuIA5pqtSWpK.jpg', 1, 0, '2020-11-17 21:01:51', '2020-12-21 23:23:57'),
+(1, 'Kevin', 'kvnkaiser@gmail.com', NULL, '$2y$10$x4wwDjq5fmv.PuU0gC2mC.ms8Cm0H3df.vayAhrqSvtHqtrFtaRVi', NULL, NULL, 'jalGEdxh2I9g8dAarvCfvgAo8D4BMtXAt59SMgmDgipYPQgPypydhtox8Qyg', NULL, 'profile-photos/4YROFwscZCzGxRwmwFaaTSitSJ3xPuIA5pqtSWpK.jpg', 1, 0, '2020-11-17 21:01:51', '2021-02-18 16:17:14'),
 (2, 'Martin', 'martin@martin.de', NULL, 'test', NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL);
 
 --
@@ -4351,7 +4370,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `assists`
@@ -4381,7 +4400,7 @@ ALTER TABLE `dates`
 -- AUTO_INCREMENT for table `date_options`
 --
 ALTER TABLE `date_options`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `date_types`
@@ -4459,7 +4478,7 @@ ALTER TABLE `seasons`
 -- AUTO_INCREMENT for table `tournaments`
 --
 ALTER TABLE `tournaments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=671;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=594;
 
 --
 -- AUTO_INCREMENT for table `users`

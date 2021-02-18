@@ -76,11 +76,59 @@ class Match extends Model
 
     /*
      * --------------------------------------------------------------------------
+     * SCOPES
+     * --------------------------------------------------------------------------
+     */
+
+
+
+    /*
+     * --------------------------------------------------------------------------
      * METHODS
      * --------------------------------------------------------------------------
      */
 
-    // TODO: result() method to return result (normal, penalties, rated, cancelled)
+    /**
+     * Check if match has been played
+     * @return bool
+     */
+    public function isPlayed()
+    {
+        if (isset($this->goals_home) && isset($this->goals_away))
+        {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Check if the match has been rated
+     * @return bool
+     */
+    public function isRated()
+    {
+        if (isset($this->goals_home_rated) && isset($this->goals_away_rated))
+        {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Check if the match had penalties
+     * @return bool
+     */
+    public function isPenalties()
+    {
+        if (isset($this->goals_home_pen) && isset($this->goals_away_pen))
+        {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     /*
      * --------------------------------------------------------------------------

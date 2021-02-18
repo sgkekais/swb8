@@ -83,7 +83,7 @@
                     <div class="flex items-center space-x-2">
                         <div class="h-8 w-8">
                             @isset($player->user)
-                                <img class="h-8 w-8 ring-1 ring-white rounded-full object-cover" src="{{ $player->user->profile_photo_url }}" alt="{{ $player->first_name }}" />
+                                <img class="h-8 w-8 rounded-full object-cover" src="{{ $player->user->profile_photo_url }}" alt="{{ $player->first_name }}" />
                             @endisset
                         </div>
                         <div class="pl-2">

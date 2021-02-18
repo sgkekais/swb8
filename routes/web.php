@@ -19,8 +19,6 @@ Route::get('/', function () {
 
 Route::get('/kalender', Calendar::class)->name('calendar');
 
-Route::get('/umfrage/{date}', Poll::class)->name('poll');
-
 /*
  * --------------------------------------------------------------------------
  * Frontpage Club Routes
@@ -47,6 +45,9 @@ Route::middleware(['auth:sanctum', 'verified', 'is_banned'])->group(function () 
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    // polls
+    Route::get('/umfrage/{date}', Poll::class)->name('poll');
 
     /*
      * --------------------------------------------------------------------------

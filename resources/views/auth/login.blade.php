@@ -12,7 +12,7 @@
             </div>
         @endif
         <div class="mb-6">
-            <h1 class="uppercase">Login</h1>
+            <h1 class="font-sans font-extrabold text-3xl tracking-tighter">Login</h1>
         </div>
         <form method="POST" action="{{ route('login') }}">
             @csrf
@@ -28,10 +28,10 @@
             </div>
 
             <div class="block mt-4">
-                <label class="flex items-center">
+                <div class="flex items-center space-x-2">
                     <x-input-checkbox name="remember" />
-                    <span class="ml-2 text-sm">{{ __('Merken?') }}</span>
-                </label>
+                    <x-input-checkbox-label>{{ __('Merken?') }}</x-input-checkbox-label>
+                </div>
             </div>
 
             <div class="flex items-center justify-end mt-4 space-x-2">

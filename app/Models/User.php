@@ -63,6 +63,12 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    /*
+     * --------------------------------------------------------------------------
+     * METHODS
+     * --------------------------------------------------------------------------
+     */
+
     /**
      * @return mixed
      */
@@ -78,6 +84,17 @@ class User extends Authenticatable
     {
         return $this->banned;
     }
+
+    protected function defaultProfilePhotoUrl()
+    {
+        return 'https://ui-avatars.com/api/?name='.urlencode($this->name).'&color=FFFFFF&background=16A34A';
+    }
+
+    /*
+     * --------------------------------------------------------------------------
+     * RELATIONSHIPS
+     * --------------------------------------------------------------------------
+     */
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany

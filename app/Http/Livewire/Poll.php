@@ -24,7 +24,6 @@ class Poll extends Component
 
     public function attend()
     {
-        // dd($this->checked_options);
         // convert checked_options array into collection, so we can use 'contains()'
         $this->checked_options = collect($this->checked_options);
 
@@ -40,7 +39,6 @@ class Poll extends Component
             // if the checked_options collection contains the date's dateoption id, attend = 1, else attend = 0 (user did not select this option)
             $date_options_to_be_synced[$value] = ['attend' => $this->checked_options->contains($value) ? 1 : 0];
         }
-        // dd($date_options_to_be_synced);
 
         // sync the data
         auth()->user()->dateOptions()->sync($date_options_to_be_synced, false);
