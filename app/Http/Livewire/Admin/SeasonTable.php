@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Club;
 use App\Models\Season;
 use Mediconesystems\LivewireDatatables\BooleanColumn;
 use Mediconesystems\LivewireDatatables\Column;
@@ -28,11 +29,21 @@ class SeasonTable extends LivewireDatatable
                 ->label('Beschreibung')
                 ->truncate(50)
                 ->searchable(),
+            Column::name('clubs.name_code')
+                ->label('Gültig für')
+                ->filterable($this->club_name),
             BooleanColumn::name('is_ah_season')
+                ->label('AH-Saison?')
                 ->filterable(),
             Column::callback(['id'], function ($id) {
                 return view('admin.includes.table-actions', ['id' => $id]);
             })
         ];
+    }
+
+    // get date type descriptions to filter
+    public function getClubNameProperty()
+    {
+        return Club::owner(true)->pluck('name_code');
     }
 }

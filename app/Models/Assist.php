@@ -36,11 +36,14 @@ class Assist extends Model
     protected static $logFillable = true;
     protected static $logOnlyDirty = true;
 
-    public function goal() {
+    public function goal()
+    {
         return $this->belongsTo('App\Models\Goal');
     }
 
-    public function player() {
+    public function player()
+    {
         return $this->belongsTo('App\Models\Player');
     }
+
 }

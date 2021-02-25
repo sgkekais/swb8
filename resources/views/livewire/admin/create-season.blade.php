@@ -33,26 +33,45 @@
                         <x-jet-label for="season.number" class="flex justify-between">
                             Nummer
                         </x-jet-label>
-                        <x-jet-input class="w-full" type="number" id="season.number" wire:model.defer="season.number" placeholder="" />
+                        <x-input-text class="w-full" type="number" id="season.number" wire:model="season.number" />
                         <x-jet-input-error for="season.number" />
                     </div>
-                    <div>
-                        <x-jet-label for="season.title" class="flex justify-between">
+                    <div class="w-full">
+                        <x-jet-label for="season.title" class="flex justify-between ">
                             Titel
                         </x-jet-label>
-                        <x-jet-input class="w-full" type="text" id="season.title" wire:model.defer="season.title" placeholder="" />
+                        <x-input-text class="" type="text" id="season.title" wire:model.defer="season.title" />
                         <x-jet-input-error for="season.title" />
                     </div>
                 </div>
-                <!-- match description -->
+                <!-- season description -->
                 <div class="mb-6">
                     <x-jet-label for="season.description" class="flex justify-between">
-                        Beschreibung
+                        Beschreibung / Zusammenfassung der Saison
                     </x-jet-label>
                     <textarea id="season.description" wire:model.defer="season.description" class="w-full" rows="5">
 
                     </textarea>
                     <x-jet-input-error for="season.description" />
+                </div>
+                <!-- clubs -->
+                <div class=" font-bold uppercase">
+                    Gültig für
+                </div>
+                <div class="mb-6 flex items-center space-x-4">
+                    @foreach ($owned_clubs as $owned_club)
+                        <div class="flex items-center space-x-2">
+                            <x-input-checkbox
+                                wire:key="{{ $owned_club->id }}"
+                                wire:model.defer="assigned_clubs"
+                                name="owned_club_{{ $owned_club->id }}"
+                                value="{{ $owned_club->id }}" />
+                            <x-input-checkbox-label class="" for="owned_club_{{ $owned_club->id }}">
+                                {{ $owned_club->name_short }}
+                            </x-input-checkbox-label>
+                        </div>
+
+                    @endforeach
                 </div>
             </x-slot>
             <x-slot name="footer">
@@ -63,9 +82,9 @@
                         </x-confirmation-button>
                     </span>
                     <span class="flex w-full sm:w-auto">
-                        <x-jet-secondary-button wire:click="closeModal()" wire:loading.attr="disabled" class="w-full justify-center">
+                        <x-button wire:click="closeModal()" wire:loading.attr="disabled" class="">
                             Abbrechen
-                        </x-jet-secondary-button>
+                        </x-button>
                     </span>
                 </div>
             </x-slot>

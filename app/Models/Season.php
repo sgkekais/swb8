@@ -51,6 +51,21 @@ class Season extends Model
         return $query->where('is_ah_season',$true);
     }
 
+    /*
+     * --------------------------------------------------------------------------
+     * RELATIONSHIPS
+     * --------------------------------------------------------------------------
+     */
+
+    /**
+     * A season has many clubs
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function clubs()
+    {
+        return $this->belongsToMany('App\Models\Club')->withTimestamps();;
+    }
+
     public function matches()
     {
         return $this->hasMany('App\Models\Match');
@@ -66,8 +81,4 @@ class Season extends Model
         return $this->hasManyThrough('App\Models\Card', 'App\Models\Match');
     }
 
-    public function assists()
-    {
-        return $this->hasManyThrough('App\Models\Assist', 'App\Models\Match');
-    }
 }

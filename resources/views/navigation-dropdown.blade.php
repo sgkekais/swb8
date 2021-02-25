@@ -190,9 +190,9 @@
                     </x-jet-dropdown>
                 @endauth
                 @guest
-                    <a href="{{ route('login') }}" class="inline-flex items-center text-sm font-bold leading-5 uppercase text-gray-400 hover:text-gray-200 focus:outline-none focus:text-gray-200 transition duration-150 ease-in-out">
+                    <x-jet-nav-link href="{{ route('login') }}" class="mr-4">
                         Login
-                    </a>
+                    </x-jet-nav-link>
                 @endguest
             </div>
             <!-- END Settings Dropdown -->

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Club;
 use App\Models\Season;
 use Livewire\Component;
 
@@ -10,6 +11,9 @@ class CreateSeason extends Component
     public ?Season $season = null;
     public $is_open = false;
     public $is_open_delete = false;
+    public $clubs = [];
+    public $assigned_clubs = [];
+    public $owned_clubs = [];
 
     protected $rules = [
         'season.number' => 'nullable|integer',
@@ -25,6 +29,8 @@ class CreateSeason extends Component
     public function mount()
     {
         $this->season ??= new Season();
+        $this->season->number = Season::max('number') + 1;
+        $this->owned_clubs = Club::owner(true)->get();
     }
 
     public function openModal()
@@ -55,7 +61,6 @@ class CreateSeason extends Component
 
     public function create()
     {
-        $this->resetInputFields();
         $this->openModal();
     }
 
@@ -64,6 +69,8 @@ class CreateSeason extends Component
         $this->validate();
 
         $this->season->save();
+
+        $this->season->clubs()->sync($this->assigned_clubs);
 
         session()->flash('success', 'Saison erfolgreich angelegt.');
 
@@ -74,6 +81,8 @@ class CreateSeason extends Component
     public function edit(Season $season)
     {
         $this->season = $season;
+        $this->assigned_clubs = $this->season->clubs()->get()->pluck('id')->toArray();
+        $this->assigned_clubs = array_map('strval', $this->assigned_clubs);
         $this->openModal();
     }
 

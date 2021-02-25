@@ -55,6 +55,12 @@ class Club extends Model
     protected static $logFillable = true;
     protected static $logOnlyDirty = true;
 
+    /*
+     * --------------------------------------------------------------------------
+     * SCOPES
+     * --------------------------------------------------------------------------
+     */
+
     public function scopeOwner($query, $true)
     {
         return $query->where('owner', $true);
@@ -63,6 +69,21 @@ class Club extends Model
     public function scopeAH($query, $true)
     {
         return $query->where('ah', $true);
+    }
+
+    /*
+     * --------------------------------------------------------------------------
+     * RELATIONSHIPS
+     * --------------------------------------------------------------------------
+     */
+
+    /**
+     * A club belongs to many seasons
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function seasons()
+    {
+        return $this->belongsToMany('App\Models\Season')->withTimestamps();;
     }
 
     /**
