@@ -66,9 +66,15 @@ class Scorers extends Component
         // sort the collection
         if ($this->sortDirection === 'asc')
         {
-            $this->scorers = $this->scorers->sortBy($this->sortField);
+            $this->scorers = $this->scorers->sortBy([
+                [$this->sortField, 'asc'],
+                ['full_name_short', 'asc']
+            ]);
         } elseif ($this->sortDirection === 'desc') {
-            $this->scorers = $this->scorers->sortByDesc($this->sortField);
+            $this->scorers = $this->scorers->sortBy([
+                [$this->sortField, 'desc'],
+                ['full_name_short', 'asc']
+            ]);
         }
 
         return view('livewire.scorers')->layout('layouts.app', ['header' => $this->header]);

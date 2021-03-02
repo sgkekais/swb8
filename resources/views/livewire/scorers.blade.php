@@ -32,6 +32,7 @@
                 $scorer_place = 1;
                 ${"prev_$sortField"} = 0;
                 $prev_scorer_place = 0;
+                $scorer_place_color = "";
             @endphp
             @foreach($scorers as $scorer)
                 @php
@@ -39,12 +40,26 @@
                     {
                         $scorer_place++;
                     }
+                    if ($scorer_place == 1)
+                    {
+                        $scorer_place_color = "bg-yellow-300";
+                    } elseif ($scorer_place == 2) {
+                        $scorer_place_color = "bg-gray-300";
+                    } elseif ($scorer_place == 3) {
+                       $scorer_place_color = "bg-yellow-600";
+                    } else {
+                        $scorer_place_color = "bg-white";
+                    }
                 @endphp
                 <x-table.row>
                     <x-table.cell class="text-center font-bold">
-                        @if (($scorer_place != $prev_scorer_place || $scorer_place < 4) && $sortDirection != 'asc')
-                            {{ $scorer_place }}
-                        @endif
+                        <div class="flex justify-center">
+                            <div class="rounded-full h-8 w-8 flex items-center justify-center {{ $scorer_place_color }}" >
+                                @if (($scorer_place != $prev_scorer_place || $scorer_place < 4) && $sortDirection != 'asc')
+                                    {{ $scorer_place }}
+                                @endif
+                            </div>
+                        </div>
                     </x-table.cell>
                     <x-table.cell class="py-2 flex-col">
                         <div class="">
