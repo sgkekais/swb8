@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class Player extends Model
@@ -57,8 +58,26 @@ class Player extends Model
     protected static $logFillable = true;
     protected static $logOnlyDirty = true;
 
-    /**
+    /*
+     * --------------------------------------------------------------------------
+     * ACCESSOR
+     * --------------------------------------------------------------------------
+     */
+
+    public function getFullNameAttribute()
+    {
+        return $this->first_name.", ".$this->last_name;
+    }
+
+    public function getFullNameShortAttribute()
+    {
+        return $this->first_name.", ".Str::limit($this->last_name, 1, '.');
+    }
+
+    /*
+     * --------------------------------------------------------------------------
      * SCOPES
+     * --------------------------------------------------------------------------
      */
 
     public function scopeIsPublic($query, $true)
@@ -66,8 +85,10 @@ class Player extends Model
         return $query->where('is_public', $true);
     }
 
-    /**
+    /*
+     * --------------------------------------------------------------------------
      * RELATIONSHIPS
+     * --------------------------------------------------------------------------
      */
 
     /**

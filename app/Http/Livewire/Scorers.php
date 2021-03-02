@@ -4,28 +4,27 @@ namespace App\Http\Livewire;
 
 use App\Models\Assist;
 use App\Models\Club;
+use App\Models\Goal;
 use App\Models\Player;
 use App\Models\Season;
 use Livewire\Component;
 
 class Scorers extends Component
 {
-    public $header = "Tore & Assists";
+    public $header = 'Tore & Assists';
     public ?Club $club = null;
     public $selectable_seasons = [];
     public ?Season $season = null;
     public $selected_season = "";
-    public $goals = [];
     public $scorers = [];
-    public $assists = [];
-    public $assist_players = [];
+    public $sortField = "scorer_points";
+    public $sortDirection = 'desc';
 
     public function mount(Club $club)
     {
         $this->club = $club;
-        // $this->selectable_seasons = Season::AHSeason($this->club->ah)->orderBy('number', 'desc')->get();
         $this->selectable_seasons = $this->club->seasons()->orderBy('number', 'desc')->get();
-        if ($this->selectable_seasons->count() > 0)
+        if (!$this->selectable_seasons->isEmpty())
         {
             $this->selected_season = $this->selectable_seasons->first()->id;
         }
@@ -35,36 +34,42 @@ class Scorers extends Component
         'selected_season' => 'string'
     ];
 
+    public function sortBy($field)
+    {
+        if ($this->sortField === $field) {
+            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+        } else {
+            $this->sortDirection = 'desc';
+        }
+        $this->sortField = $field;
+    }
+
     public function render()
     {
-        $this->season = Season::find($this->selected_season)->load('goals.player')->loadCount('goals');
-        $this->goals = $this->season->goals->load('match.matchType');
+        $this->season = Season::find($this->selected_season);
 
-        // TODO: neue scrorer tabelle
+        $this->scorers = Player::whereHas('goals.match.season', function ($query) {
+            return $query->where('id', $this->selected_season);
+        })->orWhereHas('assists.goal.match.season', function ($query) {
+            return $query->where('id', $this->selected_season);
+        })->with('goals.match.season', 'assists.goal.match.season')->get();
 
-        // fill scorers
-        $this->scorers = collect();
-        foreach ($this->goals->groupBy('player.id') as $player_id => $player_goals)
+        // fill scorers with goals, assists and respective totals for sorting
+        foreach ($this->scorers as $scorer)
         {
-            $player = Player::find($player_id);
-            $player->goals_total = $player_goals->count();
-            $player->player_goals = $player_goals;
-            $this->scorers->push($player);
+            $scorer->total_goals = $scorer->goals->where('match.season.id', $this->selected_season)->count();
+            $scorer->goals = $scorer->goals->where('match.season.id', $this->selected_season);
+            $scorer->total_assists = $scorer->assists->where('goal.match.season.id', $this->selected_season)->count();
+            $scorer->assists = $scorer->assists->where('goal.match.season.id', $this->selected_season);
+            $scorer->scorer_points = $scorer->total_goals + $scorer->total_assists;
         }
-        $this->scorers = $this->scorers->sortByDesc([['goals_total', 'desc'],['nickname', 'asc']]);
-
-        // fill assists
-        $this->assists = Assist::with('goal.match.season', 'player')->get()->where('goal.match.season.id', $this->selected_season);
-        $this->season->assists_count = $this->assists->count();
-        $this->assist_players = collect();
-        foreach ($this->assists->groupBy('player.id') as $player_id => $player_assists)
+        // sort the collection
+        if ($this->sortDirection === 'asc')
         {
-            $player = Player::find($player_id);
-            $player->assists_total = $player_assists->count();
-            $player->player_assists = $player_assists;
-            $this->assist_players->push($player);
+            $this->scorers = $this->scorers->sortBy($this->sortField);
+        } elseif ($this->sortDirection === 'desc') {
+            $this->scorers = $this->scorers->sortByDesc($this->sortField);
         }
-        $this->assist_players = $this->assist_players->sortByDesc([['assists_total', 'desc'],['nickname', 'asc']]);
 
         return view('livewire.scorers')->layout('layouts.app', ['header' => $this->header]);
     }
