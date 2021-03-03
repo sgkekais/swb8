@@ -16,11 +16,11 @@
             <x-table.row>
                 <x-table.heading class="text-center">#</x-table.heading>
                 <x-table.heading></x-table.heading>
-                <x-table.heading class="text-center" wire:click="sortBy('total_goals')" selectable direction="{{ $sortField == 'total_goals' ? $sortDirection : null }}">
-                    <i class="far fa-futbol"></i>
-                </x-table.heading>
                 <x-table.heading class="text-center" wire:click="sortBy('total_assists')" selectable direction="{{ $sortField == 'total_assists' ? $sortDirection : null }}">
                     <i class="far fa-handshake"></i>
+                </x-table.heading>
+                <x-table.heading class="text-center" wire:click="sortBy('total_goals')" selectable direction="{{ $sortField == 'total_goals' ? $sortDirection : null }}">
+                    <i class="far fa-futbol"></i>
                 </x-table.heading>
                 <x-table.heading class="text-center" wire:click="sortBy('scorer_points')" selectable direction="{{ $sortField == 'scorer_points' ? $sortDirection : null }}">
                     &Sigma;
@@ -70,8 +70,8 @@
                             <div class="h-2 bg-primary-300" style="width: {{ ceil(($scorer->total_assists / ($scorers->sum('scorer_points')))*100) }}% "></div>
                         </div>
                     </x-table.cell>
-                    <x-table.cell class="text-center">{{ $scorer->total_goals }}</x-table.cell>
                     <x-table.cell class="text-center">{{ $scorer->total_assists }}</x-table.cell>
+                    <x-table.cell class="text-center">{{ $scorer->total_goals }}</x-table.cell>
                     <x-table.cell class="text-center font-bold text-primary-700">{{ $scorer->scorer_points }}</x-table.cell>
                 </x-table.row>
                 @php
@@ -79,6 +79,14 @@
                     $prev_scorer_place = $scorer_place;
                 @endphp
             @endforeach
+            <!-- totals -->
+            <x-table.row>
+                <x-table.cell></x-table.cell>
+                <x-table.cell></x-table.cell>
+                <x-table.cell class="border-t border-gray-300 text-center">{{ $scorers->sum('total_assists') }}</x-table.cell>
+                <x-table.cell class="border-t border-gray-300 text-center">{{ $scorers->sum('total_goals') }}</x-table.cell>
+                <x-table.cell class="border-t border-gray-300 text-center font-bold">{{ $scorers->sum('scorer_points') }}</x-table.cell>
+            </x-table.row>
         </x-slot>
     </x-table.table>
 

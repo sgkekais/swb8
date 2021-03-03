@@ -25,15 +25,20 @@ Route::get('/kalender', Calendar::class)->name('calendar');
  * --------------------------------------------------------------------------
  */
 
-// fixtures -> how?
+// TODO: only allow these routes for clubs "owned"
+
+// fixtures
 Route::prefix('team')->name('club.')->group(function () {
     Route::get('/{club}/spielplan',Schedule::class )->name('schedule');
 });
 // goals & assists
 Route::prefix('team')->name('club.')->group(function () {
-    Route::get('/{club}/scorers',Scorers::class )->name('scorers');
+    Route::get('/{club}/scorer',Scorers::class )->name('scorers');
 });
 // cards
+Route::prefix('team')->name('club.')->group(function () {
+    Route::get('/{club}/suender',Sinners::class )->name('sinners');
+});
 
 /*
  * --------------------------------------------------------------------------

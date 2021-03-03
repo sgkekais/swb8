@@ -46,10 +46,10 @@
                                         <x-jet-dropdown-link href="{{ route('club.schedule', $nav_club) }}" :active="request()->segment(2) == $nav_club->id && request()->segment(3) === 'spielplan'">
                                             <i class="far fa-fw fa-calendar-alt"></i> Spielplan
                                         </x-jet-dropdown-link>
-                                        <x-jet-dropdown-link href="{{ route('club.scorers', $nav_club) }}" :active="request()->segment(2) == $nav_club->id && request()->segment(3) === 'scorers'">
+                                        <x-jet-dropdown-link href="{{ route('club.scorers', $nav_club) }}" :active="request()->segment(2) == $nav_club->id && request()->segment(3) === 'scorer'">
                                             <i class="far fa-fw fa-futbol"></i> Tore & Assists
                                         </x-jet-dropdown-link>
-                                        <x-jet-dropdown-link>
+                                        <x-jet-dropdown-link href="{{ route('club.sinners', $nav_club) }}" :active="request()->segment(2) == $nav_club->id && request()->segment(3) === 'suender'">
                                             <i class="far fa-fw fa-copy"></i> Karten
                                         </x-jet-dropdown-link>
                                         <x-jet-dropdown-link>

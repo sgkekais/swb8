@@ -2,9 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Assist;
 use App\Models\Club;
-use App\Models\Goal;
 use App\Models\Player;
 use App\Models\Season;
 use Livewire\Component;
@@ -12,7 +10,7 @@ use Livewire\Component;
 class Scorers extends Component
 {
     public $header = 'Tore & Assists';
-    public ?Club $club = null;
+        public ?Club $club = null;
     public $selectable_seasons = [];
     public ?Season $season = null;
     public $selected_season = "";
@@ -57,10 +55,10 @@ class Scorers extends Component
         // fill scorers with goals, assists and respective totals for sorting
         foreach ($this->scorers as $scorer)
         {
-            $scorer->total_goals = $scorer->goals->where('match.season.id', $this->selected_season)->count();
             $scorer->goals = $scorer->goals->where('match.season.id', $this->selected_season);
-            $scorer->total_assists = $scorer->assists->where('goal.match.season.id', $this->selected_season)->count();
+            $scorer->total_goals = $scorer->goals->count();
             $scorer->assists = $scorer->assists->where('goal.match.season.id', $this->selected_season);
+            $scorer->total_assists = $scorer->assists->count();
             $scorer->scorer_points = $scorer->total_goals + $scorer->total_assists;
         }
         // sort the collection
