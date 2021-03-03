@@ -75,7 +75,12 @@
                             {{ $sinner->fulL_name_short }}
                         </div>
                         <div class="flex">
-
+                            <div class="h-2 bg-gray-400" style="width: {{ ceil(($sinner->total_time_penalties / ($sinners->sum('sinner_points')))*100) }}% "></div>
+                            <div class="h-2 bg-yellow-400" style="width: {{ ceil(($sinner->total_yellow_cards / ($sinners->sum('sinner_points')))*100) }}% "></div>
+                            <div class="h-2" style="width: {{ ceil(($sinner->total_yellow_red_cards * 3 / ($sinners->sum('sinner_points')))*100) }}%;
+                                background-image: linear-gradient(90deg, #fbbf24 25%, #ef4444 25%, #ef4444 50%, #fbbf24 50%, #fbbf24 75%, #ef4444 75%, #ef4444 100%);
+                                background-size: 20px 20px;"></div>
+                            <div class="h-2 bg-red-500" style="width: {{ ceil(($sinner->total_red_cards * 5 / ($sinners->sum('sinner_points')))*100) }}% "></div>
                         </div>
                     </x-table.cell>
                     <x-table.cell class="text-center">{{ $sinner->total_time_penalties }}</x-table.cell>

@@ -27,16 +27,13 @@ Route::get('/kalender', Calendar::class)->name('calendar');
 
 // TODO: only allow these routes for clubs "owned"
 
-// fixtures
+
 Route::prefix('team')->name('club.')->group(function () {
+    // fixtures
     Route::get('/{club}/spielplan',Schedule::class )->name('schedule');
-});
-// goals & assists
-Route::prefix('team')->name('club.')->group(function () {
+    // goals & assists
     Route::get('/{club}/scorer',Scorers::class )->name('scorers');
-});
-// cards
-Route::prefix('team')->name('club.')->group(function () {
+    // cards
     Route::get('/{club}/suender',Sinners::class )->name('sinners');
 });
 
@@ -50,6 +47,11 @@ Route::middleware(['auth:sanctum', 'verified', 'is_banned'])->group(function () 
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    // personal dates
+
+    // personal stats
+
 
     // polls
     Route::get('/umfrage/{date}', Poll::class)->name('poll');
