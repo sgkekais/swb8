@@ -1,6 +1,6 @@
 <div>
     {{-- Do your work, then step back. --}}
-    <div class="font-sans italic" wire:poll.1000>
+    <div class="text-sm font-sans italic" wire:poll.10000ms>
         "{{ $quote->quote }}" <span class="font-bold not-italic">&dash;{{ $quote->author }}</span>
     </div>
 </div>
