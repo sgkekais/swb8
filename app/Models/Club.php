@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class Club extends Model
@@ -69,6 +70,19 @@ class Club extends Model
     public function scopeAH($query, $true)
     {
         return $query->where('ah', $true);
+    }
+
+    /*
+     * --------------------------------------------------------------------------
+     * METHODS
+     * --------------------------------------------------------------------------
+     */
+
+    public function logo()
+    {
+        return $this->logo_url
+            ? Storage::disk('club-logos')->url($this->logo_url)
+            : Storage::disk('club-logos')->url('default.png');
     }
 
     /*

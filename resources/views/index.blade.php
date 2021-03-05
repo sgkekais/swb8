@@ -1,25 +1,53 @@
 <x-app-layout>
     <x-slot name="header">
-        Hobbyfußball seit {{ \Carbon\Carbon::make('25.11.1979')->diffForHumans() }}
+        <div>Schwarz-Weiß Bilk '79</div>
+        <div class="text-xl font-normal">Hobbyfußball seit {{ \Carbon\Carbon::make('25.11.1979')->diffForHumans(null, true, false, 4) }}</div>
     </x-slot>
 
-    <div class="flex">
+    <div class="flex space-x-8">
         <div class="flex-grow">
+            <x-main-box class="p-2 bg-gray-100">
+                <x-slot name="header">
+                    Nächstes Spiel
+                </x-slot>
 
-            Nächstes Spiel
+                <livewire:frontpage.next-game />
+            </x-main-box>
 
-            Geburtstage
+            <x-main-box class="">
+                <x-slot name="header">
+                    ToDo
+                </x-slot>
 
-            Die letzten Spiele
 
-            Aktivitäten?
-            ... xyz hat an Termin teilgenommen
 
-            Kurzlisten?
+                Die letzten Spiele
+
+                Aktivitäten?
+                ... xyz hat an Termin teilgenommen
+
+                Kurzlisten?
+            </x-main-box>
+
         </div>
-        <div class="w-1/4">
-            <x-sidebar-box>
+        <div class="flex flex-col space-y-4 w-1/4">
+            <x-sidebar-box class="w-full">
+                <x-slot name="header">
+                    Weisheiten
+                </x-slot>
                 <livewire:random-quote />
+            </x-sidebar-box>
+            <x-sidebar-box class="w-full">
+                <x-slot name="header">
+                    Geburtstage
+                </x-slot>
+                <livewire:next-birthday />
+            </x-sidebar-box>
+            <x-sidebar-box class="w-full">
+                <x-slot name="header">
+                    Knipser
+                </x-slot>
+
             </x-sidebar-box>
         </div>
     </div>

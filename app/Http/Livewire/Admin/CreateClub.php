@@ -5,22 +5,27 @@ namespace App\Http\Livewire\Admin;
 use App\Models\Club;
 use App\Models\Player;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class CreateClub extends Component
 {
+    use WithFileUploads;
+
     public ?Club $club = null;
     public $is_open = false;
     public $is_open_delete = false;
     public $all_players = null;
     public $selected_players = [];
+    public $club_logo;
 
     protected $rules = [
         'club.name' => 'required',
         'club.name_short' => 'nullable|string|max:15',
         'club.name_code' => 'nullable|string|max:4',
-        'club.logo_url' => 'url|nullable',
+        'club.logo_url' => 'nullable',
         'club.owner' => 'boolean',
-        'club.ah' => 'boolean'
+        'club.ah' => 'boolean',
+        'club_logo' => 'image|max:1024'
     ];
 
     protected $listeners = [
@@ -59,6 +64,7 @@ class CreateClub extends Component
     {
         $this->club = new Club();
         $this->selected_players = [];
+        $this->club_logo = null;
     }
 
     public function create()
@@ -70,6 +76,10 @@ class CreateClub extends Component
     public function store()
     {
         $this->validate();
+
+        // logo
+        $filename = $this->club_logo->store('/', 'club-logos');
+        $this->club->logo_url = $filename;
 
         $this->club->save();
         $this->club->players()->sync($this->selected_players);
@@ -84,6 +94,7 @@ class CreateClub extends Component
     {
         $this->club = $club;
         $this->selected_players = Club::find($this->club->id)->players()->pluck('id')->toArray();
+
         //dd($this->selected_players);
         $this->selected_players = array_map('strval',$this->selected_players);
         $this->openModal();

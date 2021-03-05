@@ -46,9 +46,52 @@ class Season extends Model
     protected static $logFillable = true;
     protected static $logOnlyDirty = true;
 
+   /*
+    * --------------------------------------------------------------------------
+    * SCOPES
+    * --------------------------------------------------------------------------
+    */
+
     public function scopeAHSeason($query, $true)
     {
         return $query->where('is_ah_season',$true);
+    }
+
+    public function scopeCurrent($query, $ah = false)
+    {
+        $max = Season::where('is_ah_season', $ah)->max('number');
+        return $query->where('is_ah_season', $ah)->where('number', $max);
+    }
+
+    /*
+    * --------------------------------------------------------------------------
+    * METHODS
+    * --------------------------------------------------------------------------
+    */
+
+    /**
+     * Return a collection of scorers (player with goals & assists + total_goals, total_assists, scorer_points for the given season
+     * @return mixed
+     */
+    public function scorers()
+    {
+        $scorers = Player::whereHas('goals.match.season', function ($query) {
+            return $query->where('id', $this->id);
+        })->orWhereHas('assists.goal.match.season', function ($query) {
+            return $query->where('id', $this->id);
+        })->with('goals.match.season', 'assists.goal.match.season')->get();
+
+        // fill scorers with goals, assists and respective totals for sorting
+        foreach ($scorers as $scorer)
+        {
+            $scorer->goals = $scorer->goals->where('match.season.id', $this->id);
+            $scorer->total_goals = $scorer->goals->count();
+            $scorer->assists = $scorer->assists->where('goal.match.season.id', $this->id);
+            $scorer->total_assists = $scorer->assists->count();
+            $scorer->scorer_points = $scorer->total_goals + $scorer->total_assists;
+        }
+
+        return $scorers;
     }
 
     /*

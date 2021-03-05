@@ -46,21 +46,8 @@ class Scorers extends Component
     {
         $this->season = Season::find($this->selected_season);
 
-        $this->scorers = Player::whereHas('goals.match.season', function ($query) {
-            return $query->where('id', $this->selected_season);
-        })->orWhereHas('assists.goal.match.season', function ($query) {
-            return $query->where('id', $this->selected_season);
-        })->with('goals.match.season', 'assists.goal.match.season')->get();
+        $this->scorers = $this->season->scorers();
 
-        // fill scorers with goals, assists and respective totals for sorting
-        foreach ($this->scorers as $scorer)
-        {
-            $scorer->goals = $scorer->goals->where('match.season.id', $this->selected_season);
-            $scorer->total_goals = $scorer->goals->count();
-            $scorer->assists = $scorer->assists->where('goal.match.season.id', $this->selected_season);
-            $scorer->total_assists = $scorer->assists->count();
-            $scorer->scorer_points = $scorer->total_goals + $scorer->total_assists;
-        }
         // sort the collection
         if ($this->sortDirection === 'asc')
         {

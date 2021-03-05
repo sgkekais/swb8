@@ -9,7 +9,7 @@ use App\Models\Player;
 use App\Models\Season;
 use Livewire\Component;
 
-class Scorers extends Component
+class Scorers_old extends Component
 {
     public $header = "Tore & Assists";
     public ?Club $club = null;

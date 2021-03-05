@@ -13,6 +13,6 @@ class RandomQuote extends Component
     {
         $this->quote = Quote::all()->random();
 
-        return view('livewire.random-quote');
+        return view('livewire.sidebar.random-quote');
     }
 }

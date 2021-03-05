@@ -48,9 +48,22 @@
                     </div>
                 </div>
                 <div class="mb-6">
-                    <x-jet-label for="club.logo_url" value="Logo-URL" />
-                    <x-jet-input class="w-full" type="text" id="club.logo_url" wire:model.defer="club.logo_url" required />
-                    <x-jet-input-error for="club.logo_url" />
+                    <div class="flex">
+                        <div>
+                            @if ($club_logo)
+                                <img src="{{ $club_logo->temporaryUrl() }}" />
+                            @elseif ($club->logo_url)
+                                <img src="{{ $club->logo() }}" />
+                            @endif
+                        </div>
+                        <div>
+                            <x-jet-label for="club_logo" value="Logo-URL" />
+                            <input type="file" wire:model="club_logo">
+
+                            <x-jet-input-error for="club_logo" />
+                        </div>
+                    </div>
+
                 </div>
                 <div class="mb-6 flex justify-start space-x-2">
                     <div class="flex items-center space-x-2">
