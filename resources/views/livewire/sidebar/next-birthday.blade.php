@@ -14,7 +14,7 @@
                 <div>
                     {{ $player->full_name_short }} {{ $player->nickname ? '('.$player->nickname.')' : null }}
                     <br />
-                    <small>(wird {{ $player->dob->diffInYears() + 1 }})</small>
+                    <small>({{ $player->dob->isoFormat('D') > \Carbon\Carbon::today()->isoFormat('D') ? ("wird ".($player->dob->diffInYears() + 1)) : $player->dob->diffinYears() }})</small>
                 </div>
             </div>
         @endforeach

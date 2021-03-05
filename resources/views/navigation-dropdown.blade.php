@@ -82,7 +82,7 @@
                                     Mein Verein
                                 </x-jet-nav-link>
                                 @if(Auth::user()->isAdmin())
-                                    <x-jet-dropdown align="left">
+                                    <x-jet-dropdown align="right">
                                         <x-slot name="trigger">
                                             <x-jet-nav-link :active="request()->routeIs('admin.*')" class="py-3 cursor-pointer">
                                                 Verwaltung <i class="inline-block ml-1 fas fa-sort-down"></i>
