@@ -14,7 +14,7 @@
                 <div>
                     {{ $player->full_name_short }} {{ $player->nickname ? '('.$player->nickname.')' : null }}
                     <br />
-                     (wird {{ $player->dob->diffInYears() + 1 }})
+                    <small>(wird {{ $player->dob->diffInYears() + 1 }})</small>
                 </div>
             </div>
         @endforeach
