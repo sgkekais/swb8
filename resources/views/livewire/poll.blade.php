@@ -1,26 +1,18 @@
 <div>
-    {{-- Care about people's approval and you will be their prisoner. --}}
-
-    Terminart
-    <br>
-    Titel
-    <br>
-    Beschreibung
-    <br>
-    Spiel
-    <br>
-    Turnier
-    <br>
-    etc.
-    <h2 class="text-primary-500 font-bold">
-        {{ $date->title }}
-    </h2>
-    <!-- poll details -->
-    <div class="bg-gray-200 p-4">
-        {{ $date->description }}
-        <br>
-        Anzahl Optionen: {{ $date->dateOptions->count() }}
-        <br>
+    <div class="flex flex-col">
+        <div class="block font-sans font-extrabold text-2xl tracking-tighter ">
+            {{ $date->dateType->description }}
+        </div>
+        <div class="block font-sans font-extrabold text-xl tracking-tighter ">
+            {{ $date->title }}
+        </div>
+        <!-- poll details -->
+        <div class="bg-gray-200 p-4">
+            {{ $date->description }}
+            <br>
+            Anzahl Optionen: {{ $date->dateOptions->count() }}
+            <br>
+        </div>
     </div>
     <!-- poll participation -->
     <div class="table">
@@ -87,7 +79,7 @@
                             @endisset
                         </div>
                         <div class="pl-2">
-                            {{ $player->first_name }},{{ \Illuminate\Support\Str::substr($player->last_name,0,1) }}.
+                            {{ $player->full_name_short }}
                         </div>
                     </div>
                 </div>
@@ -125,9 +117,5 @@
                 </div>
             </div>
         @endforeach
-
-
     </div>
-
-
 </div>

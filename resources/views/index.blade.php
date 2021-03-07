@@ -8,12 +8,17 @@
         <div class="flex-grow">
             <x-main-box class="p-2 bg-gray-100">
                 <x-slot name="header">
-                    Nächstes Spiel
+                    Demnächst
                 </x-slot>
 
                 <livewire:frontpage.next-game />
             </x-main-box>
+            <x-main-box class="">
+                <x-slot name="header">
+                    Zuletzt
+                </x-slot>
 
+            </x-main-box>
             <x-main-box class="">
                 <x-slot name="header">
                     ToDo

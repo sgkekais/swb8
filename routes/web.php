@@ -44,14 +44,14 @@ Route::prefix('team')->name('club.')->group(function () {
  */
 Route::middleware(['auth:sanctum', 'verified', 'is_banned'])->group(function () {
     // Dashboard for all logged-in users
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::view('dashboard', 'dashboard')->name('dashboard');
 
-    // personal dates
-
-    // personal stats
-
+    Route::prefix('dashboard')->name('dashboard.')->group(function () {
+        // personal stats
+        Route::view('stats', 'dashboard.my-stats')->name('my-stats');
+        // vs
+        Route::view('vs', 'dashboard.vs')->name('vs');
+    });
 
     // polls
     Route::get('/umfrage/{date}', Poll::class)->name('poll');

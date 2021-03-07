@@ -25,7 +25,7 @@ class CreateClub extends Component
         'club.logo_url' => 'nullable',
         'club.owner' => 'boolean',
         'club.ah' => 'boolean',
-        'club_logo' => 'image|max:1024'
+        'club_logo' => 'image|max:1024|nullable'
     ];
 
     protected $listeners = [
@@ -78,8 +78,11 @@ class CreateClub extends Component
         $this->validate();
 
         // logo
-        $filename = $this->club_logo->store('/', 'club-logos');
-        $this->club->logo_url = $filename;
+        if ($this->club_logo)
+        {
+            $filename = $this->club_logo->store('/', 'club-logos');
+            $this->club->logo_url = $filename;
+        }
 
         $this->club->save();
         $this->club->players()->sync($this->selected_players);

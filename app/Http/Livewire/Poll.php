@@ -16,7 +16,7 @@ class Poll extends Component
     public function mount(Date $date)
     {
         $this->date = $date;
-        $this->date->load('dateOptions');
+        $this->date->load('dateOptions', 'dateType', 'clubs');
         $this->checked_options = auth()->user()->dateOptions()->with('date')->get()->where('date.id', $this->date->id)->where('pivot.attend',1)->pluck('id')->toArray();
         // convert integer vals to strings to avoid problems with pre-checked boxes
         $this->checked_options = array_map('strval', $this->checked_options);
@@ -40,7 +40,7 @@ class Poll extends Component
             $date_options_to_be_synced[$value] = ['attend' => $this->checked_options->contains($value) ? 1 : 0];
         }
 
-        // sync the data
+        // sync the data, do not detach
         auth()->user()->dateOptions()->sync($date_options_to_be_synced, false);
 
         $this->saved = 1;

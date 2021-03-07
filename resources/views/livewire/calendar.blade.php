@@ -1,8 +1,8 @@
 <div>
-    <div class="mb-6">
-        <label for="selected_year" class="font-bold text-primary-600">
-            Jahr auswählen
-        </label>
+    <div class="mb-6 flex items-center space-x-2">
+        <x-select-label for="selected_year" class="text-primary-600">
+            Jahr auswählen:
+        </x-select-label>
         <select name="selected_year" wire:model="selected_year">
             @foreach ($selectable_years->sortByDesc('date') as $selectable_year)
                 <option value="{{ $selectable_year->date }}">{{ $selectable_year->date }}</option>
@@ -29,9 +29,10 @@
                     <h2 class="my-3 font-sans font-black text-2xl" id="{{ $key }}">{{ $key }}</h2>
                     <div class="border-l-2 border-primary-600">
                         @foreach ($date_group as $date)
-                            <div class="pl-4 pt-2 flex items-center space-x-2">
+                            <div class="pl-4 pt-2 flex items-center space-x-2 text-sm ">
+                                <div>Für</div>
                                 @foreach ($date->clubs as $club)
-                                    <div class="text-sm font-bold tracking-tighter {{ $club->ah ? "text-gray-700" : "text-primary-600" }}">{{ $club->name_code }}</div>
+                                    <div class="font-bold tracking-tighter {{ $club->ah ? "text-gray-700" : "text-primary-600" }}">{{ $club->name_code }}</div>
                                 @endforeach
                             </div>
                             <div class="flex items-center space-x-3 border-b border-gray-300 {{ $date->cancelled ? "text-gray-500 line-through" : null }}">
@@ -154,7 +155,7 @@
                                 {{-- poll --}}
                                 {{-- is date valid for me, i.e. date->clubs contains at least one of player->clubs --}}
                                 @auth
-                                    @if ($date->clubs->intersect(auth()->user()->player->clubs) && $date->poll_begins && $date->poll_ends)
+                                    @if ($date->clubs->intersect(auth()->user()->player->clubs)->isNotEmpty() && $date->poll_begins && $date->poll_ends)
                                         <div class="flex flex-grow justify-end items-center space-x-2">
                                             {{-- if open -> participate in poll --}}
                                             <div class="flex flex-col space-y-1 text-right">
@@ -172,12 +173,10 @@
                                                         @endif
                                                     </div>
                                                 @endif
-
                                             </div>
                                         </div>
                                     @endif
                                 @endauth
-
                             </div>
                         @endforeach
                     </div>

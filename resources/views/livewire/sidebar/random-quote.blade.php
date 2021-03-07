@@ -1,9 +1,7 @@
 <div>
     {{-- Do your work, then step back. --}}
     <div class="" wire:poll.15000ms>
-        <div wire:loading>
-            <i class="far fa-futbol fa-spin" ></i>
-        </div>
+        <x-load-indicator />
         <div class="" wire:loading.remove>
             <div class="">
                 "{{ $quote->quote }}"

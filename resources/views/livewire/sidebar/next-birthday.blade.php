@@ -3,7 +3,7 @@
     <div class="flex flex-col">
         @foreach ($players as $player)
             <div class="flex space-x-2">
-                <div class="">
+                <div class="w-1/5">
                     @if ($player->dob->isoFormat('D.M.') == \Carbon\Carbon::now()->isoFormat('D.M.'))
                         <span class="animate-ping absolute">&#127874;</span>
                         <span class="relative">&#127874;</span>

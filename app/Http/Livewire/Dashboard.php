@@ -3,30 +3,25 @@
 namespace App\Http\Livewire;
 
 use App\Models\Player;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Dashboard extends Component
 {
-    public ?Player $user_player = null;
-    public $players = [];
-    public $selected_player = null;
-    public ?Player $vs_player = null;
+    public $future_dates;
+    public $past_dates;
+    public $today;
 
     public function mount ()
     {
-        $this->user_player = auth()->user()->player;
-        // $this->user_player = Player::find('2');
-        $this->players = Player::isPublic(true)->orderBy('nickname')->get();
-        $this->vs_player = $this->user_player;
+        $this->today = Carbon::now();
+        $this->future_dates = Auth::user()->dateOptions->where('date.datetime','>=', $this->today)->pluck('date')->unique()->sortBy('datetime');
+        $this->past_dates = Auth::user()->dateOptions->where('date.datetime','<=', $this->today)->pluck('date')->unique()->sortByDesc('datetime');
     }
 
     public function render()
     {
-        if ($this->selected_player)
-        {
-            $this->vs_player = Player::find($this->selected_player);
-        }
-
         return view('livewire.dashboard');
     }
 }

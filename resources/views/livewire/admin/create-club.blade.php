@@ -79,24 +79,26 @@
                         </x-input-checkbox-label>
                     </div>
                 </div>
-                <div class="mb-6">
-                    <div class="">Spieler zuordnen</div>
-                    @foreach($all_players as $player)
-                        <div class="flex items-center space-x-3">
-                            <x-input-checkbox
-                                wire:key="{{ $player->id }}"
-                                wire:model="selected_players"
-                                name="player_{{ $player->id }}"
-                                value="{{ $player->id }}" />
-                            <x-input-checkbox-label for="player_{{ $player->id }}" class="w-1/3">
-                                {{ $player->first_name.", ".$player->last_name }}
-                            </x-input-checkbox-label>
-                            <div class="">
-                                {{ $player->playerStatus->description }}
+                @if ($club->owner)
+                    <div class="mb-6">
+                        <div class="">Spieler zuordnen</div>
+                        @foreach($all_players as $player)
+                            <div class="flex items-center space-x-3">
+                                <x-input-checkbox
+                                    wire:key="{{ $player->id }}"
+                                    wire:model="selected_players"
+                                    name="player_{{ $player->id }}"
+                                    value="{{ $player->id }}" />
+                                <x-input-checkbox-label for="player_{{ $player->id }}" class="w-1/3">
+                                    {{ $player->first_name.", ".$player->last_name }}
+                                </x-input-checkbox-label>
+                                <div class="">
+                                    {{ $player->playerStatus->description }}
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
-                </div>
+                        @endforeach
+                    </div>
+                @endif
             </x-slot>
             <x-slot name="footer">
                 <div class="sm:flex sm:flex-row-reverse">

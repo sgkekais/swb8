@@ -1,15 +1,14 @@
 <div>
     <div class="mb-3 flex items-center space-x-2">
-        <x-select-label for="selected_season">Saison: </x-select-label>
+        <x-select-label for="selected_season" class="text-primary-600">Saison: </x-select-label>
         <select name="selected_season" wire:model="selected_season">
             @foreach ($selectable_seasons as $selected_season)
                 <option value="{{ $selected_season->id }}">{{ $selected_season->title }}</option>
             @endforeach
         </select>
     </div>
-    <div wire:loading>
-        <i class="far fa-futbol fa-spin" ></i>
-    </div>
+
+    <x-load-indicator />
 
     <x-table.table wire:loading.remove>
         <x-slot name="header">
