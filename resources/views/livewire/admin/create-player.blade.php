@@ -75,7 +75,7 @@
                 </div>
                 <div class="mb-6">
                     <x-jet-label for="nickname" class="flex justify-between">
-                        Spitzname
+                        Spitzname / Anzeige
                     </x-jet-label>
                     <x-jet-input class="w-full" type="text" id="nickname" wire:model.defer="player.nickname" placeholder=""/>
                     <x-jet-input-error for="player.nickname" />

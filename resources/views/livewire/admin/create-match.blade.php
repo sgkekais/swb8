@@ -54,13 +54,13 @@
                     <!-- home and away club + result -->
                     <div class="mb-6 flex space-x-4 items-center">
                         <div class="flex-grow">
-                            <x-jet-label class="text-green-600 text-center" for="match">
+                            <x-jet-label class="text-green-600 text-center" for="team_home">
                                 Heim
                             </x-jet-label>
-                            <select id="match" wire:model="match.team_home" class="w-full">
-                                <option selected="selected">Nicht festgelegt</option>
+                            <select id="team_home" wire:model="match.team_home" class="w-full" autocomplete="off">
+                                <option value="">Nicht festgelegt</option>
                                 @foreach($clubs as $club_home)
-                                    <option value="{{ $club_home->id }}">{{ $club_home->name }}</option>
+                                    <option value="{{ $club_home->id }}" wire:key="{{ $club_home->id }}">{{ $club_home->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -92,13 +92,13 @@
                             </div>
                         </div>
                         <div class="flex-grow">
-                            <x-jet-label class="text-green-600 text-center" for="match">
+                            <x-jet-label class="text-green-600 text-center" for="team_away">
                                 Gast
                             </x-jet-label>
-                            <select id="match" wire:model="match.team_away" class="w-full">
-                                <option selected="selected">Nicht festgelegt</option>
+                            <select id="team_away" wire:model="match.team_away" class="w-full" autocomplete="off">
+                                <option value="">Nicht festgelegt</option>
                                 @foreach($clubs as $club_away)
-                                    <option value="{{ $club_away->id }}">{{ $club_away->name }}</option>
+                                    <option value="{{ $club_away->id }}" wire:key="{{ $club_away->id }}">{{ $club_away->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -185,40 +185,64 @@
                     <!-- goals and assists -->
                     <div class="mb-6">
                         <div class="border-b border-gray-300">
-                            <h2 class="font-sans font-extrabold text-lg tracking-tighter uppercase text-primary-600">Tore & Vorlagen</h2>
+                            <h2 class="font-sans font-extrabold text-lg tracking-tighter uppercase text-primary-600">Tore</h2>
                         </div>
-                        <div class="table w-full">
-                            <div class="table-header-group">
-                                <div class="table-cell">
-                                    Minute
-                                </div>
-                                <div class="table-cell">
-                                    Stand
-                                </div>
-                                <div class="table-cell">
-                                    11m?
-                                </div>
-                                <div class="table-cell">
+                        <div class="py-2 flex items-center space-x-2">
+                            <div>
+                                <x-jet-label for="player">
                                     Spieler
+                                </x-jet-label>
+                                <select id="player" wire:model="goal_to_be_added.0.player" autocomplete="off" >
+                                    <option selected="selected" value="">Bitte auswählen</option>
+                                    @foreach($players_of_club as $player)
+                                        <option value="{{ $player->id }}">{{ $player->full_name_short }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div>
+                                <x-jet-label for="minute">
+                                    Minute
+                                </x-jet-label>
+                                <x-input-text id="minute" type="text" wire:model="goal_to_be_added.0.minute" />
+                            </div>
+                            <div>
+                                <x-jet-label for="score">
+                                    Stand
+                                </x-jet-label>
+                                <x-input-text id="score" type="text" wire:model="goal_to_be_added.0.score" />
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <x-input-checkbox wire:model="goal_to_be_added.0.penalty" id="penalty" />
+                                <x-input-checkbox-label for="penalty">
+                                    11m?
+                                </x-input-checkbox-label>
+                            </div>
+                            <x-confirmation-button wire:click="addGoal" target="addGoal">
+                                Hinzufügen
+                            </x-confirmation-button>
+                        </div>
+                        @foreach ($match->goals as $goal)
+                            <div class="py-2 flex items-center space-x-2">
+                                <x-button class="" wire:click="deleteGoal({{ $goal }})">
+                                    <i class="far fa-trash-alt fa-fw text-red-500" title="Löschen"></i>
+                                </x-button>
+                                <div class="text-center text-gray-700">
+                                    {{ $goal->id }}
+                                </div>
+                                <div>
+                                    {{ $goal->minute ? $goal->minute."'" : "-" }}
+                                </div>
+                                <div>
+                                    {{ $goal->score }}
+                                </div>
+                                <div>
+                                    {{ $goal->penalty ? "(11m)" : null }}
+                                </div>
+                                <div class="">
+                                    {{ $goal->player->full_name_short }}
                                 </div>
                             </div>
-                            @foreach ($match->goals as $index => $goal)
-                                <div class="table-row-group" wire:key="goal-fields-{{ $goal->id }}">
-                                    <div class="table-cell">
-                                        {{ $goal->minute }}
-                                    </div>
-                                    <div class="table-cell">
-                                        {{ $goal->score }}
-                                    </div>
-                                    <div class="table-cell">
-                                        {{ $goal->penalty }}
-                                    </div>
-                                    <div class="table-cell">
-                                        {{ $goal->player->full_name_short }}
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
+                        @endforeach
                     </div>
                 </x-slot>
                 <x-slot name="footer">

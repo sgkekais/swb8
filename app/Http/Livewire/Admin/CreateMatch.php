@@ -4,10 +4,10 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Card;
 use App\Models\Club;
+use App\Models\Goal;
 use App\Models\Match;
 use App\Models\MatchType;
 use App\Models\Season;
-use Illuminate\Support\Arr;
 use Livewire\Component;
 
 class CreateMatch extends Component
@@ -21,6 +21,8 @@ class CreateMatch extends Component
     public $card_to_be_added = [];
     public $players_of_club = [];
     public $card_deleted = false;
+    public $goal_to_be_added = [];
+    public $goal_deleted = false;
 
     protected $listeners = [
         'editTableEntry' => 'edit',
@@ -32,6 +34,7 @@ class CreateMatch extends Component
         $this->seasons = Season::orderBy('number', 'desc')->get();
         $this->clubs = Club::orderBy('name')->get();
         $this->match_types = MatchType::orderBy('description')->get();
+        $this->goal_to_be_added[0]['penalty'] = false;
     }
 
     protected $rules = [
@@ -93,6 +96,33 @@ class CreateMatch extends Component
     {
         $card->delete();
         $this->card_deleted = true;
+        $this->match->refresh();
+    }
+
+    /**
+     * add a new goal
+     */
+    public function addGoal()
+    {
+        $goal = new Goal();
+        $goal->player_id = $this->goal_to_be_added[0]['player'];
+        $goal->score = $this->goal_to_be_added[0]['score'];
+        $goal->minute = $this->goal_to_be_added[0]['minute'];
+        $goal->penalty = $this->goal_to_be_added[0]['penalty'];
+
+        $this->match->goals()->save($goal);
+        $this->match->refresh();
+    }
+
+    /**
+     * delete the given goal
+     * @param Goal $goal
+     * @throws \Exception
+     */
+    public function deleteGoal(Goal $goal)
+    {
+        $goal->delete();
+        $this->goal_deleted = true;
         $this->match->refresh();
     }
 
