@@ -30,7 +30,7 @@
 
             <!-- Page Heading -->
             <header class="">
-                <div class="-mt-16 sm:-mt-20 p-4 sm:p-6 max-w-7xl mx-auto bg-white border border-b-0 border-black">
+                <div class="-mt-16 sm:-mt-20 p-4 sm:p-6 max-w-7xl mx-auto bg-white border border-b-0 border-l-0 border-r-0 xl:border xl:border-b-0 border-black">
                     <h1 class="font-sans font-extrabold text-3xl tracking-tighter">
                         {{ $header }}
                     </h1>

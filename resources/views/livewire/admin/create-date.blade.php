@@ -191,43 +191,38 @@
                             </x-input-checkbox-label>
                         </div>
                     </div>
-                    <div>
-                        @if ($date->date_type_id == 1 || $date->date_type_id == 4)
-                            <div class="mb-6 flex items-end space-x-4">
-                                <div class="w-full">
-                                    <x-jet-label class="" for="date_option" >
-                                        Umfrageoptionen
-                                        <br>
-                                        {{ $date_option }}
-                                    </x-jet-label>
-                                    <x-jet-input id="date_option" type="text" class="w-full" wire:model.lazy="date_option.description" />
-                                </div>
-                                <div class="">
-                                    <x-confirmation-button wire:click="addDateOption()" class="" >
-                                        Hinzufügen
-                                    </x-confirmation-button>
-                                </div>
+
+                    @if ($date->date_type_id == 1 || $date->date_type_id == 4)
+                        <div class="mb-6 flex items-end space-x-4">
+                            <div class="w-full">
+                                <x-jet-label class="" for="date_option" >
+                                    Umfrageoptionen
+                                </x-jet-label>
+                                <x-jet-input id="date_option" type="text" class="w-full" wire:model.lazy="date_option.description" />
                             </div>
-                        @endif
-                    </div>
-                    <div>
-                        {{ $date_options }}
-                        @foreach ($date_options as $key => $value)
-                            <div class="mb-6 flex items-center space-x-4">
-                                <div class="flex p-1 flex-grow border border-gray-200 bg-gray-100 text-gray-700">
-                                    <label class="text-primary-600" for="date_option_description{{ $key }}">
-                                        <span class="font-semibold">Option {{ $loop->iteration }}:</span>
-                                    </label>
-                                    <x-jet-input id="date_option_description{{ $key }}" type="text" class="w-full" wire:model="date_options.{{ $key }}.description"/>
-                                </div>
+                            <div class="">
+                                <x-confirmation-button wire:click="addDateOption()" class="" >
+                                    Hinzufügen
+                                </x-confirmation-button>
+                            </div>
+                        </div>
+                    @endif
+
+                    @foreach ($date_options as $key => $value)
+                        <div class="mb-6 p-1 flex items-center w-full items-center space-x-4 border border-gray-200 bg-gray-100">
+                            <label class="flex font-bold text-primary-600" for="date_option_description{{ $key }}">
+                                Option {{ $loop->iteration }}:
+                            </label>
+                            <x-jet-input id="date_option_description{{ $key }}" type="text" class="flex-1" wire:model="date_options.{{ $key }}.description"/>
+                            @if($date->date_type_id === 1 || $date->date_type_id === 4)
                                 <div class="">
                                     <x-delete-button wire:click="removeDateOption({{ $key }})" class="" >
                                         Entfernen
                                     </x-delete-button>
                                 </div>
-                            </div>
-                        @endforeach
-                    </div>
+                            @endif
+                        </div>
+                    @endforeach
 
                     @switch ($date->date_type_id)
                         @case (2)
@@ -325,19 +320,15 @@
                                 </textarea>
                             </div>
                             <!-- match published / cancelled -->
-                            <div class="mb-6 flex items-center space-x-4">
-                                <div class="flex">
-                                    <x-jet-input wire:model="match.published" id="published" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out shadow-sm"/>
-                                    <x-jet-label class="" for="published" class="ml-2 block leading-5" >
-                                        Veröffentlichen?
-                                    </x-jet-label>
-                                </div>
-                                <div class="flex">
-                                    <x-jet-input wire:model="match.cancelled" id="cancelled" type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out shadow-sm"/>
-                                    <x-jet-label class="" for="cancelled" class="ml-2 block leading-5" >
-                                        Abgesagt?
-                                    </x-jet-label>
-                                </div>
+                            <div class="mb-6 flex items-center space-x-2">
+                                <x-input-checkbox id="published" wire:model="match.published"/>
+                                <x-input-checkbox-label for="published">
+                                    Veröffentlichen?
+                                </x-input-checkbox-label>
+                                <x-input-checkbox id="cancelled" wire:model="match.cancelled"/>
+                                <x-input-checkbox-label for="cancelled">
+                                    Abgesagt?
+                                </x-input-checkbox-label>
                             </div>
                             @break
                         @case (3)

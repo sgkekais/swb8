@@ -63,6 +63,7 @@ class CreateDate extends Component
         'date_options.*.description' => 'nullable',
         'match.match_type_id' => '',
         'match.season_id' => '',
+        'match.matchweek' => 'nullable',
         'match.team_home' => 'nullable',
         'match.team_away' => 'nullable',
         'match.goals_home' => 'nullable|numeric|min:0',

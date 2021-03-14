@@ -3,6 +3,7 @@
 /node_modules
 /public/hot
 /public/storage
+/public/club-logos
 /storage/*.key
 /vendor
 .env

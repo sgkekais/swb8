@@ -6,7 +6,7 @@
 
     <div class="flex space-x-8">
         <div class="flex-grow">
-            <x-main-box class="p-2 bg-gray-100">
+            <x-main-box class="">
                 <x-slot name="header">
                     Demnächst
                 </x-slot>
@@ -18,42 +18,28 @@
                     Zuletzt
                 </x-slot>
 
+                <livewire:frontpage.last-games />
             </x-main-box>
-            <x-main-box class="">
-                <x-slot name="header">
-                    ToDo
-                </x-slot>
-
-
-
-                Die letzten Spiele
-
-                Aktivitäten?
-                ... xyz hat an Termin teilgenommen
-
-                Kurzlisten?
-            </x-main-box>
-
         </div>
         <div class="flex flex-col space-y-4 w-1/4">
-            <x-sidebar-box class="w-full">
+            <x-box-with-shadow class="w-full">
                 <x-slot name="header">
                     Weisheiten
                 </x-slot>
                 <livewire:random-quote />
-            </x-sidebar-box>
-            <x-sidebar-box class="w-full">
+            </x-box-with-shadow>
+            <x-box-with-shadow class="w-full">
                 <x-slot name="header">
                     Geburtstage
                 </x-slot>
                 <livewire:next-birthday />
-            </x-sidebar-box>
-            <x-sidebar-box class="w-full">
+            </x-box-with-shadow>
+            <x-box-with-shadow class="w-full">
                 <x-slot name="header">
                     Knipser
                 </x-slot>
 
-            </x-sidebar-box>
+            </x-box-with-shadow>
         </div>
     </div>
 

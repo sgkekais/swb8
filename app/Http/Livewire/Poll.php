@@ -12,14 +12,28 @@ class Poll extends Component
     public $checked_options = [];
     public $saved = 0;
     public $header = "Rückmeldung zu Termin";
+    public $date_players;
 
     public function mount(Date $date)
     {
         $this->date = $date;
-        $this->date->load('dateOptions', 'dateType', 'clubs');
+        $this->date->load('dateOptions', 'dateType', 'clubs.players');
         $this->checked_options = auth()->user()->dateOptions()->with('date')->get()->where('date.id', $this->date->id)->where('pivot.attend',1)->pluck('id')->toArray();
         // convert integer vals to strings to avoid problems with pre-checked boxes
         $this->checked_options = array_map('strval', $this->checked_options);
+
+        foreach ($this->date->clubs as $club)
+        {
+            if (!isset($this->date_players))
+            {
+                $this->date_players = $club->players;
+            } else {
+                $this->date_players = $this->date_players->merge($club->players);
+            }
+        }
+
+        // $this->date_players = $this->date_players->flatten()->unique('id')->sortBy('last_name');
+
     }
 
     public function attend()
@@ -48,6 +62,6 @@ class Poll extends Component
 
     public function render()
     {
-        return view('livewire.poll')->layout('layouts.app', ['header' => $this->header]);;
+        return view('livewire.poll')->layout('layouts.app', ['header' => $this->header]);
     }
 }

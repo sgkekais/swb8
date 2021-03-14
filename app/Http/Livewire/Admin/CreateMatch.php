@@ -2,20 +2,25 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Card;
 use App\Models\Club;
 use App\Models\Match;
 use App\Models\MatchType;
 use App\Models\Season;
+use Illuminate\Support\Arr;
 use Livewire\Component;
 
 class CreateMatch extends Component
 {
     public $is_open = false;
-    public ?Match $match = null;
+    public $match;
     public $match_types = [];
     public $locations = [];
     public $clubs = [];
     public $seasons = [];
+    public $card_to_be_added = [];
+    public $players_of_club = [];
+    public $card_deleted = false;
 
     protected $listeners = [
         'editTableEntry' => 'edit',
@@ -24,13 +29,15 @@ class CreateMatch extends Component
 
     public function mount()
     {
-        $this->match ??= new Match();
-        $this->match->load('cards','goals.assists');
         $this->seasons = Season::orderBy('number', 'desc')->get();
+        $this->clubs = Club::orderBy('name')->get();
+        $this->match_types = MatchType::orderBy('description')->get();
     }
 
     protected $rules = [
         'match.match_type_id' => 'required',
+        'match.season_id' => 'required',
+        'match.matchweek' => 'nullable',
         'match.team_home' => 'nullable',
         'match.team_away' => 'nullable',
         'match.goals_home' => 'nullable|numeric|min:0',
@@ -44,6 +51,10 @@ class CreateMatch extends Component
         'match.match_details' => 'nullable',
         'match.published' => 'boolean',
         'match.cancelled' => 'boolean',
+        'card_to_be_added.0.score' => 'required',
+        'card_to_be_added.0.minute' => 'nullable',
+        'card_to_be_added.0.player' => 'required',
+        'card_to_be_added.0.color' => 'required'
     ];
 
     public function openModal()
@@ -67,6 +78,24 @@ class CreateMatch extends Component
         $this->match = new Match();
     }
 
+    public function addCard()
+    {
+        $card = new Card();
+        $card->player_id = $this->card_to_be_added[0]['player'];
+        $card->color = $this->card_to_be_added[0]['color'];
+        $card->note = $this->card_to_be_added[0]['note'];
+
+        $this->match->cards()->save($card);
+        $this->match->refresh();
+    }
+
+    public function deleteCard(Card $card)
+    {
+        $card->delete();
+        $this->card_deleted = true;
+        $this->match->refresh();
+    }
+
     public function store()
     {
         // validate
@@ -82,13 +111,21 @@ class CreateMatch extends Component
     public function edit(Match $match)
     {
         $this->match = $match;
+
+        if (isset($this->match))
+        {
+            if ($this->match->teamHome->owner) {
+                $this->players_of_club = $this->match->teamHome->players;
+            } elseif ($this->match->teamAway->owner) {
+                $this->players_of_club = $this->match->teamAway->players;
+            }
+        }
+
         $this->openModal();
     }
 
     public function render()
     {
-        $this->clubs = Club::orderBy('name')->get();
-        $this->match_types = MatchType::orderBy('description')->get();
         return view('livewire.admin.create-match');
     }
 }

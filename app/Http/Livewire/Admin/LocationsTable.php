@@ -18,11 +18,11 @@ class LocationsTable extends LivewireDatatable
     {
         return [
             NumberColumn::name('id')
-                ->label('ID')
-                ->defaultSort('desc'),
+                ->label('ID'),
             Column::name('name')
                 ->label('Name')
-                ->searchable(),
+                ->searchable()
+                ->defaultSort('asc'),
             Column::name('name_short')
                 ->label('-Kurz'),
             BooleanColumn::name('is_stadium')

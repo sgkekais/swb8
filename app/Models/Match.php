@@ -120,6 +120,55 @@ class Match extends Model
     }
 
     /**
+     * Check if the match has been rated or played
+     * @return bool
+     */
+    public function isPlayedOrRated()
+    {
+        if (isset($this->goals_home_rated) && isset($this->goals_away_rated)) {
+            return true;
+        } elseif (isset($this->goals_home) && isset($this->goals_away)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Check if we won this match
+     * @return bool
+     */
+    public function isWon()
+    {
+        if ($this->teamHome->owner && ($this->goals_home > $this->goals_away || $this->goals_home_rated > $this->goals_away_rated))
+        {
+            return true;
+        }
+        elseif ($this->teamAway->owner && ($this->goals_home < $this->goals_away || $this->goals_home_rated < $this->goals_away_rated))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Check if we lost this match
+     * @return bool
+     */
+    public function isLost()
+    {
+        if ($this->teamHome->owner && ($this->goals_home < $this->goals_away || $this->goals_home_rated < $this->goals_away_rated))
+        {
+            return true;
+        }
+        elseif ($this->teamAway->owner && ($this->goals_home > $this->goals_away || $this->goals_home_rated > $this->goals_away_rated))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Check if the match had penalties
      * @return bool
      */
@@ -191,6 +240,11 @@ class Match extends Model
     public function goals()
     {
         return $this->hasMany('App\Models\Goal');
+    }
+
+    public function assists()
+    {
+        return $this->hasManyThrough('App\Models\Assist', 'App\Models\Goal');
     }
 
     /**

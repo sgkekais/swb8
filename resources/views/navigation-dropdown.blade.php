@@ -79,7 +79,7 @@
                         @auth
                             <div class="flex space-x-2">
                                 <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" class="py-3">
-                                    Mein Verein
+                                    Dein Verein
                                 </x-jet-nav-link>
                                 @if(Auth::user()->isAdmin())
                                     <x-jet-dropdown align="right">
