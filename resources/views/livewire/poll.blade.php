@@ -1,4 +1,4 @@
-<div>
+<x-section class="pt-0">
     <x-box-with-shadow>
         <x-slot name="header">
             {{ $date->dateType->description }}
@@ -28,7 +28,7 @@
     </x-box-with-shadow>
 
     <!-- poll participation -->
-    <div class="table">
+    <div class="table overflow-x-scroll">
         <div class="table-header-group">
             <div class="table-cell">
                 &nbsp;
@@ -136,4 +136,5 @@
             </div>
         @endforeach
     </div>
-</div>
+</x-section>
+

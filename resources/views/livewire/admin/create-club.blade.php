@@ -32,18 +32,18 @@
                     <x-jet-label for="club.name" class="flex justify-between">
                         Name <i class="fas fa-fw fa-asterisk text-xs text-red-400"></i>
                     </x-jet-label>
-                    <x-jet-input class="w-full" type="text" id="club.name" wire:model.defer="club.name" placeholder="Schwarz-Weiß Bilk '79" required />
+                    <x-input-text class="w-full" type="text" id="club.name" wire:model.lazy="club.name" placeholder="Schwarz-Weiß Bilk '79" required />
                     <x-jet-input-error for="club.name" />
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                         <x-jet-label for="club.name_short" value="Name - kurz" />
-                        <x-jet-input class="w-full" type="text" id="club.name_short" wire:model.defer="club.name_short" placeholder="SW Bilk" maxlength="15" />
+                        <x-input-text class="w-full" type="text" id="club.name_short" wire:model.lazy="club.name_short" placeholder="SW Bilk" maxlength="15" />
                         <x-jet-input-error for="club.name_short" />
                     </div>
                     <div class="w-full md:w-1/2 px-3">
                         <x-jet-label for="club.name_code" value="Name - kurz" />
-                        <x-jet-input class="w-full" type="text" id="club.name_code" wire:model.defer="club.name_code" placeholder="SWB" maxlength="4" />
+                        <x-input-text class="w-full" type="text" id="club.name_code" wire:model.lazy="club.name_code" placeholder="SWB" maxlength="6" />
                         <x-jet-input-error for="club.name_code" />
                     </div>
                 </div>

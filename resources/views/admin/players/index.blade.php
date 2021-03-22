@@ -3,8 +3,10 @@
         Spieler
     </x-slot>
 
-    <livewire:admin.create-player />
+    <x-section>
+        <livewire:admin.create-player />
 
-    <livewire:admin.player-table />
+        <livewire:admin.player-table />
+    </x-section>
 
 </x-app-layout>

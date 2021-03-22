@@ -3,8 +3,10 @@
         Turniere
     </x-slot>
 
-    <livewire:admin.create-tournament />
+    <x-section>
+        <livewire:admin.create-tournament />
 
-    <livewire:admin.tournament-table />
+        <livewire:admin.tournament-table />
+    </x-section>
 
 </x-app-layout>

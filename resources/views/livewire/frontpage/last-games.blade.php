@@ -1,4 +1,4 @@
-<div class="flex flex-col space-y-2">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4">
     @foreach ($last_matches as $last_match)
         @if ($last_match->match->isPlayedOrRated())
             <div class="border border-black">
@@ -91,12 +91,6 @@
                                 @endforeach
                             </div>
                         @endif
-                    </div>
-                @endif
-                <!-- old match details -->
-                @if ($last_match->match->match_details)
-                    <div class="p-1 flex justify-center bg-gray-100">
-                        {{ $last_match->match->match_details }}
                     </div>
                 @endif
             </div>

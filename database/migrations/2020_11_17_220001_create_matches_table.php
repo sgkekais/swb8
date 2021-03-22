@@ -17,7 +17,7 @@ class CreateMatchesTable extends Migration
             $table->id();
             $table->foreignId('date_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('match_type_id')->constrained()->onUpdate('cascade')->onDelete('restrict');
-            $table->tinyInteger('matchweek')->nullable();
+            $table->string('matchweek')->nullable();
             $table->unsignedBigInteger('team_home')->nullable();
             $table->unsignedBigInteger('team_away')->nullable();
             $table->tinyInteger('goals_home')->nullable();

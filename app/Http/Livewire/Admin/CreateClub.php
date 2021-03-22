@@ -21,7 +21,7 @@ class CreateClub extends Component
     protected $rules = [
         'club.name' => 'required',
         'club.name_short' => 'nullable|string|max:15',
-        'club.name_code' => 'nullable|string|max:4',
+        'club.name_code' => 'nullable|string|max:6',
         'club.logo_url' => 'nullable',
         'club.owner' => 'boolean',
         'club.ah' => 'boolean',
@@ -85,7 +85,11 @@ class CreateClub extends Component
         }
 
         $this->club->save();
-        $this->club->players()->sync($this->selected_players);
+
+        if ($this->club->owner)
+        {
+            $this->club->players()->sync($this->selected_players);
+        }
 
         session()->flash('success', 'Mannschaft erfolgreich angelegt.');
 
@@ -96,10 +100,11 @@ class CreateClub extends Component
     public function edit(Club $club)
     {
         $this->club = $club;
-        $this->selected_players = Club::find($this->club->id)->players()->pluck('id')->toArray();
-
-        //dd($this->selected_players);
-        $this->selected_players = array_map('strval',$this->selected_players);
+        if ($this->club->owner)
+        {
+            $this->selected_players = Club::find($this->club->id)->players()->pluck('id')->toArray();
+            $this->selected_players = array_map('strval',$this->selected_players);
+        }
         $this->openModal();
     }
 

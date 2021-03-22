@@ -1,4 +1,4 @@
-<div>
+<x-section>
     <div class="w-full">
         <h2 class="font-sans font-extrabold text-2xl tracking-tighter">
             VS
@@ -282,4 +282,4 @@
             </div>
         </div>
     </div>
-</div>
+</x-section>

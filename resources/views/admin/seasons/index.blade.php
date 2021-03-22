@@ -3,8 +3,10 @@
         Saisons
     </x-slot>
 
-    <livewire:admin.create-season />
+    <x-section>
+        <livewire:admin.create-season />
 
-    <livewire:admin.season-table />
+        <livewire:admin.season-table />
+    </x-section>
 
 </x-app-layout>

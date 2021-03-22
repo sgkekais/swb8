@@ -58,35 +58,42 @@
                 @if($date->date_type_id && $date->date_type_id != "")
                     <!-- title and datetime -->
                     <div class="mb-6 flex items-center space-x-4">
-                        <div class="w-4/6">
-                            <x-jet-label class="" for="title">
-                                Titel
-                            </x-jet-label>
-                            <x-jet-input class="w-full" type="text" id="title" wire:model.lazy="date.title" />
-                            <x-jet-input-error for="date.title" />
-                        </div>
-                        <div class="w-2/6">
-                            @unless($date->date_type_id == 1)
+                        @unless($date->date_type_id == 2 || $date->date_type_id == 3)
+                            <div class="w-4/6">
+                                <x-jet-label class="" for="title">
+                                    Titel
+                                </x-jet-label>
+                                <x-input-text class="w-full" type="text" id="title" wire:model.lazy="date.title" />
+                                <x-jet-input-error for="date.title" />
+                            </div>
+                        @endunless
+                        @unless($date->date_type_id == 1)
+                            <div class="w-full">
                                 <x-jet-label class="" for="datetime">
                                     Wann?
                                 </x-jet-label>
-                                <x-jet-input class="w-full" type="datetime-local" id="datetime" wire:model.lazy="date.datetime" />
+                                <x-input-text class="w-full" type="datetime-local" id="datetime" wire:model.lazy="date.datetime" />
+                                <div>
+                                    Leer lassen, wenn unbekannt. Wenn nur Uhrzeit unbekannt, dann Uhrzeit 00:00 eingeben!
+                                </div>
                                 <x-jet-input-error for="date.datetime" />
-                            @endunless
-                        </div>
+                            </div>
+                        @endunless
                     </div>
                     <!-- description and note -->
                     <div class="mb-6 flex items-center space-x-4">
-                        <div class="w-4/6">
-                            <x-jet-label class="" for="description">
-                                Beschreibung
-                            </x-jet-label>
-                            <textarea id="description" class="form-textarea w-full shadow-sm" wire:model.lazy="date.description">
+                        @unless($date->date_type_id == 2 || $date->date_type_id == 3)
+                            <div class="w-4/6">
+                                <x-jet-label class="" for="description">
+                                    Beschreibung
+                                </x-jet-label>
+                                <textarea id="description" class="form-textarea w-full shadow-sm" wire:model.lazy="date.description">
 
-                            </textarea>
-                            <x-jet-input-error for="date.description" />
-                        </div>
-                        <div class="w-2/6">
+                                </textarea>
+                                <x-jet-input-error for="date.description" />
+                            </div>
+                        @endunless
+                        <div class="w-full">
                             <x-jet-label class="" for="note">
                                 Interne Notiz, nur für Admins sichtbar
                             </x-jet-label>
@@ -256,6 +263,12 @@
                                             @endforeach
                                         </select>
                                     </div>
+                                </div>
+                                <div>
+                                    <x-jet-label for="match.matchweek">
+                                        Spielwoche
+                                    </x-jet-label>
+                                    <x-input-text type="text" id="match.matchweek" wire:model="match.matchweek" />
                                 </div>
                             </div>
                             <!-- home and away club + result -->

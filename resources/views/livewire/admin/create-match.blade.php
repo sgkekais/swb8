@@ -58,7 +58,7 @@
                                 Heim
                             </x-jet-label>
                             <select id="team_home" wire:model="match.team_home" class="w-full" autocomplete="off">
-                                <option value="">Nicht festgelegt</option>
+                                <option selected="selected" value="">Nicht festgelegt</option>
                                 @foreach($clubs as $club_home)
                                     <option value="{{ $club_home->id }}" wire:key="{{ $club_home->id }}">{{ $club_home->name }}</option>
                                 @endforeach
@@ -96,7 +96,7 @@
                                 Gast
                             </x-jet-label>
                             <select id="team_away" wire:model="match.team_away" class="w-full" autocomplete="off">
-                                <option value="">Nicht festgelegt</option>
+                                <option selected="selected" value="">Nicht festgelegt</option>
                                 @foreach($clubs as $club_away)
                                     <option value="{{ $club_away->id }}" wire:key="{{ $club_away->id }}">{{ $club_away->name }}</option>
                                 @endforeach

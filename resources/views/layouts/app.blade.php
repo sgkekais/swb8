@@ -22,38 +22,52 @@
 
     </head>
     <body class="font-mono antialiased">
+    <div class="fixed top-0 right-0 m-8 p-3 z-50 text-xs font-mono text-white h-6 w-6 rounded-full flex items-center justify-center bg-gray-700 sm:bg-pink-500 md:bg-orange-500 lg:bg-green-500 xl:bg-blue-500">
+        <div class="block  sm:hidden md:hidden lg:hidden xl:hidden">al</div>
+        <div class="hidden sm:block  md:hidden lg:hidden xl:hidden">sm</div>
+        <div class="hidden sm:hidden md:block  lg:hidden xl:hidden">md</div>
+        <div class="hidden sm:hidden md:hidden lg:block  xl:hidden">lg</div>
+        <div class="hidden sm:hidden md:hidden lg:hidden xl:block">xl</div>
+    </div>
         <div class="min-h-screen bg-white">
 
-            <div class="h-64" style="background-image: url({{ asset('img/bg-1.jpg') }}); background-position: center; background-size: cover">
-                @livewire('navigation-dropdown')
+            <!-- nav -->
+            <div class="h-52 bg-center bg-cover border-b border-black" style="background-image: url({{ asset('img/bg-1.jpg') }}); ">
+                <div class="absolute w-full pt-2 md:pt-8 h-52 flex items-center justify-center">
+                    <x-jet-application-mark class="h-20 lg:h-24 w-auto fill-current text-white animate-pulse"/>
+                </div>
+                <div class="p-2 relative max-w-7xl mx-auto flex flex-col justify-between h-full">
+                    @livewire('navigation-dropdown')
+                    <div class="text-white">
+                        Hobbyfußball seit {{ \Carbon\Carbon::make('25.11.1979')->diffForHumans(['syntax' => \Carbon\CarbonInterface::DIFF_ABSOLUTE, 'parts' => 4, 'join' => ['n, ', ' und ']]) }}
+                    </div>
+                </div>
             </div>
 
             <!-- Page Heading -->
-            <header class="">
-                <div class="-mt-16 sm:-mt-20 p-4 sm:p-6 max-w-7xl mx-auto bg-white border border-b-0 border-l-0 border-r-0 xl:border xl:border-b-0 border-black">
-                    <h1 class="font-sans font-extrabold text-3xl tracking-tighter">
-                        {{ $header }}
-                    </h1>
-                </div>
-            </header>
+            @if (isset($header))
+                <x-section class="">
+                    <header>
+                        <x-headline class="text-3xl">
+                            {{ $header }}
+                        </x-headline>
+                    </header>
+                </x-section>
+{{--                    <div class="-mt-16 sm:-mt-20 p-4 sm:p-6 max-w-7xl mx-auto bg-white border border-b-0 border-l-0 border-r-0 xl:border xl:border-b-0 border-black">--}}
+{{--                        --}}
+{{--                    </div>--}}
+            @endif
 
             <!-- Page Content -->
-            <main>
-                <div class="min-h-screen">
-                    <div class="max-w-7xl mx-auto p-4 sm:px-6">
-                        {{ $slot }}
-                    </div>
-                </div>
+            <main class="">
+                {{ $slot }}
             </main>
 
             <!-- Page Footer -->
-            <footer>
-                <div class="bg-gray-700">
-                    <div class="max-w-7xl mx-auto p-4 sm:px-6">
-
-                    </div>
-                </div>
+            <footer class="pt-12 bg-gray-900">
+                <x-footer />
             </footer>
+
         </div>
 
         @stack('modals')

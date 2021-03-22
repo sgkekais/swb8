@@ -1,5 +1,5 @@
 <div>
-    <div class="p-2 font-sans font-extrabold text-2xl tracking-tighter">
+    <div>
         {{ $header }}
     </div>
     <div {{ $attributes->merge(['class' => '']) }}>

@@ -1,6 +1,6 @@
 <div class="min-h-screen flex flex-col justify-center items-center"
     style="background-image: url('img/bg-3.jpg'); background-position: bottom; background-size: cover; background-repeat: no-repeat">
-    <div>
+    <div class="-mt-10">
         {{ $logo }}
     </div>
     <div class="relative w-10/12 sm:max-w-md mt-6">

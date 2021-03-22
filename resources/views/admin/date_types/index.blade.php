@@ -3,8 +3,10 @@
         Terminarten
     </x-slot>
 
-    <livewire:admin.create-date-type />
+    <x-section>
+        <livewire:admin.create-date-type />
 
-    <livewire:admin.date-type-table />
+        <livewire:admin.date-type-table />
+    </x-section>
 
 </x-app-layout>

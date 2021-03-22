@@ -3,6 +3,8 @@
         Vorlagen
     </x-slot>
 
-    <livewire:admin.assist-table />
+    <x-section>
+        <livewire:admin.assist-table />
+    </x-section>
 
 </x-app-layout>

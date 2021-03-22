@@ -3,8 +3,10 @@
         Standorte
     </x-slot>
 
-    <livewire:admin.create-location />
+    <x-section>
+        <livewire:admin.create-location />
 
-    <livewire:admin.locations-table />
+        <livewire:admin.locations-table />
+    </x-section>
 
 </x-app-layout>

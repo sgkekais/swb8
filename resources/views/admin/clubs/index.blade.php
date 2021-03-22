@@ -3,8 +3,10 @@
         Mannschaften
     </x-slot>
 
-    <livewire:admin.create-club />
+    <x-section>
+        <livewire:admin.create-club />
 
-    <livewire:admin.clubs-table />
+        <livewire:admin.clubs-table />
+    </x-section>
 
 </x-app-layout>

@@ -3,8 +3,10 @@
         Spieler-Status
     </x-slot>
 
-    <livewire:admin.create-player-status />
+    <x-section>
+        <livewire:admin.create-player-status />
 
-    <livewire:admin.player-status-table />
+        <livewire:admin.player-status-table />
+    </x-section>
 
 </x-app-layout>

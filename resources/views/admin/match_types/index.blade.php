@@ -3,8 +3,10 @@
         Spielarten
     </x-slot>
 
-    <livewire:admin.create-match-type />
+    <x-section>
+        <livewire:admin.create-match-type />
 
-    <livewire:admin.match-type-table />
+        <livewire:admin.match-type-table />
+    </x-section>
 
 </x-app-layout>

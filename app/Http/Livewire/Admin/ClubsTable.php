@@ -23,14 +23,17 @@ class ClubsTable extends LivewireDatatable
     {
         return [
             NumberColumn::name('id')
-                ->label('ID'),
+                ->label('ID')
+                ->searchable(),
             Column::name('name')
                 ->label('Name')
                 ->searchable(),
             Column::name('name_short')
-                ->label('-Kurz'),
+                ->label('-Kurz')
+                ->searchable(),
             Column::name('name_code')
-                ->label('-Code'),
+                ->label('-Code')
+                ->searchable(),
             Column::name('logo_url')
                 ->label('Logo'),
             BooleanColumn::name('owner')

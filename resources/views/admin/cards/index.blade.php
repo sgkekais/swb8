@@ -3,6 +3,9 @@
         Karten
     </x-slot>
 
-    <livewire:admin.card-table />
+    <x-section>
+        <livewire:admin.card-table />
+    </x-section>
+
 
 </x-app-layout>

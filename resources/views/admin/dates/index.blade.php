@@ -3,8 +3,10 @@
         Termine und Umfragen
     </x-slot>
 
-    <livewire:admin.create-date />
+    <x-section>
+        <livewire:admin.create-date />
 
-    <livewire:admin.date-table />
+        <livewire:admin.date-table />
+    </x-section>
 
 </x-app-layout>

@@ -3,6 +3,8 @@
         Tore
     </x-slot>
 
-    <livewire:admin.goal-table />
+    <x-section>
+        <livewire:admin.goal-table />
+    </x-section>
 
 </x-app-layout>

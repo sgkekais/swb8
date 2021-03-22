@@ -60,7 +60,7 @@ class Player extends Model
 
     /*
      * --------------------------------------------------------------------------
-     * ACCESSOR
+     * ACCESSORS
      * --------------------------------------------------------------------------
      */
 
@@ -72,6 +72,24 @@ class Player extends Model
     public function getFullNameShortAttribute()
     {
         return $this->first_name.", ".Str::limit($this->last_name, 1, '.');
+    }
+
+    public function getNameAttribute()
+    {
+        if ($this->is_public)
+        {
+            return $this->nickname ?: $this->full_name;
+        }
+        return "Anonym";
+    }
+
+    public function getNameShortAttribute()
+    {
+        if ($this->is_public)
+        {
+            return $this->nickname ?: $this->full_name_short;
+        }
+        return "Anonym";
     }
 
     /*

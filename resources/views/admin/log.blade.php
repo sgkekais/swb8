@@ -3,6 +3,8 @@
         Logbuch
     </x-slot>
 
-    <livewire:admin.log />
+    <x-section>
+        <livewire:admin.log />
+    </x-section>
 
 </x-app-layout>

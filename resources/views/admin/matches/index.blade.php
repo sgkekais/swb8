@@ -3,8 +3,11 @@
         Paarungen
     </x-slot>
 
-    <livewire:admin.create-match />
+    <x-section>
+        <livewire:admin.create-match />
 
-    <livewire:admin.match-table />
+        <livewire:admin.match-table />
+    </x-section>
+
 
 </x-app-layout>
