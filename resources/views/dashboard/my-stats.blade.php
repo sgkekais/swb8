@@ -3,10 +3,12 @@
         Mein Verein - Hi, {{ auth()->user()->name }}!
     </x-slot>
 
-    <x-dashboard.button-bar />
+    <x-section>
+        <x-dashboard.button-bar />
 
-    <div class="py-6">
-        <livewire:dashboard.my-stats />
-    </div>
+        <div class="py-6">
+            <livewire:dashboard.my-stats />
+        </div>
+    </x-section>
 
 </x-app-layout>

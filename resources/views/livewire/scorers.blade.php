@@ -36,7 +36,7 @@
                     <x-table.heading class="text-center">#</x-table.heading>
                     <x-table.heading></x-table.heading>
                     <x-table.heading class="text-center" wire:click="sortBy('total_assists')" selectable direction="{{ $sortField == 'total_assists' ? $sortDirection : null }}">
-                        <i class="far fa-handshake"></i>
+                        <i class="fas fa-hands-helping"></i>
                     </x-table.heading>
                     <x-table.heading class="text-center" wire:click="sortBy('total_goals')" selectable direction="{{ $sortField == 'total_goals' ? $sortDirection : null }}">
                         <i class="far fa-futbol"></i>

@@ -61,7 +61,9 @@
                     </div>
                 </x-box-with-shadow>
 
-                <x-participate-button :date="$next_date" class="flex flex-row justify-end items-center space-x-2 mt-4" />
+                <x-participate-button :date="$next_date" class="flex flex-row justify-end items-center space-x-2 mt-4" >
+                    Rückmelden
+                </x-participate-button>
             </div>
         @endforeach
     </div>

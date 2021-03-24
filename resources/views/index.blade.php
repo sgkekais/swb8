@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <x-section>
+    <x-section class="py-4">
         <x-main-box class="">
             <x-slot name="header">
                 <x-headline class="text-2xl">
@@ -11,7 +11,7 @@
             <livewire:frontpage.next-game />
         </x-main-box>
     </x-section>
-    <x-section class="bg-gray-100 border-t-2 border-b-2 border-primary-700 bg-pattern">
+    <x-section class="py-4 bg-gray-100 border-t-2 border-b-2 border-primary-700 bg-pattern">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="">
                 <x-box-with-shadow class="w-full">
@@ -33,7 +33,7 @@
             @endauth
         </div>
     </x-section>
-    <x-section>
+    <x-section class="py-4 ">
         <x-main-box class="">
             <x-slot name="header">
                 <x-headline class="text-2xl">

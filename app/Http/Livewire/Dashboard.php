@@ -17,7 +17,8 @@ class Dashboard extends Component
     {
         $this->today = Carbon::now();
         $this->future_dates = Auth::user()->dateOptions->where('date.datetime','>=', $this->today)->pluck('date')->unique()->sortBy('datetime');
-        $this->past_dates = Auth::user()->dateOptions->where('date.datetime','<=', $this->today)->pluck('date')->unique()->sortByDesc('datetime');
+
+        // $this->past_dates = Auth::user()->dateOptions->where('date.datetime','<=', $this->today)->pluck('date')->unique()->sortByDesc('datetime');
     }
 
     public function render()

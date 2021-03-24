@@ -1,4 +1,4 @@
-<x-section>
+<x-section class="pb-6">
     <div class="mb-6 ">
         <x-select-label for="selected_year" class="text-primary-700">
             Jahr auswählen:
@@ -112,8 +112,13 @@
                                         <div class="">
                                             {{ $date->tournament->title }}
                                         </div>
-                                        <div class="text-sm text-gray-500">
-                                            {{ $date->tournament->description }}
+                                        <div class="flex space-x-1">
+                                            <div class="p-1 text-sm tracking-tighter font-bold bg-gray-100">
+                                                {{ $date->datetime->format('H:i') }}
+                                            </div>
+                                            <div class="p-1 text-sm text-gray-500">
+                                                {{ $date->tournament->description }}
+                                            </div>
                                         </div>
                                         @break
                                     {{-- date or party --}}
@@ -124,8 +129,13 @@
                                         <div class="">
                                             {{ $date->title }}
                                         </div>
-                                        <div class="text-sm text-gray-500">
-                                            {{ $date->description }}
+                                        <div class="flex space-x-1">
+                                            <div class="p-1 text-sm tracking-tighter font-bold bg-gray-100">
+                                                {{ $date->datetime->format('H:i') }}
+                                            </div>
+                                            <div class="p-1 text-sm text-gray-500">
+                                                {{ $date->description }}
+                                            </div>
                                         </div>
                                         @break
                                 @endswitch
@@ -136,22 +146,24 @@
                                 @endif
                             </div>
                             {{-- poll --}}
-                                @auth
-                                    <div class="flex justify-end items-center space-x-2">
-                                        <div class="hidden md:flex text-xs text-center text-gray-500">
-                                            @if ($date->poll_is_open)
-                                                @if ($date->poll_ends > \Carbon\Carbon::today())
-                                                    Schließt {{ $date->poll_ends->diffForHumans() }}
-                                                @elseif ($date->poll_ends == \Carbon\Carbon::today())
-                                                    Schließt heute
-                                                @endif
-                                            @else
-                                                Rückmeldung geschlossen
+                            @auth
+                                <div class="flex justify-end items-center space-x-2">
+                                    <div class="hidden md:flex text-xs text-center text-gray-500">
+                                        @if ($date->poll_is_open)
+                                            @if ($date->poll_ends > \Carbon\Carbon::today())
+                                                Schließt {{ $date->poll_ends->diffForHumans() }}
+                                            @elseif ($date->poll_ends == \Carbon\Carbon::today())
+                                                Schließt heute
                                             @endif
-                                        </div>
-                                        <x-participate-button :date="$date" />
+                                        @else
+                                            Rückmeldung geschlossen
+                                        @endif
                                     </div>
-                                @endauth
+                                    <x-participate-button :date="$date" >
+                                        Rückmelden
+                                    </x-participate-button>
+                                </div>
+                            @endauth
                         </div>
                     @endforeach
                 </div>

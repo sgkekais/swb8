@@ -31,7 +31,7 @@
                                 @else
                                     <i class="far fa-calendar-plus text-yellow-500" title="Du hast dich noch nicht rückgemeldet."></i>
                                 @endif
-                                <span class="hidden sm:inline-block pl-1">Rückmelden</span>
+                                <span class="hidden sm:inline-block pl-1">{{ $slot }}</span>
                             </x-button>
                         </a>
                     </div>

@@ -15,3 +15,5 @@ npm-debug.log
 yarn-error.log
 /storage/debugbar/
 /_archive/
+/public/css/
+/public/js/
