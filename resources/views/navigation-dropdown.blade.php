@@ -190,34 +190,30 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="absolute inset-x-0 hidden md:hidden min-h-screen w-full z-50 bg-white">
+    <div :class="{'block': open, 'hidden': ! open}" class="absolute inset-x-0 hidden md:hidden min-h-screen w-full z-50 bg-white text-lg">
         <div class="pt-2 pb-3 space-y-1">
             @auth
                 <!-- Responsive Settings Options -->
-                <div class="pt-4 pb-1 border-t border-gray-200">
+                <div class="pb-1 border-b-2 border-gray-300">
                     <div class="flex items-center px-4">
-
                         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                             <div class="flex-shrink-0 mr-3">
                                 <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                             </div>
                         @endif
-
                         <div>
                             <div class="font-medium text-base text-gray-800">Hi, {{ Auth::user()->name }}!</div>
                             <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
                         </div>
                     </div>
-
                     <div class="mt-3 space-y-1">
                         <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                            Dein Verein
+                            <i class="fas fa-heartbeat"></i> Dein Verein
                         </x-jet-responsive-nav-link>
                         <!-- Account Management -->
                         <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                             <i class="fas fa-cog"></i> Einstellungen
                         </x-jet-responsive-nav-link>
-
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -228,7 +224,6 @@
                                 <i class="fas fa-sign-out-alt"></i> Abmelden
                             </x-jet-responsive-nav-link>
                         </form>
-
                     </div>
                 </div>
             @endauth
@@ -239,36 +234,48 @@
                     </x-jet-responsive-nav-link>
                 </div>
             @endguest
+            <!-- Responsive Menu -->
             <x-jet-responsive-nav-link href="{{ route('calendar', ['monat' => \Carbon\Carbon::now()->translatedFormat('F')]) }}" :active="request()->routeIs('calendar')" class="">
-                Kalender
+                <i class="far fa-calendar-alt"></i> Kalender
             </x-jet-responsive-nav-link>
             @foreach(\App\Models\Club::owner(true)->orderByDesc('name_code')->get() as $nav_club)
-                <div class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 border-l-4 border-transparent">
-                    {{ __($nav_club->name_code) }}:
+                <div x-data="{ show: false }" class="">
+                    <x-jet-responsive-nav-link @click="show=!show" class="cursor-pointer">
+                        <i class="far fa-futbol"></i> {{ __($nav_club->name_code) }}
+                        <svg :class="{'rotate-180': show}"
+                             xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 24 24"
+                             class="transform inline-block fill-current w-6 h-6 animate-pulse font-bold">
+                            <path fill-rule="evenodd" d="M15.3 10.3a1 1 0 011.4 1.4l-4 4a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4l3.3 3.29 3.3-3.3z"/>
+                        </svg>
+                    </x-jet-responsive-nav-link>
+                    <div x-show.transition="show" class="m-3 border-l-4">
+                        <x-jet-responsive-nav-link class="ml-3" href="{{ route('club.schedule', $nav_club) }}" :active="request()->segment(2) == $nav_club->id && request()->segment(3) === 'spielplan'">
+                            <i class="far fa-fw fa-calendar-alt"></i> Spielplan
+                        </x-jet-responsive-nav-link>
+                        <x-jet-responsive-nav-link class="ml-3" href="{{ route('club.scorers', $nav_club) }}" :active="request()->segment(2) == $nav_club->id && request()->segment(3) === 'scorer'">
+                            <i class="far fa-fw fa-futbol"></i> Tore & Assists
+                        </x-jet-responsive-nav-link>
+                        <x-jet-responsive-nav-link class="ml-3" href="{{ route('club.sinners', $nav_club) }}" :active="request()->segment(2) == $nav_club->id && request()->segment(3) === 'suender'">
+                            <i class="far fa-fw fa-copy"></i> Karten
+                        </x-jet-responsive-nav-link>
+                        <x-jet-responsive-nav-link class="ml-3">
+                            <i class="fas fa-fw fa-users"></i> Kader
+                        </x-jet-responsive-nav-link>
+                    </div>
                 </div>
-                <x-jet-responsive-nav-link class="ml-5" href="{{ route('club.schedule', $nav_club) }}" :active="request()->segment(2) == $nav_club->id && request()->segment(3) === 'spielplan'">
-                    <i class="far fa-fw fa-calendar-alt"></i> Spielplan
-                </x-jet-responsive-nav-link>
-                <x-jet-responsive-nav-link class="ml-5" href="{{ route('club.scorers', $nav_club) }}" :active="request()->segment(2) == $nav_club->id && request()->segment(3) === 'scorer'">
-                    <i class="far fa-fw fa-futbol"></i> Tore & Assists
-                </x-jet-responsive-nav-link>
-                <x-jet-responsive-nav-link class="ml-5" href="{{ route('club.sinners', $nav_club) }}" :active="request()->segment(2) == $nav_club->id && request()->segment(3) === 'suender'">
-                    <i class="far fa-fw fa-copy"></i> Karten
-                </x-jet-responsive-nav-link>
-                <x-jet-responsive-nav-link class="ml-5">
-                    <i class="fas fa-fw fa-users"></i> Kader
-                </x-jet-responsive-nav-link>
             @endforeach
-
-            <div class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 border-l-4 border-transparent">
-                Verein:
+            <div  x-data="{ show: false }" class="block pl-3 pr-4 py-2 text-base font-medium text-gray-600 border-l-4 border-transparent">
+                <div @click="show=!show"><i class="fas fa-shield-alt"></i> Verein <i class="fas fa-angle-double-down animate-pulse"></i></div>
+                <div x-show.transition="show">
+                    <x-jet-responsive-nav-link class="ml-5">
+                        <i class="fas fa-fw fa-info-circle"></i> Über uns
+                    </x-jet-responsive-nav-link>
+                    <x-jet-responsive-nav-link class="ml-5">
+                        <i class="fas fa-fw fa-book"></i> Ewigenlisten
+                    </x-jet-responsive-nav-link>
+                </div>
             </div>
-            <x-jet-responsive-nav-link class="ml-5">
-                <i class="fas fa-fw fa-info-circle"></i> Über uns
-            </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link class="ml-5">
-                <i class="fas fa-fw fa-book"></i> Ewigenlisten
-            </x-jet-responsive-nav-link>
         </div>
     </div>
 </nav>

@@ -1,7 +1,7 @@
 <x-section>
 
     <div>
-        <div class="mb-6 flex flex-col md:flex-row">
+        <div class="mb-6 flex flex-col space-y-4 md:space-y-0 md:flex-row">
             <div>
                 <x-select-label for="selected_season" class="text-primary-700">
                     Saison:
