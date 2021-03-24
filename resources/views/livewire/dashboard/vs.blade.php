@@ -1,19 +1,18 @@
-<x-section>
-    <div class="w-full">
-        <h2 class="font-sans font-extrabold text-2xl tracking-tighter">
-            VS
-        </h2>
-    </div>
-    <div class="mt-6">
-        <label for="selected_player" class="font-bold text-primary-600 text-lg">
+<div>
+    <x-headline class="text-2xl">
+        VS
+    </x-headline>
+
+    <div class="mb-3">
+        <x-select-label for="selected_player" class="text-primary-700">
             Kontrahent:
-        </label>
-        <select name="selected_player" wire:model="selected_player">
+        </x-select-label>
+        <x-select name="selected_player" wire:model="selected_player">
             <option>Bitte auswählen</option>
             @foreach ($players as $player)
-                <option value="{{ $player->id }}">{{ $player->fulL_name_short }} {{ $player->nickname ? "(".$player->nickname.")" : null }}</option>
+                <option value="{{ $player->id }}">{{ $player->name_short }}</option>
             @endforeach
-        </select>
+        </x-select>
     </div>
 
     <x-load-indicator />
@@ -23,7 +22,7 @@
         <div class="mt-6 flex items-center w-full font-extrabold text-2xl tracking-tighter">
             <div class="w-1/3">
                 <h3 class="font-sans ">
-                    {{ $user_player->full_name_short }}
+                    {{ $user_player->name_short }}
                 </h3>
             </div>
             <div class="w-1/3 text-center">
@@ -33,7 +32,7 @@
             </div>
             <div class="w-1/3 text-right">
                 <h3 class="font-sans ">
-                    {{ $vs_player->full_name_short }}
+                    {{ $vs_player->name_short }}
                 </h3>
             </div>
         </div>
@@ -282,4 +281,4 @@
             </div>
         </div>
     </div>
-</x-section>
+</div>

@@ -12,7 +12,7 @@
                     @endif
                 </div>
                 <div class="w-full">
-                    {{ $player->nickname ?: $player->full_name_short }}
+                    {{ $player->name_short }}
                     ({{ $player->dob->isoFormat('D') > \Carbon\Carbon::today()->isoFormat('D') ? ("wird ".($player->dob->diffInYears() + 1)) : $player->dob->diffinYears() }})
                 </div>
             </div>
