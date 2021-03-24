@@ -8,13 +8,13 @@ use Livewire\Component;
 
 class LastGames extends Component
 {
-    public $last_matches;
+    public $last_dates;
     public $today;
 
     public function mount()
     {
         $this->today = Carbon::today();
-        $this->last_matches = Date::where('date_type_id',2)
+        $this->last_dates = Date::where('date_type_id',2)
             ->where('datetime','<', Carbon::now())
             ->orderByDesc('datetime')
             ->with('match', 'match.teamHome', 'match.teamAway', 'match.goals', 'match.cards')

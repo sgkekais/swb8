@@ -1,5 +1,5 @@
 <x-section>
-    <div class="mb-6 flex items-center space-x-2">
+    <div class="mb-6 ">
         <x-select-label for="selected_year" class="text-primary-700">
             Jahr auswählen:
         </x-select-label>

@@ -35,7 +35,8 @@ class Schedule extends Component
     public function render()
     {
         $this->matches = $this->club->matches()->where('season_id',$this->selected_season);
-        $this->matches->load('date','teamHome', 'teamAway')->sortBy('date.datetime');
+        $this->matches->load('date', 'date.location', 'teamHome', 'teamAway', 'goals.player', 'goals.assist.player', 'cards')
+            ->sortBy('date.datetime');
 
         return view('livewire.schedule')->layout('layouts.app', ['header' => $this->header]);
     }

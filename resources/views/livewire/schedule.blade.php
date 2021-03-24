@@ -2,151 +2,249 @@
 
     <div>
         <div class="mb-6">
-            <label for="selected_season" class="font-bold text-primary-600">
-                Saison auswählen
-            </label>
-            <select name="selected_season" wire:model="selected_season" class="focus:ring-primary-700 focus:border-primary-700">
+            <x-select-label for="selected_season" class="text-primary-700">
+                Jahr auswählen:
+            </x-select-label>
+            <x-select name="selected_season" wire:model="selected_season">
                 @foreach ($seasons as $season)
                     <option value="{{ $season->id }}">{{ $season->title }}</option>
                 @endforeach
-            </select>
+            </x-select>
         </div>
         <div class="" wire:loading>
             <i class="far fa-futbol fa-spin"></i>
         </div>
-        <div class="flex items-center p-4 mb-4 bg-gray-100 space-x-4" wire:loading.remove>
+
+        @if ($matches->first()->season->description)
+            <div class="flex items-center p-4 mb-4 bg-gray-100 space-x-4" wire:loading.remove>
+                <div class="">
+                    <i class="far fa-lightbulb"></i>
+                </div>
+                <div class="">
+                    {{ $matches->first()->season->description }}
+                </div>
+            </div>
+        @endif
+        <div class="flex items-center p-4 mb-4 bg-yellow-100 space-x-4" wire:loading.remove>
             <div class="">
-                <i class="far fa-lightbulb"></i>
+                <i class="fas fa-exclamation-circle"></i>
             </div>
             <div class="">
-                {{ $matches->first()->season->description }}
+                Klick auf eine Zeile, um Tore, Karten und den Spielbericht einzublenden!
             </div>
         </div>
-        <table class="w-full overflow-x-scroll" wire:loading.remove>
+        <div class="divide-y divide-gray-200" wire:loading.remove>
             @php
                 $points = 0;
                 $goals_for = 0;
                 $goals_against = 0;
             @endphp
             @foreach ($matches->sortBy('date.datetime') as $match)
-                {{-- <div class="flex w-full justify-start items-center space-x-4 py-4 border-b border-gray-200" wire:loading.remove> --}}
-                <tr class="sm:hidden">
-                    <td colspan="8" class="bg-gray-100">
-                        <div class="p-1 flex text-xs text-gray-700 space-x-2">
-                            <span class="">
-                                {{ $match->matchType->description }}
-                            </span>
+                <div x-data="{ show:false }">
+                    <!-- match type and datetime on mobile -->
+                    <div class="p-1 flex md:hidden justify-between space-x-2 text-xs text-gray-700 bg-gray-100">
+                        <div class="flex space-x-2">
+                        <span class="">
+                            {{ $match->matchType->description }}
+                        </span>
                             @if ($match->matchweek)
                                 <span>
-                                    {{ $match->matchType->id == 2 ? $match->matchweek.".ST" : $match->matchweek }}
-                                </span>
+                                {{ $match->matchType->id == 2 ? $match->matchweek.".ST" : $match->matchweek }}
+                            </span>
                             @endif
                             @if ($match->date->datetime)
                                 <span class="font-bold">{{ $match->date->datetime->isoFormat('DD.MM.YY') }}</span>
-                                <span class="font-bold"> um {{ $match->date->datetime->format('H:i') }}</span>
+                                <span>um</span>
+                                <span class="font-bold">{{ $match->date->datetime->format('H:i') }}</span>
                             @endif
                         </div>
-                    </td>
-                </tr>
-                <tr class="border-b border-gray-300 sm:h-16">
-                    <td class="px-2">
-                        <div class="flex justify-center">
-                            @if ($match->matchType->id == 1)
-                                <i class="far fa-handshake sm:fa-lg text-blue-600"></i>
-                            @elseif ($match->matchType->id == 2)
-                                <x-hlw-logo class="fill-current text-primary-600 h-3 sm:h-4"/>
-                            @elseif ($match->matchType->id == 3)
-                                <i class="fas fa-trophy sm:fa-lg text-yellow-600"></i>
-                            @elseif ($match->matchType->id == 4)
-                                <x-hlw-logo class="fill-current text-primary-600 h-3 sm:h-4"/>
-                            @endif
-                        </div>
-                    </td>
-                    <td class="hidden sm:table-cell">
-                        <div class="flex text-sm text-gray-700 space-x-2">
-                            <span class="">
-                                {{ $match->matchType->description }}
-                            </span>
-                            <span>
-                                {{ $match->matchweek ? ($match->matchType->id == 2 ? $match->matchweek.".ST" : $match->matchweek) : null }}
-                            </span>
-                        </div>
-                        <div class="flex flex-col sm:flex-row sm:space-x-2">
-                            @if ($match->date->datetime)
-                                <span>{{ $match->date->datetime->isoFormat('DD.MM.YY') }}</span>
-                                <span>{{ $match->date->datetime->format('H:i') }}</span>
-                            @endif
-                        </div>
-                    </td>
-                    <td class="">
-                        <div class="flex flex-col flex-col-reverse sm:flex-row justify-end items-center sm:space-x-2 tracking-tighter text-right">
-                            <span class="inline-block md:hidden text-sm">{{ $match->teamHome->name_code }}</span>
-                            <span class="hidden md:inline-block lg:hidden">{{ $match->teamHome->name_short }}</span>
-                            <span class="hidden lg:inline-block">{{ $match->teamHome->name }}</span>
-                            <img src="{{ $match->teamHome->logo() }}" class="w-8 h-auto" alt="{{ $match->teamHome->name_short." Logo" }}"/>
-                        </div>
-                    </td>
-                    <td class="tracking-tighter text-center">
-                        @if ($match->isPlayedOrRated())
-                            <div class="font-extrabold text-xl p-1
-                                @if ($match->isWon())
-                                    text-primary-600
-                                @elseif ($match->isLost())
-                                    text-red-500
-                                @else
-                                    text-black
-                                @endif
-                            ">
-
-                                {{ $match->goals_home }}:{{ $match->goals_away }}
+                        @isset($match->date->location)
+                            <div class="flex items-center space-x-1">
+                                <i class="fas fa-map-marker-alt text-red-500"></i>
+                                <span class="">{{ $match->date->location->name_short }}</span>
                             </div>
-                            <div class="">
-                                ({{ $match->goals_home_ht }}:{{ $match->goals_away_ht }})
+                        @endisset
+                    </div>
+                    <!-- match row -->
+                    <div @click="show=!show" class="flex flex-row h-16 {{ $match->cancelled ? "text-gray-500 line-through" : null }} cursor-pointer hover:bg-gray-100" >
+                        {{-- first, icon + datetime --}}
+                        <div class="w-1/4 flex ">
+                            {{-- icon --}}
+                            <div class="p-1 flex w-full md:w-2/6 justify-center items-center">
+                                @if ($match->matchType->id == 1)
+                                    <i class="far fa-handshake sm:fa-lg text-blue-600"></i>
+                                @elseif ($match->matchType->id == 2)
+                                    <x-hlw-logo class="fill-current text-primary-600 h-3 sm:h-4"/>
+                                @elseif ($match->matchType->id == 3)
+                                    <i class="fas fa-trophy sm:fa-lg text-yellow-600"></i>
+                                @elseif ($match->matchType->id == 4)
+                                    <x-hlw-logo class="fill-current text-primary-600 h-3 sm:h-4"/>
+                                @endif
+                            </div>
+                            {{-- matchtype + datetime --}}
+                            <div class="p-1 hidden md:flex flex-col flex-1 justify-center">
+                                <div class="flex text-xs text-gray-700 space-x-2">
+                                <span class="">
+                                    {{ $match->matchType->description }}
+                                </span>
+                                    <span>
+                                    {{ $match->matchweek ? ($match->matchType->id == 2 ? $match->matchweek.".ST" : $match->matchweek) : null }}
+                                </span>
+                                </div>
+                                <div class="flex flex-row space-x-2">
+                                    @if ($match->date->datetime)
+                                        <span>{{ $match->date->datetime->isoFormat('DD.MM.YY') }}</span>
+                                        <span>{{ $match->date->datetime->format('H:i') }}</span>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                        {{-- second, teams and result --}}
+                        <div class="w-2/4 flex justify-around">
+                            {{-- home team --}}
+                            <div class="w-2/5 flex flex-col flex-col-reverse sm:flex-row justify-center sm:justify-end items-center sm:space-x-2 tracking-tighter text-right">
+                                <span class="inline-block md:hidden text-sm">{{ $match->teamHome->name_code }}</span>
+                                <span class="hidden md:inline-block lg:hidden">{{ $match->teamHome->name_short }}</span>
+                                <span class="hidden lg:inline-block">{{ $match->teamHome->name }}</span>
+                                <img src="{{ $match->teamHome->logo() }}" class="w-8 h-auto" alt="{{ $match->teamHome->name_short." Logo" }}"/>
+                            </div>
+                            {{-- result --}}
+                            <div class="w-1/5 flex flex-col justify-center">
+                                @if ($match->isPlayedOrRated())
+                                    <div class="text-center font-extrabold text-xl p-1
+                                    @if ($match->isWon() && !$match->cancelled)
+                                        text-primary-600
+                                    @elseif ($match->isLost() && !$match->cancelled)
+                                        text-red-500
+                                    @else
+                                        text-black
+                                    @endif
+                                        ">
+                                        {{ $match->goals_home }}:{{ $match->goals_away }}
+                                    </div>
+                                    <div class="text-center text-sm ">
+                                        ({{ $match->goals_home_ht }}:{{ $match->goals_away_ht }})
+                                    </div>
+                                @else
+                                    <div class="text-center">-:-</div>
+                                @endif
+                            </div>
+                            {{-- away team --}}
+                            <div class="w-2/5 flex flex-col sm:flex-row justify-center sm:justify-start items-center sm:space-x-2 tracking-tighter text-left">
+                                <img src="{{ $match->teamAway->logo() }}" class="w-8 h-auto" alt="{{ $match->teamAway->name_short." Logo" }}"/>
+                                <span class="inline-block md:hidden text-sm">{{ $match->teamAway->name_code }}</span>
+                                <span class="hidden md:inline-block lg:hidden">{{ $match->teamAway->name_short }}</span>
+                                <span class="hidden lg:inline-block">{{ $match->teamAway->name }}</span>
+                            </div>
+                        </div>
+                        {{-- third, location and points --}}
+                        <div class="w-1/4 flex justify-around">
+                            <div class="hidden md:flex flex-1 items-center text-sm">
+                                @isset($match->date->location)
+                                    <span class="lg:hidden">{{ $match->date->location->name_short }}</span>
+                                    <span class="hidden lg:inline-flex">{{ $match->date->location->name }}</span>
+                                @endisset
+                            </div>
+                            <div class="w-2/12 flex items-center justify-center tracking-tighter">
+                                @if ($match->matchType->is_point_match)
+                                    @if (($match->teamHome->owner && ($match->goals_home > $match->goals_away)) || ($match->teamAway->owner && ($match->goals_home < $match->goals_away)))
+                                        @php
+                                            $points += 3;
+                                        @endphp
+                                    @elseif ($match->goals_home == $match->goals_away && $match->goals_home !== NUll && $match->goals_away !== NULL)
+                                        @php
+                                            $points += 1;
+                                        @endphp
+                                    @endif
+                                    {{ $points }}
+                                @endif
+                            </div>
+                            <div class="w-3/12 flex items-center justify-center tracking-tighter">
+                                @if ($match->matchType->is_point_match)
+                                    @if ($match->teamHome->owner)
+                                        {{ $goals_for += $match->goals_home }}:{{ $goals_against += $match->goals_away }}
+                                    @else
+                                        {{ $goals_for += $match->goals_away }}:{{ $goals_against += $match->goals_home }}
+                                    @endif
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                    <!-- match details -->
+                    <div x-show.transition="show" class="p-4 flex flex-col space-y-2 lg:flex-row lg:space-x-2 lg:space-y-0 bg-gray-100">
+                        @if ($match->isPlayedorRated())
+                            {{-- goals --}}
+                            <div class="flex flex-col lg:w-1/5">
+                                <div class="font-bold text-primary-700">
+                                    Tore
+                                </div>
+                                @if ($match->goals->count() > 0)
+                                    @foreach ($match->goals as $goal)
+                                        <div class="flex space-x-2 items-center">
+                                            <i class="far fa-futbol"></i>
+                                            <div class="">
+                                                {{ $goal->minute ? $goal->minute."'" : null }} {{ $goal->score }} {{ $goal->player->name }}
+                                            </div>
+                                            @if ($goal->assist)
+                                                <div class="text-sm">
+                                                    ({{ $goal->assist->player->name }})
+                                                </div>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                @else
+                                    Flaute
+                                @endif
+                            </div>
+                            {{-- cards --}}
+                            <div class="flex flex-col lg:w-1/5">
+                                <div class="font-bold text-primary-700">
+                                    Karten
+                                </div>
+                                @if ($match->cards->count() > 0)
+                                    @foreach ($match->cards as $card)
+                                        <div>
+                                            @switch($card->color)
+                                                @case('gelb')
+                                                <i class="fas fa-square text-yellow-400"></i>
+                                                @break
+                                                @case('gelb-rot')
+                                                <i class="fas fa-square text-yellow-400"></i><i class="fas fa-square text-red-500"></i>
+                                                @break
+                                                @case('rot')
+                                                <i class="fas fa-square text-red-500"></i>
+                                                @break
+                                                @case('10min')
+                                                <i class="fas fa-stopwatch text-gray-400 "></i>
+                                                @break
+                                            @endswitch
+                                            {{ $card->player->name }}
+                                        </div>
+                                    @endforeach
+                                @else
+                                    Keine
+                                @endif
+                            </div>
+                            {{-- details --}}
+                            <div class="flex flex-col flex-1">
+                                <div class="font-bold text-primary-700">
+                                    Spielbericht
+                                </div>
+                                <div>
+                                    @if ($match->match_details)
+                                        {!! $match->match_details !!}
+                                    @else
+                                        -
+                                    @endif
+                                </div>
                             </div>
                         @else
-                            <div>-:-</div>
+                            Hier gibt's (noch) nix zu sehen ¯\_(ツ)_/¯
                         @endif
-                    </td>
-                    <td class="">
-                        <div class="flex flex-col sm:flex-row justify-start items-center sm:space-x-2 tracking-tighter text-left">
-                            <img src="{{ $match->teamAway->logo() }}" class="w-8 h-auto" alt="{{ $match->teamAway->name_short." Logo" }}"/>
-                            <span class="inline-block md:hidden text-sm">{{ $match->teamAway->name_code }}</span>
-                            <span class="hidden md:inline-block lg:hidden">{{ $match->teamAway->name_short }}</span>
-                            <span class="hidden lg:inline-block">{{ $match->teamAway->name }}</span>
-                        </div>
-                    </td>
-                    <td class="hidden sm:table-cell">
-                        @isset($match->date->location)
-                            <span class="lg:hidden">{{ $match->date->location->name_short }}</span>
-                            <span class="hidden lg:inline-flex">{{ $match->date->location->name }}</span>
-                        @endisset
-                    </td>
-                    <td class="text-center">
-                        @if ($match->matchType->is_point_match)
-                            @if (($match->teamHome->owner && ($match->goals_home > $match->goals_away)) || ($match->teamAway->owner && ($match->goals_home < $match->goals_away)))
-                                @php
-                                    $points += 3;
-                                @endphp
-                            @elseif ($match->goals_home == $match->goals_away && $match->goals_home !== NUll && $match->goals_away !== NULL)
-                                @php
-                                    $points += 1;
-                                @endphp
-                            @endif
-                            {{ $points }}
-                        @endif
-                    </td>
-                    <td class="text-center">
-                        @if ($match->matchType->is_point_match)
-                            @if ($match->teamHome->owner)
-                                {{ $goals_for += $match->goals_home }}:{{ $goals_against += $match->goals_away }}
-                            @else
-                                {{ $goals_for += $match->goals_away }}:{{ $goals_against += $match->goals_home }}
-                            @endif
-                        @endif
-                    </td>
-                </tr>
+                    </div>
+                </div>
             @endforeach
-        </table>
+        </div>
     </div>
 </x-section>
 
