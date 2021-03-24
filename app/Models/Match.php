@@ -169,6 +169,19 @@ class Match extends Model
     }
 
     /**
+     * Check if match is a draw
+     * @return bool
+     */
+    public function isDraw()
+    {
+        if ($this->goals_home == $this->goals_away || $this->goals_home_rated == $this->goals_away_rated)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Check if the match had penalties
      * @return bool
      */

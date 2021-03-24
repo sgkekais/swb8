@@ -29,6 +29,8 @@ class SeasonTable extends LivewireDatatable
                 ->label('Beschreibung')
                 ->truncate(50)
                 ->searchable(),
+            Column::name('final_position')
+                ->label('Platz'),
             Column::name('clubs.name_code')
                 ->label('Gültig für')
                 ->filterable($this->club_name),

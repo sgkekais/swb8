@@ -1,19 +1,33 @@
 <x-section>
     <div>
-        <div class="mb-3 flex items-center space-x-2">
-            <x-select-label for="selected_season">Saison: </x-select-label>
-            <select name="selected_season" wire:model="selected_season">
+        <div class="mb-3">
+            <x-select-label for="selected_season" class="text-primary-700">
+                Saison:
+            </x-select-label>
+            <x-select name="selected_season" wire:model="selected_season">
                 @foreach ($selectable_seasons as $selected_season)
                     <option value="{{ $selected_season->id }}">{{ $selected_season->title }}</option>
                 @endforeach
-            </select>
+            </x-select>
         </div>
-        <div class="">
-            Punkteregel für die goldene Ananas (&#127821;): gelbe Karte oder Zeitstrafe = 1 Punkt, gelb-rote Karte = 3 Punkte, rote Karte = 5 Punkte.
+        <div class="flex items-center p-4 mb-4 bg-gray-100 space-x-4">
+            <div class="">
+                <i class="far fa-lightbulb"></i>
+            </div>
+            <div class="">
+                Punkteregel für die goldene Ananas (&#127821;): gelbe Karte oder Zeitstrafe = 1 Punkt, gelb-rote Karte = 3 Punkte, rote Karte = 5 Punkte.
+            </div>
         </div>
-        <div wire:loading>
-            <i class="far fa-futbol fa-spin" ></i>
+        <div class="flex items-center p-4 mb-4 bg-yellow-100 space-x-4">
+            <div class="">
+                <i class="fas fa-info"></i>
+            </div>
+            <div class="">
+                Die Punkt-Spalten können auf- und absteigend sortiert werden.
+            </div>
         </div>
+
+        <x-load-indicator />
 
         <x-table.table wire:loading.remove>
             <x-slot name="header">

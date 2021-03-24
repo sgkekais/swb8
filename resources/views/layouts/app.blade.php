@@ -46,7 +46,7 @@
 
             <!-- Page Heading -->
             @if (isset($header))
-                <x-section class="">
+                <x-section class="py-4">
                     <header>
                         <x-headline class="text-3xl">
                             {{ $header }}

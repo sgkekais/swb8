@@ -1,12 +1,31 @@
-<x-section>
+<x-section class="py-0">
     <div>
-        <div class="mb-3 flex items-center space-x-2">
-            <x-select-label for="selected_season" class="text-primary-600">Saison: </x-select-label>
-            <select name="selected_season" wire:model="selected_season">
+        <div class="mb-3">
+            <x-select-label for="selected_season" class="text-primary-700">
+                Saison:
+            </x-select-label>
+            <x-select name="selected_season" wire:model="selected_season">
                 @foreach ($selectable_seasons as $selected_season)
                     <option value="{{ $selected_season->id }}">{{ $selected_season->title }}</option>
                 @endforeach
-            </select>
+            </x-select>
+        </div>
+
+        <div class="flex items-center p-4 mb-4 bg-gray-100 space-x-4">
+            <div class="">
+                <i class="far fa-lightbulb"></i>
+            </div>
+            <div class="">
+                Vorlagen werden erst seit 2016 erfasst.
+            </div>
+        </div>
+        <div class="flex items-center p-4 mb-4 bg-yellow-100 space-x-4">
+            <div class="">
+                <i class="fas fa-info"></i>
+            </div>
+            <div class="">
+                Die Punkt-Spalten können auf- und absteigend sortiert werden.
+            </div>
         </div>
 
         <x-load-indicator />
@@ -63,7 +82,7 @@
                         </x-table.cell>
                         <x-table.cell class="py-2 flex-col">
                             <div class="">
-                                {{ $scorer->fulL_name_short }}
+                                {{ $scorer->name_short }}
                             </div>
                             <div class="flex">
                                 <div class="h-2 bg-primary-600" style="width: {{ ceil(($scorer->total_goals / ($scorers->sum('scorer_points')))*100) }}% "></div>

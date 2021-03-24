@@ -54,6 +54,16 @@
                     </textarea>
                     <x-jet-input-error for="season.description" />
                 </div>
+                <!-- final position -->
+                <div class="mb-6 flex ">
+                    <div>
+                        <x-jet-label for="season.final_position" class="flex justify-between">
+                            Platzierung
+                        </x-jet-label>
+                        <x-input-text class="" type="number" id="season.final_position" wire:model="season.final_position" />
+                        <x-jet-input-error for="season.final_position" />
+                    </div>
+                </div>
                 <!-- clubs -->
                 <div class=" font-bold uppercase">
                     Gültig für

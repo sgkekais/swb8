@@ -1,19 +1,73 @@
 <x-section>
 
     <div>
-        <div class="mb-6">
-            <x-select-label for="selected_season" class="text-primary-700">
-                Jahr auswählen:
-            </x-select-label>
-            <x-select name="selected_season" wire:model="selected_season">
-                @foreach ($seasons as $season)
-                    <option value="{{ $season->id }}">{{ $season->title }}</option>
-                @endforeach
-            </x-select>
+        <div class="mb-6 flex flex-col md:flex-row">
+            <div>
+                <x-select-label for="selected_season" class="text-primary-700">
+                    Saison:
+                </x-select-label>
+                <x-select name="selected_season" wire:model="selected_season">
+                    @foreach ($seasons as $season)
+                        <option value="{{ $season->id }}">{{ $season->title }}</option>
+                    @endforeach
+                </x-select>
+            </div>
+            <!-- season stats -->
+            <div class="flex flex-1 justify-around font-bold items-center text-3xl divide-x divide-gray-200 tracking-tighter" wire:loading.remove>
+                <div class="flex flex-1 flex-col items-center">
+                    <span>
+                        {{ $stat_count_wins }}
+                    </span>
+                    <span class="font-normal text-xl text-gray-500">
+                        S
+                    </span>
+                </div>
+                <div class="flex flex-1 flex-col items-center">
+                    <span>
+                         {{ $stat_count_draws }}
+                    </span>
+                    <span class="font-normal text-xl text-gray-500">
+                        U
+                    </span>
+                </div>
+                <div class="flex flex-1 flex-col items-center">
+                    <span>
+                        {{ $stat_count_losses }}
+                    </span>
+                    <span class="font-normal text-xl text-gray-500">
+                        N
+                    </span>
+                </div>
+                <div class="flex flex-1 flex-col items-center">
+                    <span>
+                        {{ $stat_count_goals }}
+                    </span>
+                    <span class="font-normal text-lg text-gray-500">
+                        <i class="far fa-futbol"></i>
+                    </span>
+                </div>
+                <div class="flex flex-1 flex-col items-center">
+                    <span>
+                        {{ $stat_count_cards }}
+                    </span>
+                    <span class="font-normal text-lg text-gray-500">
+                        <i class="far fa-copy"></i>
+                    </span>
+                </div>
+                @if ($matches->first()->season->final_position)
+                    <div class="flex flex-1 flex-col items-center">
+                        <span class="text-yellow-500">
+                            {{ $matches->first()->season->final_position }}.
+                        </span>
+                        <span class="font-normal text-xl text-gray-500">
+                            Pl.
+                        </span>
+                    </div>
+                @endif
+            </div>
         </div>
-        <div class="" wire:loading>
-            <i class="far fa-futbol fa-spin"></i>
-        </div>
+
+        <x-load-indicator />
 
         @if ($matches->first()->season->description)
             <div class="flex items-center p-4 mb-4 bg-gray-100 space-x-4" wire:loading.remove>
@@ -27,7 +81,7 @@
         @endif
         <div class="flex items-center p-4 mb-4 bg-yellow-100 space-x-4" wire:loading.remove>
             <div class="">
-                <i class="fas fa-exclamation-circle"></i>
+                <i class="fas fa-info"></i>
             </div>
             <div class="">
                 Klick auf eine Zeile, um Tore, Karten und den Spielbericht einzublenden!
@@ -187,7 +241,7 @@
                                             </div>
                                             @if ($goal->assist)
                                                 <div class="text-sm">
-                                                    ({{ $goal->assist->player->name }})
+                                                    ({{ $goal->assist->player->name_short }})
                                                 </div>
                                             @endif
                                         </div>
@@ -218,7 +272,7 @@
                                                 <i class="fas fa-stopwatch text-gray-400 "></i>
                                                 @break
                                             @endswitch
-                                            {{ $card->player->name }}
+                                            {{ $card->player->name_short }}
                                         </div>
                                     @endforeach
                                 @else
