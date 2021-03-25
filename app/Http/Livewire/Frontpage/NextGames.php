@@ -19,7 +19,7 @@ class NextGames extends Component
         $this->next_dates = collect();
         foreach ($this->owned_teams as $owned_team)
         {
-           $this->next_dates->push(Date::with('match', 'match.teamHome', 'match.teamAway')
+           $this->next_dates->push(Date::published()->with('match', 'match.teamHome', 'match.teamAway')
                 ->where('date_type_id',2)
                 ->where('datetime','>=', $this->today)
                 ->whereHas('match', function ($query) use ($owned_team) {

@@ -28,9 +28,9 @@
                 <h2 class="my-3 font-sans font-black text-2xl" id="{{ $month }}">{{ $month }}</h2>
                 <div class="border-l-2 border-gray-300">
                     @foreach ($date_group as $date)
-                        <div class="p-1 flex items-center space-x-2 border-b border-gray-300 {{ $date->cancelled ? "text-gray-500 line-through" : null }}">
+                        <div class="p-1 flex items-center space-x-2 border-b border-gray-300 {{ $date->cancelled ? "text-gray-500" : null }}">
                             {{-- day --}}
-                            <div class="p-3 pr-0 flex flex-col text-center">
+                            <div class="p-3 pr-0 flex flex-col text-center {{ $date->cancelled ? "line-through" : null }}">
                                 <div>
                                     {{ $date->datetime->isoFormat('dd') }}
                                 </div>
@@ -147,22 +147,26 @@
                             </div>
                             {{-- poll --}}
                             @auth
-                                <div class="flex justify-end items-center space-x-2">
-                                    <div class="hidden md:flex text-xs text-center text-gray-500">
-                                        @if ($date->poll_is_open)
-                                            @if ($date->poll_ends > \Carbon\Carbon::today())
-                                                Schließt {{ $date->poll_ends->diffForHumans() }}
-                                            @elseif ($date->poll_ends == \Carbon\Carbon::today())
-                                                Schließt heute
+                                @unless ($date->cancelled)
+                                    <div class="flex justify-end items-center space-x-2">
+                                        <div class="hidden md:flex text-xs text-center text-gray-500">
+                                            @if ($date->poll_is_open)
+                                                @if ($date->poll_ends > \Carbon\Carbon::today())
+                                                    Schließt {{ $date->poll_ends->diffForHumans() }}
+                                                @elseif ($date->poll_ends == \Carbon\Carbon::today())
+                                                    Schließt heute
+                                                @endif
+                                            @else
+                                                Rückmeldung geschlossen
                                             @endif
-                                        @else
-                                            Rückmeldung geschlossen
-                                        @endif
+                                        </div>
+                                        <x-participate-button :date="$date" >
+                                            Rückmelden
+                                        </x-participate-button>
                                     </div>
-                                    <x-participate-button :date="$date" >
-                                        Rückmelden
-                                    </x-participate-button>
-                                </div>
+                                @else
+                                    <span class="font-bold text-red-700 no-underline ">ABGESAGT</span>
+                                @endunless
                             @endauth
                         </div>
                     @endforeach

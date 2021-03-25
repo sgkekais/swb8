@@ -19,9 +19,13 @@
                             @endif
                         </div>
                     </div>
-                    <div class="flex flex-col w-full">
+                    <div class="flex flex-col w-full {{ $next_date->match->cancelled ? "text-gray-500" : null }}">
                         <div class="flex flex-1 justify-center items-center text-sm space-x-2">
-                            <x-date-and-match-type :date="$next_date" />
+                            @unless ($next_date->match->cancelled)
+                                <x-date-and-match-type :date="$next_date" />
+                            @else
+                                <span class="font-bold text-red-700 animate-pulse">ABGESAGT</span>
+                            @endif
                         </div>
                         <div class="flex items-center">
                             <!-- home -->
@@ -30,7 +34,7 @@
                                 <span>{{ $next_date->match->teamHome->name  }}</span>
                             </div>
                             <!-- result -->
-                            <div class="flex-1 flex-col text-center">
+                            <div class="flex-1 flex-col text-center {{ $next_date->match->cancelled ? "line-through" : null }}">
                                 <div class="text-lg font-bold">
                                     {{ $next_date->datetime->isoFormat('dddd') }}
                                 </div>
