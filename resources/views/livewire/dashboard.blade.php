@@ -29,11 +29,11 @@
                 </div>
                 <div class="w-full p-1 flex items-center space-x-2 {{ $date->cancelled ? "text-gray-500 line-through" : null }}">
                     {{-- day --}}
-                    <div class="p-3 pr-0 flex flex-col text-center">
+                    <div class="py-2 px-1 sm:py-3 sm:px-3 pr-0 flex flex-col text-center">
                         <div>
                             {{ $date->datetime->isoFormat('dd') }}
                         </div>
-                        <div class="text-2xl font-extrabold">
+                        <div class="text-lg sm:text-2xl font-extrabold">
                             {{ $date->datetime->isoFormat('DD.MM') }}
                         </div>
                     </div>

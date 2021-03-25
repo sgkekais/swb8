@@ -8,7 +8,7 @@
                 </x-headline>
             </x-slot>
 
-            <livewire:frontpage.next-game />
+            <livewire:frontpage.next-games />
         </x-main-box>
     </x-section>
     <x-section class="py-4 bg-gray-100 border-t-2 border-b-2 border-primary-700 bg-pattern">
