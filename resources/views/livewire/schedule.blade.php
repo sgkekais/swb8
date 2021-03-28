@@ -103,7 +103,7 @@
                         </span>
                             @if ($match->matchweek)
                                 <span>
-                                {{ $match->matchType->id == 2 ? $match->matchweek.".ST" : $match->matchweek }}
+                                {{ $match->matchweek ? ($match->matchType->id == 2 ? $match->matchweek.".ST" : $match->matchweek) : null }}
                             </span>
                             @endif
                             @if ($match->date->datetime)
@@ -120,10 +120,19 @@
                         @endisset
                     </div>
                     <!-- match row -->
-                    <div @click="show=!show" class="flex flex-row h-16 {{ $match->cancelled ? "text-gray-500 line-through" : null }} cursor-pointer hover:bg-gray-100" >
+                    <div @click="show=!show" class="flex flex-row min-h-16 {{ $match->cancelled ? "text-gray-500" : null }} cursor-pointer hover:bg-gray-100" >
                         {{-- first, icon + datetime --}}
                         <div class="w-1/4 flex ">
-                            {{-- icon --}}
+                            <!-- home away -->
+                            <div class="flex {{ $match->teamHome->owner ? "bg-gray-50" : "bg-gray-100" }} items-center p-1">
+                                @if ($match->teamHome->owner)
+                                    H
+                                @elseif ($match->teamAway->owner)
+                                    A
+                                @endif
+                                {{ $match->id }}
+                            </div>
+                            <!-- icon -->
                             <div class="p-1 flex w-full md:w-2/6 justify-center items-center">
                                 @if ($match->matchType->id == 1)
                                     <i class="far fa-handshake sm:fa-lg text-blue-600"></i>
@@ -141,11 +150,11 @@
                                 <span class="">
                                     {{ $match->matchType->description }}
                                 </span>
-                                    <span>
+                                <span>
                                     {{ $match->matchweek ? ($match->matchType->id == 2 ? $match->matchweek.".ST" : $match->matchweek) : null }}
                                 </span>
                                 </div>
-                                <div class="flex flex-row space-x-2">
+                                <div class="flex flex-row space-x-2 {{ $match->cancelled ? "line-through" : null }}">
                                     @if ($match->date->datetime)
                                         <span>{{ $match->date->datetime->isoFormat('DD.MM.YY') }}</span>
                                         <span>{{ $match->date->datetime->format('H:i') }}</span>
@@ -165,19 +174,38 @@
                             {{-- result --}}
                             <div class="w-1/5 flex flex-col justify-center">
                                 @if ($match->isPlayedOrRated())
-                                    <div class="text-center font-extrabold text-xl p-1
-                                    @if ($match->isWon() && !$match->cancelled)
-                                        text-primary-600
-                                    @elseif ($match->isLost() && !$match->cancelled)
-                                        text-red-500
-                                    @else
-                                        text-black
-                                    @endif
-                                        ">
-                                        {{ $match->goals_home }}:{{ $match->goals_away }}
+                                    <div class="p-1 flex flex-col font-extrabold text-center ">
+                                        @php
+                                            $score_color = "text-black";
+                                            if ($match->isRated()) {
+                                                $score_color = "text-yellow-500";
+                                            } elseif ($match->isWon() && !$match->cancelled) {
+                                                $score_color = "text-primary-600";
+                                            } elseif ($match->isLost() && !$match->cancelled) {
+                                                $score_color = "text-red-500";
+                                            }
+                                        @endphp
+                                        @if ($match->isRated())
+                                            <i class="fas fa-gavel text-xs {{ $score_color }}"></i>
+                                            <span class="{{ $score_color }}">{{ $match->goals_home_rated }}:{{ $match->goals_away_rated }}</span>
+                                            @if ($match->isPlayed())
+                                                <span class="text-sm">Alt: {{ $match->goals_home }}:{{ $match->goals_away }}</span>
+                                            @endif
+                                        @elseif ($match->isPenalties())
+                                            <span class="{{ $score_color }}">{{ $match->goals_home_pen }}:{{ $match->goals_away_pen}} i.E.</span>
+                                            <span class="text-sm">90' {{ $match->goals_home }}:{{ $match->goals_away }}</span>
+                                        @else
+                                            <span class="{{ $score_color }}">{{ $match->goals_home }}:{{ $match->goals_away }}</span>
+                                        @endif
                                     </div>
+                                @if ($match->goals_home_ht && $match->goals_away_ht)
                                     <div class="text-center text-sm ">
                                         ({{ $match->goals_home_ht }}:{{ $match->goals_away_ht }})
+                                    </div>
+                                @endif
+                                @elseif ($match->cancelled)
+                                    <div class="text-center no-underline text-red-500">
+                                        Abgs.
                                     </div>
                                 @else
                                     <div class="text-center">-:-</div>
@@ -201,11 +229,11 @@
                             </div>
                             <div class="w-2/12 flex items-center justify-center tracking-tighter">
                                 @if ($match->matchType->is_point_match)
-                                    @if (($match->teamHome->owner && ($match->goals_home > $match->goals_away)) || ($match->teamAway->owner && ($match->goals_home < $match->goals_away)))
+                                    @if ($match->isWon())
                                         @php
                                             $points += 3;
                                         @endphp
-                                    @elseif ($match->goals_home == $match->goals_away && $match->goals_home !== NUll && $match->goals_away !== NULL)
+                                    @elseif ($match->isDraw())
                                         @php
                                             $points += 1;
                                         @endphp

@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        Dein Verein - Hi, {{ auth()->user()->name }}!
+        Dein Verein
     </x-slot>
 
     <x-section>

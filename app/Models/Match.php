@@ -135,53 +135,6 @@ class Match extends Model
     }
 
     /**
-     * Check if we won this match
-     * @return bool
-     */
-    public function isWon()
-    {
-        if ($this->teamHome->owner && ($this->goals_home > $this->goals_away || $this->goals_home_rated > $this->goals_away_rated))
-        {
-            return true;
-        }
-        elseif ($this->teamAway->owner && ($this->goals_home < $this->goals_away || $this->goals_home_rated < $this->goals_away_rated))
-        {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * Check if we lost this match
-     * @return bool
-     */
-    public function isLost()
-    {
-        if ($this->teamHome->owner && ($this->goals_home < $this->goals_away || $this->goals_home_rated < $this->goals_away_rated))
-        {
-            return true;
-        }
-        elseif ($this->teamAway->owner && ($this->goals_home > $this->goals_away || $this->goals_home_rated > $this->goals_away_rated))
-        {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * Check if match is a draw
-     * @return bool
-     */
-    public function isDraw()
-    {
-        if ($this->goals_home == $this->goals_away || $this->goals_home_rated == $this->goals_away_rated)
-        {
-            return true;
-        }
-        return false;
-    }
-
-    /**
      * Check if the match had penalties
      * @return bool
      */
@@ -193,6 +146,136 @@ class Match extends Model
         } else {
             return false;
         }
+    }
+
+    /**
+     * Check if we won this match
+     * @return bool
+     */
+    public function isWon()
+    {
+        if (!$this->cancelled)
+        {
+            // rated
+            if ($this->isRated())
+            {
+                if ($this->teamHome->owner && ($this->goals_home_rated > $this->goals_away_rated))
+                {
+                    return true;
+                } elseif ($this->teamAway->owner && ($this->goals_home_rated < $this->goals_away_rated)) {
+                    return true;
+                }
+            }
+            // penalties
+            elseif ($this->isPenalties())
+            {
+                if ($this->teamHome->owner && ($this->goals_home_pen > $this->goals_away_pen))
+                {
+                    return true;
+                } elseif ($this->teamAway->owner && ($this->goals_home_pen < $this->goals_away_pen)) {
+                    return true;
+                }
+            }
+            // regular win
+            elseif ($this->isPlayed())
+            {
+                if ($this->teamHome->owner && ($this->goals_home > $this->goals_away))
+                {
+                    return true;
+                }
+                elseif ($this->teamAway->owner && ($this->goals_home < $this->goals_away))
+                {
+                    return true;
+                }
+            }
+
+        }
+
+        return false;
+    }
+
+    /**
+     * Check if we lost this match
+     * @return bool
+     */
+    public function isLost()
+    {
+        if (!$this->cancelled)
+        {
+            // rated
+            if ($this->isRated())
+            {
+                if ($this->teamHome->owner && ($this->goals_home_rated < $this->goals_away_rated))
+                {
+                    return true;
+                } elseif ($this->teamAway->owner && ($this->goals_home_rated > $this->goals_away_rated)) {
+                    return true;
+                }
+            }
+            // penalties
+            elseif ($this->isPenalties())
+            {
+                if ($this->teamHome->owner && ($this->goals_home_pen < $this->goals_away_pen))
+                {
+                    return true;
+                } elseif ($this->teamAway->owner && ($this->goals_home_pen > $this->goals_away_pen)) {
+                    return true;
+                }
+            }
+            // regular win
+            elseif ($this->isPlayed())
+            {
+                if ($this->teamHome->owner && ($this->goals_home < $this->goals_away))
+                {
+                    return true;
+                }
+                elseif ($this->teamAway->owner && ($this->goals_home > $this->goals_away))
+                {
+                    return true;
+                }
+            }
+
+        }
+
+        return false;
+    }
+
+    /**
+     * Check if match is a draw
+     * @return bool
+     */
+    public function isDraw()
+    {
+        if (!$this->cancelled)
+        {
+            // rated
+            if ($this->isRated())
+            {
+                if ($this->goals_home_rated == $this->goals_away_rated)
+                {
+                    return true;
+                }
+            }
+            // penalties
+            elseif ($this->isPenalties())
+            {
+                if ($this->goals_home_pen == $this->goals_away_pen)
+                {
+                    return true;
+                }
+            }
+            // regular win
+            elseif ($this->isPlayed())
+            {
+                if ($this->goals_home == $this->goals_away)
+                {
+                    return true;
+                }
+            }
+
+        }
+
+        return false;
     }
 
     /*

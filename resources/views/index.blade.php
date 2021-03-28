@@ -1,4 +1,12 @@
 <x-app-layout>
+    <x-section class="py-4 bg-gray-900" slot-class="flex flex-col sm:flex-row sm:items-center sm:justify-between text-white">
+        <div class="font-sans font-extrabold text-2xl sm:text-3xl tracking-tighter">
+            Schwarz-Weiß Bilk '79
+        </div>
+        <div>
+            Hobbyfußball seit {{ \Carbon\Carbon::make('25.11.1979')->diffForHumans(['syntax' => \Carbon\CarbonInterface::DIFF_ABSOLUTE, 'parts' => 4, 'join' => ['n, ', ' und ']]) }}
+        </div>
+    </x-section>
 
     <x-section class="py-4">
         <x-main-box class="">
@@ -14,7 +22,7 @@
     <x-section class="py-4 bg-gray-100 border-t-2 border-b-2 border-primary-700 bg-pattern">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="">
-                <x-box-with-shadow class="w-full">
+                <x-box-with-shadow class="p-2">
                     <x-slot name="header">
                         Weisheiten
                     </x-slot>
@@ -23,7 +31,7 @@
             </div>
             @auth
                 <div class="">
-                    <x-box-with-shadow class="w-full">
+                    <x-box-with-shadow class="p-2">
                         <x-slot name="header">
                             Geburtstage
                         </x-slot>

@@ -10,7 +10,7 @@ use Livewire\Component;
 class Scorers extends Component
 {
     public $header = 'Tore & Assists';
-        public ?Club $club = null;
+    public ?Club $club = null;
     public $selectable_seasons = [];
     public ?Season $season = null;
     public $selected_season = "";

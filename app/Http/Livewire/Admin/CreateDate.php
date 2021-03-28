@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Http\Livewire\TrimAndNullEmptyStrings;
 use App\Models\Club;
 use App\Models\Date;
 use App\Models\DateOption;
@@ -16,6 +17,8 @@ use Livewire\Component;
 
 class CreateDate extends Component
 {
+    use TrimAndNullEmptyStrings;
+
     public $is_open = false;
     public $is_open_delete = false;
     public ?Date $date = null;

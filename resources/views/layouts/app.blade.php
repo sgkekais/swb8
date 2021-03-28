@@ -37,17 +37,19 @@
         <div class="hidden sm:hidden md:hidden lg:block  xl:hidden">lg</div>
         <div class="hidden sm:hidden md:hidden lg:hidden xl:block">xl</div>
     </div>
-        <div class="min-h-screen bg-white">
+        <div class="flex flex-col min-h-screen bg-white">
 
             <!-- nav -->
-            <div class="h-52 bg-center bg-cover border-b border-black" style="background-image: url({{ asset('img/bg-1.jpg') }}); ">
-                <div class="absolute w-full pt-2 md:pt-8 h-52 flex items-center justify-center">
-                    <x-jet-application-mark class="h-20 lg:h-24 w-auto fill-current text-white animate-pulse"/>
-                </div>
+            <div class="h-48 bg-center bg-cover border-b border-black" style="background-image: url({{ asset('img/bg-1.jpg') }}); ">
+{{--                <div class="absolute w-full pt-2 md:pt-8 h-52 flex items-center justify-center">--}}
+{{--                    <x-jet-application-mark class="h-20 lg:h-24 w-auto fill-current text-white animate-pulse"/>--}}
+{{--                </div>--}}
                 <div class="p-2 relative max-w-7xl mx-auto flex flex-col justify-between h-full">
                     @livewire('navigation-dropdown')
                     <div class="text-white">
-                        Hobbyfußball seit {{ \Carbon\Carbon::make('25.11.1979')->diffForHumans(['syntax' => \Carbon\CarbonInterface::DIFF_ABSOLUTE, 'parts' => 4, 'join' => ['n, ', ' und ']]) }}
+                        @auth
+                            Hi, {{ auth()->user()->name }}!
+                        @endauth
                     </div>
                 </div>
             </div>
@@ -67,7 +69,13 @@
             @endif
 
             <!-- Page Content -->
-            <main class="">
+            <main class="flex-grow">
+
+{{--                <img src="/img/swblogo.png" class="absolute -bottom-1/4 opacity-5" />--}}
+
+{{--                <div class="relative">--}}
+{{--                    {{ $slot }}--}}
+{{--                </div>--}}
                 {{ $slot }}
             </main>
 

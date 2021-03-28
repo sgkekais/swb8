@@ -2,7 +2,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         @foreach ($next_dates->filter() as $next_date)
             <div>
-                <x-box-with-shadow>
+                <x-box-with-shadow class="p-2">
                     <div class="absolute flex flex-col top-0 left-0 font-bold text-sm text-center">
                         <div class="p-1 bg-gray-300 ">
                             @if ($next_date->match->teamHome->owner)

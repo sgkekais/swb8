@@ -57,12 +57,8 @@
             </div>
             <div class="flex items-center py-2">
                 @unless($user_player->cards->count() == 0 && $vs_player->cards->count() == 0)
-                    <div class="h-2 bg-primary-600" style="width: {{ ceil(($user_player->cards->count() / ($user_player->cards->count() + $vs_player->cards->count()))*100) }}%">
-
-                    </div>
-                    <div class="h-2 bg-gray-600" style="width: {{ ceil(($vs_player->cards->count() / ($user_player->cards->count() + $vs_player->cards->count()))*100) }}%">
-
-                    </div>
+                    <div class="h-2 bg-primary-600" style="width: {{ ceil(($user_player->cards->count() / ($user_player->cards->count() + $vs_player->cards->count()))*100) }}%"></div>
+                    <div class="h-2 bg-gray-600" style="width: {{ ceil(($vs_player->cards->count() / ($user_player->cards->count() + $vs_player->cards->count()))*100) }}%"></div>
                 @endunless
             </div>
             <!-- yellows -->

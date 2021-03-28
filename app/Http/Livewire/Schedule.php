@@ -16,11 +16,11 @@ class Schedule extends Component
     public $selected_season = "";
     public $matches = [];
     public $today = null;
-    public $stat_count_wins = 0;
-    public $stat_count_losses = 0;
-    public $stat_count_draws = 0;
-    public $stat_count_goals = 0;
-    public $stat_count_cards = 0;
+    public $stat_count_wins;
+    public $stat_count_losses;
+    public $stat_count_draws;
+    public $stat_count_goals;
+    public $stat_count_cards;
 
     public function mount(Club $club)
     {
@@ -42,6 +42,12 @@ class Schedule extends Component
         $this->matches = $this->club->matches()->where('season_id',$this->selected_season);
         $this->matches->load('date', 'date.location', 'matchType', 'teamHome', 'teamAway', 'goals.player', 'goals.assist.player', 'cards.player')
             ->sortBy('date.datetime');
+
+        $this->stat_count_wins = 0;
+        $this->stat_count_losses = 0;
+        $this->stat_count_draws = 0;
+        $this->stat_count_goals = 0;
+        $this->stat_count_cards = 0;
 
         // calculate stats
         foreach ($this->matches as $match)

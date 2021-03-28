@@ -15,9 +15,9 @@ class MyStats extends Component
     {
         if (Auth::user()->player)
         {
-            $this->my_goals = Auth::user()->player->goals->load('match.date', 'match.season');
-            $this->my_assists = Auth::user()->player->assists->load('goal.match.date', 'goal.match.season');
-            $this->my_cards = Auth::user()->player->cards->load('match.date', 'match.season');
+            $this->my_goals = Auth::user()->player->goals->load('match.date', 'match.season', 'assist.player', 'match.teamHome', 'match.teamAway');
+            $this->my_assists = Auth::user()->player->assists->load('goal.match.date', 'goal.match.season', 'goal.player', 'goal.match.teamHome', 'goal.match.teamAway');
+            $this->my_cards = Auth::user()->player->cards->load('match.date', 'match.season', 'match.teamHome', 'match.teamAway');
         }
     }
 

@@ -31,9 +31,6 @@ class Poll extends Component
                 $this->date_players = $this->date_players->merge($club->players);
             }
         }
-
-        // $this->date_players = $this->date_players->flatten()->unique('id')->sortBy('last_name');
-
     }
 
     public function attend()

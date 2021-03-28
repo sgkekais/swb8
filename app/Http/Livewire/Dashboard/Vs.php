@@ -15,7 +15,6 @@ class Vs extends Component
     public function mount ()
     {
         $this->user_player = auth()->user()->player;
-        // $this->user_player = Player::find('2');
         $this->players = Player::isPublic(true)->orderBy('first_name')->orderBy('last_name')->get();
         $this->vs_player = $this->user_player;
     }
@@ -25,6 +24,7 @@ class Vs extends Component
         if ($this->selected_player)
         {
             $this->vs_player = Player::find($this->selected_player);
+            $this->vs_player->load('goals', 'assists', 'cards');
         }
 
         return view('livewire.dashboard.vs');

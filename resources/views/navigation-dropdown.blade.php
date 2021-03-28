@@ -3,9 +3,12 @@
     <div class="flex justify-between h-12">
         <div class="flex">
             <!-- Logo -->
-            <div class="pt-1 flex-shrink-0 flex items-center font-sans font-extrabold text-2xl text-white ">
-                <a href="{{ route('home') }}" title="zur Startseite" class="border-b-4 border-transparent hover:border-black">SW Bilk '79</a>
-            </div>
+            <a href="{{ route('home') }}" title="zur Startseite">
+                <x-jet-application-mark class="h-20 lg:h-24 w-auto fill-current text-white hover:text-black "/>
+            </a>
+{{--            <div class="pt-1 flex-shrink-0 flex items-center font-sans font-extrabold text-2xl text-white ">--}}
+{{--                <a href="{{ route('home') }}" title="zur Startseite" class="border-b-4 border-transparent hover:border-black">SW Bilk '79</a>--}}
+{{--            </div>--}}
 
             <!-- Navigation Links -->
             <div class="hidden md:space-x-2 lg:space-x-4 md:ml-4 md:flex md:items-stretch">

@@ -85,8 +85,8 @@
                                 {{ $scorer->name_short }}
                             </div>
                             <div class="flex">
-                                <div class="h-2 bg-primary-600" style="width: {{ ceil(($scorer->total_goals / ($scorers->sum('scorer_points')))*100) }}% "></div>
                                 <div class="h-2 bg-primary-300" style="width: {{ ceil(($scorer->total_assists / ($scorers->sum('scorer_points')))*100) }}% "></div>
+                                <div class="h-2 bg-primary-600" style="width: {{ ceil(($scorer->total_goals / ($scorers->sum('scorer_points')))*100) }}% "></div>
                             </div>
                         </x-table.cell>
                         <x-table.cell class="text-center">{{ $scorer->total_assists }}</x-table.cell>

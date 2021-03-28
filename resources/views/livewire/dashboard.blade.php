@@ -9,9 +9,9 @@
         </div>
     </div>
 
-    <div class="flex flex-col space-y-3">
+    <div class="flex flex-col">
         @foreach ($future_dates as $date)
-            <x-box-with-shadow>
+            <x-box-with-shadow class="p-2 -mt-1">
                 <div class="flex items-center space-x-2 text-sm">
                     @foreach(auth()->user()->dateOptions()->where('date_id', $date->id)->get() as $dateOption)
                         @if ($dateOption->pivot->attend)
@@ -167,19 +167,6 @@
             </x-box-with-shadow>
         @endforeach
     </div>
-
-{{--        <x-main-box>--}}
-{{--            <x-slot name="header">--}}
-{{--                <x-headline class="text-xl">--}}
-{{--                    Zurückliegend brauchen? --}}
-{{--                </x-headline>--}}
-{{--            </x-slot>--}}
-{{--            <ul class="list-disc">--}}
-{{--                @foreach ($past_dates as $past_date)--}}
-{{--                    <li>{{ $past_date }}</li>--}}
-{{--                @endforeach--}}
-{{--            </ul>--}}
-{{--        </x-main-box>--}}
 
 </div>
 

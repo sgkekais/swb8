@@ -4,7 +4,7 @@
 ])
 
 @auth
-    @if($date)
+    @if($date && !$date->cancelled)
         {{-- is date valid for me, i.e. date->clubs contains at least one of player->clubs --}}
         @if ($date->clubs->intersect(auth()->user()->player->clubs)->isNotEmpty() && $date->poll_begins && $date->poll_ends)
             <div {{ $attributes->merge(['class' => '']) }}>
