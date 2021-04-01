@@ -80,8 +80,14 @@
                                 </div>
                             </div>
                         </x-table.cell>
-                        <x-table.cell class="py-2 flex-col">
-                            <div class="">
+                        <x-table.cell x-data="{ show:false }" @mouseleave="show = false" class="py-2 flex-col relative">
+                            <!-- player info popup -->
+                            @auth
+                                <div x-show="show" @click.away="show = false" class="absolute top-7 z-50 w-96 max-w-screen bg-white">
+                                    <x-player-popup :player="$scorer" />
+                                </div>
+                            @endauth
+                            <div @click="show = !show" @mouseover="show = true" class="relative">
                                 {{ $scorer->name_short }}
                             </div>
                             <div class="flex">
@@ -98,7 +104,7 @@
                     $prev_scorer_place = $scorer_place;
                 @endphp
             @endforeach
-            <!-- totals -->
+                <!-- totals -->
                 <x-table.row>
                     <x-table.cell></x-table.cell>
                     <x-table.cell></x-table.cell>

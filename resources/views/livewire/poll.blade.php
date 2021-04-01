@@ -1,183 +1,231 @@
 <x-section class="pt-0">
-    <x-box-with-shadow class="p-2">
-        <x-slot name="header">
-            {{ $date->dateType->description }}
-        </x-slot>
-        <div class="flex flex-col space-y-4">
-            <div class="font-sans font-extrabold text-xl tracking-tighter ">
-                @if ($date->dateType->id === 1 || $date->dateType->id === 4 )
-                    {{ $date->title }}
-                @elseif ($date->dateType->id === 2)
-                    {{ $date->match->matchType->description }}
-                    @if ($date->match->matchweek)
-                        <span>
-                            | {{ $date->match->matchweek ? ($date->match->matchType->id == 2 ? $date->match->matchweek.".ST" : $date->match->matchweek) : null }}
-                        </span>
-                    @endif
-                @elseif ($date->dateType->id === 3)
-                    {{ $date->tournament->title }}
+    <x-box-with-shadow class="">
+        <div class="p-2">
+            <x-slot name="header">
+                {{ $date->dateType->description }}
+            </x-slot>
+            <div class="flex flex-col space-y-2">
+                <div class="flex items-center space-x-2 font-sans font-extrabold text-xl tracking-tighter ">
+                    @switch ($date->dateType->id)
+                        @case (1)
+                            <i class="fas fa-calendar-day text-indigo-600" title="{{ $date->dateType->description }}"></i>
+                            <span>{{ $date->title }}</span>
+                            @break
+                        @case (2)
+                            @switch ($date->match->matchType->id)
+                                @case (1)
+                                <i class="far fa-handshake text-blue-600" title=""></i>
+                                @break
+                                @case (2)
+                                <x-hlw-logo class="fill-current text-primary-600 h-3"/>
+                                @break
+                                @case (3)
+                                <i class="fas fa-trophy text-yellow-600" title=""></i>
+                                @break
+                                @case (4)
+                                <x-hlw-logo class="fill-current text-primary-600 h-3"/>
+                                @break
+                            @endswitch
+                            <span>{{ $date->match->matchType->description }}</span>
+                            @if ($date->match->matchweek)
+                                <span>
+                                    | {{ $date->match->matchweek ? ($date->match->matchType->id == 2 ? $date->match->matchweek.".ST" : $date->match->matchweek) : null }}
+                                </span>
+                            @endif
+                            @break
+                        @case (3)
+                            <i class="fas fa-medal text-yellow-600" title="{{ $date->dateType->description }}"></i>
+                            <span>{{ $date->tournament->title }}</span>
+                            @break
+                        @case (4)
+                            <i class="fas fa-glass-cheers text-pink-600" title="{{ $date->dateType->description }}"></i>
+                            <span>{{ $date->title }}</span>
+                            @break
+                    @endswitch
+                </div>
+                <!-- poll details -->
+                <div class="flex items-center space-x-2">
+                    @switch ($date->dateType->id)
+                        @case (1)
+                            <span class="text-gray-700">
+                                {{ $date->description }}
+                            </span>
+                            @break
+                        @case (2)
+                            <span class="text-right">{{ $date->match->teamHome->name }}</span>
+                            <img src="{{ $date->match->teamHome->logo() }}" class="w-8 h-auto" alt="{{ $date->match->teamHome->name_short." Logo" }}"/>
+                            <span class="font-bold text-sm">VS</span>
+                            <img src="{{ $date->match->teamAway->logo() }}" class="w-8 h-auto" alt="{{ $date->match->teamAway->name_short." Logo" }}"/>
+                            <span class="">{{ $date->match->teamAway->name }}</span>
+                            @break
+                        @case (3)
+                            <span class="text-gray-700">
+                                {{ $date->tournament->description }}
+                            </span>
+                            @break
+                        @case (4)
+                            <span class="text-gray-700">
+                                {{ $date->description }}
+                            </span>
+                            @break
+                    @endswitch
+                </div>
+                @if ($date->datetime && $date->dateType->id != 1)
+                    <div>
+                        <i class="far fa-clock fa-fw"></i>
+                        <span class="font-bold">{{ $date->datetime->isoFormat('DD.MM.YY HH:mm') }}</span>
+                    </div>
                 @endif
-            </div>
-            <!-- poll details -->
-            <div class="text-gray-700">
-                {{ $date->description }}
-            </div>
-            <div>
-                Optionen ({{ $date->dateOptions->count() }}):
-                <ul class="list-inside">
-                    @foreach ($date->dateOptions as $dateOption)
-                        <li><i class="far fa-question-circle text-yellow-500"></i> {{ $dateOption->description }}</li>
+                @if ($date->location)
+                    <div class="">
+                        <i class="fas fa-map-marker-alt fa-fw text-red-500"></i>
+                        {{ $date->location->name }}
+                    </div>
+                @endif
+                <div class="flex flex-wrap space-x-2 ">
+                    <div class="">Anzahl Spieler: </div>
+                    @foreach ($date_players->sortByDesc('playerStatus.can_play')->groupBy('playerStatus.description') as $key => $player_status_group)
+                        <div>
+                            <a href="#{{ $key }}" class="inline-link"><span class="font-bold">{{ $key }}</span></a> {{ $player_status_group->count() }}
+                        </div>
                     @endforeach
-                </ul>
+                </div>
+                <div>
+                    ...macht <span class="text-primary-700 font-bold">{{ $date_players->where('playerStatus.can_play', 1)->count() }}</span> halbwegs körperlich fähige
+                </div>
             </div>
-            <div class="">
-                <i class="far fa-clock"></i> Umfrage geöffnet vom <span class="font-bold">{{ $date->poll_begins->isoFormat('dd D.M.YY') }}</span> bis <span class="font-bold">{{ $date->poll_ends->isoFormat('dd D.M.YY') }}</span>
+        </div>
+        <div class="p-2 flex items-center space-x-2 bg-gray-100">
+            <i class="fas fa-user-clock fa-fw"></i>
+            <div>
+                Umfrage geöffnet vom <span class="font-bold">{{ $date->poll_begins->isoFormat('dd D.M.YY') }}</span> bis <span class="font-bold">{{ $date->poll_ends->isoFormat('dd D.M.YY') }}</span>
             </div>
         </div>
     </x-box-with-shadow>
 
     <!-- poll participation -->
-    <div class="max-w-screen overflow-x-scroll">
-        <div class="table ">
+    <div class="max-w-screen overflow-x-scroll bg-scroll-gradient sm:shadow-none">
+        <div class="table align-middle ">
             <div class="table-header-group">
                 <div class="table-cell">
-                    &nbsp;
+                    &nbsp;&nbsp;
                 </div>
                 @foreach ($date->dateOptions as $date_option)
-                    <div class="table-cell p-4 text-center">
+                    <div class="table-cell p-4 text-center whitespace-nowrap">
                         <div class="font-bold text-lg">
                             {{ $date_option->description }}
                         </div>
                         <div class="flex flex-col text-sm">
-                            <div>{{ $date_option->users()->count() }} rückgemeldet</div>
-                            <div>({{ $date_option->users()->wherePivot('attend', true)->count() }} zugesagt)</div>
+                            <div><span class="font-bold">{{ $date_option->users()->wherePivot('attend', true)->count() }}</span>/{{ $date_players->count() }} zugesagt</div>
                         </div>
                         <div>
-
+                            <i class="fas fa-vote-yea text-gray-700"></i>
                         </div>
                     </div>
                 @endforeach
             </div>
-            <div class="table-row-group divide-x divide-gray-500">
-                <div class="table-cell border-b border-gray-500 font-bold text-primary-600 text-center">
-                    Du:
-                </div>
-                @foreach ($date->dateOptions as $date_option)
-                    <div class="table-cell border-b border-gray-500 p-4 text-center">
-                        <x-input-checkbox
-                            wire:key="{{ $date_option->id }}"
-                            wire:model.defer="checked_options"
-                            name="date_option_{{ $date_option->id }}"
-                            value="{{ $date_option->id }}" />
+            <div class="table-row-group">
+                <div class="table-row">
+                    <div class="table-cell font-bold text-xl text-primary-700 text-center">
+                        Du:
                     </div>
-                @endforeach
-                <div class="table-cell border-b border-gray-500">
-                    <div class="flex items-center space-x-2 ml-2">
-                        <x-confirmation-button wire:click="attend">
-                            <div wire:loading wire:target="attend">
-                                <i class="fas fa-circle-notch fa-spin" ></i>
-                            </div>
-                            <div wire:loading.remove >
-                                <i class="fas fa-fw fa-save" ></i>
-                            </div>
-                        </x-confirmation-button>
-                        @if($saved)
-                            <div class="text-xs text-primary-600">
-                                Gespeichert.
-                            </div>
-                        @endif
+                    @foreach ($date->dateOptions as $date_option)
+                        <div class="table-cell pb-4 text-center">
+                            <x-input-checkbox
+                                wire:key="{{ $date_option->id }}"
+                                wire:model.defer="checked_options"
+                                name="date_option_{{ $date_option->id }}"
+                                value="{{ $date_option->id }}" />
+                        </div>
+                    @endforeach
+                    <div class="table-cell whitespace-nowrap">
+                        <div class="flex items-center space-x-2 ml-2">
+                            <x-confirmation-button wire:click="attend">
+                                <div wire:loading wire:target="attend">
+                                    <i class="fas fa-circle-notch fa-spin" ></i>
+                                </div>
+                                <div wire:loading.remove >
+                                    <i class="fas fa-fw fa-save" ></i>
+                                </div>
+                            </x-confirmation-button>
+                            @if($saved)
+                                <div class="text-xs text-primary-600">
+                                    Gespeichert.
+                                </div>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
             <!-- poll participants -->
-            @foreach($date_players->sortBy('name_short') as $player)
-                <div class="table-row-group divide-x divide-gray-500">
-                    <div class="py-1 table-cell">
-                        <div x-data="{ show:false }" class="relative flex items-center cursor-pointer">
-                            <div x-show="show" class="absolute top-7 z-50 w-96 max-w-screen bg-white">
-                                <x-box-with-shadow class="p-4">
-                                    <div class="flex flex-col space-y-1">
-                                        <div class="flex items-center space-x-2">
-                                            @isset($player->user)
-                                                <img class="h-12 w-12 rounded-full object-cover" src="{{ $player->user->profile_photo_url }}" alt="{{ $player->first_name }}" />
-                                            @endisset
-                                            <div class="flex flex-col">
-                                                <span>{{ $player->full_name }}</span>
-                                                <span class="text-green-700 italic">{{ $player->public_note }}</span>
-                                            </div>
-                                        </div>
-                                        @if ($player->joined)
-                                            <div class="text-gray-700">
-                                                <i class="fas fa-birthday-cake"></i> Dabei seit {{ $player->joined->isoFormat('MM.Y') }} ({{ $player->joined->diffInYears() }})
-                                            </div>
-                                        @endif
-                                        <div class="flex items-center space-x-4 text-gray-700">
-                                            <div>
-                                                <i class="far fa-futbol"></i> {{ $player->goals->count() }}
-                                            </div>
-                                            <div>
-                                                <i class="fas fa-hands-helping"></i> {{ $player->assists->count() }}
-                                            </div>
-                                            <div>
-                                                <i class="far fa-copy"></i> {{ $player->cards->count() }}
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </x-box-with-shadow>
-                            </div>
-                            <div @click="show = !show" class="relative">
-                                @isset($player->user)
-                                    <img class="h-8 w-8 rounded-full object-cover" src="{{ $player->user->profile_photo_url }}" alt="{{ $player->first_name }}" />
-                                @endisset
-                                <div class="pl-2">
+            <div class="table-row-group">
+                @foreach ($date_players->sortByDesc('playerStatus.can_play')->groupBy('playerStatus.description') as $key => $player_status_group)
+                    <div class="table-row">
+                        <div class="table-cell">
+                            <x-headline class="text-xl" id="{{ $key }}">
+                                {{ $key }}
+                            </x-headline>
+                        </div>
+                    </div>
+                    @foreach($player_status_group->sortBy('name_short') as $player)
+                        <div class="table-row hover:bg-gray-100">
+                            <!-- name -->
+                            <div x-data="{ show:false }" @mouseleave="show = false" class="p-2 table-cell relative cursor-pointer whitespace-nowrap">
+                                <!-- player info popup -->
+                                <div x-show="show" @click.away="show = false" class="absolute top-7 z-50 w-96 max-w-screen bg-white">
+                                    <x-player-popup :player="$player" />
+                                </div>
+                                <div @click="show = !show" @mouseover="show = true" class="relative ">
+                                    @if ($player->user)
+                                        @isset($player->user)
+                                            <img class="inline-flex h-10 w-10 rounded-full object-cover" src="{{ $player->user->profile_photo_url }}" alt="{{ $player->first_name }}" />
+                                        @endisset
+                                    @else
+                                        <img class="inline-flex h-10 w-10 rounded-full object-cover" src="https://ui-avatars.com/api/?name={{ $player->name }}&color=FFFFFF&background=404040" />
+                                    @endif
                                     {{ $player->name_short }}
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    @php
-                        $user_participated = false;
-                    @endphp
-                    @foreach($date->dateOptions as $date_option)
-                        <div class="table-cell text-center">
-                            {{-- player has user? --}}
-                            @if ($player->user)
-                                {{-- player has this poll option? --}}
-                                @if($player->user->dateOptions->find($date_option->id))
-                                    @php
-                                        $user_participated = true;
-                                    @endphp
-                                    {{-- player has attended=1 for this poll option? --}}
-                                    @if($player->user->dateOptions->find($date_option->id)->pivot->attend == 1)
-                                        <div class="w-full bg-primary-100">
-                                            <i class="far fa-thumbs-up text-primary-500"></i>
-                                        </div>
+                            @php
+                                $user_participated = false;
+                            @endphp
+                            @foreach($date->dateOptions as $date_option)
+                                <div class="table-cell text-center">
+                                    {{-- player has user? --}}
+                                    @if ($player->user)
+                                        {{-- player has this poll option? --}}
+                                        @if($player->user->dateOptions->find($date_option->id))
+                                            @php
+                                                $user_participated = true;
+                                            @endphp
+                                            {{-- player has attended=1 for this poll option? --}}
+                                            @if($player->user->dateOptions->find($date_option->id)->pivot->attend == 1)
+                                                <i class="far fa-thumbs-up text-primary-700"></i>
+                                            @else
+                                                <i class="far fa-thumbs-down text-red-500"></i>
+                                            @endif
+                                            @php
+                                                $player->last_poll_update = $player->user->dateOptions->find($date_option->id)->pivot->updated_at->diffForHumans(['short' => true]);
+                                            @endphp
+                                        @else
+                                            <i class="fas fa-question-circle text-yellow-500"></i>
+                                        @endif
                                     @else
-                                        <div class="w-full bg-red-100">
-                                            <i class="far fa-thumbs-down text-red-500"></i>
+                                        <div class="w-full text-sm text-gray-500">
+                                            kein User
                                         </div>
                                     @endif
-                                    @php
-                                        $player->last_poll_update = $player->user->dateOptions->find($date_option->id)->pivot->updated_at->diffForHumans();
-                                    @endphp
-                                @else
-                                    <div class="w-full bg-yellow-100">
-                                        <i class="fas fa-question-circle text-yellow-500"></i>
-                                    </div>
-                                @endif
-                            @else
-                                <div class="w-full bg-gray-100 text-sm">
-                                    kein User
                                 </div>
-                            @endif
+                            @endforeach
+                            <div class="table-cell pl-2 text-xs text-gray-700 whitespace-nowrap">
+                                {{ $player->last_poll_update }}
+                            </div>
                         </div>
                     @endforeach
-                    <div class="table-cell pl-2 text-xs text-gray-700">
-                        {{ $player->last_poll_update }}
-                    </div>
-                </div>
-            @endforeach
+                @endforeach
+
+
+            </div>
         </div>
     </div>
 

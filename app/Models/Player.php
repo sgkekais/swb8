@@ -66,12 +66,12 @@ class Player extends Model
 
     public function getFullNameAttribute()
     {
-        return $this->first_name.", ".$this->last_name;
+        return $this->first_name." ".$this->last_name;
     }
 
     public function getFullNameShortAttribute()
     {
-        return $this->first_name.", ".Str::limit($this->last_name, 1, '.');
+        return $this->first_name." ".Str::limit($this->last_name, 1, '.');
     }
 
     public function getNameAttribute()

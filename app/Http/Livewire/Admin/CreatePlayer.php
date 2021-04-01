@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Club;
 use App\Models\Player;
 use App\Models\PlayerStatus;
 use App\Models\User;
@@ -14,6 +15,7 @@ class CreatePlayer extends Component
     public $is_open_delete = false;
     public $player_statuses = [];
     public $users = [];
+    public $club_numbers_to_be_synced = [];
 
     protected $rules = [
         'player.player_status_id' => 'required',
@@ -27,6 +29,7 @@ class CreatePlayer extends Component
         'player.public_note' => 'nullable',
         'player.internal_note' => 'nullable',
         'player.is_public' => 'boolean',
+        'club_numbers_to_be_synced.*.number' => 'numeric|nullable'
     ];
 
     protected $listeners = [
@@ -63,6 +66,7 @@ class CreatePlayer extends Component
     public function resetInputFields()
     {
         $this->player = new Player();
+        $this->club_numbers_to_be_synced = [];
     }
 
     public function create()
@@ -77,6 +81,11 @@ class CreatePlayer extends Component
 
         $this->player->save();
 
+        if (!empty($this->club_numbers_to_be_synced))
+        {
+            $this->player->clubs()->sync($this->club_numbers_to_be_synced);
+        }
+
         session()->flash('success', 'Spieler erfolgreich angelegt.');
 
         $this->closeModal();
@@ -86,6 +95,16 @@ class CreatePlayer extends Component
     public function edit(Player $player)
     {
         $this->player = $player;
+
+        $this->player->load('clubs');
+        if ($this->player->clubs)
+        {
+            foreach ($this->player->clubs as $club)
+            {
+                $this->club_numbers_to_be_synced[$club->id] = ['number' => $club->pivot->number];
+            }
+        }
+
         $this->openModal();
     }
 
@@ -105,6 +124,12 @@ class CreatePlayer extends Component
 
         session()->flash('success', 'Spieler '.$this->player->id.' erfolgreich gelöscht.');
         $this->emit('refreshLivewireDatatable');
+    }
+
+    public function deleteClubAssignment(Club $club)
+    {
+        $this->player->clubs()->detach($club->id);
+        $this->player->refresh();
     }
 
     public function render()

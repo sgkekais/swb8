@@ -1,99 +1,67 @@
-<div class="px-2 xl:px-0 max-w-7xl mx-auto text-white">
+<div class="px-4 xl:px-0 max-w-7xl mx-auto text-white">
     <div class="grid gap-16 row-gap-10 mb-8 lg:grid-cols-6">
         <div class="md:max-w-md lg:col-span-2">
-            <a href="/" aria-label="Go home" title="Company" class="inline-flex items-center">
-                <svg class="w-8 text-deep-purple-accent-400" viewBox="0 0 24 24" stroke-linejoin="round" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" stroke="currentColor" fill="none">
-                    <rect x="3" y="1" width="7" height="12"></rect>
-                    <rect x="3" y="17" width="7" height="6"></rect>
-                    <rect x="14" y="1" width="7" height="6"></rect>
-                    <rect x="14" y="11" width="7" height="12"></rect>
-                </svg>
-                <span class="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">SW Bilk '79</span>
+            <a href="{{ route('home') }}" aria-label="Startseite" title="SW Bilk '79 - Startseite" class="inline-flex items-center">
+                <x-jet-application-mark class="fill-current text-white w-32 h-auto" />
+                <span class="ml-4 font-sans font-bold text-3xl tracking-tighter text-gray-100 uppercase">Schwarz-Weiß Bilk '79</span>
             </a>
             <div class="mt-4 lg:max-w-sm">
                 <p class="text-sm text-gray-100">
                     Hobbyfußball seit {{ \Carbon\Carbon::make('25.11.1979')->diffForHumans(['syntax' => \Carbon\CarbonInterface::DIFF_ABSOLUTE, 'parts' => 4, 'join' => ['n, ', ' und ']]) }}.
                 </p>
-                <p class="mt-4 text-sm text-gray-100">
-                    Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                </p>
+{{--                <p class="mt-4 text-sm text-gray-100">--}}
+{{--                    Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.--}}
+{{--                </p>--}}
             </div>
         </div>
         <div class="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
-            <div>
-                <p class="font-semibold tracking-wide text-gray-100">Category</p>
-                <ul class="mt-2 space-y-2">
-                    <li>
-                        <a href="/" class="text-gray-300 transition-colors duration-300 hover:text-deep-purple-accent-400">News</a>
-                    </li>
-                    <li>
-                        <a href="/" class="text-gray-300 transition-colors duration-300 hover:text-deep-purple-accent-400">World</a>
-                    </li>
-                    <li>
-                        <a href="/" class="text-gray-300 transition-colors duration-300 hover:text-deep-purple-accent-400">Games</a>
-                    </li>
-                    <li>
-                        <a href="/" class="text-gray-300 transition-colors duration-300 hover:text-deep-purple-accent-400">References</a>
-                    </li>
-                </ul>
+            <div class="flex flex-col space-y-4">
+                <div>
+                    <p class="font-semibold tracking-wide text-gray-100">Verein</p>
+                    <ul class="mt-2 space-y-2">
+                        <li>
+                            <a href="{{ route('calendar') }}" class="text-gray-300" title="Kalender">Kalender</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('about') }}" class="text-gray-300" title="Über uns">Über uns</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    @auth
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <a href="{{ route('logout') }}"
+                                                       onclick="event.preventDefault();
+                                this.closest('form').submit();">
+                                <i class="fas fa-sign-out-alt"></i> Abmelden
+                            </a>
+                        </form>
+                    @endauth
+                    @guest
+                        <a href="{{ route('login') }}" class="font-semibold tracking-wide text-gray-100" title="Login">
+                            <i class="fas fa-sign-in-alt"></i> Anmelden
+                        </a>
+                    @endguest
+                </div>
             </div>
-            <div>
-                <p class="font-semibold tracking-wide text-gray-100">Business</p>
-                <ul class="mt-2 space-y-2">
-                    <li>
-                        <a href="/" class="text-gray-300 transition-colors duration-300 hover:text-deep-purple-accent-400">Web</a>
-                    </li>
-                    <li>
-                        <a href="/" class="text-gray-300 transition-colors duration-300 hover:text-deep-purple-accent-400">eCommerce</a>
-                    </li>
-                    <li>
-                        <a href="/" class="text-gray-300 transition-colors duration-300 hover:text-deep-purple-accent-400">Business</a>
-                    </li>
-                    <li>
-                        <a href="/" class="text-gray-300 transition-colors duration-300 hover:text-deep-purple-accent-400">Entertainment</a>
-                    </li>
-                    <li>
-                        <a href="/" class="text-gray-300 transition-colors duration-300 hover:text-deep-purple-accent-400">Portfolio</a>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <p class="font-semibold tracking-wide text-gray-100">Apples</p>
-                <ul class="mt-2 space-y-2">
-                    <li>
-                        <a href="/" class="text-gray-300 transition-colors duration-300 hover:text-deep-purple-accent-400">Media</a>
-                    </li>
-                    <li>
-                        <a href="/" class="text-gray-300 transition-colors duration-300 hover:text-deep-purple-accent-400">Brochure</a>
-                    </li>
-                    <li>
-                        <a href="/" class="text-gray-300 transition-colors duration-300 hover:text-deep-purple-accent-400">Nonprofit</a>
-                    </li>
-                    <li>
-                        <a href="/" class="text-gray-300 transition-colors duration-300 hover:text-deep-purple-accent-400">Educational</a>
-                    </li>
-                    <li>
-                        <a href="/" class="text-gray-300 transition-colors duration-300 hover:text-deep-purple-accent-400">Projects</a>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <p class="font-semibold tracking-wide text-gray-100">Cherry</p>
-                <ul class="mt-2 space-y-2">
-                    <li>
-                        <a href="/" class="text-gray-300 transition-colors duration-300 hover:text-deep-purple-accent-400">Infopreneur</a>
-                    </li>
-                    <li>
-                        <a href="/" class="text-gray-300 transition-colors duration-300 hover:text-deep-purple-accent-400">Personal</a>
-                    </li>
-                    <li>
-                        <a href="/" class="text-gray-300 transition-colors duration-300 hover:text-deep-purple-accent-400">Wiki</a>
-                    </li>
-                    <li>
-                        <a href="/" class="text-gray-300 transition-colors duration-300 hover:text-deep-purple-accent-400">Forum</a>
-                    </li>
-                </ul>
-            </div>
+            @foreach (\App\Models\Club::owner(true)->get() as $club)
+                <div>
+                    <p class="font-semibold tracking-wide text-gray-100">{{ $club->name_short }}</p>
+                    <ul class="mt-2 space-y-2">
+                        <li>
+                            <a href="{{ route('club.schedule', $club) }}" class="text-gray-300">Spielplan</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('club.scorers', $club) }}" class="text-gray-300">Tore & Assists</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('club.sinners', $club) }}" class="text-gray-300">Karten</a>
+                        </li>
+                    </ul>
+                </div>
+            @endforeach
         </div>
     </div>
     <div class="flex flex-col justify-between pt-5 pb-10 border-t sm:flex-row">

@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
+Route::view('/', 'index')->name('home');
+
+Route::view('/uber-uns', 'static.about')->name('about');
 
 Route::get('/kalender', Calendar::class)->name('calendar');
 
@@ -35,6 +35,8 @@ Route::prefix('team')->name('club.')->group(function () {
     Route::get('/{club}/scorer',Scorers::class )->name('scorers');
     // cards
     Route::get('/{club}/suender',Sinners::class )->name('sinners');
+
+    Route::get('/{club}/kader',Squad::class )->name('squad');
 });
 
 /*

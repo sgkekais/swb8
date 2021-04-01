@@ -130,7 +130,6 @@
                                 @elseif ($match->teamAway->owner)
                                     A
                                 @endif
-                                {{ $match->id }}
                             </div>
                             <!-- icon -->
                             <div class="p-1 flex w-full md:w-2/6 justify-center items-center">

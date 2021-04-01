@@ -3,11 +3,11 @@
         <x-select-label for="selected_year" class="text-primary-700">
             Jahr auswählen:
         </x-select-label>
-        <select name="selected_year" wire:model="selected_year" >
+        <x-select name="selected_year" wire:model="selected_year" >
             @foreach ($selectable_years->sortByDesc('date') as $selectable_year)
                 <option value="{{ $selectable_year->date }}">{{ $selectable_year->date }}</option>
             @endforeach
-        </select>
+        </x-select>
     </div>
     <div wire:loading>
         <i class="far fa-futbol fa-spin" ></i>
@@ -70,11 +70,18 @@
                             </div>
                             {{-- date / match / tournament description --}}
                             <div class="flex flex-1 flex-col space-y-1">
+                                {{-- clubs --}}
+                                <div class="flex space-x-2">
+                                    @foreach ($date->clubs()->pluck('name_code') as $club_name_code)
+                                        <div class="text-xs font-bold">{{ $club_name_code }}</div>
+                                    @endforeach
+
                                 @switch ($date->dateType->id)
                                     {{-- general poll --}}
                                     @case (1)
-                                        <div class="text-xs">
-                                            {{ $date->dateType->description }}{{ $date->poll_ends ? ', endet am '.$date->poll_ends->isoFormat('D.M.') : null }}
+                                            <div class="text-xs">
+                                                {{ $date->dateType->description }}{{ $date->poll_ends ? ', endet am '.$date->poll_ends->isoFormat('D.M.') : null }}
+                                            </div>
                                         </div>
                                         <div class="">
                                             {{ $date->title }}
@@ -85,8 +92,9 @@
                                         @break
                                     {{-- matches --}}
                                     @case (2)
-                                        <div class="text-xs">
-                                            {{ $date->match->matchType->description }}{{ $date->match->matchweek ? " | ".($date->match->matchType->id == 2 ? $date->match->matchweek.".ST" : $date->match->matchweek) : null }}
+                                            <div class="text-xs">
+                                                {{ $date->match->matchType->description }}{{ $date->match->matchweek ? " | ".($date->match->matchType->id == 2 ? $date->match->matchweek.".ST" : $date->match->matchweek) : null }}
+                                            </div>
                                         </div>
                                         <div class="flex items-center space-x-1">
                                             <div class="tracking-tighter">
@@ -106,8 +114,9 @@
                                         @break
                                     {{-- tournament--}}
                                     @case (3)
-                                        <div class="text-xs">
-                                            {{ $date->dateType->description }}
+                                            <div class="text-xs">
+                                                {{ $date->dateType->description }}
+                                            </div>
                                         </div>
                                         <div class="">
                                             {{ $date->tournament->title }}
@@ -123,8 +132,9 @@
                                         @break
                                     {{-- date or party --}}
                                     @case (4)
-                                        <div class="text-xs">
-                                            {{ $date->dateType->description }}
+                                            <div class="text-xs">
+                                                {{ $date->dateType->description }}
+                                            </div>
                                         </div>
                                         <div class="">
                                             {{ $date->title }}

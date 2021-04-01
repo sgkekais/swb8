@@ -46,7 +46,7 @@
 {{--                </div>--}}
                 <div class="p-2 relative max-w-7xl mx-auto flex flex-col justify-between h-full">
                     @livewire('navigation-dropdown')
-                    <div class="text-white">
+                    <div class="text-white text-right">
                         @auth
                             Hi, {{ auth()->user()->name }}!
                         @endauth
@@ -63,24 +63,21 @@
                         </x-headline>
                     </header>
                 </x-section>
-{{--                    <div class="-mt-16 sm:-mt-20 p-4 sm:p-6 max-w-7xl mx-auto bg-white border border-b-0 border-l-0 border-r-0 xl:border xl:border-b-0 border-black">--}}
-{{--                        --}}
-{{--                    </div>--}}
             @endif
 
             <!-- Page Content -->
-            <main class="flex-grow">
+            <main class="flex-grow relative">
 
-{{--                <img src="/img/swblogo.png" class="absolute -bottom-1/4 opacity-5" />--}}
+                <img src="/img/swblogo.png" class="absolute inset-x-0 mx-auto w-96 h-auto -bottom-24 opacity-5" />
 
-{{--                <div class="relative">--}}
-{{--                    {{ $slot }}--}}
-{{--                </div>--}}
-                {{ $slot }}
+                <div class="relative">
+                    {{ $slot }}
+                </div>
+
             </main>
 
             <!-- Page Footer -->
-            <footer class="pt-12 bg-gray-900">
+            <footer class="relative pt-12 bg-gray-700">
                 <x-footer />
             </footer>
 

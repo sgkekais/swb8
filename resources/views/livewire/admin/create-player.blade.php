@@ -33,12 +33,12 @@
                         <x-jet-label class="" for="player_status">
                             Spieler-Status
                         </x-jet-label>
-                        <select id="player_status" wire:model="player.player_status_id" class="shadow-sm" autocomplete="off">
+                        <x-select id="player_status" wire:model="player.player_status_id" class="shadow-sm" autocomplete="off">
                             <option selected="selected" value="">Bitte auswählen</option>
                             @foreach($player_statuses as $player_status)
                                 <option value="{{ $player_status->id }}">({{ $player_status->id }}) - {{ $player_status->description }}</option>
                             @endforeach
-                        </select>
+                        </x-select>
                         @if ($player->player_status_id)
                             @if ($player->playerStatus->can_play)
                                 <span class="text-green-700">Kann spielen.</span>
@@ -51,33 +51,33 @@
                         <x-jet-label class="" for="user_id">
                             User
                         </x-jet-label>
-                        <select id="user_id" wire:model="player.user_id" class="shadow-sm" autocomplete="off">
+                        <x-select id="user_id" wire:model="player.user_id" class="shadow-sm" autocomplete="off">
                             <option selected="selected" value="">Mit User verknüpfen?</option>
                             @foreach($users as $user)
                                 <option value="{{ $user->id }}">({{ $user->id }}) - {{ $user->email }} - {{ $user->name }}</option>
                             @endforeach
-                        </select>
+                        </x-select>
                     </div>
                 </div>
                 <div class="mb-6">
                     <x-jet-label for="first_name" class="flex justify-between">
                         Vorname <i class="fas fa-fw fa-asterisk text-xs text-red-400"></i>
                     </x-jet-label>
-                    <x-jet-input class="w-full" type="text" id="first_name" wire:model.defer="player.first_name" placeholder="" required />
+                    <x-input-text class="w-full" type="text" id="first_name" wire:model.defer="player.first_name" placeholder="" required />
                     <x-jet-input-error for="player.first_name" />
                 </div>
                 <div class="mb-6">
                     <x-jet-label for="last_name" class="flex justify-between">
                         Nachname
                     </x-jet-label>
-                    <x-jet-input class="w-full" type="text" id="last_name" wire:model.defer="player.last_name" placeholder=""/>
+                    <x-input-text class="w-full" type="text" id="last_name" wire:model.defer="player.last_name" placeholder=""/>
                     <x-jet-input-error for="player.last_name" />
                 </div>
                 <div class="mb-6">
                     <x-jet-label for="nickname" class="flex justify-between">
                         Spitzname / Anzeige
                     </x-jet-label>
-                    <x-jet-input class="w-full" type="text" id="nickname" wire:model.defer="player.nickname" placeholder=""/>
+                    <x-input-text class="w-full" type="text" id="nickname" wire:model.defer="player.nickname" placeholder=""/>
                     <x-jet-input-error for="player.nickname" />
                 </div>
                 <div class="mb-6 flex">
@@ -85,7 +85,7 @@
                         <x-jet-label for="dob" class="flex justify-between">
                             Geburtsdatum
                         </x-jet-label>
-                        <x-jet-input class="w-full" type="date" id="dob" wire:model.defer="player.dob" placeholder=""/>
+                        <x-input-text class="w-full" type="date" id="dob" wire:model.defer="player.dob" placeholder=""/>
                         <x-jet-input-error for="player.dob" />
                     </div>
                 </div>
@@ -94,14 +94,14 @@
                         <x-jet-label for="joined" class="flex justify-between">
                             Eintritt
                         </x-jet-label>
-                        <x-jet-input class="w-full" type="date" id="joined" wire:model.defer="player.joined" placeholder=""/>
+                        <x-input-text class="w-full" type="date" id="joined" wire:model.defer="player.joined" placeholder=""/>
                         <x-jet-input-error for="player.joined" />
                     </div>
                     <div>
                         <x-jet-label for="left" class="flex justify-between">
                             Austritt
                         </x-jet-label>
-                        <x-jet-input class="w-full" type="date" id="left" wire:model.defer="player.left" placeholder=""/>
+                        <x-input-text class="w-full" type="date" id="left" wire:model.defer="player.left" placeholder=""/>
                         <x-jet-input-error for="player.left" />
                     </div>
                 </div>
@@ -130,6 +130,29 @@
                     <x-input-checkbox-label for="is_public">
                         Öffentlich sichtbar?
                     </x-input-checkbox-label>
+                </div>
+                <div class="mb-6">
+                    <div class="border-b border-gray-300 font-sans font-extrabold text-lg tracking-tighter uppercase text-primary-700">
+                        Team-Zugehörigkeit
+                    </div>
+                    <div class="flex flex-col space-y-2">
+                        @foreach ($player->clubs as $player_club)
+                            <div class="flex items-end space-x-4">
+                                <div class="w-36">
+                                    {{ $player_club->name }}
+                                </div>
+                                <div class="">
+                                    <x-jet-label for="player_number_{{ $player_club->id }}">
+                                        Nummer
+                                    </x-jet-label>
+                                    <x-input-text type="number" id="player_number_{{ $player_club->id }}" wire:model="club_numbers_to_be_synced.{{ $player_club->id }}.number" />
+                                </div>
+                                <x-button class="" wire:click="deleteClubAssignment({{ $player_club->id }})">
+                                    <i class="far fa-trash-alt fa-fw text-red-500" title="Löschen"></i>
+                                </x-button>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </x-slot>
             <x-slot name="footer">

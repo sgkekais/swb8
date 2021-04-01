@@ -11,9 +11,9 @@
     {{ $slot }}
     @if ($selectable)
         @if ($direction == 'asc')
-            <i class="fa fa-caret-up text-primary-600"></i>
+            <i class="fa fa-caret-up text-primary-700"></i>
         @elseif ($direction == 'desc')
-            <i class="fa fa-caret-down text-primary-600"></i>
+            <i class="fa fa-caret-down text-primary-700"></i>
         @endif
     @endif
 </div>

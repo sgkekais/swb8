@@ -19,7 +19,7 @@ class PlayerTable extends LivewireDatatable
         return [
             NumberColumn::name('id')
                 ->label('ID')
-                ->defaultSort('desc'),
+                ->defaultSort('asc'),
             Column::name('PlayerStatus.description')
                 ->label('Status')
                 ->filterable($this->playerStatusDescription),
@@ -34,6 +34,8 @@ class PlayerTable extends LivewireDatatable
             Column::name('nickname')
                 ->label('Spitzname')
                 ->searchable(),
+            Column::name('clubs.name_code')
+                ->label('Teams'),
             DateColumn::name('dob')
                 ->label('Geb.datum'),
             DateColumn::name('joined')

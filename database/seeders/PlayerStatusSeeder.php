@@ -46,13 +46,6 @@ class PlayerStatusSeeder extends Seeder
                 'created_at'    => $timestamp,
                 'updated_at'    => $timestamp,
             ],
-            4 => [
-                'id'            => 5,
-                'description'   => 'abgemeldet',
-                'can_play'      => 0,
-                'created_at'    => $timestamp,
-                'updated_at'    => $timestamp,
-            ],
         ]);
     }
 }

@@ -17,14 +17,14 @@
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
-            <div>
+            <div class="flex flex-col">
                 <x-jet-label value="{{ __('Email') }}" />
-                <x-input-text type="email" name="email" :value="old('email')" required autofocus />
+                <x-input-text type="email" name="email" class="flex-1" :value="old('email')" required autofocus />
             </div>
 
-            <div class="mt-4">
+            <div class="mt-4 flex flex-col">
                 <x-jet-label value="{{ __('Password') }}" />
-                <x-input-text type="password" name="password" required autocomplete="current-password"  />
+                <x-input-text type="password" name="password" class="flex-1" required autocomplete="current-password"  />
             </div>
 
             <div class="block mt-4">

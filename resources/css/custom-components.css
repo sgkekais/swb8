@@ -14,3 +14,10 @@
 .inline-link:hover {
     @apply no-underline;
 }
+
+@responsive {
+    .bg-scroll-gradient {
+        box-shadow: inset -50px 0 40px -55px #1d212f;
+    }
+}
+
