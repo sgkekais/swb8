@@ -13,11 +13,10 @@ use Livewire\Component;
 class CreateMatch extends Component
 {
     public $is_open = false;
-    public $match;
-    public $match_types = [];
-    public $locations = [];
-    public $clubs = [];
-    public $seasons = [];
+    public Match $match;
+    public $match_types;
+    public $clubs;
+    public $seasons;
     public $card_to_be_added = [];
     public $players_of_club = [];
     public $card_deleted = false;
@@ -31,6 +30,8 @@ class CreateMatch extends Component
 
     public function mount()
     {
+        $this->match ??= new Match();
+
         $this->seasons = Season::orderBy('number', 'desc')->get();
         $this->clubs = Club::orderBy('name')->get();
         $this->match_types = MatchType::orderBy('description')->get();
@@ -141,13 +142,17 @@ class CreateMatch extends Component
     public function edit(Match $match)
     {
         $this->match = $match;
+        $this->match->load('matchType','season','goals.player','cards.player');
 
         if (isset($this->match))
         {
-            if ($this->match->teamHome->owner) {
-                $this->players_of_club = $this->match->teamHome->players;
-            } elseif ($this->match->teamAway->owner) {
-                $this->players_of_club = $this->match->teamAway->players;
+            $home_team = Club::find($this->match->team_home);
+            $away_team = Club::find($this->match->team_away);
+
+            if ($home_team->owner) {
+                $this->players_of_club = $home_team->players;
+            } elseif ($away_team->owner) {
+                $this->players_of_club = $away_team->players;
             }
         }
 

@@ -5,14 +5,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'Schwarz-Weiß Bilk \'79') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+        @livewireStyles
+
+        <link rel="stylesheet" href="{{ asset('css/trix.css') }}">
+
         <!-- Favicons -->
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -21,8 +27,6 @@
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
-
-        @livewireStyles
 
         <!-- Scripts -->
         <script src="https://kit.fontawesome.com/3e5662e9c8.js" crossorigin="anonymous"></script>
@@ -66,7 +70,7 @@
             @endif
 
             <!-- Page Content -->
-            <main class="flex-grow relative">
+            <main class="flex-grow relative pb-8">
 
                 <img src="/img/swblogo.png" class="absolute inset-x-0 mx-auto w-96 h-auto -bottom-24 opacity-5" />
 
@@ -77,7 +81,7 @@
             </main>
 
             <!-- Page Footer -->
-            <footer class="relative pt-12 bg-gray-700">
+            <footer class="relative pt-8 bg-gray-700">
                 <x-footer />
             </footer>
 
@@ -88,5 +92,6 @@
         @stack('scripts')
 
         @livewireScripts
+
     </body>
 </html>

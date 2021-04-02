@@ -12,7 +12,7 @@
             </div>
         @endif
         <div class="mb-6">
-            <h1 class="font-sans font-extrabold text-3xl tracking-tighter">Anmelden</h1>
+            <x-headline class="text-3xl">Anmelden</x-headline>
         </div>
         <form method="POST" action="{{ route('login') }}">
             @csrf

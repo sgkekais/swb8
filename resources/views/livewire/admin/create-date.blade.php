@@ -274,15 +274,15 @@
                             <!-- home and away club + result -->
                             <div class="mb-6 flex space-x-4 items-center">
                                 <div class="flex-grow">
-                                    <x-jet-label class=" text-center" for="match">
+                                    <x-jet-label class=" text-center" for="team_home">
                                         Heim
                                     </x-jet-label>
-                                    <select id="match" wire:model="match.team_home" class="form-select w-full shadow-sm">
+                                    <x-select id="team_home" wire:model="match.team_home" class="w-full">
                                         <option selected="selected">Nicht festgelegt</option>
                                         @foreach($clubs as $club_home)
-                                            <option value="{{ $club_home->id }}" {{ $match->teamh_home == $club_home->id ?: 'selected="selected"' }}>{{ $club_home->name }}</option>
+                                            <option value="{{ $club_home->id }}">{{ $club_home->name }}</option>
                                         @endforeach
-                                    </select>
+                                    </x-select>
                                 </div>
                                 <!-- result -->
                                 <div class="flex flex-col flex-none space-y-1 w-1/6">
@@ -312,15 +312,15 @@
                                     </div>
                                 </div>
                                 <div class="flex-grow">
-                                    <x-jet-label class=" text-center" for="match">
+                                    <x-jet-label class=" text-center" for="team_away">
                                         Gast
                                     </x-jet-label>
-                                    <select id="match" wire:model="match.team_away" class="form-select w-full shadow-sm">
+                                    <x-select id="team_away" wire:model="match.team_away" class="w-full">
                                         <option selected="selected">Nicht festgelegt</option>
                                         @foreach($clubs as $club_away)
                                             <option value="{{ $club_away->id }}">{{ $club_away->name }}</option>
                                         @endforeach
-                                    </select>
+                                    </x-select>
                                 </div>
                             </div>
                             <!-- match details -->
