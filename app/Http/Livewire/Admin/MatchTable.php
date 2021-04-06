@@ -46,7 +46,8 @@ class MatchTable extends LivewireDatatable
             // Column::name('teamHome.name')->label('Heim')->searchable(),
             Column::callback(['team_home'], function ($team_home) {
                 return Club::find($team_home)->name;
-            })->label('Heim'),
+            })
+                ->label('Heim'),
             Column::callback(['goals_home', 'goals_home_ht', 'goals_away', 'goals_away_ht', 'goals_home_pen', 'goals_away_pen', 'goals_home_rated', 'goals_away_rated'], function ($goals_home, $goals_home_ht, $goals_away, $goals_away_ht, $goals_home_pen, $goals_away_pen, $goals_home_rated, $goals_away_rated) {
                 // cancelled, rated, penalties, result + half-time result
                 return $goals_home.':'.$goals_away.' ('.$goals_home_ht.':'.$goals_away_ht.')'.' ['.$goals_home_pen.':'.$goals_away_pen.' i.E.]';
@@ -72,6 +73,11 @@ class MatchTable extends LivewireDatatable
                 return view('admin.includes.table-actions', ['id' => $id]);
             })
         ];
+    }
+
+    public function teamNames()
+    {
+        return Club::all()->pluck('name');
     }
 
     public function getMatchTypeDescriptionShortProperty()

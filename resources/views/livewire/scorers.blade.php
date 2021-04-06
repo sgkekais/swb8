@@ -70,7 +70,13 @@
                             $scorer_place_color = "bg-white";
                         }
                     @endphp
-                    <x-table.row>
+                    @php
+                        $user_row_color = "";
+                        if ($scorer->user)
+                            if ($scorer->user->id === auth()->user()->id)
+                                $user_row_color = "bg-yellow-100 bg-opacity-50";
+                    @endphp
+                    <x-table.row class="hover:bg-gray-100 {{ $user_row_color }} ">
                         <x-table.cell class="text-center font-bold">
                             <div class="flex justify-center">
                                 <div class="rounded-full h-8 w-8 flex items-center justify-center {{ $scorer_place_color }}" >
@@ -80,14 +86,14 @@
                                 </div>
                             </div>
                         </x-table.cell>
-                        <x-table.cell x-data="{ show:false }" @mouseleave="show = false" class="py-2 flex-col relative">
+                        <x-table.cell x-data="{ show:false }" class="py-2 flex-col relative cursor-pointer">
                             <!-- player info popup -->
                             @auth
                                 <div x-show="show" @click.away="show = false" class="absolute top-7 z-50 w-96 max-w-screen bg-white">
                                     <x-player-popup :player="$scorer" />
                                 </div>
                             @endauth
-                            <div @click="show = !show" @mouseover="show = true" class="relative">
+                            <div @click="show = !show" class="relative">
                                 {{ $scorer->name_short }}
                             </div>
                             <div class="flex">
@@ -99,11 +105,11 @@
                         <x-table.cell class="text-center">{{ $scorer->total_goals }}</x-table.cell>
                         <x-table.cell class="text-center font-bold text-primary-700">{{ $scorer->scorer_points }}</x-table.cell>
                     </x-table.row>
-                @php
-                    ${"prev_$sortField"} = $scorer->$sortField;
-                    $prev_scorer_place = $scorer_place;
-                @endphp
-            @endforeach
+                    @php
+                        ${"prev_$sortField"} = $scorer->$sortField;
+                        $prev_scorer_place = $scorer_place;
+                    @endphp
+                @endforeach
                 <!-- totals -->
                 <x-table.row>
                     <x-table.cell></x-table.cell>
