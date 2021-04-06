@@ -28,7 +28,7 @@
     @trix-blur = "$dispatch('change', $event.target.value)"
 >
     <input id="x" value="{{ $initialValue->match_details }}" type="hidden">
-    <trix-editor input="x" ></trix-editor>
+    <trix-editor input="x" class="trix-content"></trix-editor>
 </div>
 
 
