@@ -16,8 +16,11 @@ class LastGames extends Component
         $this->today = Carbon::today();
         $this->last_dates = Date::where('date_type_id',2)
             ->where('datetime','<', Carbon::now())
+            ->whereHas('match', function ($q) {
+                $q->playedOrRated();
+            })
             ->orderByDesc('datetime')
-            ->with('match', 'match.teamHome', 'match.teamAway', 'match.goals', 'match.cards')
+            ->with('location', 'match', 'match.matchType', 'match.teamHome', 'match.teamAway', 'match.goals.player', 'match.goals.assist.player', 'match.cards.player')
             ->take(10)
             ->get();
     }
