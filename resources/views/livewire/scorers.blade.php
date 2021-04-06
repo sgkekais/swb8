@@ -72,7 +72,7 @@
                     @endphp
                     @php
                         $user_row_color = "";
-                        if ($scorer->user)
+                        if ($scorer->user && auth()->user())
                             if ($scorer->user->id === auth()->user()->id)
                                 $user_row_color = "bg-yellow-100 bg-opacity-50";
                     @endphp
