@@ -14,10 +14,7 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
         @livewireStyles
-
-        <link rel="stylesheet" href="{{ asset('css/trix.css') }}">
 
         <!-- Favicons -->
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -27,10 +24,6 @@
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
-
-        <!-- Scripts -->
-        <script src="https://kit.fontawesome.com/3e5662e9c8.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.6.0/dist/alpine.js" defer></script>
 
     </head>
     <body class="font-mono antialiased">
@@ -89,9 +82,14 @@
 
         @stack('modals')
 
-        @stack('scripts')
-
         @livewireScripts
+
+        <!-- Scripts -->
+        <script src="https://kit.fontawesome.com/3e5662e9c8.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+        <script src="https://unpkg.com/trix@1.3.1/dist/trix.js"></script>
+
+        @stack('scripts')
 
     </body>
 </html>

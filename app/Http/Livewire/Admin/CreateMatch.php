@@ -30,8 +30,6 @@ class CreateMatch extends Component
 
     public function mount()
     {
-        $this->match ??= new Match();
-
         $this->seasons = Season::orderBy('number', 'desc')->get();
         $this->clubs = Club::orderBy('name')->get();
         $this->match_types = MatchType::orderBy('description')->get();
@@ -48,17 +46,13 @@ class CreateMatch extends Component
         'match.goals_home_ht' => 'nullable|numeric|min:0',
         'match.goals_home_pen' => 'nullable|numeric|min:0',
         'match.goals_home_rated' => 'nullable|numeric|min:0',
-        'match.goals_away' => 'nullable|numeric|min:0',
-        'match.goals_away_ht' => 'nullable|numeric|min:0',
-        'match.goals_away_pen' => 'nullable|numeric|min:0',
-        'match.goals_away_rated' => 'nullable|numeric|min:0',
+        'match.goals_away' => 'nullable|numeric|min:0|required_with:match.goals_home',
+        'match.goals_away_ht' => 'nullable|numeric|min:0|required_with:match.goals_home_ht',
+        'match.goals_away_pen' => 'nullable|numeric|min:0|required_with:match.goals_home_pen',
+        'match.goals_away_rated' => 'nullable|numeric|min:0|required_with:goals_home_rated',
         'match.match_details' => 'nullable',
         'match.published' => 'boolean',
-        'match.cancelled' => 'boolean',
-        'card_to_be_added.0.score' => 'required',
-        'card_to_be_added.0.minute' => 'nullable',
-        'card_to_be_added.0.player' => 'required',
-        'card_to_be_added.0.color' => 'required'
+        'match.cancelled' => 'boolean'
     ];
 
     public function openModal()
@@ -142,6 +136,7 @@ class CreateMatch extends Component
     public function edit(Match $match)
     {
         $this->match = $match;
+        $this->match->match_details = $match->match_details;
         $this->match->load('matchType','season','goals.player','cards.player');
 
         if (isset($this->match))

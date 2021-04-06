@@ -284,33 +284,6 @@
                                         @endforeach
                                     </x-select>
                                 </div>
-                                <!-- result -->
-                                <div class="flex flex-col flex-none space-y-1 w-1/6">
-                                    <x-jet-label class=" text-center" value="Ergebnis" />
-                                    <div class="flex flex-row items-center space-x-1">
-                                        <x-jet-input id="goals_home" type="number" class="w-full text-center" wire:model="match.goals_home" />
-                                        <span class="block">:</span>
-                                        <x-jet-input id="goals_away" type="number" class="w-full text-center" wire:model="match.goals_away" />
-                                    </div>
-                                    <x-jet-label class=" text-center" value="Halbzeit" />
-                                    <div class="flex flex-row items-center space-x-1">
-                                        <x-jet-input id="goals_home_ht" type="number" class="w-full text-center" wire:model="match.goals_home_ht" />
-                                        <span class="block">:</span>
-                                        <x-jet-input id="goals_away_ht" type="number" class="w-full text-center" wire:model="match.goals_away_ht" />
-                                    </div>
-                                    <x-jet-label class=" text-center" value="11m" />
-                                    <div class="flex flex-row items-center space-x-1">
-                                        <x-jet-input id="goals_home_pen" type="number" class="w-full text-center" wire:model="match.goals_home_pen" />
-                                        <span class="block">:</span>
-                                        <x-jet-input id="goals_away_pen" type="number" class="w-full text-center" wire:model="match.goals_away_pen" />
-                                    </div>
-                                    <x-jet-label class=" text-center" value="Wertung" />
-                                    <div class="flex flex-row items-center space-x-1">
-                                        <x-jet-input id="goals_home_rated" type="number" class="w-full text-center" wire:model="match.goals_home_rated" />
-                                        <span class="block">:</span>
-                                        <x-jet-input id="goals_away_rated" type="number" class="w-full text-center" wire:model="match.goals_away_rated" />
-                                    </div>
-                                </div>
                                 <div class="flex-grow">
                                     <x-jet-label class=" text-center" for="team_away">
                                         Gast
@@ -322,15 +295,6 @@
                                         @endforeach
                                     </x-select>
                                 </div>
-                            </div>
-                            <!-- match details -->
-                            <div class="mb-6">
-                                <x-jet-label class="" for="match_details">
-                                    Spieldetails
-                                </x-jet-label>
-                                <textarea id="match_details" class="form-textarea w-full shadow-sm" wire:model="match.match_details">
-
-                                </textarea>
                             </div>
                             <!-- match published / cancelled -->
                             <div class="mb-6 flex items-center space-x-2">
