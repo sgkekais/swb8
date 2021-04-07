@@ -1,4 +1,4 @@
-<div {{ $attributes->merge(['class' => 'table w-full']) }}>
+<div {{ $attributes->merge(['class' => 'table']) }}>
     <div class="table-header-group">
         {{ $header }}
     </div>

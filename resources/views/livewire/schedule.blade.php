@@ -15,7 +15,7 @@
             <!-- season stats -->
             <div class="flex flex-1 justify-around font-bold items-center text-3xl divide-x divide-gray-200 tracking-tighter" wire:loading.remove>
                 <div class="flex flex-1 flex-col items-center">
-                    <span>
+                    <span class="text-gray-700">
                         {{ $stat_count_wins }}
                     </span>
                     <span class="font-normal text-xl text-gray-500">
@@ -23,7 +23,7 @@
                     </span>
                 </div>
                 <div class="flex flex-1 flex-col items-center">
-                    <span>
+                    <span class="text-gray-700">
                          {{ $stat_count_draws }}
                     </span>
                     <span class="font-normal text-xl text-gray-500">
@@ -31,7 +31,7 @@
                     </span>
                 </div>
                 <div class="flex flex-1 flex-col items-center">
-                    <span>
+                    <span class="text-gray-700">
                         {{ $stat_count_losses }}
                     </span>
                     <span class="font-normal text-xl text-gray-500">
@@ -39,7 +39,7 @@
                     </span>
                 </div>
                 <div class="flex flex-1 flex-col items-center">
-                    <span>
+                    <span class="text-gray-700">
                         {{ $stat_count_goals }}
                     </span>
                     <span class="font-normal text-lg text-gray-500">
@@ -47,7 +47,7 @@
                     </span>
                 </div>
                 <div class="flex flex-1 flex-col items-center">
-                    <span>
+                    <span class="text-gray-700">
                         {{ $stat_count_cards }}
                     </span>
                     <span class="font-normal text-lg text-gray-500">

@@ -12,28 +12,28 @@
                 </x-select>
             </div>
             <!-- season stats -->
-            <div class="flex flex-1 justify-around font-bold items-center text-3xl divide-x divide-gray-200 tracking-tighter" wire:loading.remove>
+            <div class="flex flex-1 justify-around font-bold items-center text-xl md:text-3xl divide-x divide-gray-200 tracking-tighter" wire:loading.remove>
                 <div class="flex flex-1 flex-col items-center">
-                    <span>
+                    <span class="text-gray-700">
                         {{ $scorers->sum('total_assists') }}
                     </span>
-                    <span class="font-normal text-xl text-gray-500">
+                    <span class="font-normal text-lg md:text-xl text-gray-500">
                         Assists
                     </span>
                 </div>
                 <div class="flex flex-1 flex-col items-center">
-                    <span>
+                    <span class="text-gray-700">
                          {{ $scorers->sum('total_goals') }}
                     </span>
-                    <span class="font-normal text-xl text-gray-500">
+                    <span class="font-normal text-lg md:text-xl text-gray-500">
                         Tore
                     </span>
                 </div>
                 <div class="flex flex-1 flex-col items-center">
-                    <span>
+                    <span class="text-gray-700">
                         {{ $scorers->sum('scorer_points') }}
                     </span>
-                    <span class="font-normal text-xl text-gray-500">
+                    <span class="font-normal text-lg md:text-xl text-gray-500">
                         &Sigma;
                     </span>
                 </div>
@@ -42,7 +42,7 @@
 
         <div class="flex items-center p-4 mb-4 bg-gray-100 space-x-4">
             <div class="">
-                <i class="far fa-lightbulb"></i>
+                <i class="far fa-lightbulb fa-fw"></i>
             </div>
             <div class="">
                 Vorlagen werden erst seit 2016 erfasst.
@@ -50,7 +50,7 @@
         </div>
         <div class="flex items-center p-4 mb-4 bg-yellow-100 space-x-4">
             <div class="">
-                <i class="fas fa-info"></i>
+                <i class="fas fa-info fa-fw"></i>
             </div>
             <div class="">
                 Die Punkt-Spalten können auf- und absteigend sortiert werden.
@@ -59,18 +59,18 @@
 
         <x-load-indicator />
 
-        <x-table.table wire:loading.remove>
+        <x-table.table wire:loading.remove class="w-full">
             <x-slot name="header">
                 <x-table.row>
-                    <x-table.heading class="text-center">#</x-table.heading>
-                    <x-table.heading></x-table.heading>
-                    <x-table.heading class="text-center" wire:click="sortBy('total_assists')" selectable direction="{{ $sortField == 'total_assists' ? $sortDirection : null }}">
+                    <x-table.heading class="w-1/12 text-center">#</x-table.heading>
+                    <x-table.heading class=""></x-table.heading>
+                    <x-table.heading class="w-1/12 text-center" wire:click="sortBy('total_assists')" selectable direction="{{ $sortField == 'total_assists' ? $sortDirection : null }}">
                         <i class="fas fa-hands-helping"></i>
                     </x-table.heading>
-                    <x-table.heading class="text-center" wire:click="sortBy('total_goals')" selectable direction="{{ $sortField == 'total_goals' ? $sortDirection : null }}">
+                    <x-table.heading class="w-1/12 text-center" wire:click="sortBy('total_goals')" selectable direction="{{ $sortField == 'total_goals' ? $sortDirection : null }}">
                         <i class="far fa-futbol"></i>
                     </x-table.heading>
-                    <x-table.heading class="text-center" wire:click="sortBy('scorer_points')" selectable direction="{{ $sortField == 'scorer_points' ? $sortDirection : null }}">
+                    <x-table.heading class="w-1/12 text-center" wire:click="sortBy('scorer_points')" selectable direction="{{ $sortField == 'scorer_points' ? $sortDirection : null }}">
                         &Sigma;
                     </x-table.heading>
                 </x-table.row>
@@ -90,13 +90,13 @@
                         }
                         if ($scorer_place == 1)
                         {
-                            $scorer_place_color = "bg-yellow-300";
+                            $scorer_place_color = "bg-yellow-300 ring-yellow-100";
                         } elseif ($scorer_place == 2) {
-                            $scorer_place_color = "bg-gray-300";
+                            $scorer_place_color = "bg-gray-300 ring-gray-100";
                         } elseif ($scorer_place == 3) {
-                           $scorer_place_color = "bg-yellow-600";
+                           $scorer_place_color = "bg-yellow-600 ring-yellow-400";
                         } else {
-                            $scorer_place_color = "bg-white";
+                            $scorer_place_color = "bg-white ring-white";
                         }
                     @endphp
                     @php
@@ -105,17 +105,19 @@
                             if ($scorer->user->id === auth()->user()->id)
                                 $user_row_color = "bg-yellow-100 bg-opacity-50";
                     @endphp
-                    <x-table.row class="hover:bg-gray-100 {{ $user_row_color }} ">
+                    <x-table.row class="hover:bg-gray-100 {{ $user_row_color }} text-lg">
                         <x-table.cell class="text-center font-bold">
                             <div class="flex justify-center">
-                                <div class="rounded-full h-8 w-8 flex items-center justify-center {{ $scorer_place_color }}" >
+                                <div class="ring rounded-full {{ $scorer_place === 1 ? "h-10 w-10" : ($scorer_place === 2 ? "h-9 w-9" : "h-8 w-8") }} flex items-center justify-center {{ $sortDirection != 'asc' ? $scorer_place_color : null }} text-gray-900 text-xl font-bold" >
                                     @if (($scorer_place != $prev_scorer_place || $scorer_place < 4) && $sortDirection != 'asc')
                                         {{ $scorer_place }}
+                                    @else
+                                        <span class="text-gray-500">&bull;</span>
                                     @endif
                                 </div>
                             </div>
                         </x-table.cell>
-                        <x-table.cell x-data="{ show:false }" class="py-2 flex-col relative cursor-pointer">
+                        <x-table.cell x-data="{ show:false }" class="py-2 pl-4 md:pl-0 flex-col relative cursor-pointer">
                             <!-- player info popup -->
                             @auth
                                 <div x-show="show" @click.away="show = false" class="absolute top-7 z-50 w-96 max-w-screen bg-white">
@@ -126,8 +128,9 @@
                                 {{ $scorer->name_short }}
                             </div>
                             <div class="flex">
-                                <div class="h-2 bg-primary-300" style="width: {{ ceil(($scorer->total_assists / ($scorers->sum('scorer_points')))*100) }}% "></div>
-                                <div class="h-2 bg-primary-600" style="width: {{ ceil(($scorer->total_goals / ($scorers->sum('scorer_points')))*100) }}% "></div>
+                                <div class="h-1 bg-primary-300" style="width: {{ ceil( ($scorer->total_assists / $scorers->sum('scorer_points')) * 100 ) }}% "></div>
+                                <div class="h-1 bg-primary-600" style="width: {{ ceil( ($scorer->total_goals / $scorers->sum('scorer_points')) * 100 ) }}% "></div>
+                                <div class="h-1 bg-gray-200 flex-1"></div>
                             </div>
                         </x-table.cell>
                         <x-table.cell class="text-center">{{ $scorer->total_assists }}</x-table.cell>
@@ -143,9 +146,9 @@
                 <x-table.row>
                     <x-table.cell></x-table.cell>
                     <x-table.cell></x-table.cell>
-                    <x-table.cell class="border-t border-gray-300 text-center">{{ $scorers->sum('total_assists') }}</x-table.cell>
-                    <x-table.cell class="border-t border-gray-300 text-center">{{ $scorers->sum('total_goals') }}</x-table.cell>
-                    <x-table.cell class="border-t border-gray-300 text-center font-bold">{{ $scorers->sum('scorer_points') }}</x-table.cell>
+                    <x-table.cell class="text-xl text-center font-bold border-t border-gray-300">{{ $scorers->sum('total_assists') }}</x-table.cell>
+                    <x-table.cell class="text-xl text-center font-bold border-t border-gray-300">{{ $scorers->sum('total_goals') }}</x-table.cell>
+                    <x-table.cell class="text-xl text-center font-bold border-t border-gray-300">{{ $scorers->sum('scorer_points') }}</x-table.cell>
                 </x-table.row>
             </x-slot>
         </x-table.table>

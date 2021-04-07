@@ -4,7 +4,7 @@
 ])
 
 @php
-    $clickable = $selectable ? "cursor-pointer" : null;
+    $clickable = $selectable ? "cursor-pointer hover:text-primary-700" : null;
 @endphp
 
 <div {{ $attributes->merge(['class' => 'table-cell font-bold '.$clickable.'']) }}>
