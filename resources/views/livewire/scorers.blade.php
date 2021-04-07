@@ -90,11 +90,11 @@
                         }
                         if ($scorer_place == 1)
                         {
-                            $scorer_place_color = "bg-yellow-300 ring-yellow-100";
+                            $scorer_place_color = "bg-yellow-200 ring-yellow-400";
                         } elseif ($scorer_place == 2) {
-                            $scorer_place_color = "bg-gray-300 ring-gray-100";
+                            $scorer_place_color = "bg-gray-200 ring-gray-400";
                         } elseif ($scorer_place == 3) {
-                           $scorer_place_color = "bg-yellow-600 ring-yellow-400";
+                           $scorer_place_color = "bg-yellow-500 ring-yellow-600";
                         } else {
                             $scorer_place_color = "bg-white ring-white";
                         }
@@ -105,10 +105,10 @@
                             if ($scorer->user->id === auth()->user()->id)
                                 $user_row_color = "bg-yellow-100 bg-opacity-50";
                     @endphp
-                    <x-table.row class="hover:bg-gray-100 {{ $user_row_color }} text-lg">
+                    <x-table.row class="hover:bg-gray-100 {{ $user_row_color }}">
                         <x-table.cell class="text-center font-bold">
                             <div class="flex justify-center">
-                                <div class="ring rounded-full {{ $scorer_place === 1 ? "h-10 w-10" : ($scorer_place === 2 ? "h-9 w-9" : "h-8 w-8") }} flex items-center justify-center {{ $sortDirection != 'asc' ? $scorer_place_color : null }} text-gray-900 text-xl font-bold" >
+                                <div class="ring rounded-full h-8 w-8 flex items-center justify-center {{ $sortDirection != 'asc' ? $scorer_place_color : null }} text-gray-900 text-lg font-bold" >
                                     @if (($scorer_place != $prev_scorer_place || $scorer_place < 4) && $sortDirection != 'asc')
                                         {{ $scorer_place }}
                                     @else
@@ -146,9 +146,9 @@
                 <x-table.row>
                     <x-table.cell></x-table.cell>
                     <x-table.cell></x-table.cell>
-                    <x-table.cell class="text-xl text-center font-bold border-t border-gray-300">{{ $scorers->sum('total_assists') }}</x-table.cell>
-                    <x-table.cell class="text-xl text-center font-bold border-t border-gray-300">{{ $scorers->sum('total_goals') }}</x-table.cell>
-                    <x-table.cell class="text-xl text-center font-bold border-t border-gray-300">{{ $scorers->sum('scorer_points') }}</x-table.cell>
+                    <x-table.cell class="text-lg sm:text-xl text-center font-bold">{{ $scorers->sum('total_assists') }}</x-table.cell>
+                    <x-table.cell class="text-lg sm:text-xl text-center font-bold">{{ $scorers->sum('total_goals') }}</x-table.cell>
+                    <x-table.cell class="text-lg sm:text-xl text-center font-bold">{{ $scorers->sum('scorer_points') }}</x-table.cell>
                 </x-table.row>
             </x-slot>
         </x-table.table>
