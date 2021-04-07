@@ -75,21 +75,19 @@ class Season extends Model
      */
     public function scorers()
     {
-        $scorers = Player::whereHas('goals.match.season', function ($query) {
-            return $query->where('id', $this->id);
-        })->orWhereHas('assists.goal.match.season', function ($query) {
-            return $query->where('id', $this->id);
-        })->with('goals.match.season', 'assists.goal.match.season')->get();
+        $players = Player::whereHas('goals.match', function ($query) {
+            return $query->where('season_id', $this->id);
+        })->orWhereHas('assists.goal.match', function ($query) {
+            return $query->where('season_id', $this->id);
+        })->get();
 
-        // fill scorers with goals, assists and respective totals for sorting
-        foreach ($scorers as $scorer)
-        {
-            $scorer->goals = $scorer->goals->where('match.season.id', $this->id);
-            $scorer->total_goals = $scorer->goals->count();
-            $scorer->assists = $scorer->assists->where('goal.match.season.id', $this->id);
-            $scorer->total_assists = $scorer->assists->count();
-            $scorer->scorer_points = $scorer->total_goals + $scorer->total_assists;
-        }
+        $scorers = $players->map(function ($player) {
+            $player->total_goals = $player->goals()->whereHas('match', function ($query) { return $query->where('season_id', $this->id); })->count();
+            $player->total_assists = $player->assists()->whereHas('goal.match', function ($query) { return $query->where('season_id', $this->id); })->count();
+            $player->scorer_points = $player->total_goals + $player->total_assists;
+
+            return $player;
+        });
 
         return $scorers;
     }
