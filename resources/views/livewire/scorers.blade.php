@@ -1,14 +1,43 @@
 <x-section class="py-0">
     <div>
-        <div class="mb-3">
-            <x-select-label for="selected_season" class="text-primary-700">
-                Saison:
-            </x-select-label>
-            <x-select name="selected_season" wire:model="selected_season">
-                @foreach ($selectable_seasons as $selected_season)
-                    <option value="{{ $selected_season->id }}">{{ $selected_season->title }}</option>
-                @endforeach
-            </x-select>
+        <div class="mb-6 flex flex-col space-y-4 md:space-y-0 md:flex-row">
+            <div>
+                <x-select-label for="selected_season" class="text-primary-700">
+                    Saison:
+                </x-select-label>
+                <x-select name="selected_season" wire:model="selected_season">
+                    @foreach ($selectable_seasons as $selected_season)
+                        <option value="{{ $selected_season->id }}">{{ $selected_season->title }}</option>
+                    @endforeach
+                </x-select>
+            </div>
+            <!-- season stats -->
+            <div class="flex flex-1 justify-around font-bold items-center text-3xl divide-x divide-gray-200 tracking-tighter" wire:loading.remove>
+                <div class="flex flex-1 flex-col items-center">
+                    <span>
+                        {{ $scorers->sum('total_assists') }}
+                    </span>
+                    <span class="font-normal text-xl text-gray-500">
+                        Assists
+                    </span>
+                </div>
+                <div class="flex flex-1 flex-col items-center">
+                    <span>
+                         {{ $scorers->sum('total_goals') }}
+                    </span>
+                    <span class="font-normal text-xl text-gray-500">
+                        Tore
+                    </span>
+                </div>
+                <div class="flex flex-1 flex-col items-center">
+                    <span>
+                        {{ $scorers->sum('scorer_points') }}
+                    </span>
+                    <span class="font-normal text-xl text-gray-500">
+                        &Sigma;
+                    </span>
+                </div>
+            </div>
         </div>
 
         <div class="flex items-center p-4 mb-4 bg-gray-100 space-x-4">
