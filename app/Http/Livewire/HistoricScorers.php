@@ -33,8 +33,10 @@ class HistoricScorers extends Component
 
     public function render()
     {
-        $this->scorers = Player::withCount(['goals', 'assists'])->get();
+        // get all players with at least one goal or one assist, add counts
+        $this->scorers = Player::whereHas('goals')->orWhereHas('assists')->withCount(['goals', 'assists'])->get();
 
+        // sum counts for sorting
         $this->scorers = $this->scorers->map(function ($player) {
             $player->scorer_points = $player->goals_count + $player->assists_count;
 

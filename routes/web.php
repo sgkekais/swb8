@@ -21,6 +21,8 @@ Route::get('/kalender', Calendar::class)->name('calendar');
 
 Route::get('ewige-scorer', HistoricScorers::class)->name('historic-scorers');
 
+Route::get('ewige-ananas', HistoricAnanasFarmers::class)->name('historic-ananas-farmers');
+
 /*
  * --------------------------------------------------------------------------
  * Frontpage Club Routes

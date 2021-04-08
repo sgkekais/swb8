@@ -51,6 +51,9 @@
                         <x-jet-dropdown-link href="{{ route('historic-scorers') }}" :active="request()->routeIs('historic-scorers')" class="">
                             <i class="fas fa-fw fa-book"></i> Ewige Scorer
                         </x-jet-dropdown-link>
+                        <x-jet-dropdown-link href="{{ route('historic-ananas-farmers') }}" :active="request()->routeIs('historic-ananas-farmers')" class="">
+                            <i class="fas fa-fw fa-book"></i> Ewige Ananas
+                        </x-jet-dropdown-link>
                     </x-slot>
                 </x-jet-dropdown>
             </div>
@@ -283,7 +286,10 @@
                         <i class="fas fa-fw fa-info-circle"></i> Über uns
                     </x-jet-responsive-nav-link>
                     <x-jet-responsive-nav-link class="ml-3" href="{{ route('historic-scorers') }}" :active="request()->routeIs('historic-scorers')" >
-                        <i class="fas fa-fw fa-book"></i> Ewigenlisten
+                        <i class="fas fa-fw fa-book"></i> Ewige Scorer
+                    </x-jet-responsive-nav-link>
+                    <x-jet-responsive-nav-link class="ml-3" href="{{ route('historic-ananas-farmers') }}" :active="request()->routeIs('historic-ananas-farmers')" >
+                        <i class="fas fa-fw fa-book"></i> Ewige Ananas
                     </x-jet-responsive-nav-link>
                 </div>
             </div>
