@@ -15,6 +15,14 @@
             <div class="flex flex-1 justify-around font-bold items-center text-xl md:text-3xl divide-x divide-gray-200 tracking-tighter" wire:loading.remove>
                 <div class="flex flex-1 flex-col items-center">
                     <span class="text-gray-700">
+                        {{ $scorers->count() }}
+                    </span>
+                    <span class="font-normal text-lg md:text-xl text-gray-500">
+                        Scorer
+                    </span>
+                </div>
+                <div class="flex flex-1 flex-col items-center">
+                    <span class="text-gray-700">
                         {{ $scorers->sum('total_assists') }}
                     </span>
                     <span class="font-normal text-lg md:text-xl text-gray-500">
