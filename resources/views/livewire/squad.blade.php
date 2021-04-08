@@ -34,11 +34,11 @@
                             </div>
                         </div>
                         <!-- player status -->
-                        <div class="p-4 text-sm text-gray-700">
+                        <div class="px-4 text-sm text-gray-700">
                             {{ $player->playerStatus->description }}
                         </div>
                         <!-- joined -->
-                        <div class="p-4 text-sm text-gray-700">
+                        <div class="px-4 text-sm text-gray-700">
                             @if ($player->joined)
                                 <i class="fas fa-birthday-cake"></i> Dabei seit {{ $player->joined->isoFormat('MM.Y') }} ({{ $player->joined->diffInYears() > 0 ? $player->joined->diffInYears()." J." : $player->joined->diffInMonths()." M." }})
                             @else
@@ -46,7 +46,7 @@
                             @endif
                         </div>
                         <!-- stats -->
-                        <div class="p-4 flex items-center space-x-4 text-gray-700 justify-around">
+                        <div class="px-4 flex items-center space-x-4 text-gray-700 justify-around">
                             <div>
                                 <i class="far fa-futbol"></i> {{ $player->goals()->count() }}
                             </div>
