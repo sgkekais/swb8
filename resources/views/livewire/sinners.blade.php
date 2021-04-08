@@ -76,10 +76,12 @@
             <div class="">
                 <i class="far fa-lightbulb fa-fw"></i>
             </div>
-            <div class="flex flex-wrap space-x-2">
+            <div class="flex flex-col">
                 <span>Datenbank: erste Karte erfasst am {{ $first_card->isoFormat('DD.MM.YY') }}</span>
-                <span>Punkteregel für die goldene Ananas (&#127821;):</span>
-                <span class="tracking-tighter"><i class="fas fa-square text-yellow-400"></i>/<i class="fas fa-stopwatch text-gray-400 "></i> = <span class="font-bold">1</span> Pkt, <i class="fas fa-square text-yellow-400" title="Gelb-Rote Karte"></i><i class="fas fa-square text-red-500" title="Gelb-Rote Karte"></i> = <span class="font-bold">3</span> Pkt, <i class="fas fa-square text-red-500" title="Rote Karte"></i> = <span class="font-bold">5</span>  Pkt</span>
+                <div class="flex flex-wrap space-x-2">
+                    <span>Punkteregel für die goldene Ananas (&#127821;):</span>
+                    <span class="tracking-tighter"><i class="fas fa-square text-yellow-400"></i>/<i class="fas fa-stopwatch text-gray-400 "></i> = <span class="font-bold">1</span> Pkt, <i class="fas fa-square text-yellow-400" title="Gelb-Rote Karte"></i><i class="fas fa-square text-red-500" title="Gelb-Rote Karte"></i> = <span class="font-bold">3</span> Pkt, <i class="fas fa-square text-red-500" title="Rote Karte"></i> = <span class="font-bold">5</span>  Pkt</span>
+                </div>
             </div>
         </div>
         <div class="flex items-center p-4 mb-4 bg-yellow-100 space-x-4">
