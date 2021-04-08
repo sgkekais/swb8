@@ -48,8 +48,8 @@
                         <x-jet-dropdown-link href="{{ route('about') }}" :active="request()->routeIs('about')" class="">
                             <i class="fas fa-fw fa-info-circle"></i> Über uns
                         </x-jet-dropdown-link>
-                        <x-jet-dropdown-link>
-                            <i class="fas fa-fw fa-book"></i> Ewigenlisten
+                        <x-jet-dropdown-link href="{{ route('historic-scorers') }}" :active="request()->routeIs('historic-scorers')" class="">
+                            <i class="fas fa-fw fa-book"></i> Ewige Scorer
                         </x-jet-dropdown-link>
                     </x-slot>
                 </x-jet-dropdown>
@@ -282,7 +282,7 @@
                     <x-jet-responsive-nav-link class="ml-3" href="{{ route('about') }}" :active="request()->routeIs('about')">
                         <i class="fas fa-fw fa-info-circle"></i> Über uns
                     </x-jet-responsive-nav-link>
-                    <x-jet-responsive-nav-link class="ml-3" href="#" >
+                    <x-jet-responsive-nav-link class="ml-3" href="{{ route('historic-scorers') }}" :active="request()->routeIs('historic-scorers')" >
                         <i class="fas fa-fw fa-book"></i> Ewigenlisten
                     </x-jet-responsive-nav-link>
                 </div>

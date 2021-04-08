@@ -19,6 +19,8 @@ Route::view('/uber-uns', 'static.about')->name('about');
 
 Route::get('/kalender', Calendar::class)->name('calendar');
 
+Route::get('ewige-scorer', HistoricScorers::class)->name('historic-scorers');
+
 /*
  * --------------------------------------------------------------------------
  * Frontpage Club Routes

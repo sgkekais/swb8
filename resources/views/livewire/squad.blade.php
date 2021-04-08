@@ -22,7 +22,7 @@
                             @endisset
                             <div class="flex flex-col">
                                 <div>{{ $player->name_short }}</div>
-                                <div class="text-sm text-gray-700">{{ $player->full_name }}</div>
+                                @auth<div class="text-sm text-gray-700">{{ $player->full_name }}</div>@endauth
                                 <div class="text-sm font-bold text-yellow-500">
                                     {{ $player->public_note }}
 {{--                                    @if ($player->public_note)--}}

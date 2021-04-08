@@ -25,6 +25,9 @@
                         <li>
                             <a href="{{ route('about') }}" class="text-gray-300" title="Über uns">Über uns</a>
                         </li>
+                        <li>
+                            <a href="{{ route('historic-scorers') }}" class="text-gray-300" title="Ewigenliste">Ewige Scorer</a>
+                        </li>
                     </ul>
                 </div>
                 <div>
