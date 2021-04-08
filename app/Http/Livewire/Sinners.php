@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Club;
+use App\Models\Date;
 use App\Models\Player;
 use App\Models\Season;
 use Livewire\Component;
@@ -17,6 +18,7 @@ class Sinners extends Component
     public $sinners = [];
     public $sortField = "sinner_points";
     public $sortDirection = 'desc';
+    public $first_card;
 
     public function mount(Club $club)
     {
@@ -26,6 +28,7 @@ class Sinners extends Component
         {
             $this->selected_season = $this->selectable_seasons->first()->id;
         }
+        $this->first_card = Date::whereHas('match.cards')->orderBy('datetime')->first()->datetime;
     }
 
     protected $rules =  [

@@ -4,6 +4,14 @@
         <div class="mb-6 flex flex-1 justify-around font-bold items-center text-xl md:text-3xl divide-x divide-gray-200 tracking-tighter" wire:loading.remove>
             <div class="flex flex-1 flex-col items-center">
                 <span class="text-gray-700">
+                    {{ $scorers->count() }}
+                </span>
+                <span class="font-normal text-lg md:text-xl text-gray-500">
+                    Scorer
+                </span>
+            </div>
+            <div class="flex flex-1 flex-col items-center">
+                <span class="text-gray-700">
                     {{ $scorers->sum('assists_count') }}
                 </span>
                 <span class="font-normal text-lg md:text-xl text-gray-500">
@@ -109,15 +117,16 @@
                             <div class="">
                                 {{ $scorer->name_short }}
                             </div>
-                            <div class="flex">
-                                <div class="h-1 bg-primary-300" style="width: {{ ceil( ($scorer->assists_count / $scorers->sum('scorer_points')) * 100 ) }}% "></div>
-                                <div class="h-1 bg-primary-600" style="width: {{ ceil( ($scorer->goals_count / $scorers->sum('scorer_points')) * 100 ) }}% "></div>
+                            <div class="flex items-center">
+                                <div class="h-1 bg-primary-300" style="width: {{ round( $scorer->assists_count / $scorers->sum('scorer_points'), 4 ) * 100 }}% "></div>
+                                <div class="h-1 bg-primary-600" style="width: {{ round( $scorer->goals_count / $scorers->sum('scorer_points'), 4 ) * 100 }}% "></div>
                                 <div class="h-1 bg-gray-200 flex-1"></div>
+                                <div class="text-xs pl-2">{{ round( $scorer->scorer_points / $scorers->sum('scorer_points'), 4 ) * 100 }}%</div>
                             </div>
                         </x-table.cell>
-                        <x-table.cell class="text-center">{{ $scorer->assists_count }}</x-table.cell>
-                        <x-table.cell class="text-center">{{ $scorer->goals_count }}</x-table.cell>
-                        <x-table.cell class="text-center font-bold text-primary-700">{{ $scorer->scorer_points }}</x-table.cell>
+                        <x-table.cell class="text-lg text-center">{{ $scorer->assists_count }}</x-table.cell>
+                        <x-table.cell class="text-lg text-center">{{ $scorer->goals_count }}</x-table.cell>
+                        <x-table.cell class="text-lg text-center font-bold text-primary-700">{{ $scorer->scorer_points }}</x-table.cell>
                     </x-table.row>
                 @php
                     ${"prev_$sortField"} = $scorer->$sortField;

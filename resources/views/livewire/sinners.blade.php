@@ -60,8 +60,9 @@
             <div class="">
                 <i class="far fa-lightbulb fa-fw"></i>
             </div>
-            <div class="">
-                Punkteregel für die goldene Ananas (&#127821;): gelbe Karte oder Zeitstrafe = 1 Punkt, gelb-rote Karte = 3 Punkte, rote Karte = 5 Punkte.
+            <div class="flex flex-col">
+                <span>Datenbank: erste Karte erfasst am {{ $first_card->isoFormat('DD.MM.YY') }}</span>
+                <span>Punkteregel für die goldene Ananas (&#127821;): <i class="fas fa-square text-yellow-400"></i>/<i class="fas fa-stopwatch text-gray-400 "></i> = <span class="font-bold">1</span> Pkt, <i class="fas fa-square text-yellow-400" title="Gelb-Rote Karte"></i><i class="fas fa-square text-red-500" title="Gelb-Rote Karte"></i> = <span class="font-bold">3</span> Pkt, <i class="fas fa-square text-red-500" title="Rote Karte"></i> = <span class="font-bold">5</span>  Pkt</span>
             </div>
         </div>
         <div class="flex items-center p-4 mb-4 bg-yellow-100 space-x-4">
@@ -81,16 +82,16 @@
                     <x-table.heading class="w-1/12 text-center">#</x-table.heading>
                     <x-table.heading></x-table.heading>
                     <x-table.heading class="w-1/12 text-center" wire:click="sortBy('total_time_penalties')" selectable direction="{{ $sortField == 'total_time_penalties' ? $sortDirection : null }}">
-                        <i class="fas fa-stopwatch text-gray-400 "></i>
+                        <i class="fas fa-stopwatch text-gray-400 " title="10-Minuten-Strafe"></i>
                     </x-table.heading>
                     <x-table.heading class="w-1/12 text-center" wire:click="sortBy('total_yellow_cards')" selectable direction="{{ $sortField == 'total_yellow_cards' ? $sortDirection : null }}">
-                        <i class="fas fa-square text-yellow-400"></i>
+                        <i class="fas fa-square text-yellow-400" title="Gelbe Karte"></i>
                     </x-table.heading>
                     <x-table.heading class="w-1/12 text-center" wire:click="sortBy('total_yellow_red_cards')" selectable direction="{{ $sortField == 'total_yellow_red_cards' ? $sortDirection : null }}">
-                        <i class="fas fa-square text-yellow-400"></i><i class="fas fa-square text-red-500"></i>
+                        <i class="fas fa-square text-yellow-400" title="Gelb-Rote Karte"></i><i class="fas fa-square text-red-500" title="Gelb-Rote Karte"></i>
                     </x-table.heading>
                     <x-table.heading class="w-1/12 text-center" wire:click="sortBy('total_red_cards')" selectable direction="{{ $sortField == 'total_red_cards' ? $sortDirection : null }}">
-                        <i class="fas fa-square text-red-500"></i>
+                        <i class="fas fa-square text-red-500" title="Rote Karte"></i>
                     </x-table.heading>
                     <x-table.heading class="w-1/12 text-center" wire:click="sortBy('sinner_points')" selectable direction="{{ $sortField == 'sinner_points' ? $sortDirection : null }}">
                         &#127821;
@@ -149,21 +150,22 @@
                             <div @click="show = !show" class="relative">
                                 {{ $sinner->name_short }}
                             </div>
-                            <div class="flex">
-                                <div class="h-1 bg-gray-400" style="width: {{ ceil(($sinner->total_time_penalties / ($sinners->sum('sinner_points')))*100) }}% "></div>
-                                <div class="h-1 bg-yellow-400" style="width: {{ ceil(($sinner->total_yellow_cards / ($sinners->sum('sinner_points')))*100) }}% "></div>
-                                <div class="h-1" style="width: {{ ceil(($sinner->total_yellow_red_cards * 3 / ($sinners->sum('sinner_points')))*100) }}%;
+                            <div class="flex items-center">
+                                <div class="h-1 bg-gray-400" style="width: {{ round( $sinner->total_time_penalties / $sinners->sum('sinner_points'), 4 ) * 100 }}% "></div>
+                                <div class="h-1 bg-yellow-400" style="width: {{ round( $sinner->total_yellow_cards / $sinners->sum('sinner_points'), 4 ) * 100 }}% "></div>
+                                <div class="h-1" style="width: {{ round( $sinner->total_yellow_red_cards * 3 / $sinners->sum('sinner_points'), 4 ) * 100 }}%;
                                     background-image: linear-gradient(90deg, #fbbf14 25%, #ef4444 25%, #ef4444 50%, #fbbf24 50%, #fbbf24 75%, #ef4444 75%, #ef4444 100%);
                                     background-size: 20px 20px;"></div>
-                                <div class="h-1 bg-red-500" style="width: {{ ceil(($sinner->total_red_cards * 5 / ($sinners->sum('sinner_points')))*100) }}% "></div>
+                                <div class="h-1 bg-red-500" style="width: {{ round( $sinner->total_red_cards * 5 / $sinners->sum('sinner_points'), 4 ) * 100 }}% "></div>
                                 <div class="h-1 bg-gray-200 flex-1"></div>
+                                <div class="text-xs pl-2">{{ round( $sinner->sinner_points / $sinners->sum('sinner_points'), 4 ) * 100 }}%</div>
                             </div>
                         </x-table.cell>
-                        <x-table.cell class="text-center">{{ $sinner->total_time_penalties }}</x-table.cell>
-                        <x-table.cell class="text-center">{{ $sinner->total_yellow_cards }}</x-table.cell>
-                        <x-table.cell class="text-center">{{ $sinner->total_yellow_red_cards }}</x-table.cell>
-                        <x-table.cell class="text-center">{{ $sinner->total_red_cards }}</x-table.cell>
-                        <x-table.cell class="text-center font-bold text-primary-700">{{ $sinner->sinner_points }}</x-table.cell>
+                        <x-table.cell class="text-lg text-center">{{ $sinner->total_time_penalties }}</x-table.cell>
+                        <x-table.cell class="text-lg text-center">{{ $sinner->total_yellow_cards }}</x-table.cell>
+                        <x-table.cell class="text-lg text-center">{{ $sinner->total_yellow_red_cards }}</x-table.cell>
+                        <x-table.cell class="text-lg text-center">{{ $sinner->total_red_cards }}</x-table.cell>
+                        <x-table.cell class="text-lg text-center font-bold text-primary-700">{{ $sinner->sinner_points }}</x-table.cell>
                     </x-table.row>
                 @php
                     ${"prev_$sortField"} = $sinner->$sortField;

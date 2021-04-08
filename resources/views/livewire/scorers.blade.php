@@ -127,15 +127,16 @@
                             <div @click="show = !show" class="relative">
                                 {{ $scorer->name_short }}
                             </div>
-                            <div class="flex">
-                                <div class="h-1 bg-primary-300" style="width: {{ ceil( ($scorer->total_assists / $scorers->sum('scorer_points')) * 100 ) }}% "></div>
-                                <div class="h-1 bg-primary-600" style="width: {{ ceil( ($scorer->total_goals / $scorers->sum('scorer_points')) * 100 ) }}% "></div>
+                            <div class="flex items-center">
+                                <div class="h-1 bg-primary-300" style="width: {{ round( $scorer->total_assists / $scorers->sum('scorer_points'), 4) * 100 }}% "></div>
+                                <div class="h-1 bg-primary-600" style="width: {{ round( $scorer->total_goals / $scorers->sum('scorer_points'), 4) * 100 }}% "></div>
                                 <div class="h-1 bg-gray-200 flex-1"></div>
+                                <div class="text-xs pl-2">{{ round( $scorer->scorer_points / $scorers->sum('scorer_points'), 4 ) * 100 }}%</div>
                             </div>
                         </x-table.cell>
-                        <x-table.cell class="text-center">{{ $scorer->total_assists }}</x-table.cell>
-                        <x-table.cell class="text-center">{{ $scorer->total_goals }}</x-table.cell>
-                        <x-table.cell class="text-center font-bold text-primary-700">{{ $scorer->scorer_points }}</x-table.cell>
+                        <x-table.cell class="text-lg text-center">{{ $scorer->total_assists }}</x-table.cell>
+                        <x-table.cell class="text-lg text-center">{{ $scorer->total_goals }}</x-table.cell>
+                        <x-table.cell class="text-lg text-center font-bold text-primary-700">{{ $scorer->scorer_points }}</x-table.cell>
                     </x-table.row>
                     @php
                         ${"prev_$sortField"} = $scorer->$sortField;
