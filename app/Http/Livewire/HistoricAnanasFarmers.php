@@ -34,10 +34,10 @@ class HistoricAnanasFarmers extends Component
         $this->sinners = Player::whereHas('cards')->withCount(['cards'])->get();
 
         $this->sinners = $this->sinners->map(function ($player) {
-            $player->total_yellow_cards = $player->cards->where('color', 'gelb')->count();
-            $player->total_red_cards = $player->cards->where('color', 'rot')->count();
-            $player->total_yellow_red_cards = $player->cards->where('color', 'gelb-rot')->count();
-            $player->total_time_penalties = $player->cards->where('color', '10min')->count();
+            $player->total_yellow_cards = $player->cards()->where('color', 'gelb')->count();
+            $player->total_red_cards = $player->cards()->where('color', 'rot')->count();
+            $player->total_yellow_red_cards = $player->cards()->where('color', 'gelb-rot')->count();
+            $player->total_time_penalties = $player->cards()->where('color', '10min')->count();
             $player->sinner_points = $player->total_yellow_cards
                 + $player->total_time_penalties
                 + $player->total_yellow_red_cards * 3

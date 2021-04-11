@@ -51,17 +51,32 @@ class Sinners extends Component
 
         $this->sinners = Player::whereHas('cards.match.season', function ($query) {
             return $query->where('id', $this->selected_season);
-        })->with('cards.match.season')->get();
+        })->get();
 
         // fill scorers with goals, assists and respective totals for sorting
         foreach ($this->sinners as $sinner)
         {
-            $sinner->cards = $sinner->cards->where('match.season.id', $this->selected_season);
-            $sinner->total_cards = $sinner->cards->count();
-            $sinner->total_yellow_cards = $sinner->cards->where('color', 'gelb')->count();
-            $sinner->total_red_cards = $sinner->cards->where('color', 'rot')->count();
-            $sinner->total_yellow_red_cards = $sinner->cards->where('color', 'gelb-rot')->count();
-            $sinner->total_time_penalties = $sinner->cards->where('color', '10min')->count();
+//            $sinner->cards = $sinner->cards->where('match.season.id', $this->selected_season);
+//            $sinner->total_yellow_cards = $sinner->cards->where('color', 'gelb')->count();
+//            $sinner->total_red_cards = $sinner->cards->where('color', 'rot')->count();
+//            $sinner->total_yellow_red_cards = $sinner->cards->where('color', 'gelb-rot')->count();
+//            $sinner->total_time_penalties = $sinner->cards->where('color', '10min')->count();
+            $sinner->total_cards = $sinner->cards()->whereHas('match', function ($q) {
+                $q->where('season_id', $this->selected_season);
+            })->count();
+            $sinner->total_yellow_cards =  $sinner->cards()->whereHas('match', function ($q) {
+                $q->where('season_id', $this->selected_season);
+            })->where('color', 'gelb')->count();
+            $sinner->total_red_cards =  $sinner->cards()->whereHas('match', function ($q) {
+                $q->where('season_id', $this->selected_season);
+            })->where('color', 'rot')->count();
+            $sinner->total_yellow_red_cards =  $sinner->cards()->whereHas('match', function ($q) {
+                $q->where('season_id', $this->selected_season);
+            })->where('color', 'gelb-rot')->count();
+            $sinner->total_time_penalties =  $sinner->cards()->whereHas('match', function ($q) {
+                $q->where('season_id', $this->selected_season);
+            })->where('color', '10min')->count();
+
             $sinner->sinner_points = $sinner->total_yellow_cards
                                         + $sinner->total_time_penalties
                                         + $sinner->total_yellow_red_cards * 3
