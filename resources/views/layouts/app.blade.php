@@ -7,6 +7,28 @@
 
         <title>{{ config('app.name', 'Schwarz-Weiß Bilk \'79') }}</title>
 
+        <!-- Search Engine -->
+        <meta name="description" content="Hobbyfußball in Düsseldorf seit über 40 Jahren">
+        <meta name="image" content="https://swbilk79.de/img/swblogo.png">
+        <!-- Schema.org for Google -->
+        <meta itemprop="name" content="Schwarz-Weiß Bilk '79">
+        <meta itemprop="description" content="Hobbyfußball in Düsseldorf seit über 40 Jahren">
+        <meta itemprop="image" content="https://swbilk79.de/img/swblogo.png">
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Schwarz-Weiß Bilk '79">
+        <meta name="twitter:description" content="Hobbyfußball in Düsseldorf seit über 40 Jahren">
+        <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+        <meta name="og:title" content="Schwarz-Weiß Bilk '79">
+        <meta name="og:description" content="Hobbyfußball in Düsseldorf seit über 40 Jahren">
+        <meta name="og:image" content="https://swbilk79.de/img/swblogo.png">
+        <meta name="og:url" content="https://swbilk79.de">
+        <meta name="og:site_name" content="Schwarz-Weiß Bilk '79">
+        <meta name="og:locale" content="de_DE">
+        <meta name="fb:admins" content="175477382466028">
+        <meta name="fb:app_id" content="175477382466028">
+        <meta name="og:type" content="website">
+
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
