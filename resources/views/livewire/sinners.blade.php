@@ -12,12 +12,12 @@
                 </x-select>
             </div>
             <!-- season stats -->
-            <div class="flex flex-1 justify-around font-bold items-center text-xl md:text-3xl divide-x divide-gray-200 tracking-tighter" wire:loading.remove>
+            <div class="flex flex-1 justify-around font-bold text-xl md:text-3xl divide-x divide-gray-200 tracking-tighter" wire:loading.remove>
                 <div class="flex flex-1 flex-col items-center">
                     <span class="text-gray-700">
                         {{ $sinners->count() }}
                     </span>
-                    <span class="font-normal text-base sm:text-lg md:text-xl text-gray-500">
+                    <span class="font-normal text-base lg:text-xl text-gray-500">
                         Sünder
                     </span>
                 </div>
@@ -25,7 +25,7 @@
                     <span class="text-gray-700">
                         {{ $sinners->sum('total_cards') }}
                     </span>
-                    <span class="font-normal text-base sm:text-lg md:text-xl text-gray-500">
+                    <span class="font-normal text-base lg:text-xl text-gray-500">
                         Karten
                     </span>
                 </div>
@@ -33,7 +33,7 @@
                     <span class="text-gray-700">
                         {{ $sinners->sum('total_time_penalties') }}
                     </span>
-                    <span class="font-normal text-base sm:text-lg md:text-xl text-gray-500">
+                    <span class="font-normal text-base lg:text-xl text-gray-500">
                         10 Min.
                     </span>
                 </div>
@@ -41,7 +41,7 @@
                     <span class="text-gray-700">
                          {{ $sinners->sum('total_yellow_cards') }}
                     </span>
-                    <span class="font-normal text-base sm:text-lg md:text-xl text-gray-500">
+                    <span class="font-normal text-base lg:text-xl text-gray-500">
                         Gelbe
                     </span>
                 </div>
@@ -49,7 +49,7 @@
                     <span class="text-gray-700">
                         {{ $sinners->sum('total_yellow_red_cards') }}
                     </span>
-                    <span class="font-normal text-base md:text-xl text-gray-500">
+                    <span class="font-normal text-base lg:text-xl text-gray-500">
                         Gelb-Rote
                     </span>
                 </div>
@@ -57,7 +57,7 @@
                     <span class="text-gray-700">
                         {{ $sinners->sum('total_red_cards') }}
                     </span>
-                    <span class="font-normal text-base sm:text-lg md:text-xl text-gray-500">
+                    <span class="font-normal text-base lg:text-xl text-gray-500">
                         Rote
                     </span>
                 </div>
@@ -65,7 +65,7 @@
                     <span class="text-gray-700">
                         {{ $sinners->sum('sinner_points') }}
                     </span>
-                    <span class="font-normal text-base sm:text-lg md:text-xl text-gray-500">
+                    <span class="font-normal text-base lg:text-xl text-gray-500">
                         &#127821;
                     </span>
                 </div>
