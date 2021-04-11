@@ -23,6 +23,8 @@ Route::get('ewige-scorer', HistoricScorers::class)->name('historic-scorers');
 
 Route::get('ewige-ananas', HistoricAnanasFarmers::class)->name('historic-ananas-farmers');
 
+Route::view('chart', 'chart');
+
 /*
  * --------------------------------------------------------------------------
  * Frontpage Club Routes

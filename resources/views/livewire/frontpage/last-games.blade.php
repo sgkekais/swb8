@@ -14,31 +14,52 @@
                 <div class="flex items-center">
                     <!-- home -->
                     <div class="flex-1 flex-col text-center font-bold">
-                        <img src="{{ $last_date->match->teamHome->logo() }}" class="m-auto w-12"/>
+                        <img src="{{ $last_date->match->teamHome->logo() }}" class="m-auto w-12" title="{{ $last_date->match->teamHome->name }}" alt="{{ $last_date->match->teamHome->name }}-Wappen"/>
                         <span>{{ $last_date->match->teamHome->name_short  }}</span>
                     </div>
                     <!-- result -->
                     <div class="flex-1 flex-col text-center py-2 font-bold text-3xl">
-                        @if ($last_date->match->isRated())
-                            {{ $last_date->match->goals_home_rated }}:{{ $last_date->match->goals_away_rated }}
-                        @elseif ($last_date->match->isPlayed())
-                            @php
-                                $result_color = "";
-                                if ($last_date->match->isWon()) {
-                                    $result_color = "text-primary-600";
-                                } elseif ($last_date->match->isLost()) {
-                                    $result_color = "text-red-600";
-                                }
-                            @endphp
-                            <div class="{{ $result_color }}">{{ $last_date->match->goals_home }}:{{ $last_date->match->goals_away }}</div>
+                        @if ($last_date->match->cancelled)
+                            <div class="text-center no-underline text-red-500">
+                                Abgs.
+                            </div>
+                        @elseif ($last_date->match->isPlayedOrRated())
+                            <div class="p-1 flex flex-col font-extrabold text-center ">
+                                @php
+                                    $score_color = "text-black";
+                                    if ($last_date->match->isRated()) {
+                                        $score_color = "text-yellow-500";
+                                    } elseif ($last_date->match->isWon() && !$last_date->match->cancelled) {
+                                        $score_color = "text-primary-600";
+                                    } elseif ($last_date->match->isLost() && !$last_date->match->cancelled) {
+                                        $score_color = "text-red-500";
+                                    }
+                                @endphp
+                                @if ($last_date->match->isRated())
+                                    <i class="fas fa-gavel text-xs {{ $score_color }}"></i>
+                                    <span class="{{ $score_color }}">{{ $last_date->match->goals_home_rated }}:{{ $last_date->match->goals_away_rated }}</span>
+                                    @if ($last_date->match->isPlayed())
+                                        <span class="text-sm">Alt: {{ $last_date->match->goals_home }}:{{ $last_date->match->goals_away }}</span>
+                                    @endif
+                                @elseif ($last_date->match->isPenalties())
+                                    <span class="{{ $score_color }}">{{ $last_date->match->goals_home_pen }}:{{ $last_date->match->goals_away_pen}} i.E.</span>
+                                    <span class="text-sm">90' {{ $last_date->match->goals_home }}:{{ $last_date->match->goals_away }}</span>
+                                @else
+                                    <span class="{{ $score_color }}">{{ $last_date->match->goals_home }}:{{ $last_date->match->goals_away }}</span>
+                                @endif
+                            </div>
                             @if ($last_date->match->goals_home_ht && $last_date->match->goals_away_ht)
-                                <div class="text-base">({{ $last_date->match->goals_home_ht }}:{{ $last_date->match->goals_away_ht }})</div>
+                                <div class="text-center text-sm ">
+                                    ({{ $last_date->match->goals_home_ht }}:{{ $last_date->match->goals_away_ht }})
+                                </div>
                             @endif
+                        @else
+                            <div class="text-center">-:-</div>
                         @endif
                     </div>
                     <!-- away -->
                     <div class="flex-1 flex-col text-center font-bold">
-                        <img src="{{ $last_date->match->teamAway->logo() }}" class="m-auto w-12"/>
+                        <img src="{{ $last_date->match->teamAway->logo() }}" class="m-auto w-12" title="{{ $last_date->match->teamAway->name }}" alt="{{ $last_date->match->teamAway->name }}-Wappen"/>
                         <span>{{ $last_date->match->teamAway->name_short  }}</span>
                     </div>
                 </div>
@@ -49,61 +70,59 @@
                         </a>
                     </div>
                 @endif
-                @auth
-                    <!-- goals and cards -->
-                    @if ($last_date->match->goals->count() > 0 || $last_date->match->cards->count() > 0)
-                        <div class="p-1 flex justify-center bg-gray-100">
-                            @if ($last_date->match->goals->count() > 0)
-                                <div class="flex flex-col">
-                                    @foreach ($last_date->match->goals as $goal)
-                                        <div class="flex space-x-2 items-center">
-                                            <i class="far fa-futbol"></i>
-                                            <div class="">
-                                                {{ $goal->minute ? $goal->minute."'" : null }} {{ $goal->score }} {{ $goal->player->nickname ?: $goal->player->full_name_short }}
-                                            </div>
-                                            @if ($goal->assist)
-                                                <div class="text-sm">
-                                                    ({{ $goal->assist->player->name_short }})
-                                                </div>
-                                            @endif
+                <!-- goals and cards -->
+                @if ($last_date->match->goals->count() > 0 || $last_date->match->cards->count() > 0)
+                    <div class="p-1 flex justify-center bg-gray-100">
+                        @if ($last_date->match->goals->count() > 0)
+                            <div class="flex flex-col">
+                                @foreach ($last_date->match->goals as $goal)
+                                    <div class="flex space-x-2 items-center">
+                                        <i class="far fa-futbol"></i>
+                                        <div class="">
+                                            {{ $goal->minute ? $goal->minute."'" : null }} {{ $goal->score }} {{ $goal->player->nickname ?: $goal->player->full_name_short }}
                                         </div>
-                                    @endforeach
-                                </div>
-                            @endif
-                            @if ($last_date->match->cards->count() > 0)
-                                <div class="flex flex-col">
-                                    @foreach ($last_date->match->cards as $card)
-                                        <div class="flex-col">
-                                            <div>
-                                                @switch($card->color)
-                                                    @case('gelb')
-                                                    <i class="fas fa-square text-yellow-400"></i>
-                                                    @break
-                                                    @case('gelb-rot')
-                                                    <i class="fas fa-square text-yellow-400"></i><i class="fas fa-square text-red-500"></i>
-                                                    @break
-                                                    @case('rot')
-                                                    <i class="fas fa-square text-red-500"></i>
-                                                    @break
-                                                    @case('10min')
-                                                    <i class="fas fa-stopwatch text-gray-400 "></i>
-                                                    @break
-                                                @endswitch
-                                                {{ $card->player->name_short }}
+                                        @if ($goal->assist)
+                                            <div class="text-sm">
+                                                ({{ $goal->assist->player->name_short }})
                                             </div>
+                                        @endif
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endif
+                        @if ($last_date->match->cards->count() > 0)
+                            <div class="flex flex-col">
+                                @foreach ($last_date->match->cards as $card)
+                                    <div class="flex-col">
+                                        <div>
+                                            @switch($card->color)
+                                                @case('gelb')
+                                                <i class="fas fa-square text-yellow-400"></i>
+                                                @break
+                                                @case('gelb-rot')
+                                                <i class="fas fa-square text-yellow-400"></i><i class="fas fa-square text-red-500"></i>
+                                                @break
+                                                @case('rot')
+                                                <i class="fas fa-square text-red-500"></i>
+                                                @break
+                                                @case('10min')
+                                                <i class="fas fa-stopwatch text-gray-400 "></i>
+                                                @break
+                                            @endswitch
+                                            {{ $card->player->name_short }}
                                         </div>
-                                    @endforeach
-                                </div>
-                            @endif
-                        </div>
-                    @endif
-                    {{-- match details --}}
-                    @if ($last_date->match->match_details)
-                        <div class="flex-grow p-1 bg-gray-300">
-                            {!! $last_date->match->match_details !!}
-                        </div>
-                    @endif
-                @endauth
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endif
+                    </div>
+                @endif
+                {{-- match details --}}
+                @if ($last_date->match->match_details)
+                    <div class="flex-grow p-1 bg-gray-300">
+                        {!! $last_date->match->match_details !!}
+                    </div>
+                @endif
             </div>
         @endif
 

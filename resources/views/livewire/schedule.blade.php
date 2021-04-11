@@ -172,7 +172,11 @@
                             </div>
                             {{-- result --}}
                             <div class="w-1/5 flex flex-col justify-center">
-                                @if ($match->isPlayedOrRated())
+                                @if ($match->cancelled)
+                                    <div class="text-center no-underline text-red-500">
+                                        Abgs.
+                                    </div>
+                                @elseif ($match->isPlayedOrRated())
                                     <div class="p-1 flex flex-col font-extrabold text-center ">
                                         @php
                                             $score_color = "text-black";
@@ -197,15 +201,11 @@
                                             <span class="{{ $score_color }}">{{ $match->goals_home }}:{{ $match->goals_away }}</span>
                                         @endif
                                     </div>
-                                @if ($match->goals_home_ht && $match->goals_away_ht)
-                                    <div class="text-center text-sm ">
-                                        ({{ $match->goals_home_ht }}:{{ $match->goals_away_ht }})
-                                    </div>
-                                @endif
-                                @elseif ($match->cancelled)
-                                    <div class="text-center no-underline text-red-500">
-                                        Abgs.
-                                    </div>
+                                    @if ($match->goals_home_ht && $match->goals_away_ht)
+                                        <div class="text-center text-sm ">
+                                            ({{ $match->goals_home_ht }}:{{ $match->goals_away_ht }})
+                                        </div>
+                                    @endif
                                 @else
                                     <div class="text-center">-:-</div>
                                 @endif

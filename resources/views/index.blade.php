@@ -41,6 +41,27 @@
             @endauth
         </div>
     </x-section>
+    <x-section class="py-4">
+        <x-main-box>
+            <x-slot name="header">
+                <x-headline class="text-2xl">
+                    Fieberkurve (letzte 10)
+                </x-headline>
+            </x-slot>
+
+            <div class="grid sm:grid-cols-2 sm:gap-2">
+                @push('scripts')
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                @endpush
+                @foreach (\App\Models\Club::owner(true)->get() as $club)
+                    <div class="flex flex-col">
+                        <x-headline class="text-center">{{ $club->name_code }}</x-headline>
+                        <livewire:frontpage.fever-curve :club="$club"/>
+                    </div>
+                @endforeach
+            </div>
+        </x-main-box>
+    </x-section>
     <x-section class="py-4 ">
         <x-main-box class="">
             <x-slot name="header">
@@ -52,5 +73,4 @@
             <livewire:frontpage.last-games />
         </x-main-box>
     </x-section>
-
 </x-app-layout>

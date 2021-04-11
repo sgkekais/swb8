@@ -82,11 +82,10 @@
 
         @stack('modals')
 
-        @livewireScripts
-
         <!-- Scripts -->
+        @livewireScripts
+        <script src="{{ asset('js/app.js') }}"></script>
         <script src="https://kit.fontawesome.com/3e5662e9c8.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
         <script src="https://unpkg.com/trix@1.3.1/dist/trix.js"></script>
 
         @stack('scripts')

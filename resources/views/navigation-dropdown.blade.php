@@ -6,10 +6,6 @@
             <a href="{{ route('home') }}" title="zur Startseite">
                 <x-jet-application-mark class="h-20 lg:h-24 w-auto fill-current text-white hover:text-black "/>
             </a>
-{{--            <div class="pt-1 flex-shrink-0 flex items-center font-sans font-extrabold text-2xl text-white ">--}}
-{{--                <a href="{{ route('home') }}" title="zur Startseite" class="border-b-4 border-transparent hover:border-black">SW Bilk '79</a>--}}
-{{--            </div>--}}
-
             <!-- Navigation Links -->
             <div class="hidden md:space-x-2 lg:space-x-4 md:ml-4 md:flex md:items-stretch">
                 <x-jet-nav-link href="{{ route('calendar').'#'.(\Carbon\Carbon::now()->translatedFormat('F')) }}" :active="request()->routeIs('calendar')" class="">
@@ -135,7 +131,7 @@
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                 <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
-                                    <img class="h-12 w-12 rounded-full object-cover ring ring-white hover:opacity-90" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                                    <img class="h-12 w-12 rounded-full object-cover ring ring-white hover:opacity-90" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" title="Profil-Einstellungen"/>
                                 </button>
                             @else
                                 <span class="inline-flex rounded-md">
