@@ -5,9 +5,11 @@
         <script>
             var ctx_{{ $club->id }} = document.getElementById('myChart{!! $club->id !!}');
             var yLabels_{{ $club->id }} = {
-              0: 'N',
-              1: 'U' ,
-              2: 'S',
+                0: 'N',
+                1: 'U' ,
+                2: 'S',
+                3: '',
+                4: ''
             };
 
             var tooltips_{{ $club->id }} = [];
@@ -33,8 +35,8 @@
                 @elseif($d->match->teamAway->owner)
                     clublogo.src = '{{ $d->match->teamHome->logo() }}';
                 @endif
-                clublogo.height = 25;
-                clublogo.width = 25;
+                clublogo.height = 50;
+                clublogo.width = 50;
                 clublogos_{{ $club->id }}[{{ $loop->index }}] = clublogo;
             @endforeach
 
@@ -49,7 +51,7 @@
                             data: {{ $last_dates->pluck('fever_value') }},
                             borderColor: 'black',
                             pointStyle: clublogos_{{ $club->id }},
-                            clip: 5,
+                            clip: 25,
                         }
                     ]
                 },
@@ -77,6 +79,7 @@
                         y: {
                             beginAtZero: true,
                             ticks: {
+                                padding: 25,
                                 stepSize: 1,
                                 callback: function(value) {
                                     return yLabels_{{ $club->id }}[value];

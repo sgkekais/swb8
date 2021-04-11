@@ -42,7 +42,8 @@
                                         <span class="text-sm">Alt: {{ $last_date->match->goals_home }}:{{ $last_date->match->goals_away }}</span>
                                     @endif
                                 @elseif ($last_date->match->isPenalties())
-                                    <span class="{{ $score_color }}">{{ $last_date->match->goals_home_pen }}:{{ $last_date->match->goals_away_pen}} i.E.</span>
+                                    <span class="{{ $score_color }}">{{ $last_date->match->goals_home_pen }}:{{ $last_date->match->goals_away_pen}}</span>
+                                    <span class="text-sm"> i.E.</span>
                                     <span class="text-sm">90' {{ $last_date->match->goals_home }}:{{ $last_date->match->goals_away }}</span>
                                 @else
                                     <span class="{{ $score_color }}">{{ $last_date->match->goals_home }}:{{ $last_date->match->goals_away }}</span>
