@@ -37,10 +37,10 @@
                         <x-jet-input-error for="season.number" />
                     </div>
                     <div class="w-full">
-                        <x-jet-label for="season.title" class="flex justify-between ">
+                        <x-jet-label for="season.title" class="flex justify-between">
                             Titel
                         </x-jet-label>
-                        <x-input-text class="" type="text" id="season.title" wire:model.defer="season.title" />
+                        <x-input-text class="w-full" type="text" id="season.title" wire:model.defer="season.title" />
                         <x-jet-input-error for="season.title" />
                     </div>
                 </div>

@@ -65,6 +65,9 @@
                         <li>
                             <a href="{{ route('club.sinners', $club) }}" class="text-gray-300">Karten</a>
                         </li>
+                        <li>
+                            <a href="{{ route('club.squad', $club) }}" class="text-gray-300">Kader</a>
+                        </li>
                     </ul>
                 </div>
             @endforeach
