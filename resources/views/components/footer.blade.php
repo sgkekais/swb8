@@ -78,6 +78,7 @@
             &copy; Copyright {{ \Carbon\Carbon::today()->isoFormat('Y') }} SW Bilk '79
         </p>
         <div class="flex items-center mt-4 space-x-4 sm:mt-0">
+            <i class="far fa-envelope"></i> <a href='mailto&#58;hi%&#52;&#48;s%&#55;7&#98;ilk&#55;&#57;&#46;de'>hi&#64;&#115;wbilk79&#46;de</a>
 {{--            <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400">--}}
 {{--                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">--}}
 {{--                    <path--}}
