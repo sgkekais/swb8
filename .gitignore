@@ -4,6 +4,8 @@
 /public/hot
 /public/storage
 /public/club-logos
+/public/css/
+/public/js/
 /storage/*.key
 /vendor
 .env
@@ -14,7 +16,4 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 /storage/debugbar/
-/_archive/
-/public/css/
-/public/js/
-/public/club-logos/
+/_archive
