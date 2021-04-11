@@ -243,9 +243,17 @@
                             <div class="w-3/12 flex items-center justify-center tracking-tighter">
                                 @if ($match->matchType->is_point_match)
                                     @if ($match->teamHome->owner)
-                                        {{ $goals_for += $match->goals_home }}:{{ $goals_against += $match->goals_away }}
+                                        @if ($match->isRated())
+                                            {{ $goals_for += $match->goals_home_rated }}:{{ $goals_against += $match->goals_away_rated }}
+                                        @elseif ($match->isPlayed())
+                                            {{ $goals_for += $match->goals_home }}:{{ $goals_against += $match->goals_away }}
+                                        @endif
                                     @else
-                                        {{ $goals_for += $match->goals_away }}:{{ $goals_against += $match->goals_home }}
+                                        @if ($match->isRated())
+                                            {{ $goals_for += $match->goals_away_rated }}:{{ $goals_against += $match->goals_home_rated }}
+                                        @elseif ($match->isPlayed())
+                                            {{ $goals_for += $match->goals_away }}:{{ $goals_against += $match->goals_home }}
+                                        @endif
                                     @endif
                                 @endif
                             </div>

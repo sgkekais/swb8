@@ -112,6 +112,9 @@
                     <x-table.heading class="w-1/12 text-center" wire:click="sortBy('total_red_cards')" selectable direction="{{ $sortField == 'total_red_cards' ? $sortDirection : null }}">
                         <i class="fas fa-square text-red-500" title="Rote Karte"></i>
                     </x-table.heading>
+                    <x-table.heading class="w-1/12 text-center" wire:click="sortBy('total_cards')" selectable direction="{{ $sortField == 'total_cards' ? $sortDirection : null }}">
+                        &Sigma;
+                    </x-table.heading>
                     <x-table.heading class="w-1/12 text-center" wire:click="sortBy('sinner_points')" selectable direction="{{ $sortField == 'sinner_points' ? $sortDirection : null }}">
                         &#127821;
                     </x-table.heading>
@@ -150,7 +153,7 @@
                     <x-table.row class="hover:bg-gray-100 {{ $user_row_color }}">
                         <x-table.cell class="text-center font-bold">
                             <div class="flex justify-center">
-                                <div class="ring rounded-full h-8 w-8 flex items-center justify-center {{ $sortDirection != 'asc' ? $sinner_place_color : null }} text-gray-900 text-lg font-bold" >
+                                <div class="{{ $sortDirection != 'asc' ? "ring" : null }} rounded-full h-8 w-8 flex items-center justify-center {{ $sortDirection != 'asc' ? $sinner_place_color : null }} text-gray-900 text-lg font-bold" >
                                     @if (($sinner_place != $prev_sinner_place || $sinner_place < 4) && $sortDirection != 'asc')
                                         {{ $sinner_place }}
                                     @else
@@ -184,6 +187,7 @@
                         <x-table.cell class="text-lg text-center">{{ $sinner->total_yellow_cards }}</x-table.cell>
                         <x-table.cell class="text-lg text-center">{{ $sinner->total_yellow_red_cards }}</x-table.cell>
                         <x-table.cell class="text-lg text-center">{{ $sinner->total_red_cards }}</x-table.cell>
+                        <x-table.cell class="text-lg text-center">{{ $sinner->total_cards }}</x-table.cell>
                         <x-table.cell class="text-lg text-center font-bold text-primary-700">{{ $sinner->sinner_points }}</x-table.cell>
                     </x-table.row>
                 @php
@@ -199,6 +203,7 @@
                     <x-table.cell class="text-lg sm:text-xl text-center font-bold">{{ $sinners->sum('total_yellow_cards') }}</x-table.cell>
                     <x-table.cell class="text-lg sm:text-xl text-center font-bold">{{ $sinners->sum('total_yellow_red_cards') }}</x-table.cell>
                     <x-table.cell class="text-lg sm:text-xl text-center font-bold">{{ $sinners->sum('total_red_cards') }}</x-table.cell>
+                    <x-table.cell class="text-lg sm:text-xl text-center font-bold">{{ $sinners->sum('total_cards') }}</x-table.cell>
                     <x-table.cell class="text-lg sm:text-xl text-center font-bold">{{ $sinners->sum('sinner_points') }}</x-table.cell>
                 </x-table.row>
             </x-slot>
