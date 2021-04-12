@@ -16,10 +16,10 @@ class CheckIfUserIsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if ( $request->user()->isAdmin() ) {
-            return $next($request);
+        if ( !$request->user()->isAdmin() ) {
+            return redirect()->route('home');
         }
 
-        return abort('403');
+        return $next($request);
     }
 }

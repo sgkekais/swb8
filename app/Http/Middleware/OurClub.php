@@ -2,11 +2,11 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Club;
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class CheckIfUserIsBanned
+class OurClub
 {
     /**
      * Handle an incoming request.
@@ -17,8 +17,8 @@ class CheckIfUserIsBanned
      */
     public function handle(Request $request, Closure $next)
     {
-        if ( $request->user()->isBanned() ) {
-            return redirect()->route('home')->withErrors('Ihr User ist gebannt.');
+        if ( !Club::find($request->club)->owner ) {
+            return redirect()->route('home');
         }
 
         return $next($request);

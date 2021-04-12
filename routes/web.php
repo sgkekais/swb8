@@ -29,10 +29,7 @@ Route::get('ewige-ananas', HistoricAnanasFarmers::class)->name('historic-ananas-
  * --------------------------------------------------------------------------
  */
 
-// TODO: only allow these routes for clubs "owned"
-
-
-Route::prefix('team')->name('club.')->group(function () {
+Route::prefix('team')->name('club.')->middleware('our_club')->group(function () {
     // fixtures
     Route::get('/{club}/spielplan',Schedule::class )->name('schedule');
     // goals & assists

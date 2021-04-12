@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\CheckIfUserIsBanned;
+use App\Http\Middleware\OurClub;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -64,6 +65,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'is_admin' => \App\Http\Middleware\CheckIfUserIsAdmin::class,
-        'is_banned' => \App\Http\Middleware\CheckIfUserIsBanned::class
+        'is_banned' => \App\Http\Middleware\CheckIfUserIsBanned::class,
+        'our_club' => \App\Http\Middleware\OurClub::class,
     ];
 }
