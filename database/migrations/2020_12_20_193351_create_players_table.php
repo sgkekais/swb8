@@ -16,7 +16,7 @@ class CreatePlayersTable extends Migration
         Schema::create('players', function (Blueprint $table) {
             $table->id();
             $table->foreignId('player_status_id')->constrained()->onUpdate('cascade')->onDelete('restrict');
-            $table->foreignId('user_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('restrict');
+            $table->foreignId('user_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('set null');
             $table->string('first_name');
             $table->string('last_name')->nullable();
             $table->string('nickname')->nullable();
