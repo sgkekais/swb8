@@ -88,7 +88,7 @@
             <!-- Page Content -->
             <main class="flex-grow relative pb-8">
 
-                <img src="/img/swblogo.png" class="absolute inset-x-0 mx-auto w-96 h-auto -bottom-24 opacity-5" />
+                <img src="/img/swblogo.png" alt="swblogobackground" class="absolute inset-x-0 mx-auto w-96 h-auto -bottom-24 opacity-5" />
 
                 <div class="relative">
                     {{ $slot }}
