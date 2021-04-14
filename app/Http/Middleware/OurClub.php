@@ -17,7 +17,7 @@ class OurClub
      */
     public function handle(Request $request, Closure $next)
     {
-        if ( !Club::find($request->club)->owner ) {
+        if ( !Club::where('name_code', $request->club)->first() || !Club::where('name_code', $request->club)->first()->owner ) {
             return redirect()->route('home');
         }
 

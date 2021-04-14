@@ -21,7 +21,7 @@ class CreateClub extends Component
     protected $rules = [
         'club.name' => 'required',
         'club.name_short' => 'nullable|string|max:15',
-        'club.name_code' => 'nullable|string|max:6',
+        'club.name_code' => 'nullable|string|max:6|unique:clubs,name_code',
         'club.logo_url' => 'nullable',
         'club.owner' => 'boolean',
         'club.ah' => 'boolean',

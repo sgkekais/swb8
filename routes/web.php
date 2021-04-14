@@ -31,13 +31,13 @@ Route::get('ewige-ananas', HistoricAnanasFarmers::class)->name('historic-ananas-
 
 Route::prefix('team')->name('club.')->middleware('our_club')->group(function () {
     // fixtures
-    Route::get('/{club}/spielplan',Schedule::class )->name('schedule');
+    Route::get('/{club:name_code}/spielplan',Schedule::class )->name('schedule');
     // goals & assists
-    Route::get('/{club}/scorer',Scorers::class )->name('scorers');
+    Route::get('/{club:name_code}/scorer',Scorers::class )->name('scorers');
     // cards
-    Route::get('/{club}/suender',Sinners::class )->name('sinners');
+    Route::get('/{club:name_code}/suender',Sinners::class )->name('sinners');
 
-    Route::get('/{club}/kader',Squad::class )->name('squad');
+    Route::get('/{club:name_code}/kader',Squad::class )->name('squad');
 });
 
 /*

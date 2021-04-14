@@ -42,7 +42,7 @@
                         <x-jet-input-error for="club.name_short" />
                     </div>
                     <div class="w-full md:w-1/2 px-3">
-                        <x-jet-label for="club.name_code" value="Name - kurz" />
+                        <x-jet-label for="club.name_code" value="Name - Code" />
                         <x-input-text class="w-full" type="text" id="club.name_code" wire:model.lazy="club.name_code" placeholder="SWB" maxlength="6" />
                         <x-jet-input-error for="club.name_code" />
                     </div>
