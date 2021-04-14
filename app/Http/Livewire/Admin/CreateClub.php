@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Club;
 use App\Models\Player;
+use Illuminate\Validation\Rule;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -18,15 +19,37 @@ class CreateClub extends Component
     public $selected_players = [];
     public $club_logo;
 
-    protected $rules = [
-        'club.name' => 'required',
-        'club.name_short' => 'nullable|string|max:15',
-        'club.name_code' => 'nullable|string|max:6|unique:clubs,name_code',
-        'club.logo_url' => 'nullable',
-        'club.owner' => 'boolean',
-        'club.ah' => 'boolean',
-        'club_logo' => 'image|max:1024|nullable'
-    ];
+//    protected $rules = [
+//        'club.name' => 'required',
+//        'club.name_short' => 'nullable|string|max:15',
+//        'club.name_code' => [
+//            'nullable',
+//            'string',
+//            'max:6',
+//        ],
+//        'club.logo_url' => 'nullable',
+//        'club.owner' => 'boolean',
+//        'club.ah' => 'boolean',
+//        'club_logo' => 'image|max:1024|nullable'
+//    ];
+
+    public function rules()
+    {
+        return [
+            'club.name' => 'required',
+            'club.name_short' => 'nullable|string|max:15',
+            'club.name_code' => [
+                'nullable',
+                'string',
+                'max:6',
+                Rule::unique('clubs', 'name_code')->ignore($this->club->id),
+            ],
+            'club.logo_url' => 'nullable',
+            'club.owner' => 'boolean',
+            'club.ah' => 'boolean',
+            'club_logo' => 'image|max:1024|nullable'
+        ];
+    }
 
     protected $listeners = [
         'editTableEntry' => 'edit',
