@@ -48,6 +48,16 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="theme-color" content="#ffffff">
 
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-K2PJBSL60D"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-K2PJBSL60D');
+        </script>
+
     </head>
     <body class="font-mono antialiased">
 {{--    <div class="fixed top-0 right-0 m-8 p-3 z-50 text-xs font-mono text-white h-6 w-6 rounded-full flex items-center justify-center bg-gray-700 sm:bg-pink-500 md:bg-orange-500 lg:bg-green-500 xl:bg-blue-500">--}}
@@ -109,7 +119,6 @@
         @livewireScripts
         <script src="{{ asset('js/app.js') }}"></script>
         <script src="https://kit.fontawesome.com/3e5662e9c8.js" crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/trix@1.3.1/dist/trix.js"></script>
 
         @stack('scripts')
 

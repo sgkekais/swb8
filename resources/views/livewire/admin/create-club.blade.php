@@ -122,6 +122,4 @@
             Anlegen
         </x-confirmation-button>
     </div>
-
-
 </div>

@@ -17,6 +17,8 @@ Route::view('/', 'index')->name('home');
 
 Route::view('/uber-uns', 'static.about')->name('about');
 
+Route::view('/impresseum-datenschutz', 'static.tos-privacy')->name('tos-privacy');
+
 Route::get('/kalender', Calendar::class)->name('calendar');
 
 Route::get('ewige-scorer', HistoricScorers::class)->name('historic-scorers');

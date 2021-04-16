@@ -75,10 +75,12 @@
     </div>
     <div class="flex flex-col justify-between pt-5 pb-10 border-t sm:flex-row">
         <p class="text-sm text-gray-300">
-            &copy; Copyright {{ \Carbon\Carbon::today()->isoFormat('Y') }} SW Bilk '79
+            &copy; Copyright {{ \Carbon\Carbon::today()->isoFormat('Y') }} SW Bilk '79 | <a href="{{ route('tos-privacy') }}">Impressum & Datenschutz</a>
         </p>
-        <div class="flex items-center mt-4 space-x-4 sm:mt-0">
-            <i class="far fa-envelope"></i> <a href='mailto&#58;hi%&#52;&#48;s%&#55;7&#98;ilk&#55;&#57;&#46;de'>hi&#64;&#115;wbilk79&#46;de</a>
+        <div class="flex justify-between items-center mt-4 space-x-4 sm:mt-0">
+            <div>
+                <i class="far fa-envelope"></i> <a href='mailto&#58;hi%&#52;&#48;s%&#55;7&#98;ilk&#55;&#57;&#46;de'>hi&#64;&#115;wbilk79&#46;de</a>
+            </div>
 {{--            <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400">--}}
 {{--                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">--}}
 {{--                    <path--}}
@@ -94,13 +96,13 @@
 {{--                    ></path>--}}
 {{--                </svg>--}}
 {{--            </a>--}}
-{{--            <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400">--}}
-{{--                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">--}}
-{{--                    <path--}}
-{{--                        d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z"--}}
-{{--                    ></path>--}}
-{{--                </svg>--}}
-{{--            </a>--}}
+            <a href="https://fb.me/swbilk79" target="_blank" class="text-gray-500 transition-colors duration-300 hover:text-blue-500">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                    <path
+                        d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z"
+                    ></path>
+                </svg>
+            </a>
         </div>
     </div>
 </div>

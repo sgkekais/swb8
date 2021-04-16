@@ -279,3 +279,7 @@
     @endif
 
 </div>
+
+@push('scripts')
+    <script src="https://unpkg.com/trix@1.3.1/dist/trix.js"></script>
+@endpush
