@@ -1,4 +1,14 @@
 <x-section class="py-0">
+    @auth
+        <div class="flex items-center p-4 mb-4 bg-yellow-100 space-x-4">
+            <div class="">
+                <i class="fas fa-info fa-fw"></i>
+            </div>
+            <div class="">
+                Vollständige Namen werden nur angemeldeten Mitgliedern angezeigt.
+            </div>
+        </div>
+    @endauth
 
     @if ($club->players()->count() > 0)
 
@@ -16,7 +26,7 @@
                         <!-- pic, name, title -->
                         <div class="p-4 flex items-center space-x-4 bg-gray-200 bg-opacity-25">
                             @isset($player->user)
-                                <img class="h-16 w-16 rounded-full object-cover" src="{{ $player->user->profile_photo_url }}" alt="{{ $player->first_name }}" />
+                                <img class="h-16 w-16 rounded object-cover" src="{{ $player->user->profile_photo_url }}" alt="{{ $player->first_name }}" />
                             @else
                                 <img class="inline-flex h-16 w-16 rounded-full object-cover" src="https://ui-avatars.com/api/?name={{ $player->name }}&color=FFFFFF&background=505050" />
                             @endisset
