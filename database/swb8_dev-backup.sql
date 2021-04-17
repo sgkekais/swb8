@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 06, 2021 at 03:07 PM
+-- Generation Time: Apr 17, 2021 at 07:56 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.12
 
@@ -354,7 +354,12 @@ INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_type`, `su
 (305, 'default', 'updated', 'App\\Models\\Match', 638, 'App\\Models\\User', 1, '{\"old\": {\"match_details\": \"<div><strong>Aufstellung:</strong><br>Willi - Gökki (65. Fritz), Manu (46. Jannik), Basti, <strong>Kevin </strong>- Roy (70. Dustin), Marco - Niko , Alberty, Tobi - Gussi (60. Lukas) <br><br><strong>Reserve:</strong><br>Raoul</div>\"}, \"attributes\": {\"match_details\": \"<div><strong>Aufstellung:</strong><br>Willi - Gökki (65. <del>Fritz</del>), Manu (46. Jannik), Basti, <strong>Kevin </strong>- Roy (70. Dustin), Marco - Niko , Alberty, Tobi - Gussi (60. Lukas) <br><br><strong>Reserve:</strong><br>Raoul</div>\"}}', '2021-04-06 12:52:42', '2021-04-06 12:52:42'),
 (306, 'default', 'updated', 'App\\Models\\Match', 638, 'App\\Models\\User', 1, '{\"old\": {\"match_details\": \"<div><strong>Aufstellung:</strong><br>Willi - Gökki (65. <del>Fritz</del>), Manu (46. Jannik), Basti, <strong>Kevin </strong>- Roy (70. Dustin), Marco - Niko , Alberty, Tobi - Gussi (60. Lukas) <br><br><strong>Reserve:</strong><br>Raoul</div>\"}, \"attributes\": {\"match_details\": \"<div><strong>Aufstellung:</strong><br>Willi - Gökki (65. Fritz), Manu (46. Jannik), Basti, Kevin - Roy (70. Dustin), Marco - Niko , Alberty, Tobi - Gussi (60. Lukas) <br><br><strong>Reserve:</strong><br>Raoul</div>\"}}', '2021-04-06 12:53:41', '2021-04-06 12:53:41'),
 (307, 'default', 'updated', 'App\\Models\\Match', 675, 'App\\Models\\User', 1, '{\"old\": {\"match_details\": null}, \"attributes\": {\"match_details\": \"<div>Test</div>\"}}', '2021-04-06 13:45:45', '2021-04-06 13:45:45'),
-(308, 'default', 'updated', 'App\\Models\\Match', 673, 'App\\Models\\User', 1, '{\"old\": {\"match_details\": null}, \"attributes\": {\"match_details\": \"<div>1:0 <strong>gewonnen</strong>!<em><del>!</del></em></div>\"}}', '2021-04-06 14:05:31', '2021-04-06 14:05:31');
+(308, 'default', 'updated', 'App\\Models\\Match', 673, 'App\\Models\\User', 1, '{\"old\": {\"match_details\": null}, \"attributes\": {\"match_details\": \"<div>1:0 <strong>gewonnen</strong>!<em><del>!</del></em></div>\"}}', '2021-04-06 14:05:31', '2021-04-06 14:05:31'),
+(309, 'default', 'updated', 'App\\Models\\Match', 638, 'App\\Models\\User', 1, '{\"old\": {\"match_details\": \"<div><strong>Aufstellung:</strong><br>Willi - Gökki (65. Fritz), Manu (46. Jannik), Basti, Kevin - Roy (70. Dustin), Marco - Niko , Alberty, Tobi - Gussi (60. Lukas) <br><br><strong>Reserve:</strong><br>Raoul</div>\"}, \"attributes\": {\"match_details\": \"<div><strong>Aufstellung:</strong><br>Willi - <a href=\\\"http://www.google.de\\\">Gökki </a>(65. Fritz), Manu (46. Jannik), Basti, Kevin - Roy (70. Dustin), Marco - Niko , Alberty, Tobi - Gussi (60. Lukas)&nbsp;</div><ul><li>jj<ul><li><br></li></ul></li></ul><div><strong>Reserve:</strong><br>Raoul</div>\"}}', '2021-04-06 19:46:42', '2021-04-06 19:46:42'),
+(310, 'default', 'updated', 'App\\Models\\Match', 638, 'App\\Models\\User', 1, '{\"old\": {\"match_details\": \"<div><strong>Aufstellung:</strong><br>Willi - <a href=\\\"http://www.google.de\\\">Gökki </a>(65. Fritz), Manu (46. Jannik), Basti, Kevin - Roy (70. Dustin), Marco - Niko , Alberty, Tobi - Gussi (60. Lukas)&nbsp;</div><ul><li>jj<ul><li><br></li></ul></li></ul><div><strong>Reserve:</strong><br>Raoul</div>\"}, \"attributes\": {\"match_details\": \"<div><strong>Aufstellung:</strong><br>Willi - Gökki (65. Fritz), Manu (46. Jannik), Basti, Kevin - Roy (70. Dustin), Marco - Niko , Alberty, Tobi - Gussi (60. Lukas)<br><br></div><div><strong>Reserve:</strong><br>Raoul</div>\"}}', '2021-04-06 19:47:19', '2021-04-06 19:47:19'),
+(311, 'default', 'updated', 'App\\Models\\Club', 90, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"0UEbuIALDBXFdgChm1jJJKjOGw5s3RqyOhBBocOZ.png\"}}', '2021-04-10 14:28:15', '2021-04-10 14:28:15'),
+(312, 'default', 'updated', 'App\\Models\\Club', 22, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"IvFUN9ncG7SpVnxhIYw4ra8wzUuhli7z2G7APhfQ.png\"}}', '2021-04-10 14:28:35', '2021-04-10 14:28:35'),
+(313, 'default', 'updated', 'App\\Models\\Club', 102, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"e60xgxTOF6kaRXJzfpKgpJ7EPzNESUSeimEgdEEX.png\"}}', '2021-04-10 14:29:02', '2021-04-10 14:29:02');
 
 -- --------------------------------------------------------
 
@@ -1057,7 +1062,7 @@ INSERT INTO `cards` (`id`, `match_id`, `player_id`, `color`, `note`, `created_at
 (306, 374, 16, '10min', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (307, 346, 75, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (308, 361, 65, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
-(309, 361, 87, 'rot', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
+(309, 361, 77, 'rot', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (310, 361, 10, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (311, 347, 54, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (312, 364, 54, '10min', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
@@ -1081,7 +1086,7 @@ INSERT INTO `cards` (`id`, `match_id`, `player_id`, `color`, `note`, `created_at
 (330, 410, 54, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (331, 410, 97, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (332, 426, 96, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
-(333, 405, 87, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
+(333, 405, 77, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (334, 405, 98, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (335, 405, 54, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (336, 405, 4, 'gelb-rot', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
@@ -1271,7 +1276,7 @@ INSERT INTO `clubs` (`id`, `name`, `name_short`, `name_code`, `logo_url`, `owner
 (19, 'Dynamo Unterbach', 'Unterbach', 'DU', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:16:28'),
 (20, 'Buga United', 'Buga', 'BU', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:16:38'),
 (21, 'FC Lot jonn', 'Lotjonn', 'FCLJ', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:16:50'),
-(22, 'Bierfreunde Mett', 'Bierfreunde', 'BM', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:17:00'),
+(22, 'Bierfreunde Mett', 'Bierfreunde', 'BM', 'IvFUN9ncG7SpVnxhIYw4ra8wzUuhli7z2G7APhfQ.png', 0, 0, '2020-10-31 18:40:39', '2021-04-10 14:28:35'),
 (23, 'Harbour Pirates FC', 'Pirates', 'HPFC', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:17:13'),
 (24, 'SG United Ratingen 05', 'Ratingen', 'UR05', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:17:29'),
 (25, 'Klümpkes Stockum', 'Klümpkes', 'KS', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:17:37'),
@@ -1337,7 +1342,7 @@ INSERT INTO `clubs` (`id`, `name`, `name_short`, `name_code`, `logo_url`, `owner
 (87, 'Schlosspark United', 'Schlosspark', 'SU', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:26:18'),
 (88, 'Sparta Bilk AH', 'Sparta AH', 'SBAH', NULL, 0, 1, '2020-10-31 18:40:39', '2021-03-22 16:27:44'),
 (89, 'Trainingsspiel', 'Training', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
-(90, 'Blau Blau Brause', 'Brause', 'BBB', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:27:33'),
+(90, 'Blau Blau Brause', 'Brause', 'BBB', '0UEbuIALDBXFdgChm1jJJKjOGw5s3RqyOhBBocOZ.png', 0, 0, '2020-10-31 18:40:39', '2021-04-10 14:28:15'),
 (91, 'SG Cosmos/Hennekamp', 'Cosm-Hennek', 'SGCH', NULL, 0, 1, '2020-10-31 18:40:39', '2021-03-22 16:28:09'),
 (92, 'AH-Turnier FCB Hobbyelf', 'AH-Turnier', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
 (93, 'Vatertag', 'Vatertag', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
@@ -1348,7 +1353,7 @@ INSERT INTO `clubs` (`id`, `name`, `name_short`, `name_code`, `logo_url`, `owner
 (99, 'A-Team reloaded AH', 'A-Team AH', 'ATRAH', NULL, 0, 1, '2020-10-31 18:40:39', '2021-03-22 16:27:00'),
 (100, 'Lokomotive Rheinwiese', 'Lok. Rheinw.', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
 (101, 'FF Düsseldorf 2015', 'FF D\'dorf', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
-(102, 'Sparta Erkrath', 'Sparta Erkr.', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
+(102, 'Sparta Erkrath', 'Sparta Erkr.', NULL, 'e60xgxTOF6kaRXJzfpKgpJ7EPzNESUSeimEgdEEX.png', 0, 0, '2020-10-31 18:40:39', '2021-04-10 14:29:02'),
 (103, 'Monday Kickers', 'MondayK.', 'MK', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:28:55'),
 (104, 'Fit in Düsseldorf United', 'Fit in', 'FIDU', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:27:59'),
 (105, 'BSG IT NRW', 'BSG IT NRW', 'ITNRW', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:31:16'),
@@ -2819,7 +2824,7 @@ INSERT INTO `goals` (`id`, `match_id`, `player_id`, `score`, `minute`, `penalty`
 (602, 322, 63, '0:1', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (603, 322, 54, '0:2', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (604, 322, 12, '1:3', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
-(605, 324, 87, '1:2', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
+(605, 324, 77, '1:2', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (606, 325, 85, '1:0', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (607, 325, 14, '2:0', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (608, 325, 35, '3:5', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
@@ -3972,7 +3977,7 @@ INSERT INTO `matches` (`id`, `date_id`, `match_type_id`, `season_id`, `matchweek
 (627, 627, 2, 11, '2', 33, 80, 2, 1, NULL, NULL, 2, 1, NULL, NULL, '<b>Aufstellung:</b><br />Backi - Christoph M., Manu, Jannik, Kevin (60. Baris) - Sven, Andy (55. Jan R.) - Simon (60. Lukas), Alberty (75. Dustin), Tobi - Gussi (70. Marc)<br /><br /><b>Reserve:</b><br />Stepahn H. \n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:34:42'),
 (635, 635, 2, 11, '5', 33, 61, 6, 4, NULL, NULL, 3, 1, NULL, NULL, '<b>Aufstellung:</b><br />Backi - Jannik, Stephan F., Manu, Basti - Lukas, Mitch (46. Kefin), Sven, Tobi - Niko (46. Dustin), Alberty (75. Fritz)<br /><br /><b>Reservebank:</b><br />Kevin, Martin\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:34:42'),
 (636, 636, 2, 11, '7', 33, 60, 4, 2, NULL, NULL, 0, 1, NULL, NULL, '<b>Aufstellung:</b><br />Willi - Fritz (60. Raoul), Andy, Basti, Jannik (65. Kevin)- Marco (75. Martin), Sven - Niko, Oli, Tobi - Alberty (65. Gussi)<br /><br /><b>besonderes Vorkommnis:</b><br />Willi hÃ¤lt beim Stand von 4:0 kurz vor Abpfiff Foulelfmeter (Fritz :-)\n					 \n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:34:42'),
-(638, 638, 2, 11, '9', 33, 102, 5, 2, NULL, NULL, 2, 1, NULL, NULL, '<div><strong>Aufstellung:</strong><br>Willi - Gökki (65. Fritz), Manu (46. Jannik), Basti, Kevin - Roy (70. Dustin), Marco - Niko , Alberty, Tobi - Gussi (60. Lukas) <br><br><strong>Reserve:</strong><br>Raoul</div>', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-04-06 12:53:41'),
+(638, 638, 2, 11, '9', 33, 102, 5, 2, NULL, NULL, 2, 1, NULL, NULL, '<div><strong>Aufstellung:</strong><br>Willi - Gökki (65. Fritz), Manu (46. Jannik), Basti, Kevin - Roy (70. Dustin), Marco - Niko , Alberty, Tobi - Gussi (60. Lukas)<br><br></div><div><strong>Reserve:</strong><br>Raoul</div>', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-04-06 19:47:19'),
 (639, 639, 2, 11, '11', 33, 26, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:34:42'),
 (640, 640, 2, 11, '4', 20, 33, 0, 0, NULL, NULL, 4, 1, NULL, NULL, '<b>Aufstellung:</b><br />Willi - Lukas (65. Christoph L.), Manu, Basti, Christoph M. - Simon (80. Luca), Mitch (75. Dustin), Andy, Tobi  -  Alberty (70. Martin), Niko', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:34:42'),
 (649, 649, 2, 11, '13', 33, 32, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:34:42'),
@@ -4218,7 +4223,6 @@ INSERT INTO `players` (`id`, `player_status_id`, `user_id`, `first_name`, `last_
 (84, 1, NULL, 'Takeshi', 'Shiragami', 'Takeshi', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
 (85, 1, NULL, 'Frank', 'Büching', 'Gemüse', '1964-03-26', '2015-01-01', NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2021-03-05 10:17:26'),
 (86, 1, NULL, 'Florent', '?', 'Flo', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(87, 1, NULL, 'Lars', '?', 'Lars', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
 (88, 1, NULL, 'Stephan', 'Miebach', 'Stephan Mie.', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
 (89, 1, NULL, 'Philip', 'Braun', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
 (90, 1, NULL, 'Felix', 'Rohmann', 'Felix', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
@@ -4439,7 +4443,40 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('6dXqgQ30iRfzVKeWdmYn6B3FUVvdKVGP03SeSffZ', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36 Edg/89.0.774.68', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoia1BES2w3N0p3NG8yRE5sOXdVa1hoU3BmWFE2RTdSZHZCN05YOHVHbiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MTY6Imh0dHA6Ly9zd2I4LnRlc3QiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkZVAxLzBGNDF1dC5vZW0yb0FrY05QZUFhVWpFcEVwdGdWVVREOXNuOEoyai5hMWpIODNQT0MiO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJGVQMS8wRjQxdXQub2VtMm9Ba2NOUGVBYVVqRXBFcHRnVlVURDlzbjhKMmouYTFqSDgzUE9DIjt9', 1617721615);
+('0ptVaeJbKCTymfDZlp2XdgkhCu7zrLLICWzkKR7P', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36 Edg/89.0.774.77', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiUGxCSHBBUlQ5Rmxkem9hUDRlT3hra3o2VWo2eklxazZNbVN3QnN6ZCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly9zd2I4LnRlc3QvdGVhbS9ITFcva2FkZXIiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkZVAxLzBGNDF1dC5vZW0yb0FrY05QZUFhVWpFcEVwdGdWVVREOXNuOEoyai5hMWpIODNQT0MiO30=', 1618666379);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `spiele_gegeneinander`
+-- (See below for the actual view)
+--
+CREATE TABLE `spiele_gegeneinander` (
+`id` bigint(20) unsigned
+,`date_id` bigint(20) unsigned
+,`match_type_id` bigint(20) unsigned
+,`season_id` bigint(20) unsigned
+,`matchweek` varchar(191)
+,`team_home` bigint(20) unsigned
+,`team_away` bigint(20) unsigned
+,`goals_home` tinyint(4)
+,`goals_home_ht` tinyint(4)
+,`goals_home_pen` tinyint(4)
+,`goals_home_rated` tinyint(4)
+,`goals_away` tinyint(4)
+,`goals_away_ht` tinyint(4)
+,`goals_away_pen` tinyint(4)
+,`goals_away_rated` tinyint(4)
+,`match_details` text
+,`rescheduled_to_fixture_id` bigint(20) unsigned
+,`rescheduled_by_team` bigint(20) unsigned
+,`reschedule_reason` varchar(191)
+,`published` tinyint(1)
+,`cancelled` tinyint(1)
+,`created_at` timestamp
+,`updated_at` timestamp
+,`Tore` bigint(21)
+);
 
 -- --------------------------------------------------------
 
@@ -4528,8 +4565,17 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `current_team_id`, `profile_photo_path`, `is_admin`, `banned`, `created_at`, `updated_at`) VALUES
-(1, 'Kevin', 'kvnkaiser@gmail.com', NULL, '$2y$10$eP1/0F41ut.oem2oAkcNPeAaUjEpEptgVUTD9sn8J2j.a1jH83POC', NULL, NULL, 'vxwUHBWPhhgcI2sYKB0P6lLaQnDBVfimypErVwlTAGBszeFdp6wwahMHrZBi', NULL, 'profile-photos/cUTiyY6X6OBPomN6DBJlyQFVburL4FuAvpWA402n.png', 1, 0, '2020-11-17 21:01:51', '2021-04-01 19:32:47'),
+(1, 'Kevin', 'kvnkaiser@gmail.com', NULL, '$2y$10$eP1/0F41ut.oem2oAkcNPeAaUjEpEptgVUTD9sn8J2j.a1jH83POC', NULL, NULL, '8MBxryyDbH4onxvFtmNfETAaYFsU0XKTJmwm0SaY6OmyxhVsn716ghl7b9A5', NULL, 'profile-photos/cUTiyY6X6OBPomN6DBJlyQFVburL4FuAvpWA402n.png', 1, 0, '2020-11-17 21:01:51', '2021-04-01 19:32:47'),
 (2, 'Martin', 'martin@martin.de', NULL, 'test', NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `spiele_gegeneinander`
+--
+DROP TABLE IF EXISTS `spiele_gegeneinander`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `spiele_gegeneinander`  AS SELECT `matches`.`id` AS `id`, `matches`.`date_id` AS `date_id`, `matches`.`match_type_id` AS `match_type_id`, `matches`.`season_id` AS `season_id`, `matches`.`matchweek` AS `matchweek`, `matches`.`team_home` AS `team_home`, `matches`.`team_away` AS `team_away`, `matches`.`goals_home` AS `goals_home`, `matches`.`goals_home_ht` AS `goals_home_ht`, `matches`.`goals_home_pen` AS `goals_home_pen`, `matches`.`goals_home_rated` AS `goals_home_rated`, `matches`.`goals_away` AS `goals_away`, `matches`.`goals_away_ht` AS `goals_away_ht`, `matches`.`goals_away_pen` AS `goals_away_pen`, `matches`.`goals_away_rated` AS `goals_away_rated`, `matches`.`match_details` AS `match_details`, `matches`.`rescheduled_to_fixture_id` AS `rescheduled_to_fixture_id`, `matches`.`rescheduled_by_team` AS `rescheduled_by_team`, `matches`.`reschedule_reason` AS `reschedule_reason`, `matches`.`published` AS `published`, `matches`.`cancelled` AS `cancelled`, `matches`.`created_at` AS `created_at`, `matches`.`updated_at` AS `updated_at`, count(`goals`.`id`) AS `Tore` FROM (`matches` left join `goals` on((`matches`.`id` = `goals`.`match_id`))) WHERE (((`matches`.`team_home` = 33) AND (`matches`.`team_away` = 34)) OR ((`matches`.`team_home` = 34) AND (`matches`.`team_away` = 33))) GROUP BY `matches`.`id` ;
 
 --
 -- Indexes for dumped tables
@@ -4731,7 +4777,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=309;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=314;
 
 --
 -- AUTO_INCREMENT for table `assists`
