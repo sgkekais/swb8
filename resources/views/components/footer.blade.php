@@ -1,4 +1,4 @@
-<div class="px-4 xl:px-0 max-w-7xl mx-auto text-white">
+<div class="px-4 max-w-7xl mx-auto text-white">
     <div class="grid gap-16 row-gap-10 mb-8 lg:grid-cols-6">
         <div class="md:max-w-md lg:col-span-2">
             <a href="{{ route('home') }}" aria-label="Startseite" title="SW Bilk '79 - Startseite" class="inline-flex items-center">
