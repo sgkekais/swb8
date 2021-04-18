@@ -18,8 +18,11 @@
         </div>
         <form method="POST" action="{{ route('login') }}">
             @csrf
+            <div class="text-sm">
+                Zugang nur für Mitglieder des Vereins.
+            </div>
 
-            <div class="flex flex-col">
+            <div class="mt-4 flex flex-col">
                 <x-jet-label value="{{ __('Email') }}" />
                 <x-input-text type="email" name="email" class="flex-1" :value="old('email')" required autofocus />
             </div>

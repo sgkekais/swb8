@@ -1,6 +1,10 @@
 <x-section class="py-0">
+    <div class="mb-4">
+        {{ $club->players()->count() }} Spieler
+    </div>
+
     @auth
-        <div class="flex items-center p-4 mb-4 bg-yellow-100 space-x-4">
+        <div class="flex items-center p-4 mb-4 border border-yellow-500 space-x-4">
             <div class="">
                 <i class="fas fa-info fa-fw"></i>
             </div>
@@ -12,21 +16,21 @@
 
     @if ($club->players()->count() > 0)
 
-        <div class="pb-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 ">
+        <div class="pb-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 ">
             @foreach($club->players->sortBy('name_short') as $player)
                 <div class="relative border border-gray-500 overflow-hidden">
                     <!-- number -->
                     <div class="absolute inset-0 text-5xl text-primary-700 font-extrabold flex items-center">
                         <img src="/img/swblogo.png" class="w-40 h-auto m-auto opacity-5" />
                     </div>
-                    <div class="absolute top-0 right-0 text-7xl text-black font-extrabold opacity-50">
+                    <div class="absolute top-0 right-0 text-7xl text-black font-extrabold tracking-tighter opacity-50">
                         {{ $player->clubs->find($club->id )->pivot->number }}
                     </div>
                     <div class="relative flex flex-col space-y-2">
                         <!-- pic, name, title -->
                         <div class="p-4 flex items-center space-x-4 bg-gray-200 bg-opacity-25">
                             @isset($player->user)
-                                <img class="h-16 w-16 rounded object-cover" src="{{ $player->user->profile_photo_url }}" alt="{{ $player->first_name }}" />
+                                <img class="h-16 w-16 rounded-full object-cover" src="{{ $player->user->profile_photo_url }}" alt="{{ $player->first_name }}" />
                             @else
                                 <img class="inline-flex h-16 w-16 rounded-full object-cover" src="https://ui-avatars.com/api/?name={{ $player->name }}&color=FFFFFF&background=505050" />
                             @endisset
@@ -50,7 +54,7 @@
                         <!-- joined -->
                         <div class="px-4 text-sm text-gray-700">
                             @if ($player->joined)
-                                <i class="fas fa-birthday-cake"></i> Dabei seit {{ $player->joined->isoFormat('MM.Y') }} ({{ $player->joined->diffInYears() > 0 ? $player->joined->diffInYears()." J." : $player->joined->diffInMonths()." M." }})
+                                <i class="fas fa-pen-nib"></i> Dabei seit {{ $player->joined->isoFormat('MM.Y') }} ({{ $player->joined->diffInYears() > 0 ? $player->joined->diffInYears()." J." : $player->joined->diffInMonths()." M." }})
                             @else
                                 &nbsp;
                             @endif

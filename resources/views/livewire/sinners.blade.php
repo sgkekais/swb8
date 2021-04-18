@@ -72,7 +72,7 @@
             </div>
         </div>
 
-        <div class="flex items-center p-4 mb-4 bg-gray-100 space-x-4">
+        <div class="flex items-center p-4 mb-4 border border-gray-700 space-x-4">
             <div class="">
                 <i class="far fa-lightbulb fa-fw"></i>
             </div>
@@ -84,7 +84,7 @@
                 </div>
             </div>
         </div>
-        <div class="flex items-center p-4 mb-4 bg-yellow-100 space-x-4">
+        <div class="flex items-center p-4 mb-4 border border-yellow-500 space-x-4">
             <div class="">
                 <i class="fas fa-info fa-fw"></i>
             </div>
