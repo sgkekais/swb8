@@ -28,7 +28,7 @@
                         </div>
                         <div class="relative flex flex-col space-y-2">
                             <!-- pic, name, title -->
-                            <div class="p-4 h-20 flex items-center bg-black bg-opacity-75 relative">
+                            <div class="p-4 h-20 flex items-center bg-black bg-opacity-50 relative">
                                 @isset($player->user)
                                     <img class="absolute top-4 h-24 w-24 rounded-full object-cover border-2 border-black" src="{{ $player->user->profile_photo_url }}" alt="{{ $player->first_name }}" />
                                 @else
@@ -36,7 +36,7 @@
                                 @endisset
                                 <div class="pl-28 flex flex-col relative">
                                     <div class="text-lg text-white font-extrabold">{{ $player->name_short }}</div>
-                                    @auth<div class="text-sm text-gray-700">{{ $player->full_name }}</div>@endauth
+                                    @auth<div class="text-sm text-white">{{ $player->full_name }}</div>@endauth
                                     <div class="text-sm font-bold text-yellow-500">
                                         {{ $player->public_note }}
                                         {{--                                    @if ($player->public_note)--}}
