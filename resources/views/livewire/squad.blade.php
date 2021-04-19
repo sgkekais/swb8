@@ -32,7 +32,7 @@
                                 @isset($player->user)
                                     <img class="absolute top-4 h-24 w-24 rounded-full object-cover border-2 border-black" src="{{ $player->user->profile_photo_url }}" alt="{{ $player->first_name }}" />
                                 @else
-                                    <img class="absolute top-4 h-24 w-24 rounded-full object-cover border-2 border-black" src="https://eu.ui-avatars.com/api/?name={{ $player->name }}&color=000&background=fff" />
+                                    <img class="absolute top-4 h-24 w-24 rounded-full object-cover border-2 border-black" src="https://eu.ui-avatars.com/api/?name={{ $player->first_name }}+{{ $player->last_name }}&color=000&background=fff" />
                                 @endisset
                                 <div class="pl-28 flex flex-col relative">
                                     <div class="text-lg text-white font-extrabold">{{ $player->name_short }}</div>

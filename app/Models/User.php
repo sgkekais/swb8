@@ -87,7 +87,7 @@ class User extends Authenticatable
 
     protected function defaultProfilePhotoUrl()
     {
-        return 'https://eu.ui-avatars.com/api/?name='.urlencode($this->name).'&color=000&background=fff';
+        return 'https://eu.ui-avatars.com/api/?name='.urlencode($this->player->first_name.'+'.$this->player->last_name).'&color=000&background=fff';
     }
 
     /*
