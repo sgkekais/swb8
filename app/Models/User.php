@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
@@ -85,9 +86,26 @@ class User extends Authenticatable
         return $this->banned;
     }
 
+    /**
+     * Get the URL to the user's profile photo.
+     *
+     * @return string
+     */
+    public function getProfilePhotoUrlAttribute()
+    {
+        return $this->profile_photo_path
+            ? Storage::disk($this->profilePhotoDisk())->url($this->profile_photo_path)
+            : $this->defaultProfilePhotoUrl();
+    }
+
+    /**
+     * Get the default profile photo URL if no profile photo has been uploaded.
+     *
+     * @return string
+     */
     protected function defaultProfilePhotoUrl()
     {
-        return 'https://eu.ui-avatars.com/api/?name='.urlencode($this->player->first_name.'+'.$this->player->last_name).'&color=000&background=fff';
+        return 'https://eu.ui-avatars.com/api/?name='.urlencode($this->name).'&color=000&background=fff';
     }
 
     /*
