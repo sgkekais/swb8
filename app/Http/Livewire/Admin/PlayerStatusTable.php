@@ -23,6 +23,10 @@ class PlayerStatusTable extends LivewireDatatable
                 ->searchable(),
             BooleanColumn::name('can_play')
                 ->label('Kann spielen?'),
+            BooleanColumn::name('display_in_polls')
+                ->label('Anzeige in Umfrage?'),
+            BooleanColumn::name('display_in_squad')
+                ->label('Anzeige in Kader?'),
             Column::callback(['id'], function ($id) {
                 return view('admin.includes.table-actions', ['id' => $id]);
             })

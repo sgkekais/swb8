@@ -84,14 +84,14 @@
                 @endif
                 <div class="flex flex-wrap space-x-2 ">
                     <div class="">Anzahl Spieler: </div>
-                    @foreach ($date_players->sortByDesc('playerStatus.can_play')->groupBy('playerStatus.description') as $key => $player_status_group)
+                    @foreach ($date_players->where('playerStatus.display_in_polls')->sortByDesc('playerStatus.can_play')->groupBy('playerStatus.description') as $key => $player_status_group)
                         <div>
                             <a href="#{{ $key }}" class="inline-link"><span class="font-bold">{{ $key }}</span></a> {{ $player_status_group->count() }}
                         </div>
                     @endforeach
                 </div>
                 <div>
-                    ...macht <span class="text-primary-700 font-bold">{{ $date_players->where('playerStatus.can_play', 1)->count() }}</span> halbwegs körperlich fähige
+                    ...macht <span class="text-primary-700 font-bold">{{ $date_players->where('playerStatus.can_play', 1)->count() }}</span> halbwegs körperlich fähige, die spielen können
                 </div>
             </div>
         </div>
@@ -159,7 +159,7 @@
             </div>
             <!-- poll participants -->
             <div class="table-row-group">
-                @foreach ($date_players->sortByDesc('playerStatus.can_play')->groupBy('playerStatus.description') as $key => $player_status_group)
+                @foreach ($date_players->where('playerStatus.display_in_polls')->sortByDesc('playerStatus.can_play')->groupBy('playerStatus.description') as $key => $player_status_group)
                     <div class="table-row">
                         <div class="table-cell">
                             <x-headline class="text-xl" id="{{ $key }}">

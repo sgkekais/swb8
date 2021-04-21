@@ -13,7 +13,9 @@ class CreatePlayerStatus extends Component
 
     protected $rules = [
         'player_status.description' => 'required',
-        'player_status.can_play' => 'boolean'
+        'player_status.can_play' => 'boolean',
+        'player_status.display_in_polls' => 'boolean',
+        'player_status.display_in_squad' => 'boolean',
     ];
 
     protected $listeners = [

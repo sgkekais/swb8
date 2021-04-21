@@ -41,6 +41,14 @@
                     <x-input-checkbox-label for="can_play">
                         Kann spielen?
                     </x-input-checkbox-label>
+                    <x-input-checkbox wire:model="player_status.display_in_polls" id="display_in_polls" />
+                    <x-input-checkbox-label for="display_in_polls">
+                        Anzeige in Umfragen?
+                    </x-input-checkbox-label>
+                    <x-input-checkbox wire:model="player_status.display_in_squad" id="display_in_squad" />
+                    <x-input-checkbox-label for="display_in_squad">
+                        Anzeige in Kader?
+                    </x-input-checkbox-label>
                 </div>
             </x-slot>
             <x-slot name="footer">

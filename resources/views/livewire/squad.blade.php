@@ -1,8 +1,4 @@
 <x-section class="py-0">
-    <div class="mb-4">
-        {{ $club->players()->count() }} Spieler
-    </div>
-
     @auth
         <div class="flex items-center p-4 mb-4 border border-yellow-500 space-x-4">
             <div class="">
@@ -15,7 +11,7 @@
     @endauth
 
     @if ($club->players()->count() > 0)
-        @foreach($club->players->sortByDesc('playerStatus.can_play')->groupBy('playerStatus.description') as $key => $player_status_group)
+        @foreach($club->players->where('playerStatus.display_in_squad')->sortByDesc('playerStatus.can_play')->groupBy('playerStatus.description') as $key => $player_status_group)
             <x-headline class="text-2xl" id="{{ $key }}">
                 {{ $key }}
             </x-headline>
@@ -53,7 +49,7 @@
                                 </div>
                                 <!-- player status -->
                                 <div class="pl-32 text-sm text-gray-900">
-                                    {{ $player->playerStatus->description }}
+{{--                                    {{ $player->playerStatus->description }}--}} &nbsp;
                                 </div>
                                 <!-- joined -->
                                 <div class="px-4 text-sm text-gray-900">

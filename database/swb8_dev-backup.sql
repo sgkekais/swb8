@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Apr 17, 2021 at 07:56 PM
--- Server version: 5.7.24
--- PHP Version: 7.4.12
+-- Host: 62.108.32.152:3306
+-- Erstellungszeit: 20. Apr 2021 um 00:19
+-- Server-Version: 5.7.33
+-- PHP-Version: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `swb8`
+-- Datenbank: `swb8`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `activity_log`
+-- Tabellenstruktur für Tabelle `activity_log`
 --
 
 CREATE TABLE `activity_log` (
@@ -42,7 +41,7 @@ CREATE TABLE `activity_log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `activity_log`
+-- Daten für Tabelle `activity_log`
 --
 
 INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_type`, `subject_id`, `causer_type`, `causer_id`, `properties`, `created_at`, `updated_at`) VALUES
@@ -355,16 +354,95 @@ INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_type`, `su
 (306, 'default', 'updated', 'App\\Models\\Match', 638, 'App\\Models\\User', 1, '{\"old\": {\"match_details\": \"<div><strong>Aufstellung:</strong><br>Willi - Gökki (65. <del>Fritz</del>), Manu (46. Jannik), Basti, <strong>Kevin </strong>- Roy (70. Dustin), Marco - Niko , Alberty, Tobi - Gussi (60. Lukas) <br><br><strong>Reserve:</strong><br>Raoul</div>\"}, \"attributes\": {\"match_details\": \"<div><strong>Aufstellung:</strong><br>Willi - Gökki (65. Fritz), Manu (46. Jannik), Basti, Kevin - Roy (70. Dustin), Marco - Niko , Alberty, Tobi - Gussi (60. Lukas) <br><br><strong>Reserve:</strong><br>Raoul</div>\"}}', '2021-04-06 12:53:41', '2021-04-06 12:53:41'),
 (307, 'default', 'updated', 'App\\Models\\Match', 675, 'App\\Models\\User', 1, '{\"old\": {\"match_details\": null}, \"attributes\": {\"match_details\": \"<div>Test</div>\"}}', '2021-04-06 13:45:45', '2021-04-06 13:45:45'),
 (308, 'default', 'updated', 'App\\Models\\Match', 673, 'App\\Models\\User', 1, '{\"old\": {\"match_details\": null}, \"attributes\": {\"match_details\": \"<div>1:0 <strong>gewonnen</strong>!<em><del>!</del></em></div>\"}}', '2021-04-06 14:05:31', '2021-04-06 14:05:31'),
-(309, 'default', 'updated', 'App\\Models\\Match', 638, 'App\\Models\\User', 1, '{\"old\": {\"match_details\": \"<div><strong>Aufstellung:</strong><br>Willi - Gökki (65. Fritz), Manu (46. Jannik), Basti, Kevin - Roy (70. Dustin), Marco - Niko , Alberty, Tobi - Gussi (60. Lukas) <br><br><strong>Reserve:</strong><br>Raoul</div>\"}, \"attributes\": {\"match_details\": \"<div><strong>Aufstellung:</strong><br>Willi - <a href=\\\"http://www.google.de\\\">Gökki </a>(65. Fritz), Manu (46. Jannik), Basti, Kevin - Roy (70. Dustin), Marco - Niko , Alberty, Tobi - Gussi (60. Lukas)&nbsp;</div><ul><li>jj<ul><li><br></li></ul></li></ul><div><strong>Reserve:</strong><br>Raoul</div>\"}}', '2021-04-06 19:46:42', '2021-04-06 19:46:42'),
-(310, 'default', 'updated', 'App\\Models\\Match', 638, 'App\\Models\\User', 1, '{\"old\": {\"match_details\": \"<div><strong>Aufstellung:</strong><br>Willi - <a href=\\\"http://www.google.de\\\">Gökki </a>(65. Fritz), Manu (46. Jannik), Basti, Kevin - Roy (70. Dustin), Marco - Niko , Alberty, Tobi - Gussi (60. Lukas)&nbsp;</div><ul><li>jj<ul><li><br></li></ul></li></ul><div><strong>Reserve:</strong><br>Raoul</div>\"}, \"attributes\": {\"match_details\": \"<div><strong>Aufstellung:</strong><br>Willi - Gökki (65. Fritz), Manu (46. Jannik), Basti, Kevin - Roy (70. Dustin), Marco - Niko , Alberty, Tobi - Gussi (60. Lukas)<br><br></div><div><strong>Reserve:</strong><br>Raoul</div>\"}}', '2021-04-06 19:47:19', '2021-04-06 19:47:19'),
-(311, 'default', 'updated', 'App\\Models\\Club', 90, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"0UEbuIALDBXFdgChm1jJJKjOGw5s3RqyOhBBocOZ.png\"}}', '2021-04-10 14:28:15', '2021-04-10 14:28:15'),
-(312, 'default', 'updated', 'App\\Models\\Club', 22, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"IvFUN9ncG7SpVnxhIYw4ra8wzUuhli7z2G7APhfQ.png\"}}', '2021-04-10 14:28:35', '2021-04-10 14:28:35'),
-(313, 'default', 'updated', 'App\\Models\\Club', 102, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"e60xgxTOF6kaRXJzfpKgpJ7EPzNESUSeimEgdEEX.png\"}}', '2021-04-10 14:29:02', '2021-04-10 14:29:02');
+(309, 'default', 'updated', 'App\\Models\\Club', 33, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"OL2Ef4h6PXjBdYOREoTfocFAMjMMkcRTw1jkstF7.png\"}}', '2021-04-07 23:08:50', '2021-04-07 23:08:50'),
+(310, 'default', 'updated', 'App\\Models\\Player', 13, 'App\\Models\\User', 1, '{\"old\": {\"user_id\": null, \"public_note\": null, \"player_status_id\": 3}, \"attributes\": {\"user_id\": 3, \"public_note\": \"Präses\", \"player_status_id\": 2}}', '2021-04-08 16:37:28', '2021-04-08 16:37:28'),
+(311, 'default', 'updated', 'App\\Models\\Player', 16, 'App\\Models\\User', 1, '{\"old\": {\"public_note\": null}, \"attributes\": {\"public_note\": \"Walter Frosch\"}}', '2021-04-08 22:32:10', '2021-04-08 22:32:10'),
+(312, 'default', 'updated', 'App\\Models\\Club', 33, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": \"OL2Ef4h6PXjBdYOREoTfocFAMjMMkcRTw1jkstF7.png\"}, \"attributes\": {\"logo_url\": \"CmTn3VFlXxpSYmVApiO7kcGIQuO7N9U0PUbxFHr9.png\"}}', '2021-04-11 12:45:46', '2021-04-11 12:45:46'),
+(313, 'default', 'updated', 'App\\Models\\Club', 34, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"RlDVV1hLZLfvsAUogQZPCymAD2So3ZjB20ubrDkp.png\"}}', '2021-04-11 15:17:06', '2021-04-11 15:17:06'),
+(314, 'default', 'updated', 'App\\Models\\Club', 33, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": \"CmTn3VFlXxpSYmVApiO7kcGIQuO7N9U0PUbxFHr9.png\"}, \"attributes\": {\"logo_url\": \"DWlpO2mjOyJ0US215c7IFVcOV9JAy5SwSv1S3qjk.png\"}}', '2021-04-11 15:17:25', '2021-04-11 15:17:25'),
+(315, 'default', 'updated', 'App\\Models\\Club', 1, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"fq6IZu7rIEXqBXIRdpY9Ryt8jHJ59R0c0L0ioKFt.png\"}}', '2021-04-11 15:18:06', '2021-04-11 15:18:06'),
+(316, 'default', 'updated', 'App\\Models\\Club', 2, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"YVFZpuYN7Amm6SwJjYsgAz5qMk314LOitErJG2Ew.png\"}}', '2021-04-11 15:18:43', '2021-04-11 15:18:43'),
+(317, 'default', 'updated', 'App\\Models\\Club', 3, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"xDJyOy4XpRWSsN8l73PUhdYG7ItJhDzk1CPhf2kf.png\"}}', '2021-04-11 15:19:03', '2021-04-11 15:19:03'),
+(318, 'default', 'updated', 'App\\Models\\Club', 4, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"qXADmV8LjKM5Dif5dfgZBv5Tj5tU61Zy7Qhu1Q0f.png\"}}', '2021-04-11 15:19:26', '2021-04-11 15:19:26'),
+(319, 'default', 'updated', 'App\\Models\\Club', 6, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"RzMHjx1thM4sEu8BScj5e9JQuihzPIrM0dSYSBFh.png\"}}', '2021-04-11 15:19:42', '2021-04-11 15:19:42'),
+(320, 'default', 'updated', 'App\\Models\\Club', 7, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"oT9dZCDidSS5wIBYjGnihn4j0Zsoehta8UfYb87f.png\"}}', '2021-04-11 15:20:11', '2021-04-11 15:20:11'),
+(321, 'default', 'updated', 'App\\Models\\Club', 16, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"06xRY1wZMXNoZZHJ2Vby7OAGEsTA9CDdeEPFy0H3.png\"}}', '2021-04-11 15:20:35', '2021-04-11 15:20:35'),
+(322, 'default', 'updated', 'App\\Models\\Club', 17, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"xNryfDmxfeKYcmNmAnjBJ06Sfq4nw7eh5VVJZz8Y.png\"}}', '2021-04-11 15:21:34', '2021-04-11 15:21:34'),
+(323, 'default', 'updated', 'App\\Models\\Club', 20, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"HCCjYWYfJmom1dgOCBnRq5sVKHyC3JuzeRopBQNG.png\"}}', '2021-04-11 15:22:09', '2021-04-11 15:22:09'),
+(324, 'default', 'updated', 'App\\Models\\Club', 21, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"LgpKYkTfiFKwNRjvstllz4MkbyHGCl7TYWL2hIqA.png\"}}', '2021-04-11 15:22:38', '2021-04-11 15:22:38'),
+(325, 'default', 'updated', 'App\\Models\\Club', 80, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"CX3GgVeXPKDXqisJKhhYGmZETce6yoVJ32EG7sjo.png\"}}', '2021-04-11 16:07:40', '2021-04-11 16:07:40'),
+(326, 'default', 'updated', 'App\\Models\\Club', 99, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"EImmF2rAFdKUOrtN6fFydArTmB5G3LP8CCroFv52.png\"}}', '2021-04-11 16:08:11', '2021-04-11 16:08:11'),
+(327, 'default', 'updated', 'App\\Models\\Club', 26, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"tYtfOW4gc4TVpEFk6N4vyEfrZklrHMwnHyvCoHMS.png\"}}', '2021-04-11 20:33:38', '2021-04-11 20:33:38'),
+(328, 'default', 'updated', 'App\\Models\\Club', 28, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"pxPScu3dXT7cGAO8I1lCYcQAH2mRlLdwb9mDNjcX.png\"}}', '2021-04-11 20:34:07', '2021-04-11 20:34:07'),
+(329, 'default', 'updated', 'App\\Models\\Club', 30, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"gvIASsyB5piauolBJXUlQbOiM9hRU4leNgXo0Op2.png\"}}', '2021-04-11 20:34:20', '2021-04-11 20:34:20'),
+(330, 'default', 'updated', 'App\\Models\\Club', 31, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"UamQABX6zLCcvxHqjik88xAEGLQWC0mVJgK4Nvdj.png\"}}', '2021-04-11 20:34:39', '2021-04-11 20:34:39'),
+(331, 'default', 'updated', 'App\\Models\\Club', 32, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"jwstLszhb7GJRqiGawmnW9Pd2xwaQMdvoxqQR164.png\"}}', '2021-04-11 20:35:02', '2021-04-11 20:35:02'),
+(332, 'default', 'updated', 'App\\Models\\Club', 63, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"5dmLNybjDOtSmHj8vwOEKX3RgGs1muVdjDRVOu4A.png\"}}', '2021-04-11 20:35:23', '2021-04-11 20:35:23'),
+(333, 'default', 'updated', 'App\\Models\\Club', 125, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"gZv60hQRB0CnewoLDRaj1ndtM2hjZmsSp2DdVCsL.png\"}}', '2021-04-11 20:36:32', '2021-04-11 20:36:32'),
+(334, 'default', 'updated', 'App\\Models\\Club', 83, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"MeLBnrnOMUSJvicbfsDH8maHqGC9bdzJoROcn0tR.png\"}}', '2021-04-11 20:36:52', '2021-04-11 20:36:52'),
+(335, 'default', 'updated', 'App\\Models\\Club', 61, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"UpBrktcijmErV5dnnE8Cq3k48157e4vVZNWcoDYR.png\"}}', '2021-04-11 20:37:13', '2021-04-11 20:37:13'),
+(336, 'default', 'updated', 'App\\Models\\Club', 103, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"06oBHdmFvnn2iEfRdCYlVGdlGwQMfSHSE1b6kiU9.png\"}}', '2021-04-11 20:37:33', '2021-04-11 20:37:33'),
+(337, 'default', 'updated', 'App\\Models\\Club', 25, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"DZNHA5p7aMjGeyyhBerNjUZwXy1VhBoufOIqsv53.png\"}}', '2021-04-11 20:37:57', '2021-04-11 20:37:57'),
+(338, 'default', 'updated', 'App\\Models\\Club', 35, 'App\\Models\\User', 1, '{\"old\": {\"name\": \" Rakete Rheinpark 04 AH\", \"logo_url\": null}, \"attributes\": {\"name\": \"Rakete Rheinpark 04 AH\", \"logo_url\": \"tjIa7VgzL76PdnA8k8toLloWzGw897ElFNlmOvAT.png\"}}', '2021-04-11 20:38:15', '2021-04-11 20:38:15'),
+(339, 'default', 'updated', 'App\\Models\\Club', 90, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"lIY41QEEZHrfHEfLVaF4KTOKPs2UI8Gf2KHmX0tM.png\"}}', '2021-04-11 20:38:37', '2021-04-11 20:38:37'),
+(340, 'default', 'updated', 'App\\Models\\Club', 123, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"SOYNZQCg91lOwlYzRf9vCvpKuXy5tMMfBVxqTX55.png\"}}', '2021-04-11 20:39:33', '2021-04-11 20:39:33'),
+(341, 'default', 'updated', 'App\\Models\\Club', 60, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"vhgTypmGwc0EKYaCXSrOXMvwgPtPfap4miHdhVxJ.png\"}}', '2021-04-11 20:40:01', '2021-04-11 20:40:01'),
+(342, 'default', 'updated', 'App\\Models\\Club', 104, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"FO9Y4MLB2Qql18smWl9qUShQHKhQnGuv4nvB5930.png\"}}', '2021-04-11 20:40:26', '2021-04-11 20:40:26'),
+(343, 'default', 'updated', 'App\\Models\\Club', 108, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"Gu218owBgmtS80SsDAYnbON5rdmrYgYSPW17DyFm.png\"}}', '2021-04-11 20:40:45', '2021-04-11 20:40:45'),
+(344, 'default', 'updated', 'App\\Models\\Club', 43, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"J8HFy1DoRn3he4wgcvv0urDq3zpxiXsDBBhWcS9f.png\"}}', '2021-04-11 20:41:35', '2021-04-11 20:41:35'),
+(345, 'default', 'updated', 'App\\Models\\Club', 100, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"eJUmhsSdHuOuIo8VarF6TovV7H937f4fpoW7egqF.png\"}}', '2021-04-11 20:41:56', '2021-04-11 20:41:56'),
+(346, 'default', 'updated', 'App\\Models\\Club', 116, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"CJX01Odyw8XgUMoWRUMgdwQLrqFVztu1sXh2W8WI.png\"}}', '2021-04-11 20:43:00', '2021-04-11 20:43:00'),
+(347, 'default', 'updated', 'App\\Models\\Date', 675, 'App\\Models\\User', 1, '{\"old\": {\"datetime\": \"2021-04-06T20:00\", \"poll_ends\": \"2021-04-05\"}, \"attributes\": {\"datetime\": \"2021-04-23T20:00\", \"poll_ends\": \"2021-04-22\"}}', '2021-04-12 22:39:04', '2021-04-12 22:39:04'),
+(348, 'default', 'updated', 'App\\Models\\Date', 673, 'App\\Models\\User', 1, '{\"old\": {\"datetime\": \"2021-04-01T00:00\", \"poll_ends\": \"2021-03-31\"}, \"attributes\": {\"datetime\": \"2021-04-30T11:00\", \"poll_ends\": \"2021-04-29\"}}', '2021-04-12 22:39:28', '2021-04-12 22:39:28'),
+(349, 'default', 'updated', 'App\\Models\\Date', 673, 'App\\Models\\User', 1, '{\"old\": {\"cancelled\": true}, \"attributes\": {\"cancelled\": false}}', '2021-04-12 22:39:58', '2021-04-12 22:39:58'),
+(350, 'default', 'updated', 'App\\Models\\Match', 673, 'App\\Models\\User', 1, '{\"old\": {\"cancelled\": true}, \"attributes\": {\"cancelled\": false}}', '2021-04-12 22:39:58', '2021-04-12 22:39:58'),
+(351, 'default', 'updated', 'App\\Models\\Player', 2, 'App\\Models\\User', 1, '{\"old\": {\"user_id\": null}, \"attributes\": {\"user_id\": 4}}', '2021-04-12 22:42:27', '2021-04-12 22:42:27'),
+(352, 'default', 'updated', 'App\\Models\\Match', 673, 'App\\Models\\User', 1, '{\"old\": {\"match_details\": \"<div>1:0 <strong>gewonnen</strong>!<em><del>!</del></em></div>\"}, \"attributes\": {\"match_details\": \"<div>1:0 <strong>gewonnen</strong>!<em><del>! asd</del></em><em>&nbsp;asdsadsdasdasd</em></div>\"}}', '2021-04-13 18:35:16', '2021-04-13 18:35:16'),
+(353, 'default', 'updated', 'App\\Models\\Club', 80, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": \"CX3GgVeXPKDXqisJKhhYGmZETce6yoVJ32EG7sjo.png\"}, \"attributes\": {\"logo_url\": \"D5h6P7ud46CatWQDdfgsVTpkcrttOpWdhherXCuB.png\"}}', '2021-04-14 14:45:38', '2021-04-14 14:45:38'),
+(354, 'default', 'updated', 'App\\Models\\Club', 99, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": \"EImmF2rAFdKUOrtN6fFydArTmB5G3LP8CCroFv52.png\"}, \"attributes\": {\"logo_url\": \"SxAuqGWLSpe9Kt7m8WefFX8VYT4wVWQBOS80vf0B.png\"}}', '2021-04-14 14:45:46', '2021-04-14 14:45:46'),
+(355, 'default', 'updated', 'App\\Models\\Club', 44, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"tLlbY1Kok2vbbZ9Yx2zXQqBwRhZaT7c72HQz8NsY.png\"}}', '2021-04-14 14:49:33', '2021-04-14 14:49:33'),
+(356, 'default', 'updated', 'App\\Models\\Club', 22, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"dXLf2RMhZqJs4iqHtaw4EAOoUNw0lSSOjdQqKdzx.png\"}}', '2021-04-14 14:51:01', '2021-04-14 14:51:01'),
+(357, 'default', 'updated', 'App\\Models\\Club', 3, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": \"xDJyOy4XpRWSsN8l73PUhdYG7ItJhDzk1CPhf2kf.png\"}, \"attributes\": {\"logo_url\": \"JnW1LhWLBYzZNQlJSpivX2tEFdHPzQ2RngyQSLcU.png\"}}', '2021-04-14 14:51:38', '2021-04-14 14:51:38'),
+(358, 'default', 'updated', 'App\\Models\\Club', 90, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": \"lIY41QEEZHrfHEfLVaF4KTOKPs2UI8Gf2KHmX0tM.png\"}, \"attributes\": {\"logo_url\": \"fkcSOm8vXfXpMXPjwJvPstCMf3VZYKiWXe50GtYB.png\"}}', '2021-04-14 14:51:49', '2021-04-14 14:51:49'),
+(359, 'default', 'updated', 'App\\Models\\Club', 82, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"Il6kZC720mVWHcdvds8vKBPROYXqvkWCKLa1zRIJ.png\"}}', '2021-04-14 14:52:08', '2021-04-14 14:52:08'),
+(360, 'default', 'updated', 'App\\Models\\Club', 20, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": \"HCCjYWYfJmom1dgOCBnRq5sVKHyC3JuzeRopBQNG.png\"}, \"attributes\": {\"logo_url\": \"6V4Cl1o5PHdKCTMv0WyEDQKZsgzTPJe4bDaH07Oy.png\"}}', '2021-04-14 14:52:22', '2021-04-14 14:52:22'),
+(361, 'default', 'updated', 'App\\Models\\Club', 32, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": \"jwstLszhb7GJRqiGawmnW9Pd2xwaQMdvoxqQR164.png\"}, \"attributes\": {\"logo_url\": \"bDDrD5vzfp89C15jnmYmU79o02e2deV3CCHFH2Ck.png\"}}', '2021-04-14 14:52:38', '2021-04-14 14:52:38'),
+(362, 'default', 'updated', 'App\\Models\\Club', 116, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": \"CJX01Odyw8XgUMoWRUMgdwQLrqFVztu1sXh2W8WI.png\"}, \"attributes\": {\"logo_url\": \"mZNBX3OCsCRqcLPK7ZUrJ5WKM7CZj6GuIRbR1pFr.png\"}}', '2021-04-14 14:52:51', '2021-04-14 14:52:51'),
+(363, 'default', 'updated', 'App\\Models\\Club', 116, 'App\\Models\\User', 1, '{\"old\": {\"name_code\": null}, \"attributes\": {\"name_code\": \"CD77AH\"}}', '2021-04-14 14:53:01', '2021-04-14 14:53:01'),
+(364, 'default', 'updated', 'App\\Models\\Club', 28, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": \"pxPScu3dXT7cGAO8I1lCYcQAH2mRlLdwb9mDNjcX.png\"}, \"attributes\": {\"logo_url\": \"3BXtkuRZNGIu98JvwceCaWqrM254usBcVWNOBCRB.png\"}}', '2021-04-14 14:53:14', '2021-04-14 14:53:14'),
+(365, 'default', 'updated', 'App\\Models\\Club', 43, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": \"J8HFy1DoRn3he4wgcvv0urDq3zpxiXsDBBhWcS9f.png\"}, \"attributes\": {\"logo_url\": \"BTICQXK4RopxDAJSGXahIxhCdGyRQ2FYRatm5Cp6.png\"}}', '2021-04-14 14:53:26', '2021-04-14 14:53:26'),
+(366, 'default', 'updated', 'App\\Models\\Club', 106, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"wMqHs97TjHM1mgjhn0ecsKW9GkXT7OalfDxfaGPk.png\"}}', '2021-04-14 14:53:58', '2021-04-14 14:53:58'),
+(367, 'default', 'updated', 'App\\Models\\Club', 19, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"qH1AHc5hdJxQKz1eg23rOHdxKzoHxAcAg11cavQR.png\"}}', '2021-04-14 14:55:10', '2021-04-14 14:55:10'),
+(368, 'default', 'updated', 'App\\Models\\Club', 59, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"EZzZHuHb0tzzdoi5mZDIhjvRs4Gciwq9MgY4y55Y.png\"}}', '2021-04-14 14:55:50', '2021-04-14 14:55:50'),
+(369, 'default', 'updated', 'App\\Models\\Club', 108, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": \"Gu218owBgmtS80SsDAYnbON5rdmrYgYSPW17DyFm.png\", \"name_code\": \"FCB\"}, \"attributes\": {\"logo_url\": \"EuC77IfuSosqOUAJeTqLG3y5IQCywFHjXUT1Ew7R.png\", \"name_code\": \"BOOT\"}}', '2021-04-14 14:56:08', '2021-04-14 14:56:08'),
+(370, 'default', 'updated', 'App\\Models\\Club', 17, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": \"xNryfDmxfeKYcmNmAnjBJ06Sfq4nw7eh5VVJZz8Y.png\"}, \"attributes\": {\"logo_url\": \"jpMLv4dVea1VqdgaKGcxFt3X6UQfAITuCtcOpnbY.png\"}}', '2021-04-14 14:56:19', '2021-04-14 14:56:19'),
+(371, 'default', 'updated', 'App\\Models\\Club', 54, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"SLm36gTXYfk0XCxjJpotkRz2ywz0cf9ox4NK9dib.png\"}}', '2021-04-14 14:56:30', '2021-04-14 14:56:30'),
+(372, 'default', 'updated', 'App\\Models\\Club', 42, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"4h36VTlofFY5QGj5aSHJevrhZ2vMmZjYei3N65Yi.png\"}}', '2021-04-14 14:57:09', '2021-04-14 14:57:09'),
+(373, 'default', 'updated', 'App\\Models\\Club', 29, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"IkYj5FdWChY29K2wbhLn9h8cr3hYHJbXpQj9epX1.png\"}}', '2021-04-14 14:58:49', '2021-04-14 14:58:49'),
+(374, 'default', 'updated', 'App\\Models\\Club', 21, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": \"LgpKYkTfiFKwNRjvstllz4MkbyHGCl7TYWL2hIqA.png\"}, \"attributes\": {\"logo_url\": \"bZk05TRYNqTynI2MGyIhujNA0bZbtP4Q2LiCAcKt.png\"}}', '2021-04-14 14:59:03', '2021-04-14 14:59:03'),
+(375, 'default', 'updated', 'App\\Models\\Club', 123, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": \"SOYNZQCg91lOwlYzRf9vCvpKuXy5tMMfBVxqTX55.png\"}, \"attributes\": {\"logo_url\": \"AnrGW18wRVAsbg4nuJpp01voTg2QN9nhDEYhpB6E.png\"}}', '2021-04-14 14:59:15', '2021-04-14 14:59:15'),
+(376, 'default', 'updated', 'App\\Models\\Club', 101, 'App\\Models\\User', 1, '{\"old\": {\"name_code\": null}, \"attributes\": {\"name_code\": \"FFD15\"}}', '2021-04-14 15:00:11', '2021-04-14 15:00:11'),
+(377, 'default', 'updated', 'App\\Models\\Club', 101, 'App\\Models\\User', 1, '{\"old\": {\"logo_url\": null}, \"attributes\": {\"logo_url\": \"jroj9yMpK2kzsrswk4zgVrqnjQ0EzKWQHQx3dFZ3.png\"}}', '2021-04-14 15:00:38', '2021-04-14 15:00:38'),
+(378, 'default', 'updated', 'App\\Models\\Player', 131, 'App\\Models\\User', 1, '{\"old\": {\"last_name\": \"Julian\", \"first_name\": \"Huss\"}, \"attributes\": {\"last_name\": \"Huss\", \"first_name\": \"Julian\"}}', '2021-04-19 20:22:37', '2021-04-19 20:22:37'),
+(379, 'default', 'deleted', 'App\\Models\\Card', 274, NULL, NULL, '{\"attributes\": {\"note\": null, \"color\": \"gelb\", \"match_id\": 322, \"player_id\": 86}}', '2021-04-19 21:06:37', '2021-04-19 21:06:37'),
+(380, 'default', 'deleted', 'App\\Models\\Player', 86, 'App\\Models\\User', 1, '{\"attributes\": {\"dob\": null, \"left\": null, \"joined\": null, \"user_id\": null, \"nickname\": \"Flo\", \"is_public\": true, \"last_name\": \"?\", \"first_name\": \"Florent\", \"public_note\": null, \"internal_note\": null, \"player_status_id\": 1}}', '2021-04-19 21:06:54', '2021-04-19 21:06:54'),
+(381, 'default', 'deleted', 'App\\Models\\Player', 76, 'App\\Models\\User', 1, '{\"attributes\": {\"dob\": null, \"left\": null, \"joined\": null, \"user_id\": null, \"nickname\": \"Fantomas\", \"is_public\": true, \"last_name\": \"Fantomas\", \"first_name\": \"Fantomas\", \"public_note\": null, \"internal_note\": null, \"player_status_id\": 1}}', '2021-04-19 21:08:12', '2021-04-19 21:08:12'),
+(382, 'default', 'deleted', 'App\\Models\\Player', 72, 'App\\Models\\User', 1, '{\"attributes\": {\"dob\": null, \"left\": null, \"joined\": null, \"user_id\": null, \"nickname\": \"Niki\", \"is_public\": true, \"last_name\": \"Gast\", \"first_name\": \"Dominik\", \"public_note\": null, \"internal_note\": null, \"player_status_id\": 1}}', '2021-04-19 21:08:32', '2021-04-19 21:08:32'),
+(383, 'default', 'deleted', 'App\\Models\\Player', 71, 'App\\Models\\User', 1, '{\"attributes\": {\"dob\": null, \"left\": null, \"joined\": null, \"user_id\": null, \"nickname\": \"JoJo\", \"is_public\": true, \"last_name\": \"Gast\", \"first_name\": \"JoJo\", \"public_note\": null, \"internal_note\": null, \"player_status_id\": 1}}', '2021-04-19 21:08:45', '2021-04-19 21:08:45'),
+(384, 'default', 'deleted', 'App\\Models\\Player', 103, 'App\\Models\\User', 1, '{\"attributes\": {\"dob\": null, \"left\": null, \"joined\": null, \"user_id\": null, \"nickname\": \"Markus\", \"is_public\": true, \"last_name\": \"Grundmann\", \"first_name\": \"Markus\", \"public_note\": null, \"internal_note\": null, \"player_status_id\": 1}}', '2021-04-19 21:08:55', '2021-04-19 21:08:55'),
+(385, 'default', 'deleted', 'App\\Models\\Player', 92, 'App\\Models\\User', 1, '{\"attributes\": {\"dob\": null, \"left\": null, \"joined\": null, \"user_id\": null, \"nickname\": \"Stiliano\", \"is_public\": true, \"last_name\": \"Mancuso\", \"first_name\": \"Stiliano\", \"public_note\": null, \"internal_note\": null, \"player_status_id\": 1}}', '2021-04-19 21:09:12', '2021-04-19 21:09:12'),
+(386, 'default', 'deleted', 'App\\Models\\Player', 31, 'App\\Models\\User', 1, '{\"attributes\": {\"dob\": null, \"left\": null, \"joined\": null, \"user_id\": null, \"nickname\": \"Tommy\", \"is_public\": true, \"last_name\": \"Stens\", \"first_name\": \"Tommy\", \"public_note\": null, \"internal_note\": null, \"player_status_id\": 1}}', '2021-04-19 21:09:23', '2021-04-19 21:09:23'),
+(387, 'default', 'updated', 'App\\Models\\Player', 53, 'App\\Models\\User', 1, '{\"old\": {\"last_name\": \"Bosko\"}, \"attributes\": {\"last_name\": \"Tomov\"}}', '2021-04-19 21:10:16', '2021-04-19 21:10:16'),
+(388, 'default', 'updated', 'App\\Models\\Player', 53, 'App\\Models\\User', 1, '{\"old\": {\"left\": null, \"joined\": null}, \"attributes\": {\"left\": \"2011-12-31\", \"joined\": \"2011-01-01\"}}', '2021-04-19 21:10:44', '2021-04-19 21:10:44'),
+(389, 'default', 'created', 'App\\Models\\PlayerStatus', 5, 'App\\Models\\User', 1, '{\"attributes\": {\"can_play\": false, \"description\": \"Ausgeschieden\"}}', '2021-04-19 21:29:54', '2021-04-19 21:29:54'),
+(390, 'default', 'updated', 'App\\Models\\Player', 1, 'App\\Models\\User', 1, '{\"old\": {\"user_id\": null}, \"attributes\": {\"user_id\": 1}}', '2021-04-19 22:10:56', '2021-04-19 22:10:56'),
+(391, 'default', 'updated', 'App\\Models\\Player', 2, 'App\\Models\\User', 1, '{\"old\": {\"user_id\": null}, \"attributes\": {\"user_id\": 4}}', '2021-04-19 22:11:02', '2021-04-19 22:11:02'),
+(392, 'default', 'updated', 'App\\Models\\Player', 13, 'App\\Models\\User', 1, '{\"old\": {\"user_id\": null}, \"attributes\": {\"user_id\": 3}}', '2021-04-19 22:11:16', '2021-04-19 22:11:16');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `assists`
+-- Tabellenstruktur für Tabelle `assists`
 --
 
 CREATE TABLE `assists` (
@@ -376,7 +454,7 @@ CREATE TABLE `assists` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `assists`
+-- Daten für Tabelle `assists`
 --
 
 INSERT INTO `assists` (`id`, `goal_id`, `player_id`, `created_at`, `updated_at`) VALUES
@@ -389,7 +467,7 @@ INSERT INTO `assists` (`id`, `goal_id`, `player_id`, `created_at`, `updated_at`)
 (22, 724, 1, '2021-01-04 19:59:53', '2021-01-04 19:59:53'),
 (23, 725, 54, '2021-01-04 19:59:53', '2021-01-04 19:59:53'),
 (24, 726, 95, '2021-01-04 19:59:53', '2021-01-04 19:59:53'),
-(25, 727, 93, '2021-01-04 19:59:53', '2021-01-04 19:59:53'),
+(25, 727, 95, '2021-01-04 19:59:53', '2021-01-04 19:59:53'),
 (26, 728, 14, '2021-01-04 19:59:53', '2021-01-04 19:59:53'),
 (27, 730, 73, '2021-01-04 19:59:53', '2021-01-04 19:59:53'),
 (28, 731, 14, '2021-01-04 19:59:53', '2021-01-04 19:59:53'),
@@ -425,7 +503,7 @@ INSERT INTO `assists` (`id`, `goal_id`, `player_id`, `created_at`, `updated_at`)
 (58, 771, 54, '2021-01-04 19:59:53', '2021-01-04 19:59:53'),
 (59, 772, 107, '2021-01-04 19:59:53', '2021-01-04 19:59:53'),
 (60, 782, 54, '2021-01-04 19:59:53', '2021-01-04 19:59:53'),
-(61, 787, 83, '2021-01-04 19:59:53', '2021-01-04 19:59:53'),
+(61, 787, 49, '2021-01-04 19:59:53', '2021-01-04 19:59:53'),
 (62, 789, 54, '2021-01-04 19:59:53', '2021-01-04 19:59:53'),
 (63, 790, 88, '2021-01-04 19:59:53', '2021-01-04 19:59:53'),
 (64, 791, 54, '2021-01-04 19:59:53', '2021-01-04 19:59:53'),
@@ -742,7 +820,7 @@ INSERT INTO `assists` (`id`, `goal_id`, `player_id`, `created_at`, `updated_at`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cards`
+-- Tabellenstruktur für Tabelle `cards`
 --
 
 CREATE TABLE `cards` (
@@ -756,7 +834,7 @@ CREATE TABLE `cards` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `cards`
+-- Daten für Tabelle `cards`
 --
 
 INSERT INTO `cards` (`id`, `match_id`, `player_id`, `color`, `note`, `created_at`, `updated_at`) VALUES
@@ -804,7 +882,7 @@ INSERT INTO `cards` (`id`, `match_id`, `player_id`, `color`, `note`, `created_at
 (42, 27, 5, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (43, 32, 4, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (44, 37, 44, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
-(45, 55, 45, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
+(45, 55, 46, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (47, 41, 10, 'rot', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (48, 41, 41, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (49, 41, 11, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
@@ -859,7 +937,7 @@ INSERT INTO `cards` (`id`, `match_id`, `player_id`, `color`, `note`, `created_at
 (99, 90, 1, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (100, 90, 5, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (101, 90, 16, '10min', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
-(102, 114, 45, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
+(102, 114, 46, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (103, 114, 16, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (104, 114, 18, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (105, 92, 48, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
@@ -1027,7 +1105,6 @@ INSERT INTO `cards` (`id`, `match_id`, `player_id`, `color`, `note`, `created_at
 (271, 306, 85, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (272, 307, 65, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (273, 307, 16, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
-(274, 322, 86, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (275, 322, 12, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (276, 366, 73, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (277, 366, 54, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
@@ -1076,7 +1153,7 @@ INSERT INTO `cards` (`id`, `match_id`, `player_id`, `color`, `note`, `created_at
 (320, 396, 25, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (321, 396, 91, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (322, 396, 67, '10min', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
-(323, 397, 93, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
+(323, 397, 95, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (324, 404, 10, 'gelb-rot', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (325, 393, 64, '10min', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
 (326, 393, 14, 'gelb', NULL, '2020-12-21 10:47:00', '2020-12-21 10:47:00'),
@@ -1244,7 +1321,7 @@ INSERT INTO `cards` (`id`, `match_id`, `player_id`, `color`, `note`, `created_at
 -- --------------------------------------------------------
 
 --
--- Table structure for table `clubs`
+-- Tabellenstruktur für Tabelle `clubs`
 --
 
 CREATE TABLE `clubs` (
@@ -1260,44 +1337,44 @@ CREATE TABLE `clubs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `clubs`
+-- Daten für Tabelle `clubs`
 --
 
 INSERT INTO `clubs` (`id`, `name`, `name_short`, `name_code`, `logo_url`, `owner`, `ah`, `created_at`, `updated_at`) VALUES
-(1, 'Team Postwirtschaft', 'Postw.', 'TP', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:09:39'),
-(2, 'Hongkong Stars', 'HKStars', 'HKS', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:09:49'),
-(3, 'Bilker Galerie', 'Galerie', 'BG', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:09:56'),
-(4, 'Kaiserkicker', 'Kaiserkicker', 'KK', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:15:16'),
-(6, 'HFC Heine \'97', 'Heine \'97', 'HFC', 'jCeA3BZcmG6wE6rBsuhf2zxc7xEv89iRavnCwrcC.png', 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:10:44'),
-(7, 'Hammer SV \'99', 'Hamm', 'HSV99', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:21:37'),
-(16, 'Rakete Rheinpark 04', 'Rakete', 'RR04', 'vdHmZcd6JlTcpPNm625593V0T7BIj2VaCgmW65ob.png', 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:15:42'),
-(17, 'FC Büderich AH', 'Büderich AH', 'FCBAH', NULL, 0, 1, '2020-10-31 18:40:39', '2021-03-22 16:32:18'),
+(1, 'Team Postwirtschaft', 'Postw.', 'TP', 'fq6IZu7rIEXqBXIRdpY9Ryt8jHJ59R0c0L0ioKFt.png', 0, 0, '2020-10-31 18:40:39', '2021-04-11 15:18:06'),
+(2, 'Hongkong Stars', 'HKStars', 'HKS', 'YVFZpuYN7Amm6SwJjYsgAz5qMk314LOitErJG2Ew.png', 0, 0, '2020-10-31 18:40:39', '2021-04-11 15:18:43'),
+(3, 'Bilker Galerie', 'Galerie', 'BG', 'JnW1LhWLBYzZNQlJSpivX2tEFdHPzQ2RngyQSLcU.png', 0, 0, '2020-10-31 18:40:39', '2021-04-14 14:51:38'),
+(4, 'Kaiserkicker', 'Kaiserkicker', 'KK', 'qXADmV8LjKM5Dif5dfgZBv5Tj5tU61Zy7Qhu1Q0f.png', 0, 0, '2020-10-31 18:40:39', '2021-04-11 15:19:26'),
+(6, 'HFC Heine \'97', 'Heine \'97', 'HFC', 'RzMHjx1thM4sEu8BScj5e9JQuihzPIrM0dSYSBFh.png', 0, 0, '2020-10-31 18:40:39', '2021-04-11 15:19:41'),
+(7, 'Hammer SV \'99', 'Hamm', 'HSV99', 'oT9dZCDidSS5wIBYjGnihn4j0Zsoehta8UfYb87f.png', 0, 0, '2020-10-31 18:40:39', '2021-04-11 15:20:11'),
+(16, 'Rakete Rheinpark 04', 'Rakete', 'RR04', '06xRY1wZMXNoZZHJ2Vby7OAGEsTA9CDdeEPFy0H3.png', 0, 0, '2020-10-31 18:40:39', '2021-04-11 15:20:35'),
+(17, 'FC Büderich AH', 'Büderich AH', 'FCBAH', 'jpMLv4dVea1VqdgaKGcxFt3X6UQfAITuCtcOpnbY.png', 0, 1, '2020-10-31 18:40:39', '2021-04-14 14:56:19'),
 (18, 'Atletico Hochdahl', 'Hochdahl', 'ATH', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:16:16'),
-(19, 'Dynamo Unterbach', 'Unterbach', 'DU', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:16:28'),
-(20, 'Buga United', 'Buga', 'BU', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:16:38'),
-(21, 'FC Lot jonn', 'Lotjonn', 'FCLJ', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:16:50'),
-(22, 'Bierfreunde Mett', 'Bierfreunde', 'BM', 'IvFUN9ncG7SpVnxhIYw4ra8wzUuhli7z2G7APhfQ.png', 0, 0, '2020-10-31 18:40:39', '2021-04-10 14:28:35'),
+(19, 'Dynamo Unterbach', 'Unterbach', 'DU', 'qH1AHc5hdJxQKz1eg23rOHdxKzoHxAcAg11cavQR.png', 0, 0, '2020-10-31 18:40:39', '2021-04-14 14:55:10'),
+(20, 'Buga United', 'Buga', 'BU', '6V4Cl1o5PHdKCTMv0WyEDQKZsgzTPJe4bDaH07Oy.png', 0, 0, '2020-10-31 18:40:39', '2021-04-14 14:52:22'),
+(21, 'FC Lot jonn', 'Lotjonn', 'FCLJ', 'bZk05TRYNqTynI2MGyIhujNA0bZbtP4Q2LiCAcKt.png', 0, 0, '2020-10-31 18:40:39', '2021-04-14 14:59:03'),
+(22, 'Bierfreunde Mett', 'Bierfreunde', 'BM', 'dXLf2RMhZqJs4iqHtaw4EAOoUNw0lSSOjdQqKdzx.png', 0, 0, '2020-10-31 18:40:39', '2021-04-14 14:51:01'),
 (23, 'Harbour Pirates FC', 'Pirates', 'HPFC', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:17:13'),
 (24, 'SG United Ratingen 05', 'Ratingen', 'UR05', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:17:29'),
-(25, 'Klümpkes Stockum', 'Klümpkes', 'KS', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:17:37'),
-(26, 'United \'08', 'United', 'U08', 'krmRJzUftj7T7xEHbDdqk8ho8xSEsILc5tqoMTE7.png', 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:17:45'),
+(25, 'Klümpkes Stockum', 'Klümpkes', 'KS', 'DZNHA5p7aMjGeyyhBerNjUZwXy1VhBoufOIqsv53.png', 0, 0, '2020-10-31 18:40:39', '2021-04-11 20:37:57'),
+(26, 'United \'08', 'United', 'U08', 'tYtfOW4gc4TVpEFk6N4vyEfrZklrHMwnHyvCoHMS.png', 0, 0, '2020-10-31 18:40:39', '2021-04-11 20:33:38'),
 (27, 'SG Friedrichstadt \'74', 'Friedrichstadt', 'SGF74', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:18:00'),
-(28, 'DJK Rheinland \'05 AH', 'Rheinland AH', 'R05AH', NULL, 0, 1, '2020-10-31 18:40:39', '2021-03-22 16:18:15'),
-(29, 'FC Kneipe', 'Kneipe', 'FCK', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:18:23'),
-(30, 'FC Büderich Hobbyelf', 'Büd.Hobby', 'FCBH', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:18:39'),
-(31, 'Rot-Weiß Heerdt', 'Heerdt', 'RWH', NULL, 0, 1, '2020-10-31 18:40:39', '2021-03-22 16:20:10'),
-(32, 'Cosmos Düssel \'77', 'Cosmos', 'CD77', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:18:55'),
-(33, 'SW Bilk \'79', 'SWB HLW', 'HLW', 'WFtTvZO87JEO4BiiyqnM1v2bNFGrhxS4jQ24acQC.png', 1, 0, '2020-10-31 18:40:39', '2021-03-09 19:16:11'),
-(34, 'SW Bilk \'79 AH', 'SWB AH', 'AH', '5tWtzCSErWw53xqwbkgYunXnFV7V0bdeP0qKnren.png', 1, 1, '2020-10-31 18:40:39', '2021-03-09 20:05:26'),
-(35, ' Rakete Rheinpark 04 AH', 'RaketeAH', 'RR04AH', NULL, 0, 1, '2020-10-31 18:40:39', '2021-03-22 16:19:32'),
+(28, 'DJK Rheinland \'05 AH', 'Rheinland AH', 'R05AH', '3BXtkuRZNGIu98JvwceCaWqrM254usBcVWNOBCRB.png', 0, 1, '2020-10-31 18:40:39', '2021-04-14 14:53:14'),
+(29, 'FC Kneipe', 'Kneipe', 'FCK', 'IkYj5FdWChY29K2wbhLn9h8cr3hYHJbXpQj9epX1.png', 0, 0, '2020-10-31 18:40:39', '2021-04-14 14:58:49'),
+(30, 'FC Büderich Hobbyelf', 'Büd.Hobby', 'FCBH', 'gvIASsyB5piauolBJXUlQbOiM9hRU4leNgXo0Op2.png', 0, 0, '2020-10-31 18:40:39', '2021-04-11 20:34:20'),
+(31, 'Rot-Weiß Heerdt', 'Heerdt', 'RWH', 'UamQABX6zLCcvxHqjik88xAEGLQWC0mVJgK4Nvdj.png', 0, 1, '2020-10-31 18:40:39', '2021-04-11 20:34:39'),
+(32, 'Cosmos Düssel \'77', 'Cosmos', 'CD77', 'bDDrD5vzfp89C15jnmYmU79o02e2deV3CCHFH2Ck.png', 0, 0, '2020-10-31 18:40:39', '2021-04-14 14:52:38'),
+(33, 'SW Bilk \'79', 'SWB HLW', 'HLW', 'DWlpO2mjOyJ0US215c7IFVcOV9JAy5SwSv1S3qjk.png', 1, 0, '2020-10-31 18:40:39', '2021-04-11 15:17:25'),
+(34, 'SW Bilk \'79 AH', 'SWB AH', 'AH', 'RlDVV1hLZLfvsAUogQZPCymAD2So3ZjB20ubrDkp.png', 1, 1, '2020-10-31 18:40:39', '2021-04-11 15:17:06'),
+(35, 'Rakete Rheinpark 04 AH', 'RaketeAH', 'RR04AH', 'tjIa7VgzL76PdnA8k8toLloWzGw897ElFNlmOvAT.png', 0, 1, '2020-10-31 18:40:39', '2021-04-11 20:38:15'),
 (37, 'Vatertagsturnier-AH', 'Vatert.-T-AH', NULL, NULL, 0, 1, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
 (38, 'Altherren-Ligaturnier', 'AH-Ligat.', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
 (39, 'Weihnachtsfeier', 'Weihnachtsf.', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
 (40, 'DB Schenker AG', 'DBSchenker', 'DBSAG', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:20:34'),
 (41, '1. Sieger: HK Stars', 'Sieger', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
-(42, 'FC Düsseldorf 2010', 'FCD2010', 'FCD10', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:20:53'),
-(43, 'Dritte III', 'Dritte ', 'DIII', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:22:52'),
-(44, 'Altbier Rangers', 'Rangers', 'AR', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:23:28'),
+(42, 'FC Düsseldorf 2010', 'FCD2010', 'FCD10', '4h36VTlofFY5QGj5aSHJevrhZ2vMmZjYei3N65Yi.png', 0, 0, '2020-10-31 18:40:39', '2021-04-14 14:57:09'),
+(43, 'Dritte III', 'Dritte ', 'DIII', 'BTICQXK4RopxDAJSGXahIxhCdGyRQ2FYRatm5Cp6.png', 0, 0, '2020-10-31 18:40:39', '2021-04-14 14:53:26'),
+(44, 'Altbier Rangers', 'Rangers', 'AR', 'tLlbY1Kok2vbbZ9Yx2zXQqBwRhZaT7c72HQz8NsY.png', 0, 0, '2020-10-31 18:40:39', '2021-04-14 14:49:33'),
 (45, 'SV Partykeller 10', 'Partykeller', 'SVP10', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:25:22'),
 (46, 'Bravehearts Monheim', 'Bravehearts', 'BMO', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:23:06'),
 (47, 'TFC Hennekamp \'67', 'Hennekamp', 'TFC67', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:23:14'),
@@ -1307,16 +1384,16 @@ INSERT INTO `clubs` (`id`, `name`, `name_short`, `name_code`, `logo_url`, `owner
 (51, 'Croatia Ratingen', 'Croatia', 'CR', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:23:36'),
 (52, 'BSG Commerzbank', 'Commerzbank', 'BSGC', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:23:43'),
 (53, 'Sparta Bilk Ü40', 'Sparta Ü40', 'SÜ40', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:23:55'),
-(54, 'FC Büderich Blau-Weiß', 'Büderich BW', 'FCBBW', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:24:08'),
+(54, 'FC Büderich Blau-Weiß', 'Büderich BW', 'FCBBW', 'SLm36gTXYfk0XCxjJpotkRz2ywz0cf9ox4NK9dib.png', 0, 0, '2020-10-31 18:40:39', '2021-04-14 14:56:30'),
 (55, 'Fortuna Kabul', 'F.Kabul', 'FK', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:24:18'),
 (56, 'Mannschaftsabend', 'M.Abend', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
 (57, 'FC Hangover', 'Hangover', 'FCH', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:24:27'),
 (58, 'HLW-Abschlussfeier', 'Abschlussf.', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
-(59, 'Eleven FC 2012', 'Eleven', 'EFC12', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:24:36'),
-(60, 'Hochdahler SV', 'Hochdahl', 'HSV', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:21:23'),
-(61, 'MonCity', 'MonCity', 'MC', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:21:47'),
+(59, 'Eleven FC 2012', 'Eleven', 'EFC12', 'EZzZHuHb0tzzdoi5mZDIhjvRs4Gciwq9MgY4y55Y.png', 0, 0, '2020-10-31 18:40:39', '2021-04-14 14:55:50'),
+(60, 'Hochdahler SV', 'Hochdahl', 'HSV', 'vhgTypmGwc0EKYaCXSrOXMvwgPtPfap4miHdhVxJ.png', 0, 0, '2020-10-31 18:40:39', '2021-04-11 20:40:01'),
+(61, 'MonCity', 'MonCity', 'MC', 'UpBrktcijmErV5dnnE8Cq3k48157e4vVZNWcoDYR.png', 0, 0, '2020-10-31 18:40:39', '2021-04-11 20:37:13'),
 (62, 'Hallenturnier', 'Halle', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
-(63, 'Zenit Unterbach', 'Zenit', 'ZU', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:24:47'),
+(63, 'Zenit Unterbach', 'Zenit', 'ZU', '5dmLNybjDOtSmHj8vwOEKX3RgGs1muVdjDRVOu4A.png', 0, 0, '2020-10-31 18:40:39', '2021-04-11 20:35:23'),
 (64, 'SG Garather Füchse \'83', 'Füchse', 'GF83', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:24:59'),
 (65, 'HLW-LIGA', 'HLW-LIGA', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
 (66, 'spielfrei', 'spielfrei', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
@@ -1332,17 +1409,17 @@ INSERT INTO `clubs` (`id`, `name`, `name_short`, `name_code`, `logo_url`, `owner
 (77, 'Treffen/Training', 'Training', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
 (78, 'Soccerkings 95', 'Soccerkings', 'SK95', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:32:51'),
 (79, 'Jahreshauptversammlung', 'JHV', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
-(80, 'A-Team reloaded', 'A-Team', 'ATR', 'DiAC1aCEfzLnlhgwh3JeT3hM5BuyisoWpy1SbIiT.png', 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:25:48'),
+(80, 'A-Team reloaded', 'A-Team', 'ATR', 'D5h6P7ud46CatWQDdfgsVTpkcrttOpWdhherXCuB.png', 0, 0, '2020-10-31 18:40:39', '2021-04-14 14:45:38'),
 (81, 'JFE Bilk e.V.', 'JFE Bilk', 'JFE', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:29:29'),
-(82, 'CfR Links AH', 'Links AH', 'CFRAH', NULL, 0, 1, '2020-10-31 18:40:39', '2021-03-22 16:30:41'),
-(83, 'Papa Kowolls letzter Wille', 'PapaKowoll', 'PKLW', NULL, 0, 1, '2020-10-31 18:40:39', '2021-03-22 16:26:08'),
+(82, 'CfR Links AH', 'Links AH', 'CFRAH', 'Il6kZC720mVWHcdvds8vKBPROYXqvkWCKLa1zRIJ.png', 0, 1, '2020-10-31 18:40:39', '2021-04-14 14:52:08'),
+(83, 'Papa Kowolls letzter Wille', 'PapaKowoll', 'PKLW', 'MeLBnrnOMUSJvicbfsDH8maHqGC9bdzJoROcn0tR.png', 0, 1, '2020-10-31 18:40:39', '2021-04-11 20:36:52'),
 (84, 'Sparta Spenden Cup', 'Spenden Cup', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
 (85, 'SBS 70', 'SBS 70', 'SBS', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:22:32'),
 (86, 'offen', 'offen', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
 (87, 'Schlosspark United', 'Schlosspark', 'SU', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:26:18'),
 (88, 'Sparta Bilk AH', 'Sparta AH', 'SBAH', NULL, 0, 1, '2020-10-31 18:40:39', '2021-03-22 16:27:44'),
 (89, 'Trainingsspiel', 'Training', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
-(90, 'Blau Blau Brause', 'Brause', 'BBB', '0UEbuIALDBXFdgChm1jJJKjOGw5s3RqyOhBBocOZ.png', 0, 0, '2020-10-31 18:40:39', '2021-04-10 14:28:15'),
+(90, 'Blau Blau Brause', 'Brause', 'BBB', 'fkcSOm8vXfXpMXPjwJvPstCMf3VZYKiWXe50GtYB.png', 0, 0, '2020-10-31 18:40:39', '2021-04-14 14:51:49'),
 (91, 'SG Cosmos/Hennekamp', 'Cosm-Hennek', 'SGCH', NULL, 0, 1, '2020-10-31 18:40:39', '2021-03-22 16:28:09'),
 (92, 'AH-Turnier FCB Hobbyelf', 'AH-Turnier', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
 (93, 'Vatertag', 'Vatertag', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
@@ -1350,39 +1427,39 @@ INSERT INTO `clubs` (`id`, `name`, `name_short`, `name_code`, `logo_url`, `owner
 (96, 'SOMMERFEST 2015', 'SOMMERFEST', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
 (97, 'Futsal Club Nettetal e.V.', 'Nettetal', 'FCN', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:27:23'),
 (98, 'Indoor-Soccer-Turnier ', 'IndoorSoccer', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
-(99, 'A-Team reloaded AH', 'A-Team AH', 'ATRAH', NULL, 0, 1, '2020-10-31 18:40:39', '2021-03-22 16:27:00'),
-(100, 'Lokomotive Rheinwiese', 'Lok. Rheinw.', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
-(101, 'FF Düsseldorf 2015', 'FF D\'dorf', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
-(102, 'Sparta Erkrath', 'Sparta Erkr.', NULL, 'e60xgxTOF6kaRXJzfpKgpJ7EPzNESUSeimEgdEEX.png', 0, 0, '2020-10-31 18:40:39', '2021-04-10 14:29:02'),
-(103, 'Monday Kickers', 'MondayK.', 'MK', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:28:55'),
-(104, 'Fit in Düsseldorf United', 'Fit in', 'FIDU', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:27:59'),
+(99, 'A-Team reloaded AH', 'A-Team AH', 'ATRAH', 'SxAuqGWLSpe9Kt7m8WefFX8VYT4wVWQBOS80vf0B.png', 0, 1, '2020-10-31 18:40:39', '2021-04-14 14:45:46'),
+(100, 'Lokomotive Rheinwiese', 'Lok. Rheinw.', NULL, 'eJUmhsSdHuOuIo8VarF6TovV7H937f4fpoW7egqF.png', 0, 0, '2020-10-31 18:40:39', '2021-04-11 20:41:56'),
+(101, 'FF Düsseldorf 2015', 'FF D\'dorf', 'FFD15', 'jroj9yMpK2kzsrswk4zgVrqnjQ0EzKWQHQx3dFZ3.png', 0, 0, '2020-10-31 18:40:39', '2021-04-14 15:00:38'),
+(102, 'Sparta Erkrath', 'Sparta Erkr.', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
+(103, 'Monday Kickers', 'MondayK.', 'MK', '06oBHdmFvnn2iEfRdCYlVGdlGwQMfSHSE1b6kiU9.png', 0, 0, '2020-10-31 18:40:39', '2021-04-11 20:37:33'),
+(104, 'Fit in Düsseldorf United', 'Fit in', 'FIDU', 'FO9Y4MLB2Qql18smWl9qUShQHKhQnGuv4nvB5930.png', 0, 0, '2020-10-31 18:40:39', '2021-04-11 20:40:26'),
 (105, 'BSG IT NRW', 'BSG IT NRW', 'ITNRW', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:31:16'),
-(106, 'Dynamo Düsseldorf', 'DynamoDdorf', 'DD', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:28:19'),
+(106, 'Dynamo Düsseldorf', 'DynamoDdorf', 'DD', 'wMqHs97TjHM1mgjhn0ecsKW9GkXT7OalfDxfaGPk.png', 0, 0, '2020-10-31 18:40:39', '2021-04-14 14:53:58'),
 (107, 'MonUnited', 'MonUnited', 'MU', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:29:05'),
-(108, 'FC Bootsmann', 'Bootsmann', 'FCB', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:31:27'),
+(108, 'FC Bootsmann', 'Bootsmann', 'BOOT', 'EuC77IfuSosqOUAJeTqLG3y5IQCywFHjXUT1Ew7R.png', 0, 0, '2020-10-31 18:40:39', '2021-04-14 14:56:08'),
 (110, 'FC Unbekannt', 'FC Unbekannt', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
 (111, 'BSG Rechenzentrum', 'BSG Rechenzt', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
 (112, 'Lufthansa', 'Lufth.', 'LH', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:28:41'),
 (113, 'Zebras Krefeld', 'Zebras', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
 (114, 'Fortuna United', 'F-United', 'FU', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:28:31'),
 (115, 'Superkickers 2016', 'Superkickers', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
-(116, 'Cosmos Düssel \'77 AH', 'Cosmos AH', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
+(116, 'Cosmos Düssel \'77 AH', 'Cosmos AH', 'CD77AH', 'mZNBX3OCsCRqcLPK7ZUrJ5WKM7CZj6GuIRbR1pFr.png', 0, 0, '2020-10-31 18:40:39', '2021-04-14 14:53:01'),
 (117, 'G&S Team', 'G&S Team', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
 (118, 'Kleinfeldturnier', 'KF-Turnier', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
 (119, 'Elfmeterturnier', '11m-Turnier', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
 (120, 'NULL:ZWO:ELF-METERSCHIESSEN', '02:11:Meter', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
 (121, 'CfR Links II.', 'CfR Links II', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
 (122, 'Funktaxi Düsseldorf', 'Funktaxi D', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
-(123, 'FC Maschine Tuenkers', 'FCM Tuenkers', NULL, NULL, 0, 0, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
+(123, 'FC Maschine Tuenkers', 'FCM Tuenkers', NULL, 'AnrGW18wRVAsbg4nuJpp01voTg2QN9nhDEYhpB6E.png', 0, 0, '2020-10-31 18:40:39', '2021-04-14 14:59:15'),
 (124, 'Sportring Eller AH', 'SR Eller AH', NULL, NULL, 0, 1, '2020-10-31 18:40:39', '2020-10-31 18:40:39'),
-(125, 'RheinKnie Rangers', 'RheinKnie', 'RR', NULL, 0, 0, '2020-10-31 18:40:39', '2021-03-22 16:29:17'),
+(125, 'RheinKnie Rangers', 'RheinKnie', 'RR', 'gZv60hQRB0CnewoLDRaj1ndtM2hjZmsSp2DdVCsL.png', 0, 0, '2020-10-31 18:40:39', '2021-04-11 20:36:32'),
 (126, 'testforum', 'testforum', 'test', NULL, 0, 0, '2020-12-27 11:37:58', '2020-12-27 11:37:58'),
 (127, 'Test', NULL, NULL, NULL, 0, 0, '2021-03-05 14:26:51', '2021-03-05 14:26:51');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `club_date`
+-- Tabellenstruktur für Tabelle `club_date`
 --
 
 CREATE TABLE `club_date` (
@@ -1393,7 +1470,7 @@ CREATE TABLE `club_date` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `club_date`
+-- Daten für Tabelle `club_date`
 --
 
 INSERT INTO `club_date` (`club_id`, `date_id`, `created_at`, `updated_at`) VALUES
@@ -1412,7 +1489,7 @@ INSERT INTO `club_date` (`club_id`, `date_id`, `created_at`, `updated_at`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `club_player`
+-- Tabellenstruktur für Tabelle `club_player`
 --
 
 CREATE TABLE `club_player` (
@@ -1424,7 +1501,7 @@ CREATE TABLE `club_player` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `club_player`
+-- Daten für Tabelle `club_player`
 --
 
 INSERT INTO `club_player` (`club_id`, `player_id`, `number`, `created_at`, `updated_at`) VALUES
@@ -1445,12 +1522,12 @@ INSERT INTO `club_player` (`club_id`, `player_id`, `number`, `created_at`, `upda
 (33, 124, NULL, '2021-01-04 23:41:27', '2021-01-04 23:41:27'),
 (33, 141, NULL, '2021-01-04 23:41:27', '2021-01-04 23:41:27'),
 (33, 146, NULL, '2021-01-04 23:41:27', '2021-01-04 23:41:27'),
-(33, 16, NULL, '2021-01-04 23:41:27', '2021-01-04 23:41:27'),
+(33, 16, NULL, '2021-01-04 23:41:27', '2021-04-08 22:32:10'),
 (33, 97, NULL, '2021-01-04 23:41:27', '2021-01-04 23:41:27'),
 (33, 135, NULL, '2021-01-04 23:41:27', '2021-01-04 23:41:27'),
 (33, 142, NULL, '2021-01-04 23:41:27', '2021-01-04 23:41:27'),
 (33, 126, NULL, '2021-01-04 23:41:27', '2021-01-04 23:41:27'),
-(33, 2, 17, '2021-01-04 23:41:27', '2021-03-31 12:08:06'),
+(33, 2, 17, '2021-01-04 23:41:27', '2021-04-19 22:11:02'),
 (33, 137, NULL, '2021-01-04 23:41:27', '2021-01-04 23:41:27'),
 (33, 149, NULL, '2021-01-04 23:43:15', '2021-01-04 23:43:15'),
 (33, 64, NULL, '2021-01-04 23:43:15', '2021-01-04 23:43:15'),
@@ -1464,18 +1541,49 @@ INSERT INTO `club_player` (`club_id`, `player_id`, `number`, `created_at`, `upda
 (33, 136, NULL, '2021-01-04 23:46:31', '2021-01-04 23:46:31'),
 (33, 33, NULL, '2021-01-04 23:46:31', '2021-01-04 23:46:31'),
 (33, 14, NULL, '2021-01-04 23:46:31', '2021-01-04 23:46:31'),
-(34, 2, NULL, '2021-03-07 13:13:34', '2021-03-31 12:08:06'),
-(34, 13, NULL, '2021-03-07 13:13:34', '2021-03-31 12:27:52'),
+(34, 2, 17, '2021-03-07 13:13:34', '2021-04-19 22:11:02'),
+(34, 13, NULL, '2021-03-07 13:13:34', '2021-04-19 22:11:16'),
 (34, 112, NULL, '2021-03-07 13:13:34', '2021-03-07 13:13:34'),
 (34, 136, NULL, '2021-03-07 13:13:34', '2021-03-07 13:13:34'),
-(33, 1, 22, '2021-03-31 11:36:53', '2021-03-31 12:07:49'),
-(34, 1, 19, '2021-03-31 11:36:53', '2021-03-31 12:07:49'),
-(33, 10, NULL, '2021-03-31 12:19:24', '2021-03-31 12:19:24');
+(33, 1, 20, '2021-03-31 11:36:53', '2021-04-19 22:10:56'),
+(34, 1, 20, '2021-03-31 11:36:53', '2021-04-19 22:10:56'),
+(33, 10, NULL, '2021-03-31 12:19:24', '2021-03-31 12:19:24'),
+(33, 4, NULL, '2021-04-19 21:57:35', '2021-04-19 21:57:35'),
+(34, 124, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 110, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 54, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 121, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 85, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 16, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 138, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 146, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 133, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 77, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 130, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 5, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 14, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 10, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 126, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 4, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 147, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 117, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 140, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 144, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 145, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 33, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 149, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 34, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 120, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 56, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 139, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 97, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 108, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(33, 13, NULL, '2021-04-19 22:11:47', '2021-04-19 22:11:47');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `club_season`
+-- Tabellenstruktur für Tabelle `club_season`
 --
 
 CREATE TABLE `club_season` (
@@ -1486,7 +1594,7 @@ CREATE TABLE `club_season` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `club_season`
+-- Daten für Tabelle `club_season`
 --
 
 INSERT INTO `club_season` (`club_id`, `season_id`, `created_at`, `updated_at`) VALUES
@@ -1516,7 +1624,7 @@ INSERT INTO `club_season` (`club_id`, `season_id`, `created_at`, `updated_at`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dates`
+-- Tabellenstruktur für Tabelle `dates`
 --
 
 CREATE TABLE `dates` (
@@ -1537,7 +1645,7 @@ CREATE TABLE `dates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `dates`
+-- Daten für Tabelle `dates`
 --
 
 INSERT INTO `dates` (`id`, `date_type_id`, `location_id`, `datetime`, `title`, `description`, `note`, `published`, `cancelled`, `created_at`, `updated_at`, `poll_begins`, `poll_ends`, `poll_is_open`) VALUES
@@ -2107,15 +2215,15 @@ INSERT INTO `dates` (`id`, `date_type_id`, `location_id`, `datetime`, `title`, `
 (666, 4, 15, '2021-03-01 09:15:00', 'Pandemieende', 'Das ist das E N D E!', NULL, 1, 0, '2021-01-05 23:24:33', '2021-01-10 14:35:41', '2021-01-01', '2021-02-28', 1),
 (671, 2, 1, '2021-03-22 15:45:00', NULL, NULL, NULL, 1, 0, '2021-03-05 15:58:58', '2021-03-27 12:24:56', '2021-02-07', '2021-03-22', 1),
 (672, 2, 1, '2021-03-24 20:45:00', NULL, NULL, NULL, 1, 0, '2021-03-07 16:42:36', '2021-03-22 19:26:15', '2021-02-12', '2021-03-24', 1),
-(673, 2, 52, '2021-04-01 00:00:00', NULL, NULL, NULL, 1, 1, '2021-03-22 14:13:50', '2021-04-06 12:31:48', '2021-03-04', '2021-03-31', 1),
+(673, 2, 52, '2021-04-30 11:00:00', NULL, NULL, NULL, 1, 0, '2021-03-22 14:13:50', '2021-04-12 22:39:58', '2021-03-04', '2021-04-29', 1),
 (674, 3, 34, '2021-05-10 09:00:00', NULL, NULL, NULL, 1, 0, '2021-03-22 14:32:59', '2021-03-22 14:35:16', '2021-03-12', '2021-05-09', 1),
-(675, 2, 32, '2021-04-06 20:00:00', NULL, NULL, NULL, 1, 0, '2021-03-22 14:34:19', '2021-03-25 11:31:18', '2021-03-09', '2021-04-05', 1),
+(675, 2, 32, '2021-04-23 20:00:00', NULL, NULL, NULL, 1, 0, '2021-03-22 14:34:19', '2021-04-12 22:39:04', '2021-03-09', '2021-04-22', 1),
 (676, 4, 15, '2021-06-01 20:00:00', 'PARTY', 'Komm zur Party. Es gibt REIS!', NULL, 1, 0, '2021-03-24 16:27:11', '2021-03-24 17:06:14', '2021-03-21', '2021-05-30', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `date_options`
+-- Tabellenstruktur für Tabelle `date_options`
 --
 
 CREATE TABLE `date_options` (
@@ -2127,7 +2235,7 @@ CREATE TABLE `date_options` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `date_options`
+-- Daten für Tabelle `date_options`
 --
 
 INSERT INTO `date_options` (`id`, `date_id`, `description`, `created_at`, `updated_at`) VALUES
@@ -2145,7 +2253,7 @@ INSERT INTO `date_options` (`id`, `date_id`, `description`, `created_at`, `updat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `date_option_user`
+-- Tabellenstruktur für Tabelle `date_option_user`
 --
 
 CREATE TABLE `date_option_user` (
@@ -2157,16 +2265,16 @@ CREATE TABLE `date_option_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `date_option_user`
+-- Daten für Tabelle `date_option_user`
 --
 
 INSERT INTO `date_option_user` (`date_option_id`, `user_id`, `attend`, `created_at`, `updated_at`) VALUES
 (13, 1, 0, '2021-02-15 14:16:53', '2021-02-15 14:16:53'),
 (15, 1, 1, '2021-03-05 16:51:06', '2021-03-05 16:51:06'),
-(11, 1, 0, '2021-03-07 22:56:52', '2021-03-30 13:08:31'),
-(12, 1, 1, '2021-03-07 22:56:52', '2021-03-30 13:08:31'),
+(11, 1, 1, '2021-03-07 22:56:52', '2021-04-08 22:36:39'),
+(12, 1, 1, '2021-03-07 22:56:52', '2021-04-08 22:36:39'),
 (16, 1, 1, '2021-03-10 18:42:46', '2021-03-21 19:24:06'),
-(17, 1, 0, '2021-03-24 16:00:38', '2021-03-24 16:45:14'),
+(17, 1, 1, '2021-03-24 16:00:38', '2021-04-12 22:40:20'),
 (20, 1, 1, '2021-03-24 16:27:53', '2021-03-24 16:27:53'),
 (21, 1, 0, '2021-03-24 16:27:53', '2021-03-24 16:27:53'),
 (18, 1, 1, '2021-03-24 17:02:28', '2021-03-24 17:02:28'),
@@ -2175,7 +2283,7 @@ INSERT INTO `date_option_user` (`date_option_id`, `user_id`, `attend`, `created_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `date_types`
+-- Tabellenstruktur für Tabelle `date_types`
 --
 
 CREATE TABLE `date_types` (
@@ -2186,7 +2294,7 @@ CREATE TABLE `date_types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `date_types`
+-- Daten für Tabelle `date_types`
 --
 
 INSERT INTO `date_types` (`id`, `description`, `created_at`, `updated_at`) VALUES
@@ -2198,7 +2306,7 @@ INSERT INTO `date_types` (`id`, `description`, `created_at`, `updated_at`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `failed_jobs`
+-- Tabellenstruktur für Tabelle `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -2214,7 +2322,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `goals`
+-- Tabellenstruktur für Tabelle `goals`
 --
 
 CREATE TABLE `goals` (
@@ -2229,7 +2337,7 @@ CREATE TABLE `goals` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `goals`
+-- Daten für Tabelle `goals`
 --
 
 INSERT INTO `goals` (`id`, `match_id`, `player_id`, `score`, `minute`, `penalty`, `created_at`, `updated_at`) VALUES
@@ -3056,7 +3164,7 @@ INSERT INTO `goals` (`id`, `match_id`, `player_id`, `score`, `minute`, `penalty`
 (852, 468, 110, '0:1', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (853, 468, 54, '1:2', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (854, 467, 16, '1:1', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
-(855, 480, 83, '1:1', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
+(855, 480, 49, '1:1', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (856, 470, 85, '1:0', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (857, 470, 67, '2:0', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (858, 470, 67, '3:2', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
@@ -3349,7 +3457,7 @@ INSERT INTO `goals` (`id`, `match_id`, `player_id`, `score`, `minute`, `penalty`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `locations`
+-- Tabellenstruktur für Tabelle `locations`
 --
 
 CREATE TABLE `locations` (
@@ -3364,7 +3472,7 @@ CREATE TABLE `locations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `locations`
+-- Daten für Tabelle `locations`
 --
 
 INSERT INTO `locations` (`id`, `name`, `name_short`, `note`, `is_stadium`, `url`, `created_at`, `updated_at`) VALUES
@@ -3428,7 +3536,7 @@ INSERT INTO `locations` (`id`, `name`, `name_short`, `note`, `is_stadium`, `url`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `matches`
+-- Tabellenstruktur für Tabelle `matches`
 --
 
 CREATE TABLE `matches` (
@@ -3458,7 +3566,7 @@ CREATE TABLE `matches` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `matches`
+-- Daten für Tabelle `matches`
 --
 
 INSERT INTO `matches` (`id`, `date_id`, `match_type_id`, `season_id`, `matchweek`, `team_home`, `team_away`, `goals_home`, `goals_home_ht`, `goals_home_pen`, `goals_home_rated`, `goals_away`, `goals_away_ht`, `goals_away_pen`, `goals_away_rated`, `match_details`, `rescheduled_to_fixture_id`, `rescheduled_by_team`, `reschedule_reason`, `published`, `cancelled`, `created_at`, `updated_at`) VALUES
@@ -3977,7 +4085,7 @@ INSERT INTO `matches` (`id`, `date_id`, `match_type_id`, `season_id`, `matchweek
 (627, 627, 2, 11, '2', 33, 80, 2, 1, NULL, NULL, 2, 1, NULL, NULL, '<b>Aufstellung:</b><br />Backi - Christoph M., Manu, Jannik, Kevin (60. Baris) - Sven, Andy (55. Jan R.) - Simon (60. Lukas), Alberty (75. Dustin), Tobi - Gussi (70. Marc)<br /><br /><b>Reserve:</b><br />Stepahn H. \n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:34:42'),
 (635, 635, 2, 11, '5', 33, 61, 6, 4, NULL, NULL, 3, 1, NULL, NULL, '<b>Aufstellung:</b><br />Backi - Jannik, Stephan F., Manu, Basti - Lukas, Mitch (46. Kefin), Sven, Tobi - Niko (46. Dustin), Alberty (75. Fritz)<br /><br /><b>Reservebank:</b><br />Kevin, Martin\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:34:42'),
 (636, 636, 2, 11, '7', 33, 60, 4, 2, NULL, NULL, 0, 1, NULL, NULL, '<b>Aufstellung:</b><br />Willi - Fritz (60. Raoul), Andy, Basti, Jannik (65. Kevin)- Marco (75. Martin), Sven - Niko, Oli, Tobi - Alberty (65. Gussi)<br /><br /><b>besonderes Vorkommnis:</b><br />Willi hÃ¤lt beim Stand von 4:0 kurz vor Abpfiff Foulelfmeter (Fritz :-)\n					 \n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:34:42'),
-(638, 638, 2, 11, '9', 33, 102, 5, 2, NULL, NULL, 2, 1, NULL, NULL, '<div><strong>Aufstellung:</strong><br>Willi - Gökki (65. Fritz), Manu (46. Jannik), Basti, Kevin - Roy (70. Dustin), Marco - Niko , Alberty, Tobi - Gussi (60. Lukas)<br><br></div><div><strong>Reserve:</strong><br>Raoul</div>', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-04-06 19:47:19'),
+(638, 638, 2, 11, '9', 33, 102, 5, 2, NULL, NULL, 2, 1, NULL, NULL, '<div><strong>Aufstellung:</strong><br>Willi - Gökki (65. Fritz), Manu (46. Jannik), Basti, Kevin - Roy (70. Dustin), Marco - Niko , Alberty, Tobi - Gussi (60. Lukas) <br><br><strong>Reserve:</strong><br>Raoul</div>', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-04-06 12:53:41'),
 (639, 639, 2, 11, '11', 33, 26, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:34:42'),
 (640, 640, 2, 11, '4', 20, 33, 0, 0, NULL, NULL, 4, 1, NULL, NULL, '<b>Aufstellung:</b><br />Willi - Lukas (65. Christoph L.), Manu, Basti, Christoph M. - Simon (80. Luca), Mitch (75. Dustin), Andy, Tobi  -  Alberty (70. Martin), Niko', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:34:42'),
 (649, 649, 2, 11, '13', 33, 32, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:34:42'),
@@ -3992,13 +4100,13 @@ INSERT INTO `matches` (`id`, `date_id`, `match_type_id`, `season_id`, `matchweek
 (662, 662, 2, 11, '3', 33, 125, 5, 3, NULL, NULL, 2, 1, NULL, NULL, '<b>Aufstellung:</b><br />Martin - Raoul (46. Roy), Manu, Basti, Kevin (46. Krzysztof) - Andy (60. Mitch), Marco - Simon (70. Dustin), Oli, Tobi - Alberty<br /><br /><b>Reserve:</b><br />Fritz, Kefin, Gussi\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 16:48:59'),
 (671, 671, 3, 11, 'Achtelfinale', 33, 22, 2, 2, 7, NULL, 3, 0, 6, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-03-05 15:58:58', '2021-03-27 12:24:56'),
 (672, 672, 2, 11, '13', 16, 34, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-03-07 16:42:36', '2021-03-22 19:26:15'),
-(673, 673, 1, 11, NULL, 33, 90, 1, NULL, NULL, NULL, 0, NULL, NULL, NULL, '<div>1:0 <strong>gewonnen</strong>!<em><del>!</del></em></div>', NULL, NULL, NULL, 1, 1, '2021-03-22 14:13:50', '2021-04-06 14:05:31'),
+(673, 673, 1, 11, NULL, 33, 90, 1, NULL, NULL, NULL, 0, NULL, NULL, NULL, '<div>1:0 <strong>gewonnen</strong>!<em><del>! asd</del></em><em>&nbsp;asdsadsdasdasd</em></div>', NULL, NULL, NULL, 1, 0, '2021-03-22 14:13:50', '2021-04-13 18:35:16'),
 (675, 675, 4, 11, 'Relegation', 82, 34, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '<div>Test</div>', NULL, NULL, NULL, 1, 0, '2021-03-22 14:34:19', '2021-04-06 13:45:45');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `match_types`
+-- Tabellenstruktur für Tabelle `match_types`
 --
 
 CREATE TABLE `match_types` (
@@ -4011,7 +4119,7 @@ CREATE TABLE `match_types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `match_types`
+-- Daten für Tabelle `match_types`
 --
 
 INSERT INTO `match_types` (`id`, `description`, `description_short`, `is_point_match`, `created_at`, `updated_at`) VALUES
@@ -4023,7 +4131,7 @@ INSERT INTO `match_types` (`id`, `description`, `description_short`, `is_point_m
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Tabellenstruktur für Tabelle `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -4033,7 +4141,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Daten für Tabelle `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -4080,7 +4188,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- Tabellenstruktur für Tabelle `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -4090,16 +4198,16 @@ CREATE TABLE `password_resets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `password_resets`
+-- Daten für Tabelle `password_resets`
 --
 
 INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
-('kvnkaiser@gmail.com', '$2y$10$UV4q7PJzGiJIuKz3i0qAkOFBArtx4ahc1ybh3hu8XMFhHIZgyqkZi', '2021-02-18 16:09:37');
+('kvnkaiser@gmail.com', '$2y$10$5yyuwwHR18DrN5shkEE1ieDUCVRK8/eZ8jzoaTI2P951M8LViysQu', '2021-04-11 21:14:56');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `personal_access_tokens`
+-- Tabellenstruktur für Tabelle `personal_access_tokens`
 --
 
 CREATE TABLE `personal_access_tokens` (
@@ -4117,7 +4225,7 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `players`
+-- Tabellenstruktur für Tabelle `players`
 --
 
 CREATE TABLE `players` (
@@ -4138,158 +4246,148 @@ CREATE TABLE `players` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `players`
+-- Daten für Tabelle `players`
 --
 
 INSERT INTO `players` (`id`, `player_status_id`, `user_id`, `first_name`, `last_name`, `nickname`, `dob`, `joined`, `left`, `public_note`, `internal_note`, `is_public`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 'Kevin', 'Kaiser', 'Kevin', '1986-10-14', '2005-01-01', NULL, 'webmaster', NULL, 1, '2020-12-20 19:02:49', '2021-03-30 21:46:18'),
-(2, 1, NULL, 'Andreas', 'Meier', 'Andy', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(3, 1, NULL, 'Michael', 'Leest', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(4, 1, NULL, 'Michael', 'Rohmann', 'Mikel', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(5, 1, NULL, 'Marco', 'Holstein', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(6, 1, NULL, 'Marco', 'Mields', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(7, 1, NULL, 'Klaus', 'Bender', 'Klaus', '1966-05-27', '1998-01-01', NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2021-03-05 10:13:12'),
-(8, 1, NULL, 'Ralph', 'Herzhoff', NULL, '1965-03-17', '1987-01-01', NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2021-03-05 10:20:47'),
-(9, 1, NULL, 'Ralph', 'Küpper', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(10, 1, 2, 'Martin', 'Weichsel', 'Martin', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(11, 1, NULL, 'Matthias', 'Stratmann', 'Matthias', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(12, 1, NULL, 'Karlo', 'Jerkovic', 'Karlo', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(13, 3, NULL, 'Jürgen', 'Kaiser', 'Jürgen', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2021-03-31 12:27:52'),
-(14, 1, NULL, 'Mark', 'Wolters', 'Mark', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(15, 1, NULL, 'Sandor', 'Gall', 'Sandor', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(16, 1, NULL, 'Friedrich', 'Kassler', 'Fritz', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(17, 1, NULL, 'Sawas', 'Pangiotidis', 'Sawas', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(18, 1, NULL, 'Joachim', 'MÃ¼ller', 'Achim', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(19, 1, NULL, 'Volker', 'Buttgereit', 'Volker', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(20, 1, NULL, 'Patrick', 'Brockers', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(21, 1, NULL, 'Wolfgang', 'Schlegel', 'Wolla', '1970-03-10', '1990-01-01', NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2021-03-20 13:55:20'),
-(22, 1, NULL, 'Siegfried', 'Kelch', 'Siggi', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(23, 1, NULL, 'Harald', 'Michels', 'Harry', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(24, 1, NULL, 'Bernd', 'Altena', 'Bernd', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(25, 1, NULL, 'Clemens', 'Boldt', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(26, 1, NULL, 'Thomas', 'Engelhardt', 'Thomas', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(27, 1, NULL, 'Alexander', 'Friedmann', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(28, 1, NULL, 'Ender', 'Horuz', 'Ender', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(29, 1, NULL, 'Tasso', 'Karowski', 'Tasso', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(30, 1, NULL, 'Michael', 'Klause', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(31, 1, NULL, 'Tommy', 'Stens', 'Tommy', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(32, 1, NULL, 'Dirk', 'Wagner', 'Dirk', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(33, 1, NULL, 'Sascha', 'Wenz', 'Sascha', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(34, 1, NULL, 'Stefan', 'Wies', 'Frosch', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
+(1, 1, 1, 'Kevin', 'Kaiser', NULL, '1986-10-14', '2005-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 22:10:56'),
+(2, 1, 4, 'Andreas', 'Meier', 'Andy', '1987-04-10', '2005-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 22:11:02'),
+(3, 5, NULL, 'Michael', 'Leest', NULL, NULL, '1996-01-01', '2020-08-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(4, 1, NULL, 'Michael', 'Rohmann', 'Mikel', '1967-02-18', '1999-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(5, 5, NULL, 'Marco', 'Holstein', NULL, NULL, '2007-09-01', '2012-01-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(6, 5, NULL, 'Marco', 'Mields', NULL, NULL, '2010-01-01', '2012-01-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(7, 2, NULL, 'Klaus', 'Bender', NULL, '1966-05-27', '1998-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(8, 2, NULL, 'Ralph', 'Herzhoff', NULL, '1965-03-17', '1987-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(9, 2, NULL, 'Ralph', 'Küpper', NULL, '1966-04-04', '1997-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(10, 1, NULL, 'Martin', 'Weichsel', NULL, '1981-06-17', '2005-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(11, 5, NULL, 'Matthias', 'Stratmann', NULL, NULL, '2007-04-01', '2016-08-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(12, 2, NULL, 'Karlo', 'Jerkovic', NULL, '1987-06-21', '2005-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(13, 2, 3, 'Jürgen', 'Kaiser', NULL, '1961-08-01', '1979-11-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 22:11:16'),
+(14, 1, NULL, 'Mark', 'Wolters', NULL, '1982-04-13', '2008-09-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(15, 5, NULL, 'Sandor', 'Gall', NULL, NULL, '2007-09-01', '2012-03-02', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(16, 1, NULL, 'Friedrich', 'Kassler', 'Fritz', '1979-07-15', '2005-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(17, 5, NULL, 'Sawas', 'Pangiotidis', NULL, NULL, '2007-01-01', '2011-07-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(18, 2, NULL, 'Joachim', 'Müller', 'Achim', '1966-02-17', '1999-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(19, 5, NULL, 'Volker', 'Buttgereit', NULL, NULL, '2003-01-01', '2017-10-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(20, 5, NULL, 'Patrick', 'Brockers', NULL, NULL, '2009-07-01', '2011-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(21, 2, NULL, 'Wolfgang', 'Schlegel', NULL, '1970-03-10', '1990-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(22, 5, NULL, 'Siegfried', 'Kelch', NULL, NULL, '1995-01-01', '2010-07-01', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(23, 2, NULL, 'Harald', 'Michels', NULL, '1958-12-01', '2002-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(24, 5, NULL, 'Bernd', 'Altena', NULL, NULL, '1985-01-01', '2010-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(25, 5, NULL, 'Clemens', 'Boldt', NULL, NULL, '2007-05-01', '2016-10-01', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(26, 5, NULL, 'Thomas', 'Engelhardt', NULL, NULL, '2007-01-01', '2008-05-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(27, 5, NULL, 'Alexander', 'Friedmann', NULL, NULL, '2010-02-01', '2010-10-01', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(28, 5, NULL, 'Ender', 'Horuz', NULL, NULL, '2009-01-01', '2009-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(29, 5, NULL, 'Tasso', 'Karowski', NULL, NULL, '2010-01-01', '2012-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(30, 5, NULL, 'Michael', 'Klause', NULL, NULL, '2009-07-01', '2020-05-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(32, 5, NULL, 'Dirk', 'Wagner', NULL, NULL, '2001-01-20', '2031-12-20', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(33, 1, NULL, 'Sascha', 'Wenz', NULL, '1982-09-26', '2010-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(34, 1, NULL, 'Stefan', 'Wies', NULL, '1981-06-25', '2008-04-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
 (35, 1, NULL, 'Eigentor', ' ', 'Eigentor', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(41, 1, NULL, 'Marco', 'Taranto', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(42, 1, NULL, 'Sahit ', 'Bega', 'Sahit', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(43, 1, NULL, 'Kornelius', 'Kemmler', 'Konny', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(44, 1, NULL, 'Tobias', 'Ohmann', 'Tobi O.', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(45, 1, NULL, 'Detlef', 'WeiÃŸIchNicht', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(46, 1, NULL, 'Detlef', 'Pagga', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(47, 1, NULL, 'Nico', 'Nakaten', 'Nico', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(48, 1, NULL, 'Sven', 'BeifuÃŸ', 'Sven B.', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
+(41, 5, NULL, 'Marco', 'Taranto', NULL, NULL, '2007-01-01', '2016-07-01', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(42, 5, NULL, 'Sahit ', 'Bega', NULL, NULL, '2008-11-01', '2010-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(43, 5, NULL, 'Kornelius', 'Kemmler', NULL, NULL, '2010-01-01', '2010-08-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(44, 5, NULL, 'Tobias', 'Ohmann', NULL, NULL, '2010-08-01', '2013-10-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(46, 5, NULL, 'Detlef', 'Pagga', NULL, NULL, '2010-09-01', '2011-10-01', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(47, 5, NULL, 'Nico', 'Nakaten', NULL, NULL, '2011-01-01', '2018-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(48, 5, NULL, 'Sven', 'Beifuß', NULL, NULL, '2011-02-01', '2012-07-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
 (49, 1, NULL, 'Gast', ' ', 'Gast', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(50, 1, NULL, 'Michael ', 'Lennartz', 'Lenny', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(51, 1, NULL, 'Dusko', 'Tomov', 'Dusko', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(52, 1, NULL, 'Simon', 'Bauer', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(53, 1, NULL, 'Bosko', 'Bosko', 'Bosko', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(54, 1, NULL, 'Daniel', 'Alberty', 'Alberty', '1982-03-28', '2011-04-01', NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2021-03-05 10:10:54'),
-(55, 1, NULL, 'Markus', 'Jansen', 'Markus', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(56, 1, NULL, 'Stephan', 'Helbig', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(57, 1, NULL, 'Jorn', 'Pashouwers', 'Jorn', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(58, 1, NULL, 'Kai', 'Piluschewski', 'Kai', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(59, 1, NULL, 'Torsten', 'Henseler', 'Torsten', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(60, 1, NULL, 'Selcuk', 'Selimoglou', 'Selcuk', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(61, 1, NULL, 'Thomas', 'X', 'Thomas', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(62, 1, NULL, 'Andreas', 'Müller', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(63, 1, NULL, 'Simon', 'Grohs', 'Simon', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(64, 1, NULL, 'Dustin', 'Neubauer', 'Dustin', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(65, 1, NULL, 'Baris', 'Kaya', 'Baris', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(66, 1, NULL, 'Ayan', 'X', 'Ayan', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(67, 1, NULL, 'Denis', 'Laupert', 'Laupi', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(68, 1, NULL, 'Michael', 'Winkels', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(69, 1, NULL, 'Björn', 'Meyer', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(70, 1, NULL, 'Oliver', 'Klein', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(71, 1, NULL, 'JoJo', 'Gast', 'JoJo', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(72, 1, NULL, 'Dominik', 'Gast', 'Niki', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(73, 1, NULL, 'Rachid', 'Amatalla', '', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(74, 1, NULL, 'Michael', 'Kunze', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(75, 1, NULL, 'Arno', 'Zimmermann', 'Arno', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(76, 1, NULL, 'Fantomas', 'Fantomas', 'Fantomas', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(77, 1, NULL, 'Lars', 'KeineAhnung', 'Lars', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(78, 1, NULL, 'Jan', 'Theisen', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(79, 1, NULL, 'Helmut', 'Lange', 'Babo', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(80, 1, NULL, 'Junya ', 'Furusaki', 'Junya ', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(81, 1, NULL, 'Frank', 'Lange', 'Frank', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(82, 1, NULL, 'Dino', 'Mazdar', 'Dino', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(83, 1, NULL, 'folgt', 'folgt', 'folgt', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(84, 1, NULL, 'Takeshi', 'Shiragami', 'Takeshi', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(85, 1, NULL, 'Frank', 'Büching', 'Gemüse', '1964-03-26', '2015-01-01', NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2021-03-05 10:17:26'),
-(86, 1, NULL, 'Florent', '?', 'Flo', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(88, 1, NULL, 'Stephan', 'Miebach', 'Stephan Mie.', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(89, 1, NULL, 'Philip', 'Braun', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(90, 1, NULL, 'Felix', 'Rohmann', 'Felix', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(91, 1, NULL, 'Daniel', 'Brandtner', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(92, 1, NULL, 'Stiliano', 'Mancuso', 'Stiliano', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(93, 1, NULL, 'Thanh Cao ', 'Nguyen', 'Than', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(94, 1, NULL, 'Thomas', 'Cegarra', 'Thomas C.', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(95, 1, NULL, 'Thuyen', 'Nguyen', 'Thuyen', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(96, 1, NULL, 'Henri', 'Schwarz', 'Henri', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(97, 1, NULL, 'Willi', 'Kaus', 'Willi', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(98, 1, NULL, 'Vincent', 'Oppeland', 'Vincent', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(99, 1, NULL, 'Kevin', 'Ritter', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2021-03-30 21:42:00'),
-(100, 1, NULL, 'Fabian', 'Pramel', 'Fabian', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(101, 1, NULL, 'Tobias', 'Gorzynski', 'Tobi', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(102, 1, NULL, 'Dorian', 'Berndt', 'Dorian', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(103, 1, NULL, 'Markus', 'Grundmann', 'Markus', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(104, 1, NULL, 'Christian', 'Otte', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(105, 1, NULL, 'Taycan', 'Ã–mer', 'Tay', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(106, 1, NULL, 'Pascal', 'Neumann', 'Kalle', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(107, 1, NULL, 'Rick', 'Franke', 'Rick', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(108, 1, NULL, 'Wolfgang', 'BÃ¶hm', 'Wolla B.', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(110, 1, NULL, 'Christopher', 'Schratz', 'Chris', '1986-11-12', '2017-01-01', NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2021-03-05 10:21:30'),
-(111, 1, NULL, 'Sebastian', 'Heidelberg', 'Sebi', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(112, 1, NULL, 'Marcel', 'Gans', 'Gussi', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(113, 1, NULL, 'Jay', 'Djeladin', 'Jay', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(114, 1, NULL, 'Jonas', 'Fahl', 'Jonas.', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(115, 1, NULL, 'Selicke', 'Marc', 'Marc', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(116, 1, NULL, 'Jan', 'Schulz', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(117, 1, NULL, 'Michel', 'GÃ¶rtz', 'Mitch', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(118, 1, NULL, 'Alexander', 'Rumler', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(119, 1, NULL, 'Pascal', 'Palinski', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(120, 1, NULL, 'Stephan', 'Frank', 'Doc', '1977-06-30', '2018-04-01', NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2021-03-05 10:17:56'),
-(121, 1, NULL, 'Florian', 'Böck', 'Florian', '1980-08-25', '2018-11-01', NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2021-03-05 10:14:44'),
-(122, 1, NULL, 'Johannes', 'Hauswald', 'Johannes', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(123, 1, NULL, 'HÃ¼seyin', 'Karaoglan', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(124, 1, NULL, 'Bastian', 'Hesse', 'Basti', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(125, 1, NULL, 'Ferdinand', 'Baumann', 'Ferdi', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(126, 1, NULL, 'Massimo', 'Mastronardi', 'Massi', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(127, 1, NULL, 'Jonas', 'Feldmann', 'Jonas', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(129, 1, NULL, 'Max', 'Eisen', 'Max', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(130, 1, NULL, 'Manuel', 'Friedrich', 'Manu', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(131, 1, NULL, 'Huss', 'Julian', 'Julian', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(132, 1, NULL, 'Tobias', 'Berger', 'Keule', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(133, 1, NULL, 'Jan', 'Rickel', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(134, 1, NULL, 'Falk', 'Linnemann', 'Falk', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(135, 1, NULL, 'Jannik', 'Kleinbreuer', 'Jannik', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(136, 1, NULL, 'Oliver', 'Thederahn', 'Oli', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(137, 1, NULL, 'Christoph', 'Meißner', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(138, 1, NULL, 'Georg', 'Weigel', 'Georg', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(139, 1, NULL, 'Sven', 'Peters', 'Sven P.', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(140, 1, NULL, 'Nikolai', 'Frank', 'Niko', '1986-02-07', '2020-01-01', NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2021-03-05 10:18:26'),
-(141, 1, NULL, 'Marko', 'Itzigsohn', 'Marko', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(142, 1, NULL, 'Lukas', 'Klemp', 'Lukas', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(143, 1, NULL, 'Marco', 'Gurkenland', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(144, 1, NULL, 'Raoul', 'Rickert', 'Raoul', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(145, 1, NULL, 'Roy', 'Schiffers', 'Roy', NULL, NULL, NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2020-12-20 19:02:49'),
-(146, 1, NULL, 'Gökhan', 'Karabas', 'Goekki', '1985-06-22', '2020-11-01', NULL, NULL, NULL, 1, '2020-12-20 19:02:49', '2021-03-30 11:41:22'),
-(147, 2, NULL, 'Michael', 'Barkleit', 'Backi', '1987-07-28', '2020-02-01', NULL, NULL, NULL, 1, '2021-01-04 23:24:40', '2021-01-04 23:24:40'),
-(148, 1, NULL, 'Kevin', 'Görtz', 'Kefin', '1992-12-27', '2018-11-01', NULL, NULL, NULL, 1, '2021-01-04 23:39:30', '2021-01-04 23:39:30'),
-(149, 2, NULL, 'Sebastian', 'Moser', NULL, '1987-05-11', '2013-05-01', NULL, NULL, NULL, 1, '2021-01-04 23:42:32', '2021-01-04 23:42:32'),
-(150, 1, NULL, 'Marcel', 'Podszus', NULL, '1986-03-26', NULL, NULL, NULL, NULL, 1, '2021-01-04 23:44:22', '2021-01-04 23:44:22'),
-(151, 1, NULL, 'Christian', 'Schau', NULL, '1986-03-26', NULL, NULL, NULL, NULL, 1, '2021-01-04 23:45:43', '2021-01-04 23:45:43');
+(50, 5, NULL, 'Michael ', 'Lennartz', NULL, NULL, '2010-11-01', '2015-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(51, 5, NULL, 'Dusko', 'Tomov', NULL, NULL, '2011-01-01', '2031-12-20', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(52, 5, NULL, 'Simon', 'Bauer', NULL, NULL, '2011-01-01', '2011-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(53, 1, NULL, 'Bosko', 'Tomov', 'Bosko', NULL, '2011-01-01', '2011-12-31', NULL, NULL, 1, '2020-12-20 19:02:49', '2021-04-19 21:10:44'),
+(54, 1, NULL, 'Daniel', 'Alberty', 'Alberty', '1982-03-28', '2011-04-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(55, 5, NULL, 'Markus', 'Jansen', NULL, NULL, '2011-01-01', '2013-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(56, 1, NULL, 'Stephan', 'Helbig', NULL, '1971-12-01', '2012-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(57, 5, NULL, 'Jorn', 'Pashouwers', NULL, NULL, '2012-05-01', '2013-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(58, 5, NULL, 'Kai', 'Piluschewski', NULL, NULL, '2011-10-01', '2018-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(59, 2, NULL, 'Torsten', 'Henseler', NULL, '1974-12-13', '2011-08-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(60, 5, NULL, 'Selcuk', 'Selimoglou', NULL, NULL, '2012-06-01', '2012-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(61, 5, NULL, 'Thomas', 'Riphahn', NULL, NULL, NULL, NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(62, 5, NULL, 'Andreas', 'Müller', NULL, NULL, '2012-08-01', '2012-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(63, 1, NULL, 'Simon', 'Grohs', NULL, '1994-03-12', '2012-08-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(64, 1, NULL, 'Dustin', 'Neubauer', NULL, '1992-02-27', '2012-08-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(65, 5, NULL, 'Baris', 'Kaya', NULL, NULL, '2012-03-01', '2020-07-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(66, 5, NULL, 'Ayan', 'Selimouglu', NULL, NULL, '2012-08-01', '2012-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(67, 5, NULL, 'Denis', 'Laupert', NULL, NULL, '2013-01-01', '2019-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(68, 5, NULL, 'Michael', 'Winkels', NULL, NULL, '2012-08-01', '2014-10-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(69, 5, NULL, 'Börn', 'Meyer', NULL, NULL, '2011-09-01', '2014-01-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(70, 5, NULL, 'Oliver', 'Klein', NULL, NULL, '2013-09-01', '2013-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(73, 5, NULL, 'Rachid', 'Amatalla', NULL, NULL, '2013-09-01', '2017-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(74, 5, NULL, 'Michael', 'Kunze', NULL, NULL, '2012-02-01', '2017-10-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(75, 5, NULL, 'Arno', 'Zimmermann', NULL, NULL, '2013-10-01', '2018-08-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(77, 1, NULL, 'Lars', 'Beekmans', NULL, '1975-12-24', '2015-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(78, 2, NULL, 'Jan', 'Theisen', NULL, '1983-01-05', '2013-07-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(79, 5, NULL, 'Helmut', 'Lange', NULL, NULL, '2014-05-01', '2015-01-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(80, 5, NULL, 'Junya ', 'Furusaki', NULL, NULL, '2014-07-01', '2014-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(81, 5, NULL, 'Frank', 'Lange', NULL, NULL, '2014-09-01', '2014-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(82, 5, NULL, 'Dino', 'Mazdar', NULL, NULL, '2014-11-01', '2014-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(84, 5, NULL, 'Takeshi', 'Shiragami', NULL, NULL, '2013-09-01', '2015-01-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(85, 1, NULL, 'Frank', 'Büching', 'Gemüse', '1964-03-26', '2015-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(88, 5, NULL, 'Stephan', 'Miebach', NULL, '1972-05-03', '2015-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(89, 5, NULL, 'Philip', 'Braun', NULL, NULL, '2014-09-01', '2015-03-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(90, 5, NULL, 'Felix', 'Rohmann', NULL, NULL, '2014-01-01', '2017-10-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(91, 5, NULL, 'Daniel', 'Brandtner', NULL, NULL, '2015-01-01', '2016-07-01', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(94, 1, NULL, 'Thomas', 'Cegarra', NULL, '1972-12-29', '2015-03-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(95, 5, NULL, 'Thuyen', 'Nguyen', NULL, NULL, '2016-01-01', '2016-07-01', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(96, 5, NULL, 'Henri', 'Schwarz', NULL, NULL, '2015-01-01', '2016-10-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(97, 1, NULL, 'Willi', 'Kaus', NULL, '1985-07-02', '2016-04-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(98, 5, NULL, 'Vincent', 'Oppeland', NULL, NULL, '2016-05-01', '2016-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(99, 5, NULL, 'Kevin', 'Ritter', NULL, NULL, '2016-09-01', '2017-01-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(100, 5, NULL, 'Fabian', 'Pramel', NULL, NULL, '2016-10-01', '2017-05-01', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(101, 1, NULL, 'Tobias', 'Gorzynski', 'Tobi', '1991-07-20', '2017-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(102, 5, NULL, 'Dorian', 'Berndt', NULL, NULL, '2016-11-01', '2017-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(104, 5, NULL, 'Christian', 'Otte', NULL, NULL, '2016-11-01', '2016-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(105, 5, NULL, 'Taycan', 'Ömer', NULL, NULL, '2016-01-01', '2017-03-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(106, 5, NULL, 'Pascal', 'Neumann', NULL, NULL, '2017-01-01', '2018-10-01', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(107, 5, NULL, 'Rick', 'Franke', NULL, NULL, '2016-09-01', '2018-08-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(108, 1, NULL, 'Wolfgang', 'Böhm', 'Wolla', '1965-08-08', '2016-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(110, 1, NULL, 'Christopher', 'Schratz', 'Chris', '1986-11-12', '2017-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(111, 5, NULL, 'Sebastian', 'Heidelberg', NULL, NULL, '2016-01-01', '2017-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(112, 1, NULL, 'Marcel', 'Gans', 'Gussi', '1981-08-20', '2017-06-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(113, 5, NULL, 'Jay', 'Djeladin', NULL, NULL, '2017-10-01', '2017-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(114, 5, NULL, 'Jonas', 'Fahl', NULL, NULL, '2017-07-01', '2018-01-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(115, 5, NULL, 'Selicke', 'Marc', NULL, NULL, '2018-04-01', '2020-03-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(116, 2, NULL, 'Jan', 'Schulz', NULL, '1987-04-30', '2016-03-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(117, 1, NULL, 'Michel', 'Görtz', 'Mitch', '1981-08-23', '2018-03-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(118, 5, NULL, 'Alexander', 'Rumler', NULL, NULL, '2018-02-01', '2018-10-01', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(119, 5, NULL, 'Pascal', 'Palinski', NULL, NULL, '2018-03-01', '2019-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(120, 1, NULL, 'Stephan', 'Frank', 'Doc', '1977-06-30', '2018-04-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(121, 1, NULL, 'Florian', 'Böck', 'Flo', '1980-08-25', '2018-11-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(122, 5, NULL, 'Johannes', 'Hauswald', NULL, NULL, '2018-11-01', '2019-10-01', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(123, 5, NULL, 'Hüseyin', 'Karaoglan', NULL, NULL, '2018-10-01', '2019-03-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(124, 1, NULL, 'Bastian', 'Hesse', 'Basti', '1981-08-07', '2009-07-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(125, 5, NULL, 'Ferdinand', 'Baumann', NULL, NULL, '2019-02-01', '2019-12-01', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(126, 2, NULL, 'Massimo', 'Mastronardi', 'Massi', '1979-08-31', '2019-04-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(127, 2, NULL, 'Jonas', 'Feldmann', NULL, '1990-07-24', '2019-03-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(129, 2, NULL, 'Max', 'Eisen', NULL, '1990-04-22', '2019-03-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(130, 1, NULL, 'Manuel', 'Friedrich', 'Manu', '1979-09-13', '2019-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(131, 5, NULL, 'Julian', 'Huss', NULL, NULL, '2019-03-01', '2020-07-01', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(132, 5, NULL, 'Tobias', 'Berger', NULL, NULL, '2018-02-01', '2020-01-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(133, 1, NULL, 'Jan', 'Rickel', NULL, '1979-04-10', '2020-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(134, 5, NULL, 'Falk', 'Linnemann', NULL, NULL, '2019-06-01', '2020-01-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(135, 1, NULL, 'Jannik', 'Kleinbreuer', NULL, '1992-11-13', '2019-08-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(136, 1, NULL, 'Oliver', 'Thederahn', 'Oli', '1985-06-13', '2019-08-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(137, 1, NULL, 'Christoph', 'Meißner', NULL, '1993-02-12', '2019-08-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(138, 1, NULL, 'Georg', 'Weigel', NULL, '1965-12-10', '2015-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(139, 1, NULL, 'Sven', 'Peters', 'Wanne', '1981-01-27', '2020-11-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(140, 1, NULL, 'Nikolai', 'Frank', 'Niko', '1986-02-07', '2020-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(141, 1, NULL, 'Marco', 'Itzigsohn', NULL, '1981-06-17', '2020-09-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(142, 1, NULL, 'Lukas', 'Klemp', NULL, '1994-07-09', '2018-07-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(144, 1, NULL, 'Raoul', 'Rickert', NULL, '1987-07-28', '2020-10-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(145, 1, NULL, 'Roy', 'Schiffers', NULL, '1990-04-15', '2020-02-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(146, 1, NULL, 'Gökhan', 'Karabas', 'Gökki', '1985-06-22', '2020-11-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(147, 1, NULL, 'Michael', 'Barkleit', 'Bakki', '1987-07-28', '2020-02-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(148, 1, NULL, 'Kevin', 'Görtz', 'Kefin', '1992-12-27', '2018-11-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(149, 2, NULL, 'Sebastian', 'Moser', NULL, '1987-05-11', '2013-05-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(150, 1, NULL, 'Marcel', 'Podszus', NULL, '1986-03-26', NULL, NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(151, 1, NULL, 'Christian', 'Schau', NULL, '1986-03-26', NULL, NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(152, 2, NULL, 'Markus', 'Sölter', NULL, NULL, '2017-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `player_statuses`
+-- Tabellenstruktur für Tabelle `player_statuses`
 --
 
 CREATE TABLE `player_statuses` (
@@ -4301,19 +4399,20 @@ CREATE TABLE `player_statuses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `player_statuses`
+-- Daten für Tabelle `player_statuses`
 --
 
 INSERT INTO `player_statuses` (`id`, `description`, `can_play`, `created_at`, `updated_at`) VALUES
 (1, 'Aktive', 1, '2020-12-20 18:56:37', '2020-12-20 18:56:37'),
 (2, 'Passive', 1, '2020-12-20 18:56:37', '2020-12-20 19:23:40'),
 (3, 'Verletzte', 0, '2020-12-20 18:56:37', '2020-12-20 18:56:37'),
-(4, 'Abwesende', 0, '2020-12-20 18:56:37', '2020-12-20 18:56:37');
+(4, 'Abwesende', 0, '2020-12-20 18:56:37', '2020-12-20 18:56:37'),
+(5, 'Ausgeschieden', 0, '2021-04-19 21:29:54', '2021-04-19 21:29:54');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `quotes`
+-- Tabellenstruktur für Tabelle `quotes`
 --
 
 CREATE TABLE `quotes` (
@@ -4325,7 +4424,7 @@ CREATE TABLE `quotes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `quotes`
+-- Daten für Tabelle `quotes`
 --
 
 INSERT INTO `quotes` (`id`, `author`, `quote`, `created_at`, `updated_at`) VALUES
@@ -4381,7 +4480,7 @@ INSERT INTO `quotes` (`id`, `author`, `quote`, `created_at`, `updated_at`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `seasons`
+-- Tabellenstruktur für Tabelle `seasons`
 --
 
 CREATE TABLE `seasons` (
@@ -4396,7 +4495,7 @@ CREATE TABLE `seasons` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `seasons`
+-- Daten für Tabelle `seasons`
 --
 
 INSERT INTO `seasons` (`id`, `is_ah_season`, `number`, `title`, `description`, `final_position`, `created_at`, `updated_at`) VALUES
@@ -4426,7 +4525,7 @@ INSERT INTO `seasons` (`id`, `is_ah_season`, `number`, `title`, `description`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sessions`
+-- Tabellenstruktur für Tabelle `sessions`
 --
 
 CREATE TABLE `sessions` (
@@ -4439,49 +4538,16 @@ CREATE TABLE `sessions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `sessions`
+-- Daten für Tabelle `sessions`
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('0ptVaeJbKCTymfDZlp2XdgkhCu7zrLLICWzkKR7P', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36 Edg/89.0.774.77', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiUGxCSHBBUlQ5Rmxkem9hUDRlT3hra3o2VWo2eklxazZNbVN3QnN6ZCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly9zd2I4LnRlc3QvdGVhbS9ITFcva2FkZXIiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkZVAxLzBGNDF1dC5vZW0yb0FrY05QZUFhVWpFcEVwdGdWVVREOXNuOEoyai5hMWpIODNQT0MiO30=', 1618666379);
+('0fcViZqhbHEdC5deMhZ3hAUJBI9E5er8afStSjEz', 1, '62.227.87.248', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36 Edg/89.0.774.77', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoicHVGZ0dYUFU1N3pUdlRvOVFVeExnS0JRYWhhZU15aUl2MWU0d3JJRSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHBzOi8vc3diaWxrNzkuZGUvdGVhbS9ITFcva2FkZXIiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkZVAxLzBGNDF1dC5vZW0yb0FrY05QZUFhVWpFcEVwdGdWVVREOXNuOEoyai5hMWpIODNQT0MiO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJGVQMS8wRjQxdXQub2VtMm9Ba2NOUGVBYVVqRXBFcHRnVlVURDlzbjhKMmouYTFqSDgzUE9DIjt9', 1618870310);
 
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `spiele_gegeneinander`
--- (See below for the actual view)
---
-CREATE TABLE `spiele_gegeneinander` (
-`id` bigint(20) unsigned
-,`date_id` bigint(20) unsigned
-,`match_type_id` bigint(20) unsigned
-,`season_id` bigint(20) unsigned
-,`matchweek` varchar(191)
-,`team_home` bigint(20) unsigned
-,`team_away` bigint(20) unsigned
-,`goals_home` tinyint(4)
-,`goals_home_ht` tinyint(4)
-,`goals_home_pen` tinyint(4)
-,`goals_home_rated` tinyint(4)
-,`goals_away` tinyint(4)
-,`goals_away_ht` tinyint(4)
-,`goals_away_pen` tinyint(4)
-,`goals_away_rated` tinyint(4)
-,`match_details` text
-,`rescheduled_to_fixture_id` bigint(20) unsigned
-,`rescheduled_by_team` bigint(20) unsigned
-,`reschedule_reason` varchar(191)
-,`published` tinyint(1)
-,`cancelled` tinyint(1)
-,`created_at` timestamp
-,`updated_at` timestamp
-,`Tore` bigint(21)
-);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tournaments`
+-- Tabellenstruktur für Tabelle `tournaments`
 --
 
 CREATE TABLE `tournaments` (
@@ -4495,7 +4561,7 @@ CREATE TABLE `tournaments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tournaments`
+-- Daten für Tabelle `tournaments`
 --
 
 INSERT INTO `tournaments` (`id`, `date_id`, `title`, `description`, `place`, `created_at`, `updated_at`) VALUES
@@ -4540,7 +4606,7 @@ INSERT INTO `tournaments` (`id`, `date_id`, `title`, `description`, `place`, `cr
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Tabellenstruktur für Tabelle `users`
 --
 
 CREATE TABLE `users` (
@@ -4561,28 +4627,20 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- Daten für Tabelle `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `current_team_id`, `profile_photo_path`, `is_admin`, `banned`, `created_at`, `updated_at`) VALUES
-(1, 'Kevin', 'kvnkaiser@gmail.com', NULL, '$2y$10$eP1/0F41ut.oem2oAkcNPeAaUjEpEptgVUTD9sn8J2j.a1jH83POC', NULL, NULL, '8MBxryyDbH4onxvFtmNfETAaYFsU0XKTJmwm0SaY6OmyxhVsn716ghl7b9A5', NULL, 'profile-photos/cUTiyY6X6OBPomN6DBJlyQFVburL4FuAvpWA402n.png', 1, 0, '2020-11-17 21:01:51', '2021-04-01 19:32:47'),
-(2, 'Martin', 'martin@martin.de', NULL, 'test', NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Structure for view `spiele_gegeneinander`
---
-DROP TABLE IF EXISTS `spiele_gegeneinander`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `spiele_gegeneinander`  AS SELECT `matches`.`id` AS `id`, `matches`.`date_id` AS `date_id`, `matches`.`match_type_id` AS `match_type_id`, `matches`.`season_id` AS `season_id`, `matches`.`matchweek` AS `matchweek`, `matches`.`team_home` AS `team_home`, `matches`.`team_away` AS `team_away`, `matches`.`goals_home` AS `goals_home`, `matches`.`goals_home_ht` AS `goals_home_ht`, `matches`.`goals_home_pen` AS `goals_home_pen`, `matches`.`goals_home_rated` AS `goals_home_rated`, `matches`.`goals_away` AS `goals_away`, `matches`.`goals_away_ht` AS `goals_away_ht`, `matches`.`goals_away_pen` AS `goals_away_pen`, `matches`.`goals_away_rated` AS `goals_away_rated`, `matches`.`match_details` AS `match_details`, `matches`.`rescheduled_to_fixture_id` AS `rescheduled_to_fixture_id`, `matches`.`rescheduled_by_team` AS `rescheduled_by_team`, `matches`.`reschedule_reason` AS `reschedule_reason`, `matches`.`published` AS `published`, `matches`.`cancelled` AS `cancelled`, `matches`.`created_at` AS `created_at`, `matches`.`updated_at` AS `updated_at`, count(`goals`.`id`) AS `Tore` FROM (`matches` left join `goals` on((`matches`.`id` = `goals`.`match_id`))) WHERE (((`matches`.`team_home` = 33) AND (`matches`.`team_away` = 34)) OR ((`matches`.`team_home` = 34) AND (`matches`.`team_away` = 33))) GROUP BY `matches`.`id` ;
+(1, 'Kevin', 'kvnkaiser@gmail.com', NULL, '$2y$10$eP1/0F41ut.oem2oAkcNPeAaUjEpEptgVUTD9sn8J2j.a1jH83POC', NULL, NULL, 'l9XaMxQ0eoPY12LK1dqP9P0WiilUIIy0Sg7AHiTu1fi947DIuQbFfOslAa07', NULL, 'profile-photos/o5uQr9vxyJzjlh2EHy9LQqXyDTc3VpleqMhBRwdO.gif', 1, 0, '2020-11-17 21:01:51', '2021-04-07 23:05:16'),
+(3, 'Präses', 'juergen.kaiser.bilk@gmail.com', NULL, '$2y$10$2.dq1G5HMiZupj/xXDzZfeTAh5T1HGR3WHte/kcqo4C3eNKSokNHS', NULL, NULL, '5BjhySfc9EZ7W9IXcCfZNlkql7dlketUXabkHq7GNeKb4mog8fXKolwHW1yk', NULL, NULL, 1, 0, '2021-04-06 18:41:58', '2021-04-06 18:48:30'),
+(4, 'Andy', 'andreas_meier_1004@hotmail.com', NULL, '$2y$10$Kx6m93EOhutYrU0x5F2W3.Z2J1mRQ7PIkJ7YPzuSv88TwvPeO0sIe', NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-04-12 22:42:11', '2021-04-12 22:44:54');
 
 --
--- Indexes for dumped tables
+-- Indizes der exportierten Tabellen
 --
 
 --
--- Indexes for table `activity_log`
+-- Indizes für die Tabelle `activity_log`
 --
 ALTER TABLE `activity_log`
   ADD PRIMARY KEY (`id`),
@@ -4591,7 +4649,7 @@ ALTER TABLE `activity_log`
   ADD KEY `activity_log_log_name_index` (`log_name`);
 
 --
--- Indexes for table `assists`
+-- Indizes für die Tabelle `assists`
 --
 ALTER TABLE `assists`
   ADD PRIMARY KEY (`id`),
@@ -4599,7 +4657,7 @@ ALTER TABLE `assists`
   ADD KEY `assists_player_id_foreign` (`player_id`);
 
 --
--- Indexes for table `cards`
+-- Indizes für die Tabelle `cards`
 --
 ALTER TABLE `cards`
   ADD PRIMARY KEY (`id`),
@@ -4607,34 +4665,34 @@ ALTER TABLE `cards`
   ADD KEY `cards_player_id_foreign` (`player_id`);
 
 --
--- Indexes for table `clubs`
+-- Indizes für die Tabelle `clubs`
 --
 ALTER TABLE `clubs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `club_date`
+-- Indizes für die Tabelle `club_date`
 --
 ALTER TABLE `club_date`
   ADD KEY `club_date_club_id_foreign` (`club_id`),
   ADD KEY `club_date_date_id_foreign` (`date_id`);
 
 --
--- Indexes for table `club_player`
+-- Indizes für die Tabelle `club_player`
 --
 ALTER TABLE `club_player`
   ADD KEY `club_player_club_id_foreign` (`club_id`),
   ADD KEY `club_player_player_id_foreign` (`player_id`);
 
 --
--- Indexes for table `club_season`
+-- Indizes für die Tabelle `club_season`
 --
 ALTER TABLE `club_season`
   ADD KEY `club_season_club_id_foreign` (`club_id`),
   ADD KEY `club_season_season_id_foreign` (`season_id`);
 
 --
--- Indexes for table `dates`
+-- Indizes für die Tabelle `dates`
 --
 ALTER TABLE `dates`
   ADD PRIMARY KEY (`id`),
@@ -4642,34 +4700,34 @@ ALTER TABLE `dates`
   ADD KEY `dates_location_id_foreign` (`location_id`);
 
 --
--- Indexes for table `date_options`
+-- Indizes für die Tabelle `date_options`
 --
 ALTER TABLE `date_options`
   ADD PRIMARY KEY (`id`),
   ADD KEY `date_options_date_id_foreign` (`date_id`);
 
 --
--- Indexes for table `date_option_user`
+-- Indizes für die Tabelle `date_option_user`
 --
 ALTER TABLE `date_option_user`
   ADD KEY `date_option_user_date_option_id_foreign` (`date_option_id`),
   ADD KEY `date_option_user_user_id_foreign` (`user_id`);
 
 --
--- Indexes for table `date_types`
+-- Indizes für die Tabelle `date_types`
 --
 ALTER TABLE `date_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `failed_jobs`
+-- Indizes für die Tabelle `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Indexes for table `goals`
+-- Indizes für die Tabelle `goals`
 --
 ALTER TABLE `goals`
   ADD PRIMARY KEY (`id`),
@@ -4677,13 +4735,13 @@ ALTER TABLE `goals`
   ADD KEY `goals_player_id_foreign` (`player_id`);
 
 --
--- Indexes for table `locations`
+-- Indizes für die Tabelle `locations`
 --
 ALTER TABLE `locations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `matches`
+-- Indizes für die Tabelle `matches`
 --
 ALTER TABLE `matches`
   ADD PRIMARY KEY (`id`),
@@ -4696,25 +4754,25 @@ ALTER TABLE `matches`
   ADD KEY `matches_date_id_foreign` (`date_id`);
 
 --
--- Indexes for table `match_types`
+-- Indizes für die Tabelle `match_types`
 --
 ALTER TABLE `match_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `migrations`
+-- Indizes für die Tabelle `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `password_resets`
+-- Indizes für die Tabelle `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indexes for table `personal_access_tokens`
+-- Indizes für die Tabelle `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
@@ -4722,7 +4780,7 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Indexes for table `players`
+-- Indizes für die Tabelle `players`
 --
 ALTER TABLE `players`
   ADD PRIMARY KEY (`id`),
@@ -4730,25 +4788,25 @@ ALTER TABLE `players`
   ADD KEY `players_user_id_foreign` (`user_id`);
 
 --
--- Indexes for table `player_statuses`
+-- Indizes für die Tabelle `player_statuses`
 --
 ALTER TABLE `player_statuses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `quotes`
+-- Indizes für die Tabelle `quotes`
 --
 ALTER TABLE `quotes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `seasons`
+-- Indizes für die Tabelle `seasons`
 --
 ALTER TABLE `seasons`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `sessions`
+-- Indizes für die Tabelle `sessions`
 --
 ALTER TABLE `sessions`
   ADD PRIMARY KEY (`id`),
@@ -4756,211 +4814,211 @@ ALTER TABLE `sessions`
   ADD KEY `sessions_last_activity_index` (`last_activity`);
 
 --
--- Indexes for table `tournaments`
+-- Indizes für die Tabelle `tournaments`
 --
 ALTER TABLE `tournaments`
   ADD PRIMARY KEY (`id`),
   ADD KEY `tournaments_date_id_foreign` (`date_id`);
 
 --
--- Indexes for table `users`
+-- Indizes für die Tabelle `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT für exportierte Tabellen
 --
 
 --
--- AUTO_INCREMENT for table `activity_log`
+-- AUTO_INCREMENT für Tabelle `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=314;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=393;
 
 --
--- AUTO_INCREMENT for table `assists`
+-- AUTO_INCREMENT für Tabelle `assists`
 --
 ALTER TABLE `assists`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=375;
 
 --
--- AUTO_INCREMENT for table `cards`
+-- AUTO_INCREMENT für Tabelle `cards`
 --
 ALTER TABLE `cards`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=487;
 
 --
--- AUTO_INCREMENT for table `clubs`
+-- AUTO_INCREMENT für Tabelle `clubs`
 --
 ALTER TABLE `clubs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
 
 --
--- AUTO_INCREMENT for table `dates`
+-- AUTO_INCREMENT für Tabelle `dates`
 --
 ALTER TABLE `dates`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=677;
 
 --
--- AUTO_INCREMENT for table `date_options`
+-- AUTO_INCREMENT für Tabelle `date_options`
 --
 ALTER TABLE `date_options`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT for table `date_types`
+-- AUTO_INCREMENT für Tabelle `date_types`
 --
 ALTER TABLE `date_types`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `failed_jobs`
+-- AUTO_INCREMENT für Tabelle `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `goals`
+-- AUTO_INCREMENT für Tabelle `goals`
 --
 ALTER TABLE `goals`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1171;
 
 --
--- AUTO_INCREMENT for table `locations`
+-- AUTO_INCREMENT für Tabelle `locations`
 --
 ALTER TABLE `locations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
--- AUTO_INCREMENT for table `matches`
+-- AUTO_INCREMENT für Tabelle `matches`
 --
 ALTER TABLE `matches`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=676;
 
 --
--- AUTO_INCREMENT for table `match_types`
+-- AUTO_INCREMENT für Tabelle `match_types`
 --
 ALTER TABLE `match_types`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT für Tabelle `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
--- AUTO_INCREMENT for table `personal_access_tokens`
+-- AUTO_INCREMENT für Tabelle `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `players`
+-- AUTO_INCREMENT für Tabelle `players`
 --
 ALTER TABLE `players`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
 
 --
--- AUTO_INCREMENT for table `player_statuses`
+-- AUTO_INCREMENT für Tabelle `player_statuses`
 --
 ALTER TABLE `player_statuses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `quotes`
+-- AUTO_INCREMENT für Tabelle `quotes`
 --
 ALTER TABLE `quotes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
--- AUTO_INCREMENT for table `seasons`
+-- AUTO_INCREMENT für Tabelle `seasons`
 --
 ALTER TABLE `seasons`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT for table `tournaments`
+-- AUTO_INCREMENT für Tabelle `tournaments`
 --
 ALTER TABLE `tournaments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=675;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Constraints for dumped tables
+-- Constraints der exportierten Tabellen
 --
 
 --
--- Constraints for table `assists`
+-- Constraints der Tabelle `assists`
 --
 ALTER TABLE `assists`
   ADD CONSTRAINT `assists_goal_id_foreign` FOREIGN KEY (`goal_id`) REFERENCES `goals` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `assists_player_id_foreign` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `cards`
+-- Constraints der Tabelle `cards`
 --
 ALTER TABLE `cards`
   ADD CONSTRAINT `cards_match_id_foreign` FOREIGN KEY (`match_id`) REFERENCES `matches` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `cards_player_id_foreign` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `club_date`
+-- Constraints der Tabelle `club_date`
 --
 ALTER TABLE `club_date`
   ADD CONSTRAINT `club_date_club_id_foreign` FOREIGN KEY (`club_id`) REFERENCES `clubs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `club_date_date_id_foreign` FOREIGN KEY (`date_id`) REFERENCES `dates` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `club_player`
+-- Constraints der Tabelle `club_player`
 --
 ALTER TABLE `club_player`
   ADD CONSTRAINT `club_player_club_id_foreign` FOREIGN KEY (`club_id`) REFERENCES `clubs` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `club_player_player_id_foreign` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `club_season`
+-- Constraints der Tabelle `club_season`
 --
 ALTER TABLE `club_season`
   ADD CONSTRAINT `club_season_club_id_foreign` FOREIGN KEY (`club_id`) REFERENCES `clubs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `club_season_season_id_foreign` FOREIGN KEY (`season_id`) REFERENCES `seasons` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `dates`
+-- Constraints der Tabelle `dates`
 --
 ALTER TABLE `dates`
   ADD CONSTRAINT `dates_date_type_id_foreign` FOREIGN KEY (`date_type_id`) REFERENCES `date_types` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `dates_location_id_foreign` FOREIGN KEY (`location_id`) REFERENCES `locations` (`id`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `date_options`
+-- Constraints der Tabelle `date_options`
 --
 ALTER TABLE `date_options`
   ADD CONSTRAINT `date_options_date_id_foreign` FOREIGN KEY (`date_id`) REFERENCES `dates` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `date_option_user`
+-- Constraints der Tabelle `date_option_user`
 --
 ALTER TABLE `date_option_user`
   ADD CONSTRAINT `date_option_user_date_option_id_foreign` FOREIGN KEY (`date_option_id`) REFERENCES `date_options` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `date_option_user_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `goals`
+-- Constraints der Tabelle `goals`
 --
 ALTER TABLE `goals`
   ADD CONSTRAINT `goals_match_id_foreign` FOREIGN KEY (`match_id`) REFERENCES `matches` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `goals_player_id_foreign` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `matches`
+-- Constraints der Tabelle `matches`
 --
 ALTER TABLE `matches`
   ADD CONSTRAINT `matches_date_id_foreign` FOREIGN KEY (`date_id`) REFERENCES `dates` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -4972,14 +5030,14 @@ ALTER TABLE `matches`
   ADD CONSTRAINT `matches_team_home_foreign` FOREIGN KEY (`team_home`) REFERENCES `clubs` (`id`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `players`
+-- Constraints der Tabelle `players`
 --
 ALTER TABLE `players`
   ADD CONSTRAINT `players_player_status_id_foreign` FOREIGN KEY (`player_status_id`) REFERENCES `player_statuses` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `players_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `players_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `tournaments`
+-- Constraints der Tabelle `tournaments`
 --
 ALTER TABLE `tournaments`
   ADD CONSTRAINT `tournaments_date_id_foreign` FOREIGN KEY (`date_id`) REFERENCES `dates` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;

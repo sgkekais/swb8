@@ -25,7 +25,9 @@ class PlayerStatus extends Model
      */
     protected $fillable = [
         'description',
-        'can_play'
+        'can_play',
+        'display_in_polls',
+        'display_in_squad'
     ];
 
     /**
@@ -34,7 +36,9 @@ class PlayerStatus extends Model
      * @var array
      */
     protected $attributes = [
-        'can_play' => false
+        'can_play' => false,
+        'display_in_polls' => false,
+        'display_in_squad' => false
     ];
 
     /**
@@ -44,6 +48,8 @@ class PlayerStatus extends Model
      */
     protected $casts = [
         'can_play' => 'boolean',
+        'display_in_polls' => 'boolean',
+        'display_in_squad' => 'boolean',
     ];
 
     /**
