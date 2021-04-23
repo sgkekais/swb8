@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 62.108.32.152:3306
--- Erstellungszeit: 20. Apr 2021 um 00:19
--- Server-Version: 5.7.33
+-- Erstellungszeit: 21. Apr 2021 um 22:22
+-- Server-Version: 5.7.34
 -- PHP-Version: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -437,7 +437,26 @@ INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_type`, `su
 (389, 'default', 'created', 'App\\Models\\PlayerStatus', 5, 'App\\Models\\User', 1, '{\"attributes\": {\"can_play\": false, \"description\": \"Ausgeschieden\"}}', '2021-04-19 21:29:54', '2021-04-19 21:29:54'),
 (390, 'default', 'updated', 'App\\Models\\Player', 1, 'App\\Models\\User', 1, '{\"old\": {\"user_id\": null}, \"attributes\": {\"user_id\": 1}}', '2021-04-19 22:10:56', '2021-04-19 22:10:56'),
 (391, 'default', 'updated', 'App\\Models\\Player', 2, 'App\\Models\\User', 1, '{\"old\": {\"user_id\": null}, \"attributes\": {\"user_id\": 4}}', '2021-04-19 22:11:02', '2021-04-19 22:11:02'),
-(392, 'default', 'updated', 'App\\Models\\Player', 13, 'App\\Models\\User', 1, '{\"old\": {\"user_id\": null}, \"attributes\": {\"user_id\": 3}}', '2021-04-19 22:11:16', '2021-04-19 22:11:16');
+(392, 'default', 'updated', 'App\\Models\\Player', 13, 'App\\Models\\User', 1, '{\"old\": {\"user_id\": null}, \"attributes\": {\"user_id\": 3}}', '2021-04-19 22:11:16', '2021-04-19 22:11:16'),
+(393, 'default', 'updated', 'App\\Models\\Player', 1, 'App\\Models\\User', 1, '{\"old\": {\"nickname\": null, \"public_note\": null}, \"attributes\": {\"nickname\": \"Kevin\", \"public_note\": \"webmaster\"}}', '2021-04-19 23:32:04', '2021-04-19 23:32:04'),
+(394, 'default', 'updated', 'App\\Models\\Player', 2, 'App\\Models\\User', 1, '{\"old\": {\"public_note\": null}, \"attributes\": {\"public_note\": \"1. Spielführer HLW\"}}', '2021-04-19 23:32:43', '2021-04-19 23:32:43');
+INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_type`, `subject_id`, `causer_type`, `causer_id`, `properties`, `created_at`, `updated_at`) VALUES
+(395, 'default', 'updated', 'App\\Models\\Player', 13, 'App\\Models\\User', 1, '{\"old\": {\"nickname\": null, \"public_note\": null}, \"attributes\": {\"nickname\": \"\", \"public_note\": \"Präses\"}}', '2021-04-19 23:33:10', '2021-04-19 23:33:10'),
+(396, 'default', 'updated', 'App\\Models\\Player', 13, 'App\\Models\\User', 1, '{\"old\": {\"public_note\": \"Präses\"}, \"attributes\": {\"public_note\": \"Präses, Coach HLW\"}}', '2021-04-21 15:59:11', '2021-04-21 15:59:11'),
+(397, 'default', 'updated', 'App\\Models\\Date', 676, 'App\\Models\\User', 1, '{\"old\": {\"description\": \"Komm zur Party. Es gibt REIS!\"}, \"attributes\": {\"description\": \"Komm zur Party. Es gibt REIS!\\n\\nEs kommen Gäste:\\n- Hamburgler\"}}', '2021-04-21 16:07:31', '2021-04-21 16:07:31'),
+(398, 'default', 'updated', 'App\\Models\\Match', 673, 'App\\Models\\User', 1, '{\"old\": {\"match_details\": \"<div>1:0 <strong>gewonnen</strong>!<em><del>! asd</del></em><em>&nbsp;asdsadsdasdasd</em></div>\"}, \"attributes\": {\"match_details\": \"<div>1:0 <em>gewonnen</em>!<em><del>! asd</del></em><em> </em><em><del>asdsadsdasdasd<br><br><br>DAS SPIEL WAR SHSCEI?EE\\\"§$\\\"</del></em></div>\"}}', '2021-04-21 16:08:23', '2021-04-21 16:08:23'),
+(399, 'default', 'created', 'App\\Models\\Date', 677, 'App\\Models\\User', 1, '{\"attributes\": {\"note\": null, \"title\": \"JHV\", \"datetime\": \"2021-04-23T20:00\", \"cancelled\": false, \"poll_ends\": \"2021-04-22\", \"published\": true, \"description\": \"Diese JHV ist toll.\", \"location_id\": 15, \"poll_begins\": \"2021-03-23\", \"date_type_id\": 4, \"poll_is_open\": true}}', '2021-04-21 16:15:10', '2021-04-21 16:15:10'),
+(400, 'default', 'created', 'App\\Models\\DateOption', 22, 'App\\Models\\User', 1, '{\"attributes\": {\"date_id\": 677, \"description\": \"19:00 HLW-AH\"}}', '2021-04-21 16:15:10', '2021-04-21 16:15:10'),
+(401, 'default', 'created', 'App\\Models\\DateOption', 23, 'App\\Models\\User', 1, '{\"attributes\": {\"date_id\": 677, \"description\": \"20:00 JHV\"}}', '2021-04-21 16:15:10', '2021-04-21 16:15:10'),
+(402, 'default', 'updated', 'App\\Models\\PlayerStatus', 4, 'App\\Models\\User', 1, '{\"old\": {\"can_play\": false, \"description\": \"Abwesende\"}, \"attributes\": {\"can_play\": true, \"description\": \"Inkative\"}}', '2021-04-21 16:21:52', '2021-04-21 16:21:52'),
+(403, 'default', 'updated', 'App\\Models\\PlayerStatus', 2, 'App\\Models\\User', 1, '{\"old\": {\"can_play\": true}, \"attributes\": {\"can_play\": false}}', '2021-04-21 16:21:58', '2021-04-21 16:21:58'),
+(404, 'default', 'updated', 'App\\Models\\PlayerStatus', 3, 'App\\Models\\User', 1, '{\"old\": {\"description\": \"Verletzte\"}, \"attributes\": {\"description\": \"Es fehlen\"}}', '2021-04-21 16:22:07', '2021-04-21 16:22:07'),
+(405, 'default', 'updated', 'App\\Models\\Player', 116, 'App\\Models\\User', 1, '{\"old\": {\"player_status_id\": 2}, \"attributes\": {\"player_status_id\": 4}}', '2021-04-21 16:22:39', '2021-04-21 16:22:39'),
+(406, 'default', 'updated', 'App\\Models\\Player', 126, 'App\\Models\\User', 1, '{\"old\": {\"player_status_id\": 2}, \"attributes\": {\"player_status_id\": 4}}', '2021-04-21 16:22:47', '2021-04-21 16:22:47'),
+(407, 'default', 'updated', 'App\\Models\\Player', 127, 'App\\Models\\User', 1, '{\"old\": {\"player_status_id\": 2}, \"attributes\": {\"player_status_id\": 4}}', '2021-04-21 16:22:54', '2021-04-21 16:22:54'),
+(408, 'default', 'updated', 'App\\Models\\Player', 129, 'App\\Models\\User', 1, '{\"old\": {\"player_status_id\": 2}, \"attributes\": {\"player_status_id\": 4}}', '2021-04-21 16:23:00', '2021-04-21 16:23:00'),
+(409, 'default', 'updated', 'App\\Models\\Player', 149, 'App\\Models\\User', 1, '{\"old\": {\"player_status_id\": 2}, \"attributes\": {\"player_status_id\": 4}}', '2021-04-21 16:23:08', '2021-04-21 16:23:08'),
+(410, 'default', 'updated', 'App\\Models\\PlayerStatus', 1, 'App\\Models\\User', 1, '{\"old\": {\"display_in_polls\": false, \"display_in_squad\": false}, \"attributes\": {\"display_in_polls\": true, \"display_in_squad\": true}}', '2021-04-21 20:18:55', '2021-04-21 20:18:55');
 
 -- --------------------------------------------------------
 
@@ -1484,7 +1503,9 @@ INSERT INTO `club_date` (`club_id`, `date_id`, `created_at`, `updated_at`) VALUE
 (34, 674, '2021-03-22 14:32:59', '2021-03-22 14:32:59'),
 (34, 675, '2021-03-22 14:34:19', '2021-03-22 14:34:19'),
 (33, 675, '2021-03-22 14:34:19', '2021-03-22 14:34:19'),
-(33, 676, '2021-03-24 16:27:11', '2021-03-24 16:27:11');
+(33, 676, '2021-03-24 16:27:11', '2021-03-24 16:27:11'),
+(33, 677, '2021-04-21 16:15:10', '2021-04-21 16:15:10'),
+(34, 677, '2021-04-21 16:15:10', '2021-04-21 16:15:10');
 
 -- --------------------------------------------------------
 
@@ -1508,8 +1529,8 @@ INSERT INTO `club_player` (`club_id`, `player_id`, `number`, `created_at`, `upda
 (126, 27, NULL, '2020-12-27 11:37:58', '2020-12-27 11:37:58'),
 (33, 54, NULL, '2021-01-04 23:38:28', '2021-01-04 23:38:28'),
 (33, 147, NULL, '2021-01-04 23:38:28', '2021-01-04 23:38:28'),
-(33, 129, NULL, '2021-01-04 23:38:28', '2021-01-04 23:38:28'),
-(33, 127, NULL, '2021-01-04 23:38:28', '2021-01-04 23:38:28'),
+(33, 129, NULL, '2021-01-04 23:38:28', '2021-04-21 16:23:00'),
+(33, 127, NULL, '2021-01-04 23:38:28', '2021-04-21 16:22:54'),
 (33, 140, NULL, '2021-01-04 23:38:28', '2021-01-04 23:38:28'),
 (33, 120, NULL, '2021-01-04 23:38:28', '2021-01-04 23:38:28'),
 (33, 130, NULL, '2021-01-04 23:38:28', '2021-01-04 23:38:28'),
@@ -1526,10 +1547,10 @@ INSERT INTO `club_player` (`club_id`, `player_id`, `number`, `created_at`, `upda
 (33, 97, NULL, '2021-01-04 23:41:27', '2021-01-04 23:41:27'),
 (33, 135, NULL, '2021-01-04 23:41:27', '2021-01-04 23:41:27'),
 (33, 142, NULL, '2021-01-04 23:41:27', '2021-01-04 23:41:27'),
-(33, 126, NULL, '2021-01-04 23:41:27', '2021-01-04 23:41:27'),
-(33, 2, 17, '2021-01-04 23:41:27', '2021-04-19 22:11:02'),
+(33, 126, NULL, '2021-01-04 23:41:27', '2021-04-21 16:22:47'),
+(33, 2, 17, '2021-01-04 23:41:27', '2021-04-19 23:32:43'),
 (33, 137, NULL, '2021-01-04 23:41:27', '2021-01-04 23:41:27'),
-(33, 149, NULL, '2021-01-04 23:43:15', '2021-01-04 23:43:15'),
+(33, 149, NULL, '2021-01-04 23:43:15', '2021-04-21 16:23:08'),
 (33, 64, NULL, '2021-01-04 23:43:15', '2021-01-04 23:43:15'),
 (33, 139, NULL, '2021-01-04 23:43:15', '2021-01-04 23:43:15'),
 (33, 133, NULL, '2021-01-04 23:45:16', '2021-01-04 23:45:16'),
@@ -1537,16 +1558,15 @@ INSERT INTO `club_player` (`club_id`, `player_id`, `number`, `created_at`, `upda
 (33, 151, NULL, '2021-01-04 23:46:31', '2021-01-04 23:46:31'),
 (33, 145, NULL, '2021-01-04 23:46:31', '2021-01-04 23:46:31'),
 (33, 110, NULL, '2021-01-04 23:46:31', '2021-01-04 23:46:31'),
-(33, 116, NULL, '2021-01-04 23:46:31', '2021-01-04 23:46:31'),
+(33, 116, NULL, '2021-01-04 23:46:31', '2021-04-21 16:22:39'),
 (33, 136, NULL, '2021-01-04 23:46:31', '2021-01-04 23:46:31'),
 (33, 33, NULL, '2021-01-04 23:46:31', '2021-01-04 23:46:31'),
 (33, 14, NULL, '2021-01-04 23:46:31', '2021-01-04 23:46:31'),
-(34, 2, 17, '2021-03-07 13:13:34', '2021-04-19 22:11:02'),
-(34, 13, NULL, '2021-03-07 13:13:34', '2021-04-19 22:11:16'),
+(34, 2, 17, '2021-03-07 13:13:34', '2021-04-19 23:32:43'),
+(34, 13, NULL, '2021-03-07 13:13:34', '2021-04-21 15:59:11'),
 (34, 112, NULL, '2021-03-07 13:13:34', '2021-03-07 13:13:34'),
 (34, 136, NULL, '2021-03-07 13:13:34', '2021-03-07 13:13:34'),
-(33, 1, 20, '2021-03-31 11:36:53', '2021-04-19 22:10:56'),
-(34, 1, 20, '2021-03-31 11:36:53', '2021-04-19 22:10:56'),
+(34, 1, 20, '2021-03-31 11:36:53', '2021-04-19 23:32:04'),
 (33, 10, NULL, '2021-03-31 12:19:24', '2021-03-31 12:19:24'),
 (33, 4, NULL, '2021-04-19 21:57:35', '2021-04-19 21:57:35'),
 (34, 124, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
@@ -1560,10 +1580,9 @@ INSERT INTO `club_player` (`club_id`, `player_id`, `number`, `created_at`, `upda
 (34, 133, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
 (34, 77, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
 (34, 130, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
-(34, 5, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
 (34, 14, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
 (34, 10, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
-(34, 126, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 126, NULL, '2021-04-19 22:00:28', '2021-04-21 16:22:47'),
 (34, 4, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
 (34, 147, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
 (34, 117, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
@@ -1571,14 +1590,15 @@ INSERT INTO `club_player` (`club_id`, `player_id`, `number`, `created_at`, `upda
 (34, 144, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
 (34, 145, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
 (34, 33, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
-(34, 149, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
+(34, 149, NULL, '2021-04-19 22:00:28', '2021-04-21 16:23:08'),
 (34, 34, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
 (34, 120, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
 (34, 56, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
 (34, 139, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
 (34, 97, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
 (34, 108, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
-(33, 13, NULL, '2021-04-19 22:11:47', '2021-04-19 22:11:47');
+(33, 13, NULL, '2021-04-19 22:11:47', '2021-04-21 15:59:11'),
+(33, 1, NULL, '2021-04-21 16:06:48', '2021-04-21 16:06:48');
 
 -- --------------------------------------------------------
 
@@ -2218,7 +2238,8 @@ INSERT INTO `dates` (`id`, `date_type_id`, `location_id`, `datetime`, `title`, `
 (673, 2, 52, '2021-04-30 11:00:00', NULL, NULL, NULL, 1, 0, '2021-03-22 14:13:50', '2021-04-12 22:39:58', '2021-03-04', '2021-04-29', 1),
 (674, 3, 34, '2021-05-10 09:00:00', NULL, NULL, NULL, 1, 0, '2021-03-22 14:32:59', '2021-03-22 14:35:16', '2021-03-12', '2021-05-09', 1),
 (675, 2, 32, '2021-04-23 20:00:00', NULL, NULL, NULL, 1, 0, '2021-03-22 14:34:19', '2021-04-12 22:39:04', '2021-03-09', '2021-04-22', 1),
-(676, 4, 15, '2021-06-01 20:00:00', 'PARTY', 'Komm zur Party. Es gibt REIS!', NULL, 1, 0, '2021-03-24 16:27:11', '2021-03-24 17:06:14', '2021-03-21', '2021-05-30', 1);
+(676, 4, 15, '2021-06-01 20:00:00', 'PARTY', 'Komm zur Party. Es gibt REIS!\n\nEs kommen Gäste:\n- Hamburgler', NULL, 1, 0, '2021-03-24 16:27:11', '2021-04-21 16:07:31', '2021-03-21', '2021-05-30', 1),
+(677, 4, 15, '2021-04-23 20:00:00', 'JHV', 'Diese JHV ist toll.', NULL, 1, 0, '2021-04-21 16:15:10', '2021-04-21 16:15:10', '2021-03-23', '2021-04-22', 1);
 
 -- --------------------------------------------------------
 
@@ -2248,7 +2269,9 @@ INSERT INTO `date_options` (`id`, `date_id`, `description`, `created_at`, `updat
 (18, 674, 'Komme', '2021-03-22 14:32:59', '2021-03-22 14:32:59'),
 (19, 675, 'Komme', '2021-03-22 14:34:19', '2021-03-22 14:34:19'),
 (20, 676, 'Trinken', '2021-03-24 16:27:11', '2021-03-24 16:27:11'),
-(21, 676, 'Essen', '2021-03-24 16:27:11', '2021-03-24 16:27:11');
+(21, 676, 'Essen', '2021-03-24 16:27:11', '2021-03-24 16:27:11'),
+(22, 677, '19:00 HLW-AH', '2021-04-21 16:15:10', '2021-04-21 16:15:10'),
+(23, 677, '20:00 JHV', '2021-04-21 16:15:10', '2021-04-21 16:15:10');
 
 -- --------------------------------------------------------
 
@@ -2278,7 +2301,9 @@ INSERT INTO `date_option_user` (`date_option_id`, `user_id`, `attend`, `created_
 (20, 1, 1, '2021-03-24 16:27:53', '2021-03-24 16:27:53'),
 (21, 1, 0, '2021-03-24 16:27:53', '2021-03-24 16:27:53'),
 (18, 1, 1, '2021-03-24 17:02:28', '2021-03-24 17:02:28'),
-(19, 1, 0, '2021-03-30 12:31:22', '2021-03-30 16:06:12');
+(19, 1, 0, '2021-03-30 12:31:22', '2021-03-30 16:06:12'),
+(22, 1, 0, '2021-04-21 16:26:09', '2021-04-21 16:26:09'),
+(23, 1, 1, '2021-04-21 16:26:09', '2021-04-21 16:26:09');
 
 -- --------------------------------------------------------
 
@@ -4100,7 +4125,7 @@ INSERT INTO `matches` (`id`, `date_id`, `match_type_id`, `season_id`, `matchweek
 (662, 662, 2, 11, '3', 33, 125, 5, 3, NULL, NULL, 2, 1, NULL, NULL, '<b>Aufstellung:</b><br />Martin - Raoul (46. Roy), Manu, Basti, Kevin (46. Krzysztof) - Andy (60. Mitch), Marco - Simon (70. Dustin), Oli, Tobi - Alberty<br /><br /><b>Reserve:</b><br />Fritz, Kefin, Gussi\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 16:48:59'),
 (671, 671, 3, 11, 'Achtelfinale', 33, 22, 2, 2, 7, NULL, 3, 0, 6, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-03-05 15:58:58', '2021-03-27 12:24:56'),
 (672, 672, 2, 11, '13', 16, 34, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-03-07 16:42:36', '2021-03-22 19:26:15'),
-(673, 673, 1, 11, NULL, 33, 90, 1, NULL, NULL, NULL, 0, NULL, NULL, NULL, '<div>1:0 <strong>gewonnen</strong>!<em><del>! asd</del></em><em>&nbsp;asdsadsdasdasd</em></div>', NULL, NULL, NULL, 1, 0, '2021-03-22 14:13:50', '2021-04-13 18:35:16'),
+(673, 673, 1, 11, NULL, 33, 90, 1, NULL, NULL, NULL, 0, NULL, NULL, NULL, '<div>1:0 <em>gewonnen</em>!<em><del>! asd</del></em><em> </em><em><del>asdsadsdasdasd<br><br><br>DAS SPIEL WAR SHSCEI?EE\"§$\"</del></em></div>', NULL, NULL, NULL, 1, 0, '2021-03-22 14:13:50', '2021-04-21 16:08:23'),
 (675, 675, 4, 11, 'Relegation', 82, 34, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '<div>Test</div>', NULL, NULL, NULL, 1, 0, '2021-03-22 14:34:19', '2021-04-06 13:45:45');
 
 -- --------------------------------------------------------
@@ -4183,7 +4208,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (38, '2021_01_08_184539_create_quotes_table', 21),
 (39, '2021_02_19_154243_create_club_season_table', 22),
 (40, '2021_03_10_005513_add_minute_column_to_goals_table', 23),
-(41, '2021_03_24_130334_add_position_to_seasons_table', 24);
+(41, '2021_03_24_130334_add_position_to_seasons_table', 24),
+(42, '2021_04_21_183413_add_display_columns_to_playerstatus', 25);
 
 -- --------------------------------------------------------
 
@@ -4250,8 +4276,8 @@ CREATE TABLE `players` (
 --
 
 INSERT INTO `players` (`id`, `player_status_id`, `user_id`, `first_name`, `last_name`, `nickname`, `dob`, `joined`, `left`, `public_note`, `internal_note`, `is_public`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 'Kevin', 'Kaiser', NULL, '1986-10-14', '2005-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 22:10:56'),
-(2, 1, 4, 'Andreas', 'Meier', 'Andy', '1987-04-10', '2005-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 22:11:02'),
+(1, 1, 1, 'Kevin', 'Kaiser', 'Kevin', '1986-10-14', '2005-01-01', NULL, 'webmaster', NULL, 1, '2021-04-19 21:51:00', '2021-04-19 23:32:04'),
+(2, 1, 4, 'Andreas', 'Meier', 'Andy', '1987-04-10', '2005-01-01', NULL, '1. Spielführer HLW', NULL, 1, '2021-04-19 21:51:00', '2021-04-19 23:32:43'),
 (3, 5, NULL, 'Michael', 'Leest', NULL, NULL, '1996-01-01', '2020-08-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
 (4, 1, NULL, 'Michael', 'Rohmann', 'Mikel', '1967-02-18', '1999-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
 (5, 5, NULL, 'Marco', 'Holstein', NULL, NULL, '2007-09-01', '2012-01-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
@@ -4262,7 +4288,7 @@ INSERT INTO `players` (`id`, `player_status_id`, `user_id`, `first_name`, `last_
 (10, 1, NULL, 'Martin', 'Weichsel', NULL, '1981-06-17', '2005-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
 (11, 5, NULL, 'Matthias', 'Stratmann', NULL, NULL, '2007-04-01', '2016-08-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
 (12, 2, NULL, 'Karlo', 'Jerkovic', NULL, '1987-06-21', '2005-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
-(13, 2, 3, 'Jürgen', 'Kaiser', NULL, '1961-08-01', '1979-11-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 22:11:16'),
+(13, 2, 3, 'Jürgen', 'Kaiser', '', '1961-08-01', '1979-11-01', NULL, 'Präses, Coach HLW', NULL, 1, '2021-04-19 21:51:00', '2021-04-21 15:59:11'),
 (14, 1, NULL, 'Mark', 'Wolters', NULL, '1982-04-13', '2008-09-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
 (15, 5, NULL, 'Sandor', 'Gall', NULL, NULL, '2007-09-01', '2012-03-02', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
 (16, 1, NULL, 'Friedrich', 'Kassler', 'Fritz', '1979-07-15', '2005-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
@@ -4348,7 +4374,7 @@ INSERT INTO `players` (`id`, `player_status_id`, `user_id`, `first_name`, `last_
 (113, 5, NULL, 'Jay', 'Djeladin', NULL, NULL, '2017-10-01', '2017-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
 (114, 5, NULL, 'Jonas', 'Fahl', NULL, NULL, '2017-07-01', '2018-01-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
 (115, 5, NULL, 'Selicke', 'Marc', NULL, NULL, '2018-04-01', '2020-03-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
-(116, 2, NULL, 'Jan', 'Schulz', NULL, '1987-04-30', '2016-03-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(116, 4, NULL, 'Jan', 'Schulz', NULL, '1987-04-30', '2016-03-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-21 16:22:39'),
 (117, 1, NULL, 'Michel', 'Görtz', 'Mitch', '1981-08-23', '2018-03-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
 (118, 5, NULL, 'Alexander', 'Rumler', NULL, NULL, '2018-02-01', '2018-10-01', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
 (119, 5, NULL, 'Pascal', 'Palinski', NULL, NULL, '2018-03-01', '2019-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
@@ -4358,9 +4384,9 @@ INSERT INTO `players` (`id`, `player_status_id`, `user_id`, `first_name`, `last_
 (123, 5, NULL, 'Hüseyin', 'Karaoglan', NULL, NULL, '2018-10-01', '2019-03-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
 (124, 1, NULL, 'Bastian', 'Hesse', 'Basti', '1981-08-07', '2009-07-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
 (125, 5, NULL, 'Ferdinand', 'Baumann', NULL, NULL, '2019-02-01', '2019-12-01', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
-(126, 2, NULL, 'Massimo', 'Mastronardi', 'Massi', '1979-08-31', '2019-04-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
-(127, 2, NULL, 'Jonas', 'Feldmann', NULL, '1990-07-24', '2019-03-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
-(129, 2, NULL, 'Max', 'Eisen', NULL, '1990-04-22', '2019-03-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(126, 4, NULL, 'Massimo', 'Mastronardi', 'Massi', '1979-08-31', '2019-04-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-21 16:22:47'),
+(127, 4, NULL, 'Jonas', 'Feldmann', NULL, '1990-07-24', '2019-03-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-21 16:22:54'),
+(129, 4, NULL, 'Max', 'Eisen', NULL, '1990-04-22', '2019-03-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-21 16:23:00'),
 (130, 1, NULL, 'Manuel', 'Friedrich', 'Manu', '1979-09-13', '2019-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
 (131, 5, NULL, 'Julian', 'Huss', NULL, NULL, '2019-03-01', '2020-07-01', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
 (132, 5, NULL, 'Tobias', 'Berger', NULL, NULL, '2018-02-01', '2020-01-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
@@ -4379,7 +4405,7 @@ INSERT INTO `players` (`id`, `player_status_id`, `user_id`, `first_name`, `last_
 (146, 1, NULL, 'Gökhan', 'Karabas', 'Gökki', '1985-06-22', '2020-11-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
 (147, 1, NULL, 'Michael', 'Barkleit', 'Bakki', '1987-07-28', '2020-02-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
 (148, 1, NULL, 'Kevin', 'Görtz', 'Kefin', '1992-12-27', '2018-11-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
-(149, 2, NULL, 'Sebastian', 'Moser', NULL, '1987-05-11', '2013-05-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(149, 4, NULL, 'Sebastian', 'Moser', NULL, '1987-05-11', '2013-05-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-21 16:23:08'),
 (150, 1, NULL, 'Marcel', 'Podszus', NULL, '1986-03-26', NULL, NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
 (151, 1, NULL, 'Christian', 'Schau', NULL, '1986-03-26', NULL, NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
 (152, 2, NULL, 'Markus', 'Sölter', NULL, NULL, '2017-01-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00');
@@ -4394,6 +4420,8 @@ CREATE TABLE `player_statuses` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `description` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `can_play` tinyint(1) NOT NULL DEFAULT '0',
+  `display_in_polls` tinyint(1) NOT NULL DEFAULT '0',
+  `display_in_squad` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -4402,12 +4430,12 @@ CREATE TABLE `player_statuses` (
 -- Daten für Tabelle `player_statuses`
 --
 
-INSERT INTO `player_statuses` (`id`, `description`, `can_play`, `created_at`, `updated_at`) VALUES
-(1, 'Aktive', 1, '2020-12-20 18:56:37', '2020-12-20 18:56:37'),
-(2, 'Passive', 1, '2020-12-20 18:56:37', '2020-12-20 19:23:40'),
-(3, 'Verletzte', 0, '2020-12-20 18:56:37', '2020-12-20 18:56:37'),
-(4, 'Abwesende', 0, '2020-12-20 18:56:37', '2020-12-20 18:56:37'),
-(5, 'Ausgeschieden', 0, '2021-04-19 21:29:54', '2021-04-19 21:29:54');
+INSERT INTO `player_statuses` (`id`, `description`, `can_play`, `display_in_polls`, `display_in_squad`, `created_at`, `updated_at`) VALUES
+(1, 'Aktive', 1, 1, 1, '2020-12-20 18:56:37', '2021-04-21 20:18:55'),
+(2, 'Passive', 0, 0, 0, '2020-12-20 18:56:37', '2021-04-21 16:21:58'),
+(3, 'Es fehlen', 0, 0, 0, '2020-12-20 18:56:37', '2021-04-21 16:22:07'),
+(4, 'Inkative', 1, 0, 0, '2020-12-20 18:56:37', '2021-04-21 16:21:52'),
+(5, 'Ausgeschieden', 0, 0, 0, '2021-04-19 21:29:54', '2021-04-19 21:29:54');
 
 -- --------------------------------------------------------
 
@@ -4542,7 +4570,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('0fcViZqhbHEdC5deMhZ3hAUJBI9E5er8afStSjEz', 1, '62.227.87.248', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36 Edg/89.0.774.77', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoicHVGZ0dYUFU1N3pUdlRvOVFVeExnS0JRYWhhZU15aUl2MWU0d3JJRSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHBzOi8vc3diaWxrNzkuZGUvdGVhbS9ITFcva2FkZXIiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkZVAxLzBGNDF1dC5vZW0yb0FrY05QZUFhVWpFcEVwdGdWVVREOXNuOEoyai5hMWpIODNQT0MiO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJGVQMS8wRjQxdXQub2VtMm9Ba2NOUGVBYVVqRXBFcHRnVlVURDlzbjhKMmouYTFqSDgzUE9DIjt9', 1618870310);
+('hgkkAfkULDPz9bFMIkZgzWeEC7he3K3Y0894NAsw', 1, '62.227.87.248', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36 Edg/89.0.774.77', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiTkxzbGRPRDNWMjZlbnBjQVl5blYydVVoUFlydFhuNVhYeUVLNUpqNiI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjM0OiJodHRwczovL3N3Ymlsazc5LmRlL3RlYW0vSExXL2thZGVyIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJGVQMS8wRjQxdXQub2VtMm9Ba2NOUGVBYVVqRXBFcHRnVlVURDlzbjhKMmouYTFqSDgzUE9DIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCRlUDEvMEY0MXV0Lm9lbTJvQWtjTlBlQWFVakVwRXB0Z1ZVVEQ5c244SjJqLmExakg4M1BPQyI7fQ==', 1619036515),
+('ZECOwri4Jj5qbLs2c5NNSQdGsGQngTVnXw4Mvmbs', 1, '62.227.87.248', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36 Edg/89.0.774.77', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiUFZNRGpXbzRwWW8yZUFlTlFqWXMxOEFiM2lySGJPZ3lBSWMxbHZORyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHBzOi8vc3diaWxrNzkuZGUvdW1mcmFnZS82NzciO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkZVAxLzBGNDF1dC5vZW0yb0FrY05QZUFhVWpFcEVwdGdWVVREOXNuOEoyai5hMWpIODNQT0MiO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJGVQMS8wRjQxdXQub2VtMm9Ba2NOUGVBYVVqRXBFcHRnVlVURDlzbjhKMmouYTFqSDgzUE9DIjt9', 1619022369);
 
 -- --------------------------------------------------------
 
@@ -4835,7 +4864,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT für Tabelle `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=393;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=411;
 
 --
 -- AUTO_INCREMENT für Tabelle `assists`
@@ -4859,13 +4888,13 @@ ALTER TABLE `clubs`
 -- AUTO_INCREMENT für Tabelle `dates`
 --
 ALTER TABLE `dates`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=677;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=678;
 
 --
 -- AUTO_INCREMENT für Tabelle `date_options`
 --
 ALTER TABLE `date_options`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT für Tabelle `date_types`
@@ -4907,7 +4936,7 @@ ALTER TABLE `match_types`
 -- AUTO_INCREMENT für Tabelle `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT für Tabelle `personal_access_tokens`
