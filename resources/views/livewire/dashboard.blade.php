@@ -11,7 +11,7 @@
 
     <div class="flex flex-col">
         @foreach ($future_dates as $date)
-            <x-box-with-shadow class="p-2 -mt-1">
+            <x-box-with-shadow class="p-2 -mt-1" shadow-color="bg-gray-600">
                 <div class="flex items-center space-x-2 text-sm">
                     @foreach(auth()->user()->dateOptions()->where('date_id', $date->id)->get() as $dateOption)
                         @if ($dateOption->pivot->attend)

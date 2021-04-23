@@ -12,7 +12,7 @@
 
         <div class="mb-6 flex flex-col">
             @foreach ($my_goals->sortByDesc('match.date.datetime') as $my_goal)
-                <x-box-with-shadow class="p-2 -mt-1">
+                <x-box-with-shadow class="p-2 -mt-1" shadow-color="bg-gray-600">
                     <div class="flex space-x-2 items-center">
                         <div class="font-bold w-8 text-center text-primary-700">
                             @if ($my_goal->penalty)
@@ -60,7 +60,7 @@
 
         <div class="mb-6 flex flex-col">
             @foreach ($my_assists->sortByDesc('goal.match.date.datetime') as $my_assist)
-                <x-box-with-shadow class="p-2 -mt-1">
+                <x-box-with-shadow class="p-2 -mt-1" shadow-color="bg-gray-600">
                     <div class="flex space-x-2 items-center">
                         <div class="font-bold w-8 text-center">
                             <i class="fas fa-hands-helping text-indigo-700"></i>
@@ -97,7 +97,7 @@
 
         <div class="mb-6 flex flex-col">
             @foreach ($my_cards->sortByDesc('match.date.datetime') as $my_card)
-                <x-box-with-shadow class="p-2 -mt-1">
+                <x-box-with-shadow class="p-2 -mt-1" shadow-color="bg-gray-600">
                     <div class="flex space-x-2 items-center">
                         <div class="font-bold w-8 text-center">
                             @switch($my_card->color)

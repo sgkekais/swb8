@@ -1,5 +1,5 @@
 <x-section class="pt-0">
-    <x-box-with-shadow class="">
+    <x-box-with-shadow class="" shadow-color="bg-gray-600">
         <div class="p-2">
             <x-slot name="header">
                 {{ $date->dateType->description }}

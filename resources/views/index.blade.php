@@ -34,7 +34,7 @@
         <x-section class=" py-4 bg-gray-100 border-t-2 border-b-2 border-primary-700">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 relative">
                 <div class="">
-                    <x-box-with-shadow class="p-2">
+                    <x-box-with-shadow class="p-2" shadow-color="bg-gray-600">
                         <x-slot name="header">
                             Weisheiten
                         </x-slot>
@@ -43,7 +43,7 @@
                 </div>
                 @auth
                     <div class="">
-                        <x-box-with-shadow class="p-2">
+                        <x-box-with-shadow class="p-2" shadow-color="bg-gray-600">
                             <x-slot name="header">
                                 Geburtstage
                             </x-slot>

@@ -3,7 +3,7 @@
 )
 
 @if ($player)
-    <x-box-with-shadow class="p-4">
+    <x-box-with-shadow class="p-4" shadow-color="bg-gray-600">
         <div class="flex flex-col space-y-1">
             <div class="flex items-center space-x-4">
                 @isset($player->user)

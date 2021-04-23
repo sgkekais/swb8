@@ -17,7 +17,7 @@
             </x-headline>
             <div class="pb-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 ">
                 @foreach($player_status_group->sortBy('name_short') as $player)
-                    <x-box-with-shadow>
+                    <x-box-with-shadow shadow-color="bg-gray-600">
                         <div class="relative overflow-hidden">
                             <!-- number -->
                             <div class="absolute inset-0 text-5xl text-primary-700 font-extrabold flex items-center">
