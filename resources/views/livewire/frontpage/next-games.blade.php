@@ -73,6 +73,6 @@
             @endforeach
         </div>
     @else
-        Findet nix statt. ¯\_(ツ)_/¯
+        <span class="text-white">Findet nix statt. ¯\_(ツ)_/¯</span>
     @endif
 </div>

@@ -15,7 +15,7 @@
                     Hobbyfußball seit {{ \Carbon\Carbon::make('25.11.1979')->diffForHumans(['syntax' => \Carbon\CarbonInterface::DIFF_ABSOLUTE, 'parts' => 4, 'join' => ['n, ', ' und ']]) }}
                 </div>
             </div>
-            <x-main-box class="text-white">
+            <x-main-box class="">
                 <x-slot name="header">
                     <x-headline class="mt-4 text-2xl text-white">
                         Demnächst
