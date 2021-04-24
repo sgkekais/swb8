@@ -1,98 +1,97 @@
 <x-section class="pt-0">
     <x-box-with-shadow class="" shadow-color="bg-gray-600">
-        <div class="p-2">
-            <x-slot name="header">
-                {{ $date->dateType->description }}
-            </x-slot>
-            <div class="flex flex-col space-y-2">
-                <div class="flex items-center space-x-2 font-sans font-extrabold text-xl tracking-tighter ">
-                    @switch ($date->dateType->id)
-                        @case (1)
-                            <i class="fas fa-calendar-day text-indigo-600" title="{{ $date->dateType->description }}"></i>
-                            <span>{{ $date->title }}</span>
-                            @break
-                        @case (2)
-                            @switch ($date->match->matchType->id)
-                                @case (1)
-                                <i class="far fa-handshake text-blue-600" title=""></i>
-                                @break
-                                @case (2)
-                                <x-hlw-logo class="fill-current text-primary-600 h-3"/>
-                                @break
-                                @case (3)
-                                <i class="fas fa-trophy text-yellow-600" title=""></i>
-                                @break
-                                @case (4)
-                                <x-hlw-logo class="fill-current text-primary-600 h-3"/>
-                                @break
-                            @endswitch
-                            <span>{{ $date->match->matchType->description }}</span>
-                            @if ($date->match->matchweek)
-                                <span>
-                                    | {{ $date->match->matchweek ? ($date->match->matchType->id == 2 ? $date->match->matchweek.".ST" : $date->match->matchweek) : null }}
-                                </span>
-                            @endif
-                            @break
-                        @case (3)
-                            <i class="fas fa-medal text-yellow-600" title="{{ $date->dateType->description }}"></i>
-                            <span>{{ $date->tournament->title }}</span>
-                            @break
-                        @case (4)
-                            <i class="fas fa-glass-cheers text-pink-600" title="{{ $date->dateType->description }}"></i>
-                            <span>{{ $date->title }}</span>
-                            @break
-                    @endswitch
-                </div>
-                <!-- poll details -->
-                <div class="flex items-center space-x-2">
-                    @switch ($date->dateType->id)
-                        @case (1)
-                            <span class="text-gray-700">
-                                {{ $date->description }}
+        <x-slot name="header">
+            {{ $date->dateType->description }}
+        </x-slot>
+        <div class="p-2 flex items-center space-x-2 font-sans font-extrabold text-xl tracking-tighter bg-gray-100">
+            @switch ($date->dateType->id)
+                @case (1)
+                <i class="fas fa-calendar-day text-indigo-600" title="{{ $date->dateType->description }}"></i>
+                <span>{{ $date->title }}</span>
+                @break
+                @case (2)
+                @switch ($date->match->matchType->id)
+                    @case (1)
+                    <i class="far fa-handshake text-blue-600" title=""></i>
+                    @break
+                    @case (2)
+                    <x-hlw-logo class="fill-current text-primary-600 h-3"/>
+                    @break
+                    @case (3)
+                    <i class="fas fa-trophy text-yellow-600" title=""></i>
+                    @break
+                    @case (4)
+                    <x-hlw-logo class="fill-current text-primary-600 h-3"/>
+                    @break
+                @endswitch
+                <span>{{ $date->match->matchType->description }}</span>
+                @if ($date->match->matchweek)
+                    <span>
+                                | {{ $date->match->matchweek ? ($date->match->matchType->id == 2 ? $date->match->matchweek.".ST" : $date->match->matchweek) : null }}
                             </span>
-                            @break
-                        @case (2)
-                            <span class="text-right">{{ $date->match->teamHome->name }}</span>
-                            <img src="{{ $date->match->teamHome->logo() }}" class="w-8 h-auto" alt="{{ $date->match->teamHome->name_short." Logo" }}"/>
-                            <span class="font-bold text-sm">VS</span>
-                            <img src="{{ $date->match->teamAway->logo() }}" class="w-8 h-auto" alt="{{ $date->match->teamAway->name_short." Logo" }}"/>
-                            <span class="">{{ $date->match->teamAway->name }}</span>
-                            @break
-                        @case (3)
-                            <span class="text-gray-700">
-                                {{ $date->tournament->description }}
-                            </span>
-                            @break
-                        @case (4)
-                            <span class="text-gray-700">
-                                {{ $date->description }}
-                            </span>
-                            @break
-                    @endswitch
-                </div>
-                @if ($date->datetime && $date->dateType->id != 1)
-                    <div>
-                        <i class="far fa-clock fa-fw"></i>
-                        <span class="font-bold">{{ $date->datetime->isoFormat('DD.MM.YY HH:mm') }}</span>
-                    </div>
                 @endif
-                @if ($date->location)
-                    <div class="">
-                        <i class="fas fa-map-marker-alt fa-fw text-red-500"></i>
-                        {{ $date->location->name }}
-                    </div>
-                @endif
-                <div class="flex flex-wrap space-x-2 ">
-                    <div class="">Anzahl Spieler: </div>
-                    @foreach ($date_players->where('playerStatus.display_in_polls')->sortByDesc('playerStatus.can_play')->groupBy('playerStatus.description') as $key => $player_status_group)
-                        <div>
-                            <a href="#{{ $key }}" class="inline-link"><span class="font-bold">{{ $key }}</span></a> {{ $player_status_group->count() }}
+                @break
+                @case (3)
+                <i class="fas fa-medal text-yellow-600" title="{{ $date->dateType->description }}"></i>
+                <span>{{ $date->tournament->title }}</span>
+                @break
+                @case (4)
+                <i class="fas fa-glass-cheers text-pink-600" title="{{ $date->dateType->description }}"></i>
+                <span>{{ $date->title }}</span>
+                @break
+            @endswitch
+        </div>
+        <div class="p-2 flex flex-col space-y-2">
+
+            <!-- poll details -->
+            <div class="flex items-center space-x-2">
+                @switch ($date->dateType->id)
+                    @case (1)
+                        <div class="trix-content text-gray-700">
+                            {!! $date->description !!}
                         </div>
-                    @endforeach
-                </div>
+                        @break
+                    @case (2)
+                        <span class="text-right">{{ $date->match->teamHome->name }}</span>
+                        <img src="{{ $date->match->teamHome->logo() }}" class="w-8 h-auto" alt="{{ $date->match->teamHome->name_short." Logo" }}"/>
+                        <span class="font-bold text-sm">VS</span>
+                        <img src="{{ $date->match->teamAway->logo() }}" class="w-8 h-auto" alt="{{ $date->match->teamAway->name_short." Logo" }}"/>
+                        <span class="">{{ $date->match->teamAway->name }}</span>
+                        @break
+                    @case (3)
+                        <div class="trix-content text-gray-700">
+                            {!! $date->tournament->description !!}
+                        </div>
+                        @break
+                    @case (4)
+                        <div class="trix-content text-gray-700">
+                            {!! $date->description !!}
+                        </div>
+                        @break
+                @endswitch
+            </div>
+            @if ($date->datetime && $date->dateType->id != 1)
                 <div>
-                    ...macht <span class="text-primary-700 font-bold">{{ $date_players->where('playerStatus.can_play', 1)->count() }}</span> halbwegs körperlich fähige, die spielen können
+                    <i class="far fa-clock fa-fw"></i>
+                    <span class="font-bold">{{ $date->datetime->isoFormat('DD.MM.YY HH:mm') }}</span>
                 </div>
+            @endif
+            @if ($date->location)
+                <div class="">
+                    <i class="fas fa-map-marker-alt fa-fw text-red-500"></i>
+                    {{ $date->location->name }}
+                </div>
+            @endif
+            <div class="flex flex-wrap space-x-2 ">
+                <div class="">Anzahl Spieler: </div>
+                @foreach ($date_players->where('playerStatus.display_in_polls')->sortByDesc('playerStatus.can_play')->groupBy('playerStatus.description') as $key => $player_status_group)
+                    <div>
+                        <a href="#{{ $key }}" class="inline-link"><span class="font-bold">{{ $key }}</span></a> {{ $player_status_group->count() }}
+                    </div>
+                @endforeach
+            </div>
+            <div>
+                ...macht <span class="text-primary-700 font-bold">{{ $date_players->where('playerStatus.can_play', 1)->count() }}</span> halbwegs körperlich fähige, die spielen können
             </div>
         </div>
         <div class="p-2 flex items-center space-x-2 bg-gray-100">

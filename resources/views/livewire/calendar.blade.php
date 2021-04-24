@@ -86,9 +86,9 @@
                                         <div class="">
                                             {{ $date->title }}
                                         </div>
-                                        <div class="text-sm text-gray-500">
-                                            {{ \Illuminate\Support\Str::of($date->description)->limit(50) }}
-                                        </div>
+{{--                                        <div class="text-sm text-gray-500">--}}
+{{--                                            {!! $date->description !!}--}}
+{{--                                        </div>--}}
                                         @break
                                     {{-- matches --}}
                                     @case (2)
@@ -111,23 +111,33 @@
                                                 <span class="hidden md:inline-block">{{ $date->match->teamAway->name }}</span>
                                             </div>
                                         </div>
+                                        @if ($date->location)
+                                            <div class="text-sm">
+                                                <i class="fas fa-map-marker-alt text-red-500"></i> {{ $date->location->name_short ?: $date->location->name }}
+                                            </div>
+                                        @endif
                                         @break
                                     {{-- tournament--}}
                                     @case (3)
-                                            <div class="text-xs">
-                                                {{ $date->dateType->description }}
-                                            </div>
+                                        <div class="text-xs">
+                                            {{ $date->dateType->description }}
+                                        </div>
                                         </div>
                                         <div class="">
                                             {{ $date->tournament->title }}
                                         </div>
-                                        <div class="flex space-x-1">
+                                        <div class="flex items-center space-x-2">
                                             <div class="p-1 text-sm tracking-tighter font-bold bg-gray-100">
                                                 {{ $date->datetime->format('H:i') }}
                                             </div>
-                                            <div class="p-1 text-sm text-gray-500">
-                                                {{ $date->tournament->description }}
-                                            </div>
+{{--                                            <div class="p-1 text-sm text-gray-500">--}}
+{{--                                                {!! $date->tournament->description !!}--}}
+{{--                                            </div>--}}
+                                            @if ($date->location)
+                                                <div class="text-sm">
+                                                    <i class="fas fa-map-marker-alt text-red-500"></i> {{ $date->location->name_short ?: $date->location->name }}
+                                                </div>
+                                            @endif
                                         </div>
                                         @break
                                     {{-- date or party --}}
@@ -139,21 +149,22 @@
                                         <div class="">
                                             {{ $date->title }}
                                         </div>
-                                        <div class="flex space-x-1">
+                                        <div class="flex items-center space-x-2">
                                             <div class="p-1 text-sm tracking-tighter font-bold bg-gray-100">
                                                 {{ $date->datetime->format('H:i') }}
                                             </div>
-                                            <div class="p-1 text-sm text-gray-500">
-                                                {{ $date->description }}
-                                            </div>
+{{--                                            <div class="p-1 text-sm text-gray-500">--}}
+{{--                                                {!! $date->description !!}--}}
+{{--                                            </div>--}}
+                                            @if ($date->location)
+                                                <div class="text-sm">
+                                                    <i class="fas fa-map-marker-alt text-red-500"></i> {{ $date->location->name_short ?: $date->location->name }}
+                                                </div>
+                                            @endif
                                         </div>
                                         @break
                                 @endswitch
-                                @if ($date->location)
-                                    <div class="text-sm">
-                                        <i class="fas fa-map-marker-alt text-red-500"></i> {{ $date->location->name_short ?: $date->location->name }}
-                                    </div>
-                                @endif
+
                             </div>
                             {{-- poll --}}
                             @auth

@@ -70,7 +70,7 @@
         <x-load-indicator />
 
         @if ($matches->first()->season->description)
-            <div class="flex items-center p-4 mb-4 bg-gray-100 space-x-4" wire:loading.remove>
+            <div class="flex items-center p-4 mb-4 border border-gray-700 space-x-4" wire:loading.remove>
                 <div class="">
                     <i class="far fa-lightbulb"></i>
                 </div>
@@ -79,7 +79,7 @@
                 </div>
             </div>
         @endif
-        <div class="flex items-center p-4 mb-4 bg-yellow-100 space-x-4" wire:loading.remove>
+        <div class="flex items-center p-4 mb-4 border border-yellow-500 space-x-4" wire:loading.remove>
             <div class="">
                 <i class="fas fa-info"></i>
             </div>

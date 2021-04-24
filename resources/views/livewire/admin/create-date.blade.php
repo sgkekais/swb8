@@ -74,7 +74,7 @@
                                 </x-jet-label>
                                 <x-input-text class="w-full" type="datetime-local" id="datetime" wire:model.lazy="date.datetime" />
                                 <div>
-                                    Leer lassen, wenn unbekannt. Wenn nur Uhrzeit unbekannt, dann Uhrzeit 00:00 eingeben!
+                                    Leer lassen, wenn unbekannt. Wenn nur Datum unbekannt, dann Uhrzeit 00:00 eingeben!
                                 </div>
                                 <x-jet-input-error for="date.datetime" />
                             </div>
@@ -87,9 +87,11 @@
                                 <x-jet-label class="" for="description">
                                     Beschreibung
                                 </x-jet-label>
-                                <textarea id="description" class="form-textarea w-full shadow-sm" wire:model.lazy="date.description">
+                                <x-rich-text class="trix-content" wire:model.lazy="date.description" :initial-value="$date->description" wire:key="{{ $date->id }}"></x-rich-text>
 
-                                </textarea>
+{{--                                <textarea id="description" class="form-textarea w-full shadow-sm" wire:model.lazy="date.description">--}}
+
+{{--                                </textarea>--}}
                                 <x-jet-input-error for="date.description" />
                             </div>
                         @endunless
@@ -323,7 +325,8 @@
                                 <x-jet-label class="" for="tournament_desc">
                                     Beschreibung des Turniers
                                 </x-jet-label>
-                                <x-jet-input class="w-full" type="text" id="tournament_desc" wire:model.lazy="tournament.description" />
+                                <x-rich-text class="trix-content" wire:model.lazy="tournament.description" :initial-value="$tournament->description" wire:key="{{ $date->id + 1 }}"></x-rich-text>
+{{--                                <x-jet-input class="w-full" type="text" id="tournament_desc" wire:model.lazy="tournament.description" />--}}
                                 <x-jet-input-error for="tournament.description" />
                             </div>
                             <div class="mb-6">
@@ -364,3 +367,7 @@
         </x-confirmation-button>
     </div>
 </div>
+
+@push('scripts')
+    <script src="https://unpkg.com/trix@1.3.1/dist/trix.js"></script>
+@endpush

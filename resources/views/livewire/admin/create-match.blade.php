@@ -124,7 +124,7 @@
                         <x-jet-label class="" for="match_details">
                             Spieldetails
                         </x-jet-label>
-                        <x-rich-text wire:model.lazy="match.match_details" :initial-value="$match" wire:key="{{ $match->id }}"></x-rich-text>
+                        <x-rich-text class="trix-content" wire:model.lazy="match.match_details" :initial-value="$match->match_details" wire:key="{{ $match->id }}"></x-rich-text>
                         <x-jet-input-error for="match.match_details" />
                     </div>
                     <!-- match published / cancelled -->
