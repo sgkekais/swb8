@@ -84,6 +84,8 @@ Route::middleware(['auth:sanctum', 'verified', 'is_banned'])->group(function () 
         Route::view('seasons', 'admin.seasons.index')->name('seasons');
         // Scorer Kings
         Route::view('scorer-kings', 'admin.scorer_kings.index')->name('scorer-kings');
+        // Ananas Kings
+        Route::view('ananas-kings', 'admin.ananas_kings.index')->name('ananas-kings');
         // Teams
         Route::view('clubs', 'admin.clubs.index')->name('clubs');
         // Player Status

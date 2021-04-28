@@ -176,4 +176,12 @@ class Player extends Model
         return $this->belongsToMany('App\Models\Season', 'scorer_kings')->withTimestamps()->using(ScorerKing::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function ananasTitles()
+    {
+        return $this->belongsToMany('App\Models\Season', 'ananas_kings')->withTimestamps()->using(AnanasKing::class);
+    }
+
 }

@@ -4,10 +4,10 @@
 <!-- delete confirmation -->
     <x-jet-confirmation-modal wire:model="is_open_delete">
         <x-slot name="title">
-            Torschützenkönig löschen
+            Ananaskönig löschen
         </x-slot>
         <x-slot name="content">
-            Möchten Sie diesen Torschützenkönig wirklich löschen?
+            Möchten Sie diesen Ananaskönig wirklich löschen?
         </x-slot>
         <x-slot name="footer">
             <x-button wire:click="closeDeleteModal()">
@@ -22,7 +22,7 @@
     <x-jet-dialog-modal wire:model="is_open">
         <x-slot name="title">
             <div class="font-semibold">
-                Torschützenkönig
+                Ananaskönig
             </div>
         </x-slot>
         <form class="w-full">

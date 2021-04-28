@@ -127,4 +127,9 @@ class Season extends Model
         return $this->belongsToMany('App\Models\Player', 'scorer_kings')->withTimestamps()->using(ScorerKing::class);
     }
 
+    public function ananasKings()
+    {
+        return $this->belongsToMany('App\Models\Player', 'ananas_kings')->withTimestamps()->using(AnanasKing::class);
+    }
+
 }
