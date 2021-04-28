@@ -95,6 +95,9 @@
                             <x-jet-dropdown-link href="{{ route('admin.seasons') }}" :active="request()->routeIs('admin.seasons')">
                                 <i class="fas fa-fw fa-sync"></i> Saisons
                             </x-jet-dropdown-link>
+                            <x-jet-dropdown-link href="{{ route('admin.scorer-kings') }}" :active="request()->routeIs('admin.scorer-kings')">
+                                <i class="fas fa-fw fa-crown"></i> Scorer-Könige
+                            </x-jet-dropdown-link>
                             <div class="border-t border-gray-300"></div>
                             <div class="block px-4 py-2 text-xs text-primary-700">
                                 Verwaltung

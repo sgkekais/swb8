@@ -168,4 +168,12 @@ class Player extends Model
         return $this->hasMany('App\Models\Card');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function scorerTitles()
+    {
+        return $this->belongsToMany('App\Models\Season', 'scorer_kings')->withTimestamps()->using(ScorerKing::class);
+    }
+
 }

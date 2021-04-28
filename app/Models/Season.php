@@ -122,4 +122,9 @@ class Season extends Model
         return $this->hasManyThrough('App\Models\Card', 'App\Models\Match');
     }
 
+    public function scorerKings()
+    {
+        return $this->belongsToMany('App\Models\Player', 'scorer_kings')->withTimestamps()->using(ScorerKing::class);
+    }
+
 }

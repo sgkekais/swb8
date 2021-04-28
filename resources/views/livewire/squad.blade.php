@@ -47,20 +47,20 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- player status -->
-                                <div class="pl-32 text-sm text-gray-900">
+                                <div class="pl-28 text-sm text-gray-900">
 {{--                                    {{ $player->playerStatus->description }}--}} &nbsp;
-                                </div>
-                                <!-- joined -->
-                                <div class="px-4 text-sm text-gray-900">
                                     @if ($player->joined)
                                         <i class="fas fa-pen-nib"></i> Dabei seit {{ $player->joined->isoFormat('MM.Y') }} ({{ $player->joined->diffInYears() > 0 ? $player->joined->diffInYears()." J." : $player->joined->diffInMonths()." M." }})
                                     @else
                                         &nbsp;
                                     @endif
                                 </div>
+{{--                                <!-- joined -->--}}
+{{--                                <div class="px-4 text-sm text-gray-900">--}}
+{{--                                    --}}
+{{--                                </div>--}}
                                 <!-- stats -->
-                                <div class="px-4 flex items-center space-x-4 text-gray-900 justify-around">
+                                <div class="p-4 flex items-center space-x-4 text-gray-900 justify-around">
                                     <div>
                                         <i class="far fa-futbol"></i> {{ $player->goals()->count() }}
                                     </div>
