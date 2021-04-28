@@ -17,7 +17,7 @@ class ScorerKingTable extends LivewireDatatable
         return [
             Column::callback('season_id', function ($season_id) {
                 $season = Season::find($season_id);
-                return $season->is_ah_season ? "(AH) " : "(HLW) ".$season->title;
+                return ($season->is_ah_season ? "(AH) " : "(HLW) ").$season->title;
             })
                 ->label('Saison'),
             Column::callback('player_id', function ($player_id) {
