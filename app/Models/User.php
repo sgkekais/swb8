@@ -105,8 +105,7 @@ class User extends Authenticatable
      */
     protected function defaultProfilePhotoUrl()
     {
-        return asset('img/swblogo.png');
-        // return 'https://eu.ui-avatars.com/api/?name='.urlencode($this->name).'&color=000&background=fff';
+        return 'https://eu.ui-avatars.com/api/?name='.urlencode($this->name).'&color=000&background=fff';
     }
 
     /*

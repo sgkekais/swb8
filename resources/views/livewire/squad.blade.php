@@ -21,7 +21,7 @@
                         <div class="flex">
                             <!-- pic -->
                             <div class="p-4 bg-white flex flex-col">
-                                <div class="flex items-center h-32 w-24 rounded border-2 border-black bg-white">
+                                <div class="flex items-center h-32 w-24 border-2 border-gray-700 bg-white">
                                     @if($player->user && $player->user->profile_photo_path)
                                         <img class="h-full w-full object-cover" src="{{ $player->user->profile_photo_url }}" alt="{{ $player->first_name }}" />
                                     @else
