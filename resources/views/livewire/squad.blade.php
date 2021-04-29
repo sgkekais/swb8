@@ -65,28 +65,26 @@
                                     @endif
                                 </div>
                                 <div class="pb-4 flex">
-                                    <div class="flex w-1/2 -space-x-1 overflow-hidden items-center">
-                                        @if ($player->scorerTitles()->count() > 0)
+                                    @if ($player->scorerTitles()->count() > 0)
+                                        <div class="flex w-1/2 -space-x-1 overflow-hidden items-center">
                                             @foreach ($player->scorerTitles as $scorerTitle)
                                                 <x-cannon class="inline-block w-6 h-auto rounded-full ring-2 ring-white fill-current text-yellow-500 "/>
                                             @endforeach
                                             <span class="inline-flex pl-2">x{{ $player->scorerTitles()->count() }}</span>
-                                        @else
-                                            &nbsp;
-                                        @endif
-                                    </div>
-                                    <div class="flex w-1/2 -space-x-2 overflow-hidden items-center">
-                                        @if ($player->ananasTitles()->count() > 0)
+                                        </div>
+                                    @endif
+                                    @if ($player->ananasTitles()->count() > 0)
+                                        <div class="flex w-1/2 -space-x-2 overflow-hidden items-center">
                                             @foreach ($player->ananasTitles as $ananasTitle)
                                                 <span class="inline-block">
                                                     &#127821;
                                                 </span>
                                             @endforeach
                                             <span class="inline-block pl-2">x{{ $player->ananasTitles()->count() }}</span>
-                                        @else
-                                            &nbsp;
-                                        @endif
-                                    </div>
+                                        </div>
+                                    @else
+                                        &nbsp;
+                                    @endif
                                 </div>
                                 <div class="pb-4 flex items-center space-x-4 text-gray-900">
                                     <div>
