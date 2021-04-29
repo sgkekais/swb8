@@ -6,39 +6,39 @@
         <div class="p-2 flex items-center space-x-2 font-sans font-extrabold text-xl tracking-tighter bg-gray-100">
             @switch ($date->dateType->id)
                 @case (1)
-                <i class="fas fa-calendar-day text-indigo-600" title="{{ $date->dateType->description }}"></i>
-                <span>{{ $date->title }}</span>
-                @break
+                    <i class="fas fa-calendar-day text-indigo-600" title="{{ $date->dateType->description }}"></i>
+                    <span>{{ $date->title }}</span>
+                    @break
                 @case (2)
-                @switch ($date->match->matchType->id)
-                    @case (1)
-                    <i class="far fa-handshake text-blue-600" title=""></i>
+                    @switch ($date->match->matchType->id)
+                        @case (1)
+                            <i class="far fa-handshake text-blue-600" title=""></i>
+                            @break
+                        @case (2)
+                            <x-hlw-logo class="fill-current text-primary-600 h-3"/>
+                            @break
+                        @case (3)
+                            <i class="fas fa-trophy text-yellow-600" title=""></i>
+                            @break
+                        @case (4)
+                            <x-hlw-logo class="fill-current text-primary-600 h-3"/>
+                            @break
+                    @endswitch
+                    <span>{{ $date->match->matchType->description }}</span>
+                    @if ($date->match->matchweek)
+                        <span>
+                            | {{ $date->match->matchweek ? ($date->match->matchType->id == 2 ? $date->match->matchweek.".ST" : $date->match->matchweek) : null }}
+                        </span>
+                    @endif
                     @break
-                    @case (2)
-                    <x-hlw-logo class="fill-current text-primary-600 h-3"/>
-                    @break
-                    @case (3)
-                    <i class="fas fa-trophy text-yellow-600" title=""></i>
-                    @break
-                    @case (4)
-                    <x-hlw-logo class="fill-current text-primary-600 h-3"/>
-                    @break
-                @endswitch
-                <span>{{ $date->match->matchType->description }}</span>
-                @if ($date->match->matchweek)
-                    <span>
-                                | {{ $date->match->matchweek ? ($date->match->matchType->id == 2 ? $date->match->matchweek.".ST" : $date->match->matchweek) : null }}
-                            </span>
-                @endif
-                @break
                 @case (3)
-                <i class="fas fa-medal text-yellow-600" title="{{ $date->dateType->description }}"></i>
-                <span>{{ $date->tournament->title }}</span>
-                @break
+                    <i class="fas fa-medal text-yellow-600" title="{{ $date->dateType->description }}"></i>
+                    <span>{{ $date->tournament->title }}</span>
+                    @break
                 @case (4)
-                <i class="fas fa-glass-cheers text-pink-600" title="{{ $date->dateType->description }}"></i>
-                <span>{{ $date->title }}</span>
-                @break
+                    <i class="fas fa-glass-cheers text-pink-600" title="{{ $date->dateType->description }}"></i>
+                    <span>{{ $date->title }}</span>
+                    @break
             @endswitch
         </div>
         <div class="p-2 flex flex-col space-y-2">
@@ -169,18 +169,16 @@
                     @foreach($player_status_group->sortBy('name_short') as $player)
                         <div class="table-row hover:bg-gray-100">
                             <!-- name -->
-                            <div x-data="{ show:false }" @mouseleave="show = false" class="p-2 table-cell relative cursor-pointer whitespace-nowrap">
+                            <div x-data="{ show:false }" class="p-2 table-cell relative cursor-pointer whitespace-nowrap">
                                 <!-- player info popup -->
                                 <div x-show="show" @click.away="show = false" class="absolute top-7 z-50 w-96 max-w-screen bg-white">
                                     <x-player-popup :player="$player" />
                                 </div>
-                                <div @click="show = !show" @mouseover="show = true" class="relative ">
-                                    @if ($player->user)
-                                        @isset($player->user)
-                                            <img class="inline-flex h-10 w-10 rounded-full object-cover" src="{{ $player->user->profile_photo_url }}" alt="{{ $player->first_name }}" />
-                                        @endisset
+                                <div @click="show = !show" class="relative ">
+                                    @if ($player->user && $player->user->profile_photo_path)
+                                        <img class="inline-flex h-10 w-10 rounded-full object-cover" src="{{ $player->user->profile_photo_url }}" alt="{{ $player->first_name }}" />
                                     @else
-                                        <img class="inline-flex h-10 w-10 rounded-full object-cover" src="https://ui-avatars.com/api/?name={{ $player->name }}&color=FFFFFF&background=404040" />
+                                        <img class="inline-flex h-10 w-10 rounded-full object-cover" src="https://ui-avatars.com/api/?name={{ $player->first_name }}+{{ $player->last_name }}&color=FFFFFF&background=404040" />
                                     @endif
                                     {{ $player->name_short }}
                                 </div>
