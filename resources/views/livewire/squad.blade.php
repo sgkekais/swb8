@@ -23,44 +23,43 @@
                             <div class="absolute inset-0 text-5xl text-primary-700 font-extrabold flex items-center">
                                 <img src="/img/swblogo.png" class="w-40 h-auto m-auto opacity-5" />
                             </div>
-                            <div class="absolute top-0 right-4 font-sans font-extrabold text-7xl text-black tracking-tighter opacity-50">
-                                {{ $player->clubs->find($club->id )->pivot->number }}
-                            </div>
                             <div class="relative flex flex-col space-y-2">
                                 <!-- pic, name, title -->
-                                <div class="p-4 h-20 flex items-center bg-black bg-opacity-50 relative">
+                                <div class="p-4 h-24 flex items-center relative" style="
+                                background-color: #ffffff;
+                                opacity: 1;
+                                background-image: linear-gradient(to right, #202020, #202020 30px, #ffffff 30px, #ffffff );
+                                background-size: 60px 100%;">
                                     @isset($player->user)
-                                        <img class="absolute top-4 h-24 w-24 rounded-full object-cover border-2 border-black" src="{{ $player->user->profile_photo_url }}" alt="{{ $player->first_name }}" />
+                                        <img class="absolute <!--top-6 h-24 w-24--> top-2 h-32 w-24 rounded object-cover border-2 border-black" src="{{ $player->user->profile_photo_url }}" alt="{{ $player->first_name }}" />
                                     @else
-                                        <img class="absolute top-4 h-24 w-24 rounded-full object-cover border-2 border-black" src="https://eu.ui-avatars.com/api/?name={{ $player->first_name }}+{{ $player->last_name }}&color=000&background=fff" />
+                                        <img class="absolute top-2 h-32 w-24 rounded object-cover border-2 border-black" src="https://eu.ui-avatars.com/api/?name={{ $player->first_name }}+{{ $player->last_name }}&color=000&background=fff" />
                                     @endisset
                                     <div class="pl-28 flex flex-col relative">
-                                        <div class="text-lg text-white font-extrabold">{{ $player->name_short }}</div>
-                                        @auth<div class="text-sm text-white">{{ $player->full_name }}</div>@endauth
+                                        <div class="text-lg text-black font-extrabold">
+                                            <span class="inline-flex p-1 bg-white">{{ $player->name_short }}</span>
+                                        </div>
+                                        @auth
+                                            <div class="text-sm text-black">
+                                                <span class="inline-flex px-1 bg-white">{{ $player->full_name }}</span>
+                                            </div>
+                                        @endauth
                                         <div class="text-sm font-bold text-yellow-500">
-                                            {{ $player->public_note }}
-                                            {{--                                    @if ($player->public_note)--}}
-                                            {{--                                        {{ $player->public_note }}--}}
-                                            {{--                                    @else--}}
-                                            {{--                                        &nbsp;--}}
-                                            {{--                                    @endif--}}
+                                            <span class="inline-flex p-1 bg-white">{{ $player->public_note }}</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="pl-28 text-sm text-gray-900">
-{{--                                    {{ $player->playerStatus->description }}--}} &nbsp;
+                                <div class="absolute w-24 top-28 left-4 number text-6xl text-black text-center">
+                                    {{ $player->clubs->find($club->id )->pivot->number }}
+                                </div>
+                                <div class="pl-32 text-sm text-gray-900">
                                     @if ($player->joined)
                                         <i class="fas fa-pen-nib"></i> Dabei seit {{ $player->joined->isoFormat('MM.Y') }} ({{ $player->joined->diffInYears() > 0 ? $player->joined->diffInYears()." J." : $player->joined->diffInMonths()." M." }})
                                     @else
                                         &nbsp;
                                     @endif
                                 </div>
-{{--                                <!-- joined -->--}}
-{{--                                <div class="px-4 text-sm text-gray-900">--}}
-{{--                                    --}}
-{{--                                </div>--}}
-                                <!-- stats -->
-                                <div class="p-4 flex items-center space-x-4 text-gray-900 justify-around">
+                                <div class="pl-32 py-4 flex items-center space-x-4 text-gray-900">
                                     <div>
                                         <i class="far fa-futbol"></i> {{ $player->goals()->count() }}
                                     </div>

@@ -54,7 +54,6 @@
                         <x-jet-input-error for="player_id" />
                     </div>
                 </div>
-
             </x-slot>
             <x-slot name="footer">
                 <div class="sm:flex sm:flex-row-reverse">

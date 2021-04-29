@@ -38,6 +38,24 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         @livewireStyles
 
+        <!-- retro numbers -->
+        <style>
+            @font-face {
+                font-family: 'LiberoWeb';
+                src: url({{ asset('fonts/libero-web.eot') }});
+                src: url({{ asset('fonts/libero-web.eot?#iefix') }}) format('embedded-opentype'),
+                url({{ asset('fonts/libero-web.woff') }}) format('woff'),
+                url({{ asset('fonts/libero-web.ttf') }}) format('truetype'),
+                url({{ asset('fonts/libero-web.svg#LiberoWeb') }}) format('svg');
+                font-weight: normal;
+                font-style: normal;
+            }
+            .number {
+                font-family:LiberoWeb;
+            }
+        </style>
+
+
         <!-- Favicons -->
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=jw3mgXqKeE">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=jw3mgXqKeE">
