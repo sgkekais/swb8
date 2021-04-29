@@ -45,6 +45,18 @@
                         &Sigma;
                     </span>
                 </div>
+                @if ($season->scorerKings()->count() > 0)
+                    <div class="flex flex-1 flex-col items-center">
+                        <span class="text-gray-700">
+                            <i class="fas fa-fw fa-crown text-yellow-500"></i>
+                        </span>
+                        <span class="font-normal text-lg md:text-xl text-gray-500">
+                            @foreach ($season->scorerKings as $scorerKing)
+                                {{ $scorerKing->name_short }}
+                            @endforeach
+                        </span>
+                    </div>
+                @endif
             </div>
         </div>
 
@@ -52,8 +64,9 @@
             <div class="">
                 <i class="far fa-lightbulb fa-fw"></i>
             </div>
-            <div class="">
-                Datenbank: erste Vorlage erfasst am {{ $first_assist->isoFormat('DD.MM.YY') }}, erstes Tor am {{ $first_goal->isoFormat('DD.MM.YY') }}
+            <div class="flex flex-col">
+                <span>Datenbank: erste Vorlage erfasst am {{ $first_assist->isoFormat('DD.MM.YY') }}, erstes Tor am {{ $first_goal->isoFormat('DD.MM.YY') }}</span>
+                <span>Ab der Saison 2020/21 wird die Person mit den meisten <strong>Scorer</strong>-Punkten zum Torschützenkönig gekürt.</span>
             </div>
         </div>
         <div class="flex items-center p-4 mb-4 border border-yellow-500 space-x-4">

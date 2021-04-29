@@ -151,8 +151,15 @@
                             </div>
                         </x-table.cell>
                         <x-table.cell class="py-2 pl-4 md:pl-0 flex-col ">
-                            <div class="">
-                                {{ $sinner->name_short }}
+                            <div class="flex space-x-2">
+                                <div>
+                                    {{ $sinner->name_short }}
+                                </div>
+                                <div class="flex -space-x-1 overflow-hidden items-center">
+                                    @foreach ($sinner->ananasTitles as $ananasTitle)
+                                        <span class="inline-block">&#127821;</span>
+                                    @endforeach
+                                </div>
                             </div>
                             <div class="flex items-center">
                                 <div class="h-1 bg-gray-400" style="width: {{ round( $sinner->total_time_penalties / $sinners->sum('sinner_points'), 4 ) * 100 }}% "></div>

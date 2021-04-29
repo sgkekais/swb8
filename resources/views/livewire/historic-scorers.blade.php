@@ -114,8 +114,15 @@
                             </div>
                         </x-table.cell>
                         <x-table.cell class="py-2 pl-4 md:pl-0 flex-col">
-                            <div class="">
-                                {{ $scorer->name_short }}
+                            <div class="flex space-x-2">
+                                <div>
+                                    {{ $scorer->name_short }}
+                                </div>
+                                <div class="flex -space-x-1 overflow-hidden items-center">
+                                    @foreach ($scorer->scorerTitles as $scorerTitle)
+                                        <x-cannon class="inline-block w-6 h-auto rounded-full ring-2 ring-white fill-current text-yellow-500 "/>
+                                    @endforeach
+                                </div>
                             </div>
                             <div class="flex items-center">
                                 <div class="h-1 bg-primary-300" style="width: {{ round( $scorer->assists_count / $scorers->sum('scorer_points'), 4 ) * 100 }}% "></div>

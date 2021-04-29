@@ -69,6 +69,18 @@
                         &#127821;
                     </span>
                 </div>
+                @if ($season->ananasKings()->count() > 0)
+                    <div class="flex flex-1 flex-col items-center">
+                        <span class="text-gray-700">
+                            &#127821;
+                        </span>
+                        <span class="font-normal text-base lg:text-xl text-center text-gray-500">
+                            @foreach ($season->ananasKings as $ananasKing)
+                                {{ $ananasKing->name_short }}
+                            @endforeach
+                        </span>
+                    </div>
+                @endif
             </div>
         </div>
 
@@ -79,7 +91,7 @@
             <div class="flex flex-col">
                 <span>Datenbank: erste Karte erfasst am {{ $first_card->isoFormat('DD.MM.YY') }}</span>
                 <div class="flex flex-wrap space-x-2">
-                    <span>Punkteregel für die goldene Ananas (&#127821;):</span>
+                    <span>Neue Punkteregel ab 2020/21 für die goldene Ananas (&#127821;):</span>
                     <span class="tracking-tighter"><i class="fas fa-square text-yellow-400"></i>/<i class="fas fa-stopwatch text-gray-400 "></i> = <span class="font-bold">1</span> Pkt, <i class="fas fa-square text-yellow-400" title="Gelb-Rote Karte"></i><i class="fas fa-square text-red-500" title="Gelb-Rote Karte"></i> = <span class="font-bold">3</span> Pkt, <i class="fas fa-square text-red-500" title="Rote Karte"></i> = <span class="font-bold">5</span>  Pkt</span>
                 </div>
             </div>
