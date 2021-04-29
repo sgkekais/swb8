@@ -19,10 +19,10 @@
                 @foreach($player_status_group->sortBy('name_short') as $player)
                     <x-box-with-shadow shadow-color="bg-gray-600">
                         <div class="relative overflow-hidden">
-                            <!-- number -->
-                            <div class="absolute inset-0 text-5xl text-primary-700 font-extrabold flex items-center">
-                                <img src="/img/swblogo.png" class="w-40 h-auto m-auto opacity-5" />
-                            </div>
+{{--                            <!-- number -->--}}
+{{--                            <div class="absolute inset-0 text-5xl text-primary-700 font-extrabold flex items-center">--}}
+{{--                                <img src="/img/swblogo.png" class="w-40 h-auto m-auto opacity-5" />--}}
+{{--                            </div>--}}
                             <div class="relative flex flex-col space-y-2">
                                 <!-- pic, name, title -->
                                 <div class="p-4 h-24 flex items-center relative" style="
@@ -33,7 +33,10 @@
                                     @isset($player->user)
                                         <img class="absolute <!--top-6 h-24 w-24--> top-2 h-32 w-24 rounded object-cover border-2 border-black" src="{{ $player->user->profile_photo_url }}" alt="{{ $player->first_name }}" />
                                     @else
-                                        <img class="absolute top-2 h-32 w-24 rounded object-cover border-2 border-black" src="https://eu.ui-avatars.com/api/?name={{ $player->first_name }}+{{ $player->last_name }}&color=000&background=fff" />
+{{--                                        <img class="absolute top-2 h-32 w-24 rounded object-cover border-2 border-black" src="https://eu.ui-avatars.com/api/?name={{ $player->first_name }}+{{ $player->last_name }}&color=000&background=fff" />--}}
+                                        <div class="flex items-center absolute top-2 h-32 w-24 rounded border-2 border-black bg-white">
+                                            <img src="/img/swblogo.png" class="w-16 h-auto m-auto opacity-75" />
+                                        </div>
                                     @endisset
                                     <div class="pl-28 flex flex-col relative">
                                         <div class="text-lg text-black font-extrabold">
