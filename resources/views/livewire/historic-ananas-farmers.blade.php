@@ -155,7 +155,7 @@
                                 <div>
                                     {{ $sinner->name_short }}
                                 </div>
-                                <div class="flex -space-x-1 overflow-hidden items-center">
+                                <div class="flex -space-x-1 overflow-hidden flex-wrap items-center">
                                     @foreach ($sinner->ananasTitles as $ananasTitle)
                                         <span class="inline-block">&#127821;</span>
                                     @endforeach

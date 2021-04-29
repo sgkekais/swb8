@@ -118,7 +118,7 @@
                                 <div>
                                     {{ $scorer->name_short }}
                                 </div>
-                                <div class="flex -space-x-1 overflow-hidden items-center">
+                                <div class="flex -space-x-1 overflow-hidden flex-wrap items-center">
                                     @foreach ($scorer->scorerTitles as $scorerTitle)
                                         <x-cannon class="inline-block w-6 h-auto rounded-full ring-2 ring-white fill-current text-yellow-500 "/>
                                     @endforeach
