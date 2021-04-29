@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 62.108.32.152:3306
--- Erstellungszeit: 25. Apr 2021 um 16:47
+-- Erstellungszeit: 29. Apr 2021 um 14:54
 -- Server-Version: 5.7.34
 -- PHP-Version: 7.3.27
 
@@ -461,7 +461,77 @@ INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_type`, `su
 (412, 'default', 'updated', 'App\\Models\\Player', 112, 'App\\Models\\User', 1, '{\"old\": {\"public_note\": null}, \"attributes\": {\"public_note\": \"2. Spielführer AH\"}}', '2021-04-24 14:10:57', '2021-04-24 14:10:57'),
 (413, 'default', 'updated', 'App\\Models\\Player', 117, 'App\\Models\\User', 1, '{\"old\": {\"public_note\": null}, \"attributes\": {\"public_note\": \"Mannschaftsrat HLW\"}}', '2021-04-24 14:11:12', '2021-04-24 14:11:12'),
 (414, 'default', 'updated', 'App\\Models\\Player', 97, 'App\\Models\\User', 1, '{\"old\": {\"public_note\": null}, \"attributes\": {\"public_note\": \"2. Spielführer HLW\"}}', '2021-04-24 14:11:50', '2021-04-24 14:11:50'),
-(415, 'default', 'updated', 'App\\Models\\Player', 10, 'App\\Models\\User', 1, '{\"old\": {\"public_note\": null}, \"attributes\": {\"public_note\": \"1. Spielführer AH\"}}', '2021-04-24 14:12:12', '2021-04-24 14:12:12');
+(415, 'default', 'updated', 'App\\Models\\Player', 10, 'App\\Models\\User', 1, '{\"old\": {\"public_note\": null}, \"attributes\": {\"public_note\": \"1. Spielführer AH\"}}', '2021-04-24 14:12:12', '2021-04-24 14:12:12'),
+(416, 'default', 'created', 'App\\Models\\ScorerKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 127, \"season_id\": 10}}', '2021-04-28 12:42:54', '2021-04-28 12:42:54'),
+(417, 'default', 'updated', 'App\\Models\\Player', 115, 'App\\Models\\User', 1, '{\"old\": {\"nickname\": null, \"last_name\": \"Marc\", \"first_name\": \"Selicke\"}, \"attributes\": {\"nickname\": \"Marc\", \"last_name\": \"Selicke\", \"first_name\": \"Marc\"}}', '2021-04-28 12:43:26', '2021-04-28 12:43:26'),
+(418, 'default', 'created', 'App\\Models\\ScorerKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 115, \"season_id\": 9}}', '2021-04-28 12:43:41', '2021-04-28 12:43:41'),
+(419, 'default', 'created', 'App\\Models\\ScorerKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 101, \"season_id\": 8}}', '2021-04-28 12:43:56', '2021-04-28 12:43:56'),
+(420, 'default', 'created', 'App\\Models\\ScorerKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 75, \"season_id\": 7}}', '2021-04-28 12:44:04', '2021-04-28 12:44:04'),
+(421, 'default', 'created', 'App\\Models\\ScorerKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 73, \"season_id\": 6}}', '2021-04-28 12:44:13', '2021-04-28 12:44:13'),
+(422, 'default', 'created', 'App\\Models\\ScorerKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 73, \"season_id\": 5}}', '2021-04-28 12:44:25', '2021-04-28 12:44:25'),
+(423, 'default', 'created', 'App\\Models\\ScorerKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 47, \"season_id\": 4}}', '2021-04-28 12:44:35', '2021-04-28 12:44:35'),
+(424, 'default', 'created', 'App\\Models\\ScorerKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 57, \"season_id\": 3}}', '2021-04-28 12:44:45', '2021-04-28 12:44:45'),
+(425, 'default', 'created', 'App\\Models\\ScorerKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 47, \"season_id\": 2}}', '2021-04-28 12:44:57', '2021-04-28 12:44:57'),
+(426, 'default', 'created', 'App\\Models\\ScorerKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 11, \"season_id\": 1}}', '2021-04-28 12:45:11', '2021-04-28 12:45:11'),
+(427, 'default', 'created', 'App\\Models\\ScorerKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 136, \"season_id\": 21}}', '2021-04-28 12:45:50', '2021-04-28 12:45:50'),
+(428, 'default', 'created', 'App\\Models\\ScorerKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 110, \"season_id\": 20}}', '2021-04-28 12:46:43', '2021-04-28 12:46:43'),
+(429, 'default', 'created', 'App\\Models\\ScorerKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 10, \"season_id\": 19}}', '2021-04-28 12:46:55', '2021-04-28 12:46:55'),
+(430, 'default', 'created', 'App\\Models\\ScorerKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 54, \"season_id\": 18}}', '2021-04-28 12:47:10', '2021-04-28 12:47:10'),
+(431, 'default', 'created', 'App\\Models\\ScorerKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 10, \"season_id\": 17}}', '2021-04-28 12:48:00', '2021-04-28 12:48:00'),
+(432, 'default', 'created', 'App\\Models\\ScorerKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 73, \"season_id\": 16}}', '2021-04-28 12:48:11', '2021-04-28 12:48:11'),
+(433, 'default', 'created', 'App\\Models\\ScorerKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 14, \"season_id\": 15}}', '2021-04-28 12:48:22', '2021-04-28 12:48:22'),
+(434, 'default', 'created', 'App\\Models\\ScorerKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 60, \"season_id\": 14}}', '2021-04-28 12:48:34', '2021-04-28 12:48:34'),
+(435, 'default', 'created', 'App\\Models\\ScorerKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 10, \"season_id\": 13}}', '2021-04-28 12:48:46', '2021-04-28 12:48:46'),
+(436, 'default', 'created', 'App\\Models\\ScorerKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 10, \"season_id\": 12}}', '2021-04-28 12:48:54', '2021-04-28 12:48:54'),
+(437, 'default', 'created', 'App\\Models\\AnanasKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 10, \"season_id\": 10}}', '2021-04-28 13:04:49', '2021-04-28 13:04:49'),
+(438, 'default', 'created', 'App\\Models\\AnanasKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 120, \"season_id\": 9}}', '2021-04-28 13:05:00', '2021-04-28 13:05:00'),
+(439, 'default', 'created', 'App\\Models\\AnanasKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 54, \"season_id\": 8}}', '2021-04-28 13:05:09', '2021-04-28 13:05:09'),
+(440, 'default', 'created', 'App\\Models\\AnanasKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 16, \"season_id\": 7}}', '2021-04-28 13:05:22', '2021-04-28 13:05:22'),
+(441, 'default', 'created', 'App\\Models\\AnanasKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 16, \"season_id\": 6}}', '2021-04-28 13:05:31', '2021-04-28 13:05:31'),
+(442, 'default', 'created', 'App\\Models\\AnanasKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 65, \"season_id\": 5}}', '2021-04-28 13:05:40', '2021-04-28 13:05:40'),
+(443, 'default', 'created', 'App\\Models\\AnanasKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 16, \"season_id\": 4}}', '2021-04-28 13:05:49', '2021-04-28 13:05:49'),
+(444, 'default', 'created', 'App\\Models\\AnanasKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 41, \"season_id\": 3}}', '2021-04-28 13:06:01', '2021-04-28 13:06:01'),
+(445, 'default', 'created', 'App\\Models\\AnanasKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 16, \"season_id\": 2}}', '2021-04-28 13:06:12', '2021-04-28 13:06:12'),
+(446, 'default', 'created', 'App\\Models\\AnanasKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 16, \"season_id\": 1}}', '2021-04-28 13:06:19', '2021-04-28 13:06:19'),
+(447, 'default', 'created', 'App\\Models\\AnanasKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 120, \"season_id\": 21}}', '2021-04-28 13:06:36', '2021-04-28 13:06:36'),
+(448, 'default', 'created', 'App\\Models\\AnanasKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 16, \"season_id\": 20}}', '2021-04-28 13:06:49', '2021-04-28 13:06:49'),
+(449, 'default', 'created', 'App\\Models\\AnanasKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 110, \"season_id\": 19}}', '2021-04-28 13:06:58', '2021-04-28 13:06:58'),
+(450, 'default', 'created', 'App\\Models\\AnanasKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 4, \"season_id\": 18}}', '2021-04-28 13:07:12', '2021-04-28 13:07:12'),
+(451, 'default', 'created', 'App\\Models\\AnanasKing', NULL, 'App\\Models\\User', 1, '{\"attributes\": {\"player_id\": 10, \"season_id\": 14}}', '2021-04-28 13:07:27', '2021-04-28 13:07:27');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `ananas_kings`
+--
+
+CREATE TABLE `ananas_kings` (
+  `player_id` bigint(20) UNSIGNED NOT NULL,
+  `season_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Daten für Tabelle `ananas_kings`
+--
+
+INSERT INTO `ananas_kings` (`player_id`, `season_id`, `created_at`, `updated_at`) VALUES
+(10, 10, '2021-04-28 13:04:49', '2021-04-28 13:04:49'),
+(120, 9, '2021-04-28 13:05:00', '2021-04-28 13:05:00'),
+(54, 8, '2021-04-28 13:05:09', '2021-04-28 13:05:09'),
+(16, 7, '2021-04-28 13:05:22', '2021-04-28 13:05:22'),
+(16, 6, '2021-04-28 13:05:31', '2021-04-28 13:05:31'),
+(65, 5, '2021-04-28 13:05:40', '2021-04-28 13:05:40'),
+(16, 4, '2021-04-28 13:05:49', '2021-04-28 13:05:49'),
+(41, 3, '2021-04-28 13:06:01', '2021-04-28 13:06:01'),
+(16, 2, '2021-04-28 13:06:12', '2021-04-28 13:06:12'),
+(16, 1, '2021-04-28 13:06:19', '2021-04-28 13:06:19'),
+(120, 21, '2021-04-28 13:06:36', '2021-04-28 13:06:36'),
+(16, 20, '2021-04-28 13:06:49', '2021-04-28 13:06:49'),
+(110, 19, '2021-04-28 13:06:58', '2021-04-28 13:06:58'),
+(4, 18, '2021-04-28 13:07:12', '2021-04-28 13:07:12'),
+(10, 14, '2021-04-28 13:07:27', '2021-04-28 13:07:27');
 
 -- --------------------------------------------------------
 
@@ -1571,7 +1641,7 @@ INSERT INTO `club_player` (`club_id`, `player_id`, `number`, `created_at`, `upda
 (34, 13, NULL, '2021-03-07 13:13:34', '2021-04-21 15:59:11'),
 (34, 112, NULL, '2021-03-07 13:13:34', '2021-04-24 14:10:57'),
 (34, 136, NULL, '2021-03-07 13:13:34', '2021-03-07 13:13:34'),
-(34, 1, 20, '2021-03-31 11:36:53', '2021-04-19 23:32:04'),
+(34, 1, 20, '2021-03-31 11:36:53', '2021-04-29 09:24:02'),
 (33, 10, NULL, '2021-03-31 12:19:24', '2021-04-24 14:12:12'),
 (33, 4, NULL, '2021-04-19 21:57:35', '2021-04-19 21:57:35'),
 (34, 124, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
@@ -1603,7 +1673,7 @@ INSERT INTO `club_player` (`club_id`, `player_id`, `number`, `created_at`, `upda
 (34, 97, NULL, '2021-04-19 22:00:28', '2021-04-24 14:11:50'),
 (34, 108, NULL, '2021-04-19 22:00:28', '2021-04-19 22:00:28'),
 (33, 13, NULL, '2021-04-19 22:11:47', '2021-04-21 15:59:11'),
-(33, 1, NULL, '2021-04-21 16:06:48', '2021-04-21 16:06:48');
+(33, 1, 20, '2021-04-21 16:06:48', '2021-04-29 09:24:02');
 
 -- --------------------------------------------------------
 
@@ -4214,7 +4284,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (39, '2021_02_19_154243_create_club_season_table', 22),
 (40, '2021_03_10_005513_add_minute_column_to_goals_table', 23),
 (41, '2021_03_24_130334_add_position_to_seasons_table', 24),
-(42, '2021_04_21_183413_add_display_columns_to_playerstatus', 25);
+(42, '2021_04_21_183413_add_display_columns_to_playerstatus', 25),
+(43, '2021_04_25_165020_create_scorer_kings_table', 26),
+(44, '2021_04_28_145139_create_ananas_kings_table', 27);
 
 -- --------------------------------------------------------
 
@@ -4378,7 +4450,7 @@ INSERT INTO `players` (`id`, `player_status_id`, `user_id`, `first_name`, `last_
 (112, 1, NULL, 'Marcel', 'Gans', 'Gussi', '1981-08-20', '2017-06-01', NULL, '2. Spielführer AH', NULL, 1, '2021-04-19 21:51:00', '2021-04-24 14:10:57'),
 (113, 5, NULL, 'Jay', 'Djeladin', NULL, NULL, '2017-10-01', '2017-12-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
 (114, 5, NULL, 'Jonas', 'Fahl', NULL, NULL, '2017-07-01', '2018-01-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
-(115, 5, NULL, 'Selicke', 'Marc', NULL, NULL, '2018-04-01', '2020-03-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
+(115, 5, NULL, 'Marc', 'Selicke', 'Marc', NULL, '2018-04-01', '2020-03-31', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-28 12:43:26'),
 (116, 4, NULL, 'Jan', 'Schulz', NULL, '1987-04-30', '2016-03-01', NULL, NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-21 16:22:39'),
 (117, 1, NULL, 'Michel', 'Görtz', 'Mitch', '1981-08-23', '2018-03-01', NULL, 'Mannschaftsrat HLW', NULL, 1, '2021-04-19 21:51:00', '2021-04-24 14:11:12'),
 (118, 5, NULL, 'Alexander', 'Rumler', NULL, NULL, '2018-02-01', '2018-10-01', NULL, NULL, 1, '2021-04-19 21:51:00', '2021-04-19 21:51:00'),
@@ -4513,6 +4585,45 @@ INSERT INTO `quotes` (`id`, `author`, `quote`, `created_at`, `updated_at`) VALUE
 -- --------------------------------------------------------
 
 --
+-- Tabellenstruktur für Tabelle `scorer_kings`
+--
+
+CREATE TABLE `scorer_kings` (
+  `player_id` bigint(20) UNSIGNED NOT NULL,
+  `season_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Daten für Tabelle `scorer_kings`
+--
+
+INSERT INTO `scorer_kings` (`player_id`, `season_id`, `created_at`, `updated_at`) VALUES
+(127, 10, '2021-04-28 12:42:53', '2021-04-28 12:42:53'),
+(115, 9, '2021-04-28 12:43:41', '2021-04-28 12:43:41'),
+(101, 8, '2021-04-28 12:43:56', '2021-04-28 12:43:56'),
+(75, 7, '2021-04-28 12:44:04', '2021-04-28 12:44:04'),
+(73, 6, '2021-04-28 12:44:13', '2021-04-28 12:44:13'),
+(73, 5, '2021-04-28 12:44:25', '2021-04-28 12:44:25'),
+(47, 4, '2021-04-28 12:44:35', '2021-04-28 12:44:35'),
+(57, 3, '2021-04-28 12:44:45', '2021-04-28 12:44:45'),
+(47, 2, '2021-04-28 12:44:57', '2021-04-28 12:44:57'),
+(11, 1, '2021-04-28 12:45:11', '2021-04-28 12:45:11'),
+(136, 21, '2021-04-28 12:45:50', '2021-04-28 12:45:50'),
+(110, 20, '2021-04-28 12:46:43', '2021-04-28 12:46:43'),
+(10, 19, '2021-04-28 12:46:55', '2021-04-28 12:46:55'),
+(54, 18, '2021-04-28 12:47:10', '2021-04-28 12:47:10'),
+(10, 17, '2021-04-28 12:48:00', '2021-04-28 12:48:00'),
+(73, 16, '2021-04-28 12:48:11', '2021-04-28 12:48:11'),
+(14, 15, '2021-04-28 12:48:22', '2021-04-28 12:48:22'),
+(60, 14, '2021-04-28 12:48:34', '2021-04-28 12:48:34'),
+(10, 13, '2021-04-28 12:48:46', '2021-04-28 12:48:46'),
+(10, 12, '2021-04-28 12:48:54', '2021-04-28 12:48:54');
+
+-- --------------------------------------------------------
+
+--
 -- Tabellenstruktur für Tabelle `seasons`
 --
 
@@ -4575,10 +4686,11 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('aNS8iCBl2BSwzDRfYTjoXONzSRONCfck3W9gzG8c', 1, '62.227.87.248', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiQlVPb2swTGtqS29aVGhQeUIzd3lTWUJNOXNtYzNFeTRkR2hMS21BWCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MTk6Imh0dHBzOi8vc3diaWxrNzkuZGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkZVAxLzBGNDF1dC5vZW0yb0FrY05QZUFhVWpFcEVwdGdWVVREOXNuOEoyai5hMWpIODNQT0MiO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJGVQMS8wRjQxdXQub2VtMm9Ba2NOUGVBYVVqRXBFcHRnVlVURDlzbjhKMmouYTFqSDgzUE9DIjt9', 1619209858),
-('GqX6Mm0te6I2QMDgI0PIyMx3WvAV4hIOsB0Klzvh', 1, '62.227.87.248', 'Mozilla/5.0 (Linux; Android 11; Pixel 4 XL) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Mobile Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiUkZXMHJnbnZmYVI2MnJxU1pHWThuTDJNWTJiZjBmR0E3bDBQaUh0NiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHBzOi8vc3diaWxrNzkuZGUvdGVhbS9ITFcvc3BpZWxwbGFuIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJGVQMS8wRjQxdXQub2VtMm9Ba2NOUGVBYVVqRXBFcHRnVlVURDlzbjhKMmouYTFqSDgzUE9DIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCRlUDEvMEY0MXV0Lm9lbTJvQWtjTlBlQWFVakVwRXB0Z1ZVVEQ5c244SjJqLmExakg4M1BPQyI7fQ==', 1619261875),
-('sKjfpCrluO3bMjfdiyLrETyYHqMKekmaCxnklgLy', NULL, '62.227.87.248', 'Mozilla/5.0 (Linux; Android 11; Pixel 4 XL) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Mobile Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiU3B1ZkZuTndZcnJVNzY0OW9SWXA2VzVIVVR3RlhxYWhNRzN0VHJ5NiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MTk6Imh0dHBzOi8vc3diaWxrNzkuZGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1619360122),
-('vjmamzjRcohJILLoCQE03oHFoi4ocBFXCtLznnkD', 1, '62.227.87.248', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiNGh3c2hLTzZnU1lBR21oVmQxTWtjczFiWTczQ0syY3V4UjJZY3gwSiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHBzOi8vc3diaWxrNzkuZGUvdGVhbS9ITFcva2FkZXIiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkZVAxLzBGNDF1dC5vZW0yb0FrY05QZUFhVWpFcEVwdGdWVVREOXNuOEoyai5hMWpIODNQT0MiO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJGVQMS8wRjQxdXQub2VtMm9Ba2NOUGVBYVVqRXBFcHRnVlVURDlzbjhKMmouYTFqSDgzUE9DIjt9', 1619273539);
+('1sTAalw82iGBF2OduBWsrqwWVd4b2OtJlaVi38uz', NULL, '62.227.87.248', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:87.0) Gecko/20100101 Firefox/87.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoibVdJTmt1ekVpVEtFdFpjcHloVmNYMlRMUlFuVzhtd1NtVk1rNnFDTSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHBzOi8vc3diaWxrNzkuZGUvdGVhbS9ITFcva2FkZXIiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1619688280),
+('3zFf7yJp0L3CsWm3Qr32qddBbKPmJvA6kvKL8w9b', NULL, '62.227.87.248', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiWmNsVUVxQU9BT2ZWTnRzazRteDlzeHRyMXk2VURBWXU5dHoyNHlibiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1619629387),
+('Gn8PBz1jYtu8WhUqRJWRG0QHKcExLuFPhpcZ85vk', 1, '62.227.87.248', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiZ1dlenhxbHVHaUdaUXkzZ2tPQ3k0SzMzc3ZNYkdHZ0RrSnZLclNtOCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHBzOi8vc3diaWxrNzkuZGUvdGVhbS9ITFcva2FkZXIiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkZVAxLzBGNDF1dC5vZW0yb0FrY05QZUFhVWpFcEVwdGdWVVREOXNuOEoyai5hMWpIODNQT0MiO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJGVQMS8wRjQxdXQub2VtMm9Ba2NOUGVBYVVqRXBFcHRnVlVURDlzbjhKMmouYTFqSDgzUE9DIjt9', 1619688553),
+('JMrRtVgKvlHvej6N7IbdOmhzWgvjWDC4PcjPehu5', 1, '62.227.87.248', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiYUl4ZTRoYTVUUnltWTMxdmFKNFVlWG5BUmlHZ3lDRFVhWUYzYTNTYSI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjM4OiJodHRwczovL3N3Ymlsazc5LmRlL2FkbWluL3Njb3Jlci1raW5ncyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCRlUDEvMEY0MXV0Lm9lbTJvQWtjTlBlQWFVakVwRXB0Z1ZVVEQ5c244SjJqLmExakg4M1BPQyI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkZVAxLzBGNDF1dC5vZW0yb0FrY05QZUFhVWpFcEVwdGdWVVREOXNuOEoyai5hMWpIODNQT0MiO30=', 1619629471),
+('pT1X568m6JH36YfLsgeSJXost7Z0FLyXlGmk7grx', 1, '62.227.87.248', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiMVNBaUFxenA2WWc1ZlZSNTB1THVCMkJLSHNjUE9RaktMZjNKTUFmbSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHBzOi8vc3diaWxrNzkuZGUvYWRtaW4vYW5hbmFzLWtpbmdzIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJGVQMS8wRjQxdXQub2VtMm9Ba2NOUGVBYVVqRXBFcHRnVlVURDlzbjhKMmouYTFqSDgzUE9DIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCRlUDEvMEY0MXV0Lm9lbTJvQWtjTlBlQWFVakVwRXB0Z1ZVVEQ5c244SjJqLmExakg4M1BPQyI7fQ==', 1619615247);
 
 -- --------------------------------------------------------
 
@@ -4683,6 +4795,13 @@ ALTER TABLE `activity_log`
   ADD KEY `subject` (`subject_type`,`subject_id`),
   ADD KEY `causer` (`causer_type`,`causer_id`),
   ADD KEY `activity_log_log_name_index` (`log_name`);
+
+--
+-- Indizes für die Tabelle `ananas_kings`
+--
+ALTER TABLE `ananas_kings`
+  ADD KEY `ananas_kings_player_id_foreign` (`player_id`),
+  ADD KEY `ananas_kings_season_id_foreign` (`season_id`);
 
 --
 -- Indizes für die Tabelle `assists`
@@ -4836,6 +4955,13 @@ ALTER TABLE `quotes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indizes für die Tabelle `scorer_kings`
+--
+ALTER TABLE `scorer_kings`
+  ADD KEY `scorer_kings_player_id_foreign` (`player_id`),
+  ADD KEY `scorer_kings_season_id_foreign` (`season_id`);
+
+--
 -- Indizes für die Tabelle `seasons`
 --
 ALTER TABLE `seasons`
@@ -4871,7 +4997,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT für Tabelle `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=416;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=452;
 
 --
 -- AUTO_INCREMENT für Tabelle `assists`
@@ -4943,7 +5069,7 @@ ALTER TABLE `match_types`
 -- AUTO_INCREMENT für Tabelle `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT für Tabelle `personal_access_tokens`
@@ -4990,6 +5116,13 @@ ALTER TABLE `users`
 --
 -- Constraints der exportierten Tabellen
 --
+
+--
+-- Constraints der Tabelle `ananas_kings`
+--
+ALTER TABLE `ananas_kings`
+  ADD CONSTRAINT `ananas_kings_player_id_foreign` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `ananas_kings_season_id_foreign` FOREIGN KEY (`season_id`) REFERENCES `seasons` (`id`) ON UPDATE CASCADE;
 
 --
 -- Constraints der Tabelle `assists`
@@ -5071,6 +5204,13 @@ ALTER TABLE `matches`
 ALTER TABLE `players`
   ADD CONSTRAINT `players_player_status_id_foreign` FOREIGN KEY (`player_status_id`) REFERENCES `player_statuses` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `players_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints der Tabelle `scorer_kings`
+--
+ALTER TABLE `scorer_kings`
+  ADD CONSTRAINT `scorer_kings_player_id_foreign` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `scorer_kings_season_id_foreign` FOREIGN KEY (`season_id`) REFERENCES `seasons` (`id`) ON UPDATE CASCADE;
 
 --
 -- Constraints der Tabelle `tournaments`

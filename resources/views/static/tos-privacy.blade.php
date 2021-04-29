@@ -51,5 +51,8 @@
         <div>
             "people playing soccer on soccer field" - Photo by <a class="inline-link" href="https://unsplash.com/@misterwillsmith?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">William Smith</a> on <a class="inline-link" href="https://unsplash.com/@misterwillsmith?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
         </div>
+        <div>
+            Christoph Koeberlin’s “Libero” webfont
+        </div>
     </x-section>
 </x-app-layout>
