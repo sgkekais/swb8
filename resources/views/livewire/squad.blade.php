@@ -23,13 +23,13 @@
                             <div class="p-4 bg-white flex flex-col">
                                 <div class="flex items-center h-32 w-24 rounded border-2 border-black bg-white">
                                     @isset($player->user)
-                                        <img class="" src="{{ $player->user->profile_photo_url }}" alt="{{ $player->first_name }}" />
+                                        <img class="h-full w-full object-cover" src="{{ $player->user->profile_photo_url }}" alt="{{ $player->first_name }}" />
                                     @else
                                         <img src="{{ asset('img/swblogo.png') }}" class="w-16 h-auto m-auto opacity-75" />
                                     @endisset
                                 </div>
                                 <div class="-mt-2 number text-6xl text-yellow-500 text-center">
-                                    <span class="inline-flex p-1 bg-white">
+                                    <span class="inline-flex p-1 rounded bg-white">
                                          {{ $player->clubs->find($club->id )->pivot->number }}
                                     </span>
                                 </div>
