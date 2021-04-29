@@ -31,11 +31,10 @@
                                 background-image: linear-gradient(to right, #202020, #202020 30px, #ffffff 30px, #ffffff );
                                 background-size: 60px 100%;">
                                     @isset($player->user)
-                                        <img class="absolute <!--top-6 h-24 w-24--> top-2 h-32 w-24 rounded object-cover border-2 border-black" src="{{ $player->user->profile_photo_url }}" alt="{{ $player->first_name }}" />
+                                        <img class="absolute <!--top-6 h-24 w-24--> top-2 h-32 w-24 rounded object-cover border-2 border-black bg-white" src="{{ $player->user->profile_photo_url }}" alt="{{ $player->first_name }}" />
                                     @else
-{{--                                        <img class="absolute top-2 h-32 w-24 rounded object-cover border-2 border-black" src="https://eu.ui-avatars.com/api/?name={{ $player->first_name }}+{{ $player->last_name }}&color=000&background=fff" />--}}
                                         <div class="flex items-center absolute top-2 h-32 w-24 rounded border-2 border-black bg-white">
-                                            <img src="/img/swblogo.png" class="w-16 h-auto m-auto opacity-75" />
+                                            <img src="{{ asset('img/swblogo.png') }}" class="w-16 h-auto m-auto opacity-75" />
                                         </div>
                                     @endisset
                                     <div class="pl-28 flex flex-col relative">
