@@ -2,13 +2,62 @@
     @if (auth()->user()->player)
         <div class="mb-6 flex flex-wrap space-x-2">
             <span class="font-bold">Springe zu: </span>
+            <a href="#titles" class="inline-link">Titel</a> ({{ $my_ananas_titles->count() + $my_scorer_titles->count() }})
             <a href="#tore" class="inline-link">Tore</a> ({{ $my_goals->count() }})
             <a href="#assists" class="inline-link">Assists</a> ({{ $my_assists->count() }})
             <a href="#karten" class="inline-link">Karten</a> ({{ $my_cards->count() }})
         </div>
 
+        <!-- My Titles -->
+        <x-headline id="titles" class="text-xl">Deine Titel ({{ $my_ananas_titles->count() + $my_scorer_titles->count() }})</x-headline>
+
+        @if ($my_scorer_titles->count() === 0 && $my_ananas_titles->count() === 0)
+            <div class="tracking-tighter">¯\_(ツ)_/¯</div>
+        @else
+            <div class="mb-6 flex flex-col">
+                @foreach ($my_scorer_titles->sortBy('is_ah_season')->sortByDesc('number') as $my_scorer_title)
+                    <x-box-with-shadow class="p-2 -mt-1" shadow-color="bg-gray-600">
+                        <div class="flex space-x-2 items-center">
+                            <div class="font-bold text-center text-primary-700">
+                                <x-cannon class="h-6 fill-current text-yellow-500" />
+                            </div>
+                            <div class="">
+                                <span class="p-1 font-bold text-sm bg-gray-100">{{ $my_scorer_title->is_ah_season ? "AH" : "HLW" }}</span>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex flex-col sm:flex-row sm:space-x-2 sm:items-center">
+                                    <div>Torschützenkönig</div>
+                                    <div class="font-bold">{{ $my_scorer_title->title }}</div>
+                                </div>
+                            </div
+                        </div>
+                    </x-box-with-shadow>
+                @endforeach
+            </div>
+            <div class="mb-6 flex flex-col">
+                @foreach ($my_ananas_titles->sortBy('is_ah_season')->sortByDesc('number') as $my_ananas_title)
+                    <x-box-with-shadow class="p-2 -mt-1" shadow-color="bg-gray-600">
+                        <div class="flex space-x-2 items-center">
+                            <div class="font-bold text-center text-primary-700">
+                                &#127821;
+                            </div>
+                            <div class="">
+                                <span class="p-1 font-bold text-sm bg-gray-100">{{ $my_ananas_title->is_ah_season ? "AH" : "HLW" }}</span>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex flex-col sm:flex-row sm:space-x-2 sm:items-center">
+                                    <div>Goldene Ananas</div>
+                                    <div class="font-bold">{{ $my_ananas_title->title }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </x-box-with-shadow>
+                @endforeach
+            </div>
+        @endif
+
         <!-- My Goals -->
-        <x-headline id="tore" class="text-xl">Deine Tore</x-headline>
+        <x-headline id="tore" class="text-xl">Deine Tore ({{ $my_goals->count() }})</x-headline>
 
         <div class="mb-6 flex flex-col">
             @foreach ($my_goals->sortByDesc('match.date.datetime') as $my_goal)
@@ -56,7 +105,7 @@
         </div>
 
         <!-- My Assists -->
-        <x-headline id="assists" class="text-xl">Deine Assists</x-headline>
+        <x-headline id="assists" class="text-xl">Deine Assists ({{ $my_assists->count() }})</x-headline>
 
         <div class="mb-6 flex flex-col">
             @foreach ($my_assists->sortByDesc('goal.match.date.datetime') as $my_assist)
@@ -93,7 +142,7 @@
         </div>
 
         <!-- My Cards -->
-        <x-headline id="karten" class="text-xl">Deine Karten</x-headline>
+        <x-headline id="karten" class="text-xl">Deine Karten ({{ $my_cards->count() }})</x-headline>
 
         <div class="mb-6 flex flex-col">
             @foreach ($my_cards->sortByDesc('match.date.datetime') as $my_card)

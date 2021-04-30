@@ -175,10 +175,10 @@
                                     <x-player-popup :player="$player" />
                                 </div>
                                 <div @click="show = !show" class="relative ">
-                                    @if ($player->user && $player->user->profile_photo_path)
+                                    @if ($player->user)
                                         <img class="inline-flex h-10 w-10 rounded-full object-cover" src="{{ $player->user->profile_photo_url }}" alt="{{ $player->first_name }}" />
                                     @else
-                                        <img class="inline-flex h-10 w-10 rounded-full object-cover" src="https://ui-avatars.com/api/?name={{ $player->first_name }}+{{ $player->last_name }}&color=FFFFFF&background=404040" />
+                                        <img class="inline-flex h-10 w-10 rounded-full object-cover" src="https://ui-avatars.com/api/?name={{ $player->first_name }}+{{ $player->last_name }}&color=333&background=ddd" />
                                     @endif
                                     {{ $player->name_short }}
                                 </div>
