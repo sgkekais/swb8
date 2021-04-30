@@ -12,7 +12,7 @@
         <x-headline id="titles" class="text-xl">Deine Titel ({{ $my_ananas_titles->count() + $my_scorer_titles->count() }})</x-headline>
 
         @if ($my_scorer_titles->count() === 0 && $my_ananas_titles->count() === 0)
-            <div class="tracking-tighter">¯\_(ツ)_/¯</div>
+            <div class="mb-6 tracking-tighter">¯\_(ツ)_/¯</div>
         @else
             <div class="mb-6 flex flex-col">
                 @foreach ($my_scorer_titles->sortBy('is_ah_season')->sortByDesc('number') as $my_scorer_title)
