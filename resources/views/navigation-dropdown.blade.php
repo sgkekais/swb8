@@ -296,6 +296,9 @@
                     <x-jet-responsive-nav-link class="ml-3" href="{{ route('historic-ananas-farmers') }}" :active="request()->routeIs('historic-ananas-farmers')" >
                         <i class="fas fa-fw fa-book"></i> Ewige Ananas
                     </x-jet-responsive-nav-link>
+                    <x-jet-responsive-nav-link class="ml-3" href="{{ route('hall-of-fame') }}" :active="request()->routeIs('hall-of-fame')" >
+                        <i class="fas fa-fw fa-crown"></i> Ruhmeshalle
+                    </x-jet-responsive-nav-link>
                 </div>
             </div>
         </div>
