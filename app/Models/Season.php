@@ -17,7 +17,7 @@ class Season extends Model
      * @var array
      */
     protected $fillable = [
-        'is_ah_season', 'number', 'title', 'description',
+        'is_ah_season', 'number', 'year', 'title', 'description',
     ];
 
     /**

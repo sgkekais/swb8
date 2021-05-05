@@ -25,6 +25,8 @@ Route::get('ewige-scorer', HistoricScorers::class)->name('historic-scorers');
 
 Route::get('ewige-ananas', HistoricAnanasFarmers::class)->name('historic-ananas-farmers');
 
+Route::view('ruhmeshalle', 'hall-of-fame' )->name('hall-of-fame');
+
 /*
  * --------------------------------------------------------------------------
  * Frontpage Club Routes

@@ -36,6 +36,13 @@
                         <x-input-text class="w-full" type="number" id="season.number" wire:model="season.number" />
                         <x-jet-input-error for="season.number" />
                     </div>
+                    <div>
+                        <x-jet-label for="season.year" class="flex justify-between">
+                            Jahr
+                        </x-jet-label>
+                        <x-input-text class="w-full" type="text" id="season.year" wire:model="season.year" />
+                        <x-jet-input-error for="season.year" />
+                    </div>
                     <div class="w-full">
                         <x-jet-label for="season.title" class="flex justify-between">
                             Titel

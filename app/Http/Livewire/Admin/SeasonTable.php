@@ -22,6 +22,9 @@ class SeasonTable extends LivewireDatatable
                 ->label('Nr.')
                 ->searchable()
                 ->defaultSort('desc'),
+            Column::name('year')
+                ->label('Jahr')
+                ->searchable(),
             Column::name('title')
                 ->label('Titel')
                 ->searchable(),

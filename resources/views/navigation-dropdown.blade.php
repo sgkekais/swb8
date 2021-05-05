@@ -50,6 +50,9 @@
                         <x-jet-dropdown-link href="{{ route('historic-ananas-farmers') }}" :active="request()->routeIs('historic-ananas-farmers')" class="">
                             <i class="fas fa-fw fa-book"></i> Ewige Ananas
                         </x-jet-dropdown-link>
+                        <x-jet-dropdown-link href="{{ route('hall-of-fame') }}" :active="request()->routeIs('hall-of-fame')" class="">
+                            <i class="fas fa-fw fa-crown"></i> Ruhmeshalle
+                        </x-jet-dropdown-link>
                     </x-slot>
                 </x-jet-dropdown>
             </div>

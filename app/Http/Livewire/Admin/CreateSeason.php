@@ -17,6 +17,7 @@ class CreateSeason extends Component
 
     protected $rules = [
         'season.number' => 'nullable|integer',
+        'season.year' => 'nullable',
         'season.title' => 'nullable',
         'season.description' => 'nullable',
         'season.final_position' => 'nullable|integer',
