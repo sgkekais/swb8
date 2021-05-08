@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 62.108.32.152:3306
--- Erstellungszeit: 29. Apr 2021 um 14:54
+-- Erstellungszeit: 07. Mai 2021 um 15:19
 -- Server-Version: 5.7.34
--- PHP-Version: 7.3.27
+-- PHP-Version: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -1850,7 +1850,6 @@ INSERT INTO `dates` (`id`, `date_type_id`, `location_id`, `datetime`, `title`, `
 (124, 2, 1, '2011-03-11 20:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (125, 2, 1, '2011-06-24 20:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (126, 2, 1, '2011-07-01 20:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
-(127, 2, 1, '2012-01-13 20:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (128, 2, 1, '2012-01-20 20:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (129, 2, 1, '2012-01-27 20:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (130, 2, 1, '2012-02-03 20:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
@@ -1895,7 +1894,6 @@ INSERT INTO `dates` (`id`, `date_type_id`, `location_id`, `datetime`, `title`, `
 (174, 2, 1, '2012-11-02 20:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (175, 2, 1, '2012-11-09 20:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (176, 2, 9, '2012-11-24 16:30:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
-(177, 2, 1, '2012-01-13 20:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (178, 2, 9, '2012-04-26 20:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (179, 2, 1, '2012-06-08 20:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (180, 2, 1, '2012-07-27 20:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
@@ -1950,7 +1948,6 @@ INSERT INTO `dates` (`id`, `date_type_id`, `location_id`, `datetime`, `title`, `
 (239, 2, 1, '2013-05-03 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (240, 2, 37, '2013-09-27 20:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (241, 3, 1, '2013-07-13 12:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
-(242, 2, 1, '2013-04-19 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (244, 3, 9, '2013-09-07 09:45:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (245, 3, 33, '2013-07-27 10:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (246, 3, 34, '2013-09-07 09:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
@@ -1968,7 +1965,6 @@ INSERT INTO `dates` (`id`, `date_type_id`, `location_id`, `datetime`, `title`, `
 (262, 2, 1, '2014-01-17 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (263, 2, 1, '2014-01-24 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (264, 2, 1, '2013-02-14 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
-(265, 2, 1, '2014-01-31 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (266, 2, 1, '2014-02-14 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (267, 2, 1, '2014-02-21 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (268, 2, 1, '2014-04-04 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
@@ -2051,7 +2047,6 @@ INSERT INTO `dates` (`id`, `date_type_id`, `location_id`, `datetime`, `title`, `
 (347, 2, 11, '2015-11-02 20:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (348, 2, 39, '2015-11-21 16:30:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (349, 2, 1, '2015-01-31 17:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
-(350, 2, 1, '2015-01-09 19:30:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (352, 2, 1, '2015-03-27 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (353, 2, 24, '2015-04-15 19:30:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (354, 2, 1, '2015-04-10 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
@@ -2079,7 +2074,6 @@ INSERT INTO `dates` (`id`, `date_type_id`, `location_id`, `datetime`, `title`, `
 (378, 2, 40, '2015-10-28 19:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (380, 3, 15, '2015-12-19 19:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (381, 2, 3, '2015-12-11 20:30:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
-(382, 2, 1, '2016-01-22 20:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (383, 3, 15, '2016-01-22 21:45:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (384, 2, 1, '2016-01-15 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (385, 2, 1, '2016-01-08 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
@@ -2093,7 +2087,6 @@ INSERT INTO `dates` (`id`, `date_type_id`, `location_id`, `datetime`, `title`, `
 (396, 2, 1, '2016-03-11 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (397, 2, 13, '2016-03-11 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (398, 2, 1, '2016-03-18 20:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
-(399, 2, 1, '2016-04-01 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (400, 2, 24, '2016-04-06 19:30:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (401, 2, 21, '2016-04-08 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (402, 2, 1, '2016-08-26 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
@@ -2119,7 +2112,6 @@ INSERT INTO `dates` (`id`, `date_type_id`, `location_id`, `datetime`, `title`, `
 (422, 2, 1, '2016-11-04 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (423, 2, 39, '2016-11-19 15:30:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (424, 2, 1, '2016-04-01 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
-(425, 2, 1, '2016-04-15 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (426, 2, 28, '2016-06-15 21:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (427, 2, 1, '2016-08-12 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (428, 2, 11, '2016-10-24 19:45:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
@@ -2129,7 +2121,6 @@ INSERT INTO `dates` (`id`, `date_type_id`, `location_id`, `datetime`, `title`, `
 (432, 2, 1, '2016-09-30 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (433, 2, 1, '2016-11-25 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (434, 2, 37, '2016-09-02 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
-(435, 2, 1, '2016-12-02 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (436, 2, 1, '2017-01-27 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (437, 2, 1, '2017-02-03 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (438, 2, 12, '2017-02-15 19:30:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
@@ -2159,10 +2150,8 @@ INSERT INTO `dates` (`id`, `date_type_id`, `location_id`, `datetime`, `title`, `
 (462, 2, 38, '2017-06-02 20:30:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (463, 2, 1, '2017-06-09 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (464, 2, 1, '2017-06-23 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
-(465, 2, 48, '2017-07-14 20:30:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (466, 2, 13, '2017-07-07 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
-(467, 2, 1, '2017-09-15 20:45:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0);
-INSERT INTO `dates` (`id`, `date_type_id`, `location_id`, `datetime`, `title`, `description`, `note`, `published`, `cancelled`, `created_at`, `updated_at`, `poll_begins`, `poll_ends`, `poll_is_open`) VALUES
+(467, 2, 1, '2017-09-15 20:45:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (468, 2, 3, '2017-09-22 20:30:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (469, 2, 37, '2017-09-27 19:45:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (470, 2, 1, '2017-10-13 20:45:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
@@ -2172,7 +2161,8 @@ INSERT INTO `dates` (`id`, `date_type_id`, `location_id`, `datetime`, `title`, `
 (474, 2, 1, '2017-06-28 21:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (475, 2, 1, '2017-11-03 20:45:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (476, 2, 39, '2017-09-02 15:30:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
-(477, 2, 13, '2017-08-18 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
+(477, 2, 13, '2017-08-18 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0);
+INSERT INTO `dates` (`id`, `date_type_id`, `location_id`, `datetime`, `title`, `description`, `note`, `published`, `cancelled`, `created_at`, `updated_at`, `poll_begins`, `poll_ends`, `poll_is_open`) VALUES
 (478, 2, 1, '2017-10-27 20:45:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (479, 2, 26, '2017-09-15 20:15:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (480, 2, 1, '2017-09-22 20:45:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
@@ -2188,7 +2178,6 @@ INSERT INTO `dates` (`id`, `date_type_id`, `location_id`, `datetime`, `title`, `
 (491, 2, 50, '2017-11-10 20:30:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (492, 2, 37, '2017-10-25 19:30:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (493, 2, 51, '2018-01-19 20:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
-(494, 2, 51, '2018-01-26 19:30:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (495, 2, 7, '2018-01-29 19:30:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (496, 2, 51, '2018-02-02 20:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (497, 2, 3, '2018-02-02 20:30:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
@@ -2233,7 +2222,6 @@ INSERT INTO `dates` (`id`, `date_type_id`, `location_id`, `datetime`, `title`, `
 (539, 2, 1, '2018-10-05 20:45:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (541, 3, 56, '2018-05-26 12:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (542, 2, 1, '2018-07-07 13:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
-(544, 2, 1, '2018-08-24 20:45:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (545, 3, 56, '2018-10-03 10:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (546, 2, 1, '2018-11-21 21:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
 (547, 2, 37, '2018-11-17 17:00:00', NULL, NULL, NULL, 1, 0, '2020-12-21 21:31:00', '2020-12-21 21:31:00', NULL, NULL, 0),
@@ -2660,13 +2648,6 @@ INSERT INTO `goals` (`id`, `match_id`, `player_id`, `score`, `minute`, `penalty`
 (224, 103, 48, '1:1', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (225, 103, 47, '2:1', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (226, 103, 48, '3:1', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
-(227, 127, 48, '1:0', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
-(228, 127, 1, '2:0', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
-(229, 127, 1, '3:0', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
-(230, 127, 48, '4:0', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
-(231, 127, 14, '5:1', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
-(232, 127, 48, '6:1', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
-(234, 177, 10, '4:1', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (235, 128, 47, '1:1', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (236, 129, 35, '1:0', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (237, 129, 33, '2:0', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
@@ -3100,15 +3081,15 @@ INSERT INTO `goals` (`id`, `match_id`, `player_id`, `score`, `minute`, `penalty`
 (670, 373, 10, '2:0', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (671, 373, 10, '3:1', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (672, 373, 10, '4:1', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
-(673, 373, 33, '5:1', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00');
-INSERT INTO `goals` (`id`, `match_id`, `player_id`, `score`, `minute`, `penalty`, `created_at`, `updated_at`) VALUES
+(673, 373, 33, '5:1', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (674, 373, 33, '6:1', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (675, 373, 33, '7:1', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (676, 373, 73, '8:1', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (677, 344, 47, '0:1', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (678, 345, 59, '1:4', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (679, 345, 2, '2:5', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
-(680, 374, 54, '1:1', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
+(680, 374, 54, '1:1', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00');
+INSERT INTO `goals` (`id`, `match_id`, `player_id`, `score`, `minute`, `penalty`, `created_at`, `updated_at`) VALUES
 (681, 374, 63, '2:1', NULL, 0, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (682, 374, 65, '3:3', NULL, 1, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
 (683, 374, 2, '4:4', NULL, 1, '2020-12-21 22:00:00', '2020-12-21 22:00:00'),
@@ -3768,7 +3749,6 @@ INSERT INTO `matches` (`id`, `date_id`, `match_type_id`, `season_id`, `matchweek
 (124, 124, 1, 13, NULL, 34, 2, 6, 2, NULL, NULL, 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:53:55'),
 (125, 125, 2, 13, '9', 34, 30, 2, 1, NULL, NULL, 3, 1, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:53:55'),
 (126, 126, 2, 13, '6', 34, 28, 0, 0, NULL, NULL, 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:53:55'),
-(127, 127, 1, 14, NULL, 33, 34, 6, 4, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:54:52'),
 (128, 128, 1, 3, NULL, 33, 20, 1, 1, NULL, NULL, 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:32:27'),
 (129, 129, 1, 3, NULL, 33, 50, 4, 3, NULL, NULL, 3, 1, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:32:27'),
 (130, 130, 1, 3, NULL, 33, 42, 1, 0, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:32:27'),
@@ -3813,7 +3793,6 @@ INSERT INTO `matches` (`id`, `date_id`, `match_type_id`, `season_id`, `matchweek
 (174, 174, 2, 14, '16', 34, 31, 2, 0, NULL, NULL, 4, 1, NULL, NULL, '<b>Aufstellung:</b><br />Jürgen - Mark - Fritz, Torsten - Dirk, Lenny, Ralph K., Stephan - Ayan - Selcuk, Andy M.<br /><br /><b>Einwechslungen:</b><br />25. Marco T. für Stephan<br />41. Mikel für Lenny<br />60. Michael L. für Dirk<br />65. Tobi für Ralph K.<br />\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:54:52'),
 (175, 175, 2, 14, '17', 34, 27, 9, 5, NULL, NULL, 3, 1, NULL, NULL, '<b>Aufstellung:</b><br />Tasso - Mark - Tobi, Torsten, Achim - Michael L., Ralph K., Marco T. - Ayan - Selcuk, Martin<br /><br /><b>Einwechslungen:</b><br />50. Stephan für Martin<br />50. Kai für Michael L.<br />60. Michael K. für Mark<br />60. Lenny für Achim<br />		', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:54:52'),
 (176, 176, 2, 14, '18', 54, 34, 2, 0, NULL, NULL, 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:54:52'),
-(177, 177, 1, 14, NULL, 33, 34, 6, 4, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:54:52'),
 (178, 178, 2, 14, '5', 17, 34, 1, 0, NULL, NULL, 3, 1, NULL, NULL, '<b>Aufstellung:</b><br />Jürgen - Michael K. - Fritz, Kai - Dirk, Tobi, Mark, Volker - Ralph K. - Martin, Stephan<br /><br /><b>Einwechslungen:</b><br />50. Marco T. für Martin<br /> \n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:54:52'),
 (179, 179, 2, 14, '14', 34, 17, 2, 1, NULL, NULL, 4, 1, NULL, NULL, '<b>Aufstellung:</b><br />Jürgen - Mikel - Basti, Achim - Fritz, Kai, Tobi, Marco T. - Selcuk -  Volker, Martin<br /><br /><b>Einwechslungen:</b><br />50. Micha L. für Achim<br />55. Stephan für Martin<br />', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:54:52'),
 (180, 180, 1, 3, NULL, 33, 50, 3, 3, NULL, NULL, 5, 1, NULL, NULL, '<b>Aufstellung:</b><br />Martin - Mark - Tobi, Kai, Michael W. - Simon, Andy - Nico, Baris, Daniel - Jorn<br /><br /><b>Einwechslungen:</b><br />46. Kevin für Andy<br />46. Felix für Baris<br />60. Dustin für Jorn<br />\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:32:27'),
@@ -3865,7 +3844,6 @@ INSERT INTO `matches` (`id`, `date_id`, `match_type_id`, `season_id`, `matchweek
 (238, 238, 2, 15, '13', 34, 28, 2, 1, NULL, NULL, 1, 1, NULL, NULL, '<b>Aufstellung:</b><br />Michael Kl. - Mikel -  Lenny, Jan - Kai, Torsten, Fritz, Achim - Mark -  Stephan, Rachid<br /><br /><b>Einwechslungen:</b><br />35. Martin für Mark<br /><b>Reservebank:</b><br />Jürgen<br /><br /><b>Besonderes:</b><br />Michael Kl. hält in der letzten Minute Foulelfmeter \n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:55:51'),
 (239, 239, 1, 4, NULL, 33, 67, 3, 1, NULL, NULL, 5, 1, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:32:43'),
 (240, 240, 1, 15, NULL, 29, 34, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:55:51'),
-(242, 242, 1, 15, NULL, 33, 34, 4, 2, NULL, NULL, 3, 1, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:55:51'),
 (248, 248, 1, 15, NULL, 72, 34, 1, 0, NULL, NULL, 7, 1, NULL, NULL, '<b>Aufstellung:</b><br />Jürgen - Frosch - Michael L., Mikel - Fritz, Ralph K., Tobi, Achim - Marco T. - Martin, Stephan<br /><br /><b>Einwechslungen (fliegend):</b><br />Kevin, Matthias\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:55:51'),
 (250, 250, 1, 4, NULL, 33, 75, 4, 0, NULL, NULL, 4, 1, NULL, NULL, '<b>Aufstellung:</b><br />Martin - Nikki, Fritz, Mark, Jan - Simon, Baris, JoJo, Kevin - Dustin, Alberty<br /><br /><b>Einwechslungen:</b><br />40. Marco T. für Fritz<br />46. Stephan für Kevin<br />46. Olli für Alberty<br />46. Rachid für JoJo\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:32:43'),
 (252, 252, 1, 4, NULL, 57, 33, 4, 1, NULL, NULL, 3, 1, NULL, NULL, '<b>Aufstellung:</b><br />Martin - Takeshi, Fritz, Mark, Michael W. - Simon, Baris, Andy, Kevin - Alberty, Denis<br /><br /><b>Einwechslungen:</b><br />46. Jürgen für Martin<br />46. Rachid für Baris<br />46. Nico für Alberty	', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:32:43'),
@@ -3877,7 +3855,6 @@ INSERT INTO `matches` (`id`, `date_id`, `match_type_id`, `season_id`, `matchweek
 (262, 262, 1, 5, NULL, 33, 50, 1, 0, NULL, NULL, 4, 1, NULL, NULL, '<b>Aufstellung:</b><br />Martin - Arno - Felix, Clemens, Michael W. - Simon, Baris, Andy, Denis - Dustin, Nico<br /><br /><b>Einwechslungen:</b><br />46. Fritz für Felix<br />46. Alberty für Nico<br />46. Karlo für Michael W.<br />70. Lars für Dustin<br />', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:32:56'),
 (263, 263, 1, 5, NULL, 33, 81, 5, 2, NULL, NULL, 0, 1, NULL, NULL, '<b>Aufstellung:</b><br />Michael Kl. - Arno - Fritz, Torsten, Karlo - Baris, Guiseppe, Andy, Kevin - Rachid, Nico<br /><br /><b>Einwechslungen:</b><br />46. Dustin für Guiseppe<br />46. Felix für Karlo<br />60. Denis für Kevin<br />60. Gast für Baris<br />70. Markus für Fritz\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:32:56'),
 (264, 264, 1, 4, NULL, 33, 57, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2020-12-21 21:36:00', '2021-01-02 15:32:43'),
-(265, 265, 1, 16, NULL, 33, 34, 5, 2, NULL, NULL, 0, 1, NULL, NULL, '<b>Aufstellung HLW:</b><br />Martin (2. HZ Michael Kl.) Fritz - Felix, Torsten, Markus - Kai, Andy, Nico, Kevin - Rachid, Dustin<br /><br /><b>Aufstellung AH:</b><br />Jürgen - Michael Ku. - Lenny, Mikel - Michael L., Frosch, Michael Kl. (2. HZ Martin), Achim - Ralph K. - Stephan, Wolla\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:56:11'),
 (266, 266, 1, 5, NULL, 33, 61, 3, 0, NULL, NULL, 1, 1, NULL, NULL, '<b>Aufstellung:</b><br />Martin - Fritz, Torsten, Arno, Clemens - Simon, Baris, Andy, Denis - Alberty, Nico<br /><br /><b>Einwechslungen:</b><br />46. Rachid für Alberty<br />46. Dustin für Nico<br />60. Mikel für Andy<br />70. Markus für Clemens', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:32:56'),
 (267, 267, 1, 5, NULL, 33, 76, 4, 1, NULL, NULL, 2, 1, NULL, NULL, '<b>Aufstellung:</b><br />Micha Kl. - Fritz - Felix, Torsten, Karlo - Simon, Baris, Roy, Kevin - Nico, Alberty<br /><br /><b>Einwechslungen:</b><br />46. Dustin für Alberty<br />46. Denis für Kevin<br />65. Lars für Simon<br />70. Markus für Felix<br />70. Kevin für Karlo<br />85. Simon für Baris<br />', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:32:56'),
 (268, 268, 2, 5, '5', 33, 6, 3, 2, NULL, NULL, 5, 1, NULL, NULL, '<b>Aufstellung:</b><br />Martin - Michael Kl. -  Fritz, Torsten, Jan - Baris, Andy - Simon, Arno, Kevin - Alberty<br /><br /><b>Einwechslungen:</b><br />65. Karlo für Kevin<br />70. Dustin für Alberty</b><br />80. Mark für Michael Kl.<br />85. Michael W. für Jan<br /><br /><b>Reservebank:</b> Markus\r\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:32:56'),
@@ -3956,7 +3933,6 @@ INSERT INTO `matches` (`id`, `date_id`, `match_type_id`, `season_id`, `matchweek
 (347, 347, 2, 6, '21', 23, 33, 1, 0, NULL, NULL, 2, 1, NULL, NULL, '<b>Aufstellung:</b><br />Michael Kl. - Mark - Baris, Torsten, Clemens - Daniel, Andy - Simon, Alberty, Nico - Rachid<br /><br /><b>Einwechslungen:</b><br />55. Dustin fÃ¼r Alberty<br />72. Kai fÃ¼r Baris<br />80. Jan fÃ¼r Rachid\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:10'),
 (348, 348, 2, 6, '22', 60, 33, 2, 1, NULL, NULL, 2, 1, NULL, NULL, '<b>Aufstellung:</b><br />Michael Kl. - Mark - Daniel, Torsten, Clemens - Simon, Baris, Andy, Laupi - Arno, Dustin<br /><br /><b>Einwechslungen:</b><br />46. Nico für Baris<br />76. Jan für Laupi<br />83. Kai für Dustin<br />85. Fritz für Simon<br /><br /><b>Reservebank:</b><br />Felix<br /><br /><b>Zuschauer:</b><br />viel mehr als sonst, alle von SWB!<br /><br /><b>Ausgleich in der 95.!</b>\r\n					 ', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:10'),
 (349, 349, 1, 17, NULL, 88, 34, 9, 6, NULL, NULL, 0, 1, NULL, NULL, '<b>eingesetzt:</b><br />Gast-Torwart, Michael Ku., Michael L., Georg, Sascha, Lars, Albert, Stephan H., Volker, Babo, Gemüse, Alberty \n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:56:21'),
-(350, 350, 1, 17, NULL, 33, 34, 4, 2, NULL, NULL, 3, 1, NULL, NULL, '<b>Aufstellungen:</b><br /><b>HLW:</b><br />Patrick - Kai, Jan (2.HZ Benny), Clemens, Kevin - Baris, Andy - Simon, Mark, Laupi - Rachid</b><br /><b>AH:</b><br />Martin (2.HZ Dustin) - Michael L., Lars, Mikel, Georg - Stephan M., Matthes, Ralph K, Sascha - Dustin (2.HZ Martin), Stephan H.</b><br /><b>Tore (ohne Wertung):</b><br />1:0 Eigentor, 1:1 Matthes, 1:2 Matthes, 2:2 Rachid, 3:2 Rachid, 3:3 Martin, 4:3 Baris\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:56:21'),
 (352, 352, 2, 17, '2', 34, 17, 2, 1, NULL, NULL, 6, 1, NULL, NULL, '<b>Aufstellung:</b><br />Michael Kl.- Michael L., Lars, Georg - Fritz, Lenny - Sascha, Alberty, Volker - Martin, GemÃ¼se<br /><br /><b>Einwechslungen:</b><br />30. Mikel fÃ¼r Georg<br />36. Jan fÃ¼r Michael Kl. (Fritz ins Tor)<br />41. Stephan H. fÃ¼r Volker<br />41. Michael K. fÃ¼r Lenny<br />41. Baris fÃ¼r Alberty<br />55. Takeshi fÃ¼r Michael L.', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:56:21'),
 (353, 353, 2, 17, '3', 83, 34, 3, 1, NULL, NULL, 0, 1, NULL, NULL, '<b>Aufstellung:</b><br />Michael Kl. - Sascha, Lenny, Lars, Georg - Kai, Mikel, Ralph - Alberty - Martin, GemÃ¼se<br /><br /><b>Einwechslungen:</b><br />41. Stephan H. fÃ¼r Martin<br />41. Torsten fÃ¼r Georg<br />41. Thomas fÃ¼r Mikel<br />60. Michael Ku. fÃ¼r Lenny<br />62. Martin fÃ¼r Alberty', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:56:21'),
 (354, 354, 2, 17, '4', 34, 82, 3, 1, NULL, NULL, 3, 1, NULL, NULL, '<b>Aufstellung:</b><br />Michael Kl. - Sascha, Lars, Michael Ku., Thomas - Kai, Stephan M., Fritz, Stephan H. - GemÃ¼se, Martin<br /><br /><b>Einwechslungen:</b><br />41. Lenny fÃ¼r Michael Ku.<br />53. Rachid fÃ¼r GemÃ¼se<br />70. GemÃ¼se fÃ¼r Martin<br />75. Martin fÃ¼r Rachid', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:56:21'),
@@ -3978,7 +3954,6 @@ INSERT INTO `matches` (`id`, `date_id`, `match_type_id`, `season_id`, `matchweek
 (375, 375, 2, 6, '10', 33, 23, NULL, NULL, NULL, 2, NULL, NULL, NULL, 0, '<b>WERTUNG</b>', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:10'),
 (378, 378, 3, 6, NULL, 6, 33, 5, 1, NULL, NULL, 1, 1, NULL, NULL, '<b>Aufstellung:</b><br />Martin - Mark - Mikel, Torsten, Henri - Andy, Dustin - Simon, Alberty, Nico - Rachid<br /><br /><b>Einwechslungen:</b><br />53. Jan fÃ¼r Dustin<br />58. Daniel fÃ¼r Simon<br />75. Patrick fÃ¼r Alberty	', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:10'),
 (381, 381, 2, 6, '23', 33, 20, 6, 2, NULL, NULL, 2, 1, NULL, NULL, '<b>Aufstellung:</b><br />Michael Kl. - Mark - Fritz, Jan, Clemens - Arno, Baris - Simon, Alberty, Nico - Dustin<br /><br /><b>Einwechslungen:</b><br />46. Henri fÃ¼r Alberty<br />70. Kevin fÃ¼r Nico<br />75. Kai fÃ¼r Jan\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:10'),
-(382, 382, 1, 18, NULL, 33, 34, 3, 2, NULL, NULL, 2, 1, NULL, NULL, '<b>Teams:</b><br /><b>HLW:</b><br />Dustin, Alberty, Laupi, Torsten, Andy, Baris, Kevin, Jan, Felix, Kai, Alex (Gast), David (Gast) </b><br /><b>AH:</b><br />Fritz, Mark, Micha, Stephan M., Ralph K. GemÃ¼se, Wolla, Lars, Georg, Sascha, Mikel, Thyen</b><br /><b>Tore (ohne Wertung):</b><br />1:0 Laupi, 2:0 Andy, 2:1 Stephan M., 2:2 GemÃ¼se, 3:2 Alberty \n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:56:30'),
 (384, 384, 1, 7, NULL, 33, 83, 1, 0, NULL, NULL, 3, 1, NULL, NULL, '<b>Aufstellung:</b><br />Martin - Torsten, Clemens, Fritz, Kai - Baris, Henri, Andy, Alex - Matthias, Alberty<br /><br /><b>Einwechslungen:</b><br />46. Jan fÃ¼r Kai<br />46. Dustin fÃ¼r Alex<br />60. Arno fÃ¼r Baris', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:23'),
 (385, 385, 1, 7, NULL, 33, 95, 0, 0, NULL, NULL, 1, 1, NULL, NULL, '<b>Aufstellung:</b><br />Martin - Mark - Kai, Clemens, Daniel - Baris, Ralph K. - Laupi, Matthes, Nico - Dustin<br /><br /><b>Einwechslungen:</b><br />41. Kevin f. Ralph K.<br />41. Volker f. Nico<br />41. Alex (Gast) f. Laupi<br />60. Sascha f. Clemens\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:23'),
 (386, 386, 2, 7, '1', 33, 21, 1, 1, NULL, NULL, 1, 1, NULL, NULL, '<b>Aufstellung:</b><br />Patrick - Jan - Fritz, Torsten, Clemens - Baris, Henri, Andy, Laupi - Alberty, Nico<br /><br /><b>Einwechslungen:</b><br />60. Kevin fÃ¼r Baris<br />68. Rachid fÃ¼r Alberty<br />76. Dustin fÃ¼r Nico<br />88. Mark fÃ¼r Jan<br /><br /><b>Man of the Match:</b><br />Patrick', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:23'),
@@ -3991,14 +3966,13 @@ INSERT INTO `matches` (`id`, `date_id`, `match_type_id`, `season_id`, `matchweek
 (396, 396, 2, 7, '5', 33, 6, 1, 0, NULL, NULL, 3, 1, NULL, NULL, '<b>Aufstellung:</b><br />Patrick - Mark - Fritz, Torsten, Clemens - Matthias, Baris, Daniel, Laupi - Nico, Rachid<br /><br /><b>Einwechslungen:</b><br />46. Dustin fÃ¼r Rachid<br />46. Kevin fÃ¼r Baris<br /><br /><b>Man of the Match:</b><br />Alle!<br /><br /><b>Besonderes Vorkommniss:</b><br />Heine verschieÃŸt Foulelfmeter (78. beim Stand von 1:2)', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:23'),
 (397, 397, 2, 18, '1', 91, 34, 1, 0, NULL, NULL, 0, 1, NULL, NULL, '<b>Aufstellung:</b><br />Michael Kl. - Michael Ku. -  Lars, Thomas - Fritz, Ralph K., Stephan M., Michael L. - Alberty - Sascha, Martin<br /><br /><b>Einwechslungen:</b><br />Willi fÃ¼r Ralph K.<br />Kai fÃ¼r Michael L.<br />Mikel fÃ¼r Martin<br />Than fÃ¼r Thomas<br />Thomas fÃ¼r Sascha\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:56:30'),
 (398, 398, 2, 7, '6', 7, 33, 7, 3, NULL, NULL, 0, 1, NULL, NULL, '<b>Aufstellung:</b><br />Patrick - Jan - Kai, Torsten, Clemens - Fritz, Mark, Henri, Kevin - Nico, Alberty<br /><br /><b>Einwechslungen:</b><br />33. Laupi fÃ¼r Fritz<br />46. Dustin fÃ¼r Kevin<br />68. Sebastian fÃ¼r Nico<br />75. Carsten fÃ¼r Jan<br /><br /><b>Man of the Match:</b><br />Keiner!', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:23'),
-(399, 399, 1, 18, NULL, 33, 34, 5, 2, NULL, NULL, 6, 1, NULL, NULL, '<b>Teams:</b><br /><b>HLW:</b><br />Gast - Clemens, Jan, Mark, Felix, Kevin, Matthias, Daniel, Simon, Dustin, Rachid, Laupi, Sebastian</b><br /><b>AH:</b><br />PrÃ¤ses - Sascha, Mikel, Lars, Volker, Fritz, Kai, Thuyen, Vincent, Jan S., Alberty, Gast</b><br /><b>Tore (ohne Wertung):</b><br />1:0 Rachid, 1:1 Thuyen, 2:1 Rachid, 2:2 Vincent, 2:3 Fritz, 2:4 Alberty, 3:4 Matthias, 3:5 Alberty, 4:5 Laupi (11m), 5:5 Daniel, 5:6 Volker\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:56:30');
-INSERT INTO `matches` (`id`, `date_id`, `match_type_id`, `season_id`, `matchweek`, `team_home`, `team_away`, `goals_home`, `goals_home_ht`, `goals_home_pen`, `goals_home_rated`, `goals_away`, `goals_away_ht`, `goals_away_pen`, `goals_away_rated`, `match_details`, `rescheduled_to_fixture_id`, `rescheduled_by_team`, `reschedule_reason`, `published`, `cancelled`, `created_at`, `updated_at`) VALUES
 (400, 400, 2, 18, '3', 83, 34, 2, 0, NULL, NULL, 0, 1, NULL, NULL, '<b>Aufstellung:</b><br />PrÃ¤ses - Jan, Lars, Mikel, Wolla B. - Fritz - Rachid, Stephan M., Thomas, Volker - Martin<br /><br /><b>Einwechslungen:</b><br />41. Willi fÃ¼r Volker<br />41. Torsten fÃ¼r Lars<br />41. Thuyen fÃ¼r Rachid<br />41. Mark fÃ¼r Fritz<br /><br /><b>Reserve:</b><br />Alberty\n					\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:56:30'),
 (401, 401, 2, 7, '8', 43, 33, 1, 0, NULL, NULL, 0, 1, NULL, NULL, '<b>Aufstellung:</b><br />Patrick - Fritz, Jan, Mark, Clemens - Kevin, Arno, Henri, Laupi - Rachid, Nico<br /><br /><b>Einwechslungen:</b><br />56. Baris fÃ¼r Fritz<br />69. Dustin fÃ¼r Rachid<br />71. Alberty fÃ¼r Jan<br />80. Felix fÃ¼r Kevin<br /><br /><b>Reservebank:</b><br />Sebastian<br /><br /><b>Man of the Match:</b><br />Henri\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:23'),
 (402, 402, 2, 18, '4', 34, 28, 2, 1, NULL, NULL, 2, 1, NULL, NULL, '<b>Aufstellung:</b><br />Michael Kl. - Michael Ku. - Lars, Mikel, Kai - Sascha, Stephan M., Thomas, Willi - Stephan H., Volker<br /><br/><b>Bank / Wechsel:</b><br />Torsten, Mark, Baris, Alberty, GemÃ¼se', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:56:30'),
 (403, 403, 2, 7, '9', 63, 33, 0, 0, NULL, NULL, 1, 1, NULL, NULL, '<b>Aufstellung:</b><br />Simon - Baris, Mark, Kai, Torsten - Arno, Henri, Andy, Matthias - Dustin, Rachid<br /><br /><b>Einwechslungen:</b><br />46. Alberty fÃ¼r Rachid<br />73. Nico fÃ¼r Dustin<br />81. Felix fÃ¼r Matthias<br /><br /><b>Man of the Match:</b><br />Kai<br /><br /><b>Reserve:</b><br />Laupi, Kevin, Sebastian\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:23'),
 (404, 404, 2, 18, '5', 30, 34, 3, 3, NULL, NULL, 3, 1, NULL, NULL, '<b>Aufstellung:</b><br />PrÃ¤ses - Mark - Mikel, Vincent - Stiliano, Thuyen, Thomas, Volker - Alberty - Martin, Rachhid<br /><br /><b>Einwechslungen:</b><br />41. Than fÃ¼r Stiliano \n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:56:30'),
-(405, 405, 2, 18, '2', 34, 17, 3, 1, NULL, NULL, 3, 1, NULL, NULL, '<b>Aufstellung:</b><br />Fritz - Mikel - Kai, Lars, Torsten, - Mark, Thomas - Baris, Thuyen, Volker - Alberty<br /><br/><b>Einwechslungen:</b><br />41. Vincent fÃ¼r Thomas<br />41. Marco T. fÃ¼r Baris', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:56:30'),
+(405, 405, 2, 18, '2', 34, 17, 3, 1, NULL, NULL, 3, 1, NULL, NULL, '<b>Aufstellung:</b><br />Fritz - Mikel - Kai, Lars, Torsten, - Mark, Thomas - Baris, Thuyen, Volker - Alberty<br /><br/><b>Einwechslungen:</b><br />41. Vincent fÃ¼r Thomas<br />41. Marco T. fÃ¼r Baris', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:56:30');
+INSERT INTO `matches` (`id`, `date_id`, `match_type_id`, `season_id`, `matchweek`, `team_home`, `team_away`, `goals_home`, `goals_home_ht`, `goals_home_pen`, `goals_home_rated`, `goals_away`, `goals_away_ht`, `goals_away_pen`, `goals_away_rated`, `match_details`, `rescheduled_to_fixture_id`, `rescheduled_by_team`, `reschedule_reason`, `published`, `cancelled`, `created_at`, `updated_at`) VALUES
 (406, 406, 2, 7, '11', 33, 60, 4, 2, NULL, NULL, 4, 1, NULL, NULL, '<b>Aufstellung:</b><br />Fritz - Baris, Daniel, Kai, Clemens - Kevin, Henri, Mark, Felix - Arno, Nico<br /><br /><b>Einwechslungen:</b><br />70. Andy fÃ¼r Mark<br />75. Dustin fÃ¼r Felix<br />80. Alberty fÃ¼r Nico<br />85. Sebastian fÃ¼r Kevin<br /><br /><b>Man of the Match:</b><br />Arno', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:23'),
 (407, 407, 2, 18, '7', 31, 34, 3, 2, NULL, NULL, 2, 1, NULL, NULL, '<b>Aufstellung:</b><br />PrÃ¤ses - Jan - Kai, Torsten, Georg - Sascha, Thuyen, Mark, Volker - Rachid, Martin<br /><br /><b>Einwechslungen:</b><br />41. Fritz fÃ¼r Sascha<br />55. Wolla B. fÃ¼r Jan', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:56:30'),
 (408, 408, 2, 7, '12', 21, 33, 1, 1, NULL, NULL, 0, 1, NULL, NULL, '<b>Aufstellung:</b><br />Fritz - Kai, Daniel, Jan, Clemens - Matthias, Henri, Mark, Arno - Rachid, Nico<br /><br /><b>Einwechslungen:</b><br />65. Dustin (Tor) fÃ¼r Jan<br />72. Andy fÃ¼r Rachid<br />85. Sebastian fÃ¼r Kai<br /><br /><b>Reservebank:</b><br />Torsten, Carsten<br /><br /><b>Man of the Match:</b><br />Daniel\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:23'),
@@ -4018,7 +3992,6 @@ INSERT INTO `matches` (`id`, `date_id`, `match_type_id`, `season_id`, `matchweek
 (422, 422, 1, 18, '14', 34, 101, 3, 1, NULL, NULL, 3, 1, NULL, NULL, '<b>Aufstellung:</b><br />Simon - Mark - Fritz, Fabian, Torsten - Baris, Thomas, Stephan M., Stephan H. - Alberty, Martin<br /><br /><b>Einwechslungen:</b><br />41. Thuyen fÃ¼r Stephan M.<br />41. Gast Chris fÃ¼r Martin<br />41. Jan fÃ¼r Baris<br />65. Baris fÃ¼r Thomas<br />70. Martin fÃ¼r Stephan H.				', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:56:30'),
 (423, 423, 2, 7, '22', 60, 33, 3, 1, NULL, NULL, 1, 1, NULL, NULL, '<b>Aufstellung:</b><br />Dustin - Baris, Mark, Torsten, Rick - Simon, Andy, Fabian, Kevin R. - Tay, Rachid<br /><br /><b>Einwechslungen:</b><br />46. Nico fÃ¼r Rachid<br />46. Alberty fÃ¼r Tay<br />70. Kevin fÃ¼r Kevin R.<br />85. Kevin R. fÃ¼r Baris\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:23'),
 (424, 424, 3, 7, NULL, 33, 100, NULL, NULL, NULL, 2, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:23'),
-(425, 425, 1, 18, NULL, 33, 34, 4, 4, NULL, NULL, 4, 1, NULL, NULL, '<b>Teams:</b><br /><b>HLW:</b><br />Fritz - Clemens, Jan, Mark, Torsten, Henri, Simon, Baris, Dustin, Sebastian</b><br /><b>AH:</b><br />PrÃ¤ses - Michael K., Mikel, Michael L., Thomas, Stephan M., Kai, Thuyen, Vincent, Stiliano, Rachid</b><br /><b>Tore (ohne Wertung):</b><br />1:0 Dustin, 2:0 Dustin, 2:1 Rachid, 2:2 Rachid, 2:3 Kai, 3:3 Dustin, 4:3 Clemens, 4:4 Stephan M.\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:56:30'),
 (426, 426, 3, 7, NULL, 26, 33, 3, 0, NULL, NULL, 0, 1, NULL, NULL, '<b>Aufstellung:</b><br />Dustin - Baris, Daniel, Kai, Clemens - Henri, Mark - Kevin, Matthias, Jan S. - Nico<br /><br /><b>Einwechslungen:</b><br />58. Andy fÃ¼r Kevin<br />77. Felix fÃ¼r Baris<br />85. Sebastian fÃ¼r Mark<br /><br /><b>Reservebank:</b><br />Mikel<br /><br /><b>Man of the Match:</b><br />Matthias<br /><br /><b>besonderes Vorkommnis:</b><br />United-TW hÃ¤lt Foulelfmeter beim Stand von 1:0 (75.) -> \"lass niemals den gefoulten schiessen\" :-)\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:23'),
 (427, 427, 1, 7, NULL, 33, 101, 5, 1, NULL, NULL, 4, 1, NULL, NULL, '<b>Aufstellung:</b><br />Simon (46. PrÃ¤ses) - Sascha, Mikel, Jan (46. Thomas), Kevin (70. Andy) - Gast Kevin (46. Simon), Matthes, Andy (46. Gast Rick), Stephan H. (46. Dustin, 65. Gast Kevin) - Alberty (46. Nico), Sebastian (46. Martin)', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:23'),
 (428, 428, 2, 18, '13', 99, 34, 2, 0, NULL, NULL, 0, 1, NULL, NULL, '<b>Aufstellung:</b><br />Martin - Mikel - Wolla B., Torsten - Sebastian, Fritz, Stephan M., Stephan H. - Alberty - Volker, Rachid<br /><br /><b>Einwechslungen:</b><br />Thuyen fÃ¼r Rachid<br />Kai fÃ¼r Sebastian<br />Thomas fÃ¼r Thuyen<br />Thuyen fÃ¼r Fritz<br />Sebastian fÃ¼r Stephan H.\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:56:30'),
@@ -4028,7 +4001,6 @@ INSERT INTO `matches` (`id`, `date_id`, `match_type_id`, `season_id`, `matchweek
 (432, 432, 1, 7, NULL, 33, 43, 2, 1, NULL, NULL, 1, 1, NULL, NULL, '<b>Aufstellung:</b><br />Fritz - Baris, Jan, Kai, Torsten - Kevin R., Andy, Fabian, Arno - Sebastian, Nico<br /><br /><b>Einwechslungen:</b><br />46. Kevin K. fÃ¼r Kevin R.<br />46. Mark fÃ¼r Andy<br />55. Henri fÃ¼r Nico<br /><br /><b>Anmerkung:</b><br />F-Spiel da Schiri zum M-Spiel nicht erschienen\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:23'),
 (433, 433, 2, 18, '14', 34, 31, 0, 0, NULL, NULL, 2, 1, NULL, NULL, '<b>Aufstellung:</b><br />PrÃ¤ses - Frosch - Baris, Mikel, Jan - Fritz, Willi, Mark, Kevin - Alberty, Stephan M.<br /><br /><b>Einwechslungen:</b><br />41.Thomas fÃ¼r Mikel</b><br />41. Fabian fÃ¼r Frosch</b><br />65. Sebastian fÃ¼r Kevin', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:56:30'),
 (434, 434, 2, 7, '15', 33, 87, NULL, NULL, NULL, 2, NULL, NULL, NULL, 0, 'Spiel vom Gegner abgesagt \r\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:23'),
-(435, 435, 1, 18, NULL, 33, 34, 3, 3, NULL, NULL, 5, 1, NULL, NULL, '<b>Teams:</b><br /><b>HLW:</b><br />Simon (36. PrÃ¤ses) - Baris, Andy, Felix, Rick - Kevin, Fabian, Clemens, Kevin R. - Tobi, Sebastian</b><br /><b>AH:</b><br />PrÃ¤ses (36. Simon) - Mikel, Mark, Lars, Fritz - Stephan M., Ralph K. (36. Willi), Laupi - Alberty - Martin (65. Ralph K., Gast Chris</b><br /><b>Tore (ohne Wertung):</b><br />0:1 Laupi, 1:1 Tobi (PrÃ¤ses), 2:1 Andy (PrÃ¤ses), 3:1 Fabian (PrÃ¤ses),  3:2 Gast Chris, 3:3 Alberty (Andy), 3:4 Gast Chris (PrÃ¤ses), 3:5 Martin, </b><br /><b>besonderes Vorkommnis:</b><br />70. fragt den Ralph!\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:56:30'),
 (436, 436, 1, 8, NULL, 33, 104, 1, 0, NULL, NULL, 3, 1, NULL, NULL, '<b>Aufstellung:</b><br />Dustin - Pascal, Mark, Torsten, Rick - Simon, Andy, Daniel, Arno - Nico, Alberty<br /><br /><b>Einwechslungen:</b><br />46. Fabian fÃ¼r Rick<br />46. Kevin R. fÃ¼r Pascal<br />65. Chris (AH) fÃ¼r Alberty\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:34'),
 (437, 437, 1, 19, NULL, 34, 20, 4, 2, NULL, NULL, 5, 1, NULL, NULL, '<b>Aufstellung 1.HZ:</b><br />Fritz - Mikel, Lars, Torsten - Sascha, Stephan M., Wolla, Stephan H. - Alberty - Chris, Volker<br /><br /><b>Einwechslungen</b><br />41. Jan fÃ¼r Lars<br />41. Laupi fÃ¼r Sascha<br />55. Willi fÃ¼r Wolla<br />60. Sebi fÃ¼r Chris<br /><br /><b>besondere Vorkommnisse:</b><br />Fritz \"The magic eye\" guckt\nFoulelfmeter vorbei (bei 2:2, 23.)<br />fÃ¼r Platzverweis Chris dÃ¼rfen wir einen einwechseln :-)\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:57:28'),
 (438, 438, 1, 19, NULL, 105, 34, 2, 1, NULL, NULL, 1, 1, NULL, NULL, '<b>Aufstellung:</b><br />PrÃ¤ses - Wolla, Kai, Sascha - Fritz, Thomas, Baris, Stephan H. - Alberty - Sebastian, Volker<br /><br /><b>Einwechslungen</b><br />41. Chris fÃ¼r Sebastian<br />wÃ¤hrend der 2. HZ: Mikel, Rachid, Dustin', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:57:28'),
@@ -4057,7 +4029,6 @@ INSERT INTO `matches` (`id`, `date_id`, `match_type_id`, `season_id`, `matchweek
 (462, 462, 2, 8, '9', 80, 33, 6, 2, NULL, NULL, 1, 1, NULL, NULL, '<b>Aufstellung:</b><br />Simon - Kai, Jan, Torsten, Rick - Jonas, Dustin, Andy, Dorian - Nico, Tobi<br /><br /><b>Einwechslungen:</b><br />70. Kevin fÃ¼r Dustin<br />80. Alberty fÃ¼r Nico', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:34'),
 (463, 463, 2, 8, '10', 33, 21, 1, 0, NULL, NULL, 1, 1, NULL, NULL, '<b>Aufstellung:</b><br />Simon - Mark - Fritz, Kai, Jan, Torsten - Baris, Andy, Arno, Tobi - Alberty<br /><br /><b>Einwechslungen:</b><br />60. Dustin fÃ¼r Fritz<br />65. Chris fÃ¼r Alberty<br />75. Fritz fÃ¼r Tobi<br /><br /><b>Man of the Match:</b><br />Simon', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:34'),
 (464, 464, 2, 19, '11', 34, 91, 0, 0, NULL, NULL, 2, 1, NULL, NULL, '<b>Aufstellung:</b><br />Willi - Fritz, Mark, Torsten, Georg - Sascha, Stephan M., Thomas, Stephan H. - Alberty, Gussi<br /><br /><b>Einwechslungen:</b><br />28. Jan fÃ¼r Thomas<br />41. Wolla fÃ¼r Georg<br />41. Chris fÃ¼r Alberty<br />41. Volker fÃ¼r Stephan H.<br />50. Sebi fÃ¼r Sascha<br />55. Baris fÃ¼r Fritz', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:57:28'),
-(465, 465, 1, 19, '12', 34, 33, 4, 1, NULL, NULL, 6, 1, NULL, NULL, '<b>Teams:</b><br /><b>AH:</b><br />Sascha - Kai, Mikel, Lars, Baris - Martin, Fritz, Daniel S., Sebi - GemÃ¼se, Rachid</b><br /><b>HLW:</b><br />Simon (41. Dustin) - Rick, Mark, Jan, Torsten - Jonas, Dustin (41. Simon), Tay - Tobi, Chris.</b><br /><b>Tore (ohne Wertung):</b><br />0:1 GemÃ¼se, 1:1 Chris, 1:2 Simon, 2:2 Rachid, 2:3 Martin, 3:3 Tay, 3:4 Chris, 3:5 Tay, 3:6 Chris, 4:6 GemÃ¼se', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:57:28'),
 (466, 466, 2, 19, '13', 91, 34, 1, 1, NULL, NULL, 1, 1, NULL, NULL, '<b>Aufstellung:</b><br />Martin - Kai, Mark, Lars, Wolla - Sascha, Daniel, Fritz, Stephan H. - \nSebi, Volker<br /><br /><b>Einwechslungen:</b><br />41. Rachid fÃ¼r Sebi<br />41. Kevin fÃ¼r Volker<br />2.HZ Torsten fÃ¼r Wolla<br />2.HZ Jan fÃ¼r Stephan H.', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:57:28'),
 (467, 467, 2, 19, '15', 34, 17, 1, 1, NULL, NULL, 5, 1, NULL, NULL, '<b>Aufstellung:</b><br />Martin - Georg, Thomas, Mikel, Michael Ku. - Stephan H., Stephan M., Fritz, Volker - Alberty, Gussi<br /><br /><b>Einwechslungen:</b><br />Frosch fÃ¼r Michael Ku.</b><br />Chris fÃ¼r Alberty</b><br />Alberty fÃ¼r Fritz</b><br />Fritz fÃ¼r Volker\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:57:28'),
 (468, 468, 2, 19, '16', 31, 34, 1, 1, NULL, NULL, 2, 1, NULL, NULL, '<b>Aufstellung:</b><br />Willi - Fritz, Mikel, Basti, Achim - Volker, Stephan M., Alberty, Stephan H. - Chris, GemÃ¼se<br /><br /><b>Einwechslungen:</b><br />41. Martin fÃ¼r Achim', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:57:28'),
@@ -4085,7 +4056,6 @@ INSERT INTO `matches` (`id`, `date_id`, `match_type_id`, `season_id`, `matchweek
 (491, 491, 2, 8, '18', 33, 6, 0, 0, NULL, NULL, 12, 1, NULL, NULL, '<b>Aufstellung:</b><br />Dustin - Tobi B., Torsten, Alex, Kai - Andy, Baris - Simon, Laupi, Rick - Vinni<br /><br /><b>Einwechslungen:</b><br />46. Sebi fÃ¼r Dustin<br />46. Karlo! fÃ¼r Simon<br /><br /><b>Reserve</b><br />Kevin<br /><br /><b>Man of the match:</b> <br />Karlo :-)\r\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:34'),
 (492, 492, 2, 19, '3', 83, 34, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:57:28'),
 (493, 493, 1, 9, NULL, 33, 80, 2, 0, NULL, NULL, 4, 1, NULL, NULL, '<b>Aufstellung:</b><br />Dustin (2. HZ Fritz) - Fritz, Torsten, Mark, Tobi B. - Baris, Andy, Daniel, Laupi - Tobi G., Chris<br /><br /><b>Einwechslungen:</b><br />46. Kalle fÃ¼r Dustin<br />46. Marc für Chris<br />46. Rick fÃ¼r Tobi B.<br />75. Dustin für Laupi<br /><br /><b>Besondere Vorkommnisse:</b> <br />Schiri Kevin! \r\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:45'),
-(494, 494, 1, 20, NULL, 33, 34, 4, 2, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:57:40'),
 (495, 495, 1, 20, NULL, 32, 34, 4, 3, NULL, NULL, 0, 1, NULL, NULL, '<b>Aufstellung:</b><br />Dustin - Baris, Basti, Torsten, Rick - Laupi, Michel, Andy, Stephan H. - Daniel, Alberty<br /><br /><b>Einwechslungen:</b><br />46. Chris fÃ¼r Michel<br />46. Fritz fÃ¼r Dustin<br />46. Wolla fÃ¼r Stephan H.<br />75. Tobi B. fÃ¼r Laupi<br /><br />\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:57:40'),
 (496, 496, 3, 9, NULL, 33, 63, 2, 1, NULL, NULL, 5, 1, NULL, NULL, '<b>Aufstellung:</b><br />Dustin - Baris, Torsten, Mark, Tobi B. - Laupi, Andy, Daniel, Kevin - Marc, Alberty<br /><br /><b>Einwechslungen:</b><br />46. Gussi fÃ¼r Alberty<br />46. Nico fÃ¼r Kevin<br />65. Kalle fÃ¼r Baris<br />70. Pascal fÃ¼r Laupi<br />80. Laupi fÃ¼r Tobi B.\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:45'),
 (497, 497, 1, 20, NULL, 31, 34, 4, 1, NULL, NULL, 2, 1, NULL, NULL, '<b>Aufstellung:</b><br />Martin - Harald (RWH), Mikel, Thomas, Achim - Dave (RWH), Fritz, Stephan M, Stephan H - Chris, Klaus (RWH)<br /><br /><b>Einwechslungen:</b><br />60. Fritz ins Tor, Martin ins Feld<br /><br /><br /><b>besonderes Vorkommnis:</b><br />Mikel, der harte Hund, spielt trotz Platzwunde am Kopf (nach ca. 10 Min.) weiter.', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:57:40'),
@@ -4123,13 +4093,11 @@ INSERT INTO `matches` (`id`, `date_id`, `match_type_id`, `season_id`, `matchweek
 (532, 532, 1, 20, NULL, 34, 117, 4, 3, NULL, NULL, 4, 1, NULL, NULL, '<b>Aufstellung:</b><br />Dustin - Sascha, Mikel, Torsten, Wolla - Baris, Mark, Michel, Stephan H. - Arno, Martin<br /><br /><b>Einwechslungen:</b><br />21. Alberty fÃ¼r Martin<br />41. Gussi fÃ¼r Arno<br />41. Laupi fÃ¼r Stephan H.<br />41. Achim fÃ¼r Wolla<br />41. Fritz fÃ¼r Baris<br />61. Martin fÃ¼r Mark<br />65. Arno fÃ¼r Alberty', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:57:40'),
 (534, 534, 2, 9, '7', 33, 113, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2020-12-21 21:36:00', '2021-01-02 15:33:45'),
 (535, 535, 2, 9, '9', 104, 33, 2, 2, NULL, NULL, 3, 1, NULL, NULL, '<b>Aufstellung:</b><br />Willi - Fritz, Alex, Mark, Jan S. - Pascal, Mitch, Dustin, Marc - Laupi, Alberty<br /><br /><b>Einwechslungen:</b><br />10. Stephan H. fÃ¼r Marc<br />46. Lukas fÃ¼r Mitch</b><br />46. Nico FÃ¼r Dustin</b><br />75. Dustin fÃ¼r Laupi</b><br />80. Kevin fÃ¼r Albrty<br /><br /><b>Reserve:</b><br />Rick<br /><br /><b>Man of the Match:</b><br />Mitch', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:45'),
-(536, 536, 2, 9, '10', 33, 61, 2, 1, NULL, NULL, 2, 1, NULL, NULL, '<b>Aufstellung:</b><br />Willi - Fritz, Andy, Daniel, Torsten - Lukas, Mitch, Dustin, Kevin - Laupi, Alberty<br /><br /><b>Einwechslungen:</b><br />46. Martin fÃ¼r Dustin<br />50. Jan S. fÃ¼r Kevin</b><br />60. Dustin fÃ¼r Martin</b><br />75. Rick fÃ¼r Fritz<br /><br /><b>Man of the Match:</b><br />Dustin\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:45');
-INSERT INTO `matches` (`id`, `date_id`, `match_type_id`, `season_id`, `matchweek`, `team_home`, `team_away`, `goals_home`, `goals_home_ht`, `goals_home_pen`, `goals_home_rated`, `goals_away`, `goals_away_ht`, `goals_away_pen`, `goals_away_rated`, `match_details`, `rescheduled_to_fixture_id`, `rescheduled_by_team`, `reschedule_reason`, `published`, `cancelled`, `created_at`, `updated_at`) VALUES
+(536, 536, 2, 9, '10', 33, 61, 2, 1, NULL, NULL, 2, 1, NULL, NULL, '<b>Aufstellung:</b><br />Willi - Fritz, Andy, Daniel, Torsten - Lukas, Mitch, Dustin, Kevin - Laupi, Alberty<br /><br /><b>Einwechslungen:</b><br />46. Martin fÃ¼r Dustin<br />50. Jan S. fÃ¼r Kevin</b><br />60. Dustin fÃ¼r Martin</b><br />75. Rick fÃ¼r Fritz<br /><br /><b>Man of the Match:</b><br />Dustin\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:45'),
 (537, 537, 2, 9, '11', 114, 33, 5, 0, NULL, NULL, 0, 1, NULL, NULL, '<b>Aufstellung:</b><br />Willi - Pascal, Andy, Stephan F., Jan - Lukas, Mitch, Daniel, Tobi - Marc, Alberty<br /><br /><b>Einwechslungen:</b><br />35. Dustin fÃ¼r Pascal (ab dann 3-5-2!)<br />75. Chris fÃ¼r Alberty</b><br />75. Stephan H. fÃ¼r Tobi</b><br />80. Torsten fÃ¼r Mitch</b><br />81. HÃ¼seyin fÃ¼r Marc<br /><br /><b>Reserve:</b><br />David, Rick<br /><br /><b>Man of the Match:</b><br />-\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:45'),
 (538, 538, 2, 9, '12', 115, 33, 7, 3, NULL, NULL, 1, 1, NULL, NULL, '<b>Aufstellung:</b><br />Simon - Torsten, Andy, Jan S., Alex - Lukas, Mitch, Dustin, Baris - Tobi, Stephan H.<br /><br /><b>Einwechslungen:</b><br />46. HÃ¼seyin fÃ¼r Stephan H.<br />46. Rick fÃ¼r Dustin<br />70. Keule fÃ¼r Lukas<br />\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:45'),
 (539, 539, 2, 9, '17', 33, 101, 6, 2, NULL, NULL, 0, 1, NULL, NULL, '<b>Aufstellung:</b><br />Martin - Kevin G., Mark, Andy, Torsten - Lukas, Dustin, Daniel, Simon - Nico, Alberty<br /><br /><b>Einwechslungen:</b><br />30. Tobi G. fÃ¼r Lukas<br />46. Fritz fÃ¼r Kevin G.<br />65. Jan fÃ¼r Andy<br />65. Kevin fÃ¼r Simon<br />70. Stephan H. fÃ¼r Dustin<br />75. HÃ¼seyin fÃ¼r Alberty	', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:45'),
 (542, 542, 2, 9, '6', 33, 101, 2, 2, NULL, NULL, 0, 1, NULL, NULL, '<b>Aufstellung:</b><br />Willi - Torsten, Andy, Jan S., Kevin - Lukas, Mitch, Daniel, Marc - Nico, Alberty<br /><br /><b>Einwechslungen:</b><br />25. Laupi fÃ¼r Nico<br />46. Rick fÃ¼r Kevin</b><br />70. Dustin fÃ¼r Alberty</b><br />75. Keule fÃ¼r Torsten</b><br />80. Kevin fÃ¼r Lukas<br /><br /><b>Man of the Match:</b><br />Mitch der Kilometerfresser :-)<br /><br /><b>Zuschauer:</b><br />mehr als sonst!				', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:45'),
-(544, 544, 1, 20, NULL, 33, 34, 4, 0, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:57:40'),
 (546, 546, 2, 20, '9', 34, 83, 2, 1, NULL, NULL, 2, 1, NULL, NULL, '<b>Aufstellung:</b><br />Willi â€“ Fritz, Basti, Stephan F., Wolla â€“ Kevin, Daniel S., Stephan M., Jan S. â€“ Gussi, Chris<br /><br /><b>Einwechslungen:</b><br />41. Lars fÃ¼r Wolla<br />41. Alberty fÃ¼r Gussi<br />41. Martin fÃ¼r Chris<br />65. Mikel fÃ¼r Kevin<br />70. JÃ¼rgen fÃ¼r Willi', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:57:40'),
 (547, 547, 2, 9, '20', 101, 33, NULL, NULL, NULL, 0, NULL, NULL, NULL, 2, 'vom Gegner abgesagt', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:45'),
 (548, 548, 3, 21, NULL, 61, 34, 2, 1, NULL, NULL, 1, 1, NULL, NULL, '<b>Aufstellung:</b><br /> Willi â€“ Jan T, Basti, Mikel, Sascha â€“ Fritz, Manu â€“ Stephan H, Alberty, Jan S. â€“ Chris <br /><br /><b>Einwechslungen:</b><br />46. Martin fÃ¼r Chris <br />60. Andy fÃ¼r Stephan H<br />75. Wolla fÃ¼r Jan<br />80. Florian fÃ¼r Fritz<br />85. GemÃ¼se fÃ¼r Mikel', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:57:57'),
@@ -4137,7 +4105,8 @@ INSERT INTO `matches` (`id`, `date_id`, `match_type_id`, `season_id`, `matchweek
 (552, 552, 1, 21, NULL, 34, 31, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:57:57'),
 (553, 553, 1, 10, NULL, 33, 25, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2020-12-21 21:36:00', '2021-01-02 15:33:58'),
 (554, 554, 1, 21, NULL, 34, 90, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:57:57'),
-(555, 555, 1, 10, NULL, 33, 81, 6, 3, NULL, NULL, 2, 1, NULL, NULL, '<b>Aufstellung 1. HZ:</b><br />Willi - Fritz, Andy, Ferdi, Keule - Simon, Dustin, Mitch, Kevin - Alberty, Jonas<br /><br /><b>Aufstellung 2. HZ:</b><br />Willi - Sascha, Andy (85. Dustin), Kefin, Jan T. - Simon (75. Alberty), Ferdi, Max, Keule - Chris, Jonas', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:58'),
+(555, 555, 1, 10, NULL, 33, 81, 6, 3, NULL, NULL, 2, 1, NULL, NULL, '<b>Aufstellung 1. HZ:</b><br />Willi - Fritz, Andy, Ferdi, Keule - Simon, Dustin, Mitch, Kevin - Alberty, Jonas<br /><br /><b>Aufstellung 2. HZ:</b><br />Willi - Sascha, Andy (85. Dustin), Kefin, Jan T. - Simon (75. Alberty), Ferdi, Max, Keule - Chris, Jonas', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-02 15:33:58');
+INSERT INTO `matches` (`id`, `date_id`, `match_type_id`, `season_id`, `matchweek`, `team_home`, `team_away`, `goals_home`, `goals_home_ht`, `goals_home_pen`, `goals_home_rated`, `goals_away`, `goals_away_ht`, `goals_away_pen`, `goals_away_rated`, `match_details`, `rescheduled_to_fixture_id`, `rescheduled_by_team`, `reschedule_reason`, `published`, `cancelled`, `created_at`, `updated_at`) VALUES
 (556, 556, 2, 21, '1', 34, 99, 5, 2, NULL, NULL, 1, 1, NULL, NULL, '<b>Aufstellung:</b><br /> Willi â€“ Mikel, Basti, Manu, Lars â€“ Fritz, Stephan M., Mitch, Kevin â€“ Gussi, Martin <br /><br /><b>Einwechslungen:</b><br />41. Alberty fÃ¼r Martin <br />41. Sascha fÃ¼r Fritz <br />41. Stephan H. fÃ¼r Kevin <br />55. Torsten fÃ¼r Lars <br />60. Stephan F. fÃ¼r Stephan M.<br />70. Martin fÃ¼r Gussi', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:57:57'),
 (557, 557, 2, 21, '2', 34, 31, 1, 0, NULL, NULL, 1, 1, NULL, NULL, '<b>Aufstellung:</b><br />Martin â€“ Mikel, Stephan F., Basti, Thomas â€“ Florian, Mark, Manu, Stephan H. â€“ Gussi, Alberty<br /><br /><b>Einwechslungen:</b><br />41. Stephan M. fÃ¼r Mark<br />41. Massimo fÃ¼r Florian<br />41. Chris fÃ¼r Gussi<br />60. GemÃ¼se fÃ¼r Thomas<br />65. Mitch fÃ¼r Alberty<br />70. Lars fÃ¼r Stephan H.\n					', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:57:57'),
 (558, 558, 2, 21, '3', 100, 34, 3, 1, NULL, NULL, 1, 1, NULL, NULL, '<b>Aufstellung:</b><br />Fritz - Sascha, Mikel, Basti, Torsten - Jan S., Stephan M., Mitch, Stephan H. - Alberty, Gussi<br /><br /><b>Einwechslungen:</b><br />GemÃ¼se fÃ¼r Alberty<br />Kevin fÃ¼r Stephan H.<br />Wolla fÃ¼r Torsten<br /><br /><b>Reservebank:</b><br />Georg, Florian', NULL, NULL, NULL, 1, 0, '2020-12-21 21:36:00', '2021-01-04 20:57:57'),
@@ -4286,7 +4255,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (41, '2021_03_24_130334_add_position_to_seasons_table', 24),
 (42, '2021_04_21_183413_add_display_columns_to_playerstatus', 25),
 (43, '2021_04_25_165020_create_scorer_kings_table', 26),
-(44, '2021_04_28_145139_create_ananas_kings_table', 27);
+(44, '2021_04_28_145139_create_ananas_kings_table', 27),
+(45, '2021_05_05_163028_add_year_column_to_seasons_table', 28);
 
 -- --------------------------------------------------------
 
@@ -4631,6 +4601,7 @@ CREATE TABLE `seasons` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `is_ah_season` tinyint(1) NOT NULL DEFAULT '0',
   `number` int(11) DEFAULT NULL,
+  `year` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` text COLLATE utf8mb4_unicode_ci,
   `final_position` int(11) DEFAULT NULL,
@@ -4642,29 +4613,29 @@ CREATE TABLE `seasons` (
 -- Daten für Tabelle `seasons`
 --
 
-INSERT INTO `seasons` (`id`, `is_ah_season`, `number`, `title`, `description`, `final_position`, `created_at`, `updated_at`) VALUES
-(1, 0, 16, '1. Liga - Saison 2010', 'Die Plätze 1-4 tragen ein Play-off um die Meisterschaft aus. Die Plätze 5-8 nehmen am Pokal teil.', 6, '2021-01-02 14:55:53', '2021-03-24 12:14:05'),
-(2, 0, 17, '1. Liga - Saison 2011', NULL, 7, '2021-01-02 14:55:53', '2021-03-24 12:13:50'),
-(3, 0, 18, '1. Liga - Saison 2012', 'Die Plätze 1-4 trugen ein Play-off um die Meisterschaft aus. Die Plätze 5-8 nahmen am Pokal teil. Die Plätze 11 und 12 stiegen in die 2. Liga ab.', 5, '2021-01-02 14:55:53', '2021-03-24 12:13:37'),
-(4, 0, 19, '1. Liga - Saison 2013', 'Die Plätze 11 und 12 stiegen in die 2. Liga ab. Platz 10 Relegation gegen Platz 3 der 2. Liga.', 7, '2021-01-02 14:55:53', '2021-03-24 12:13:31'),
-(5, 0, 20, '1. Liga - Saison 2014', 'Die Plätze 11 und 12 stiegen in die 2. Liga ab. ', 8, '2021-01-02 14:55:53', '2021-03-24 12:13:24'),
-(6, 0, 21, '1. Liga - Saison 2015', 'Die Plätze 11 und 12 stiegen direkt in die 2. Liga ab. Platz 10 spielte ein Relegationsspiel gegen Platz 3 der 2. Liga.', 10, '2021-01-02 14:55:53', '2021-03-24 12:13:15'),
-(7, 0, 22, '1. Liga - Saison 2016', 'Platz 9 und 10 stiegen direkt in die 2. Liga ab.', 6, '2021-01-02 14:55:53', '2021-03-24 12:13:06'),
-(8, 0, 23, '1. Liga - Saison 2017', 'Die Plätze 11 und 12 stiegen in die 2. Liga ab. Platz 10 spielte ein Relegationsspiel gegen Platz 3 der 2. Liga.', 12, '2021-01-02 14:55:53', '2021-03-24 12:12:59'),
-(9, 0, 24, '2. Liga - Saison 2018', 'Die Plätze 11 und 12 stiegen in die 2. Liga ab.', 4, '2021-01-02 14:55:53', '2021-03-24 12:12:36'),
-(10, 0, 25, 'Gruppe A - Saison 2019', 'In der Saison 2019 spielten zum ersten Mal die Plätze 1-4 der zwei neuen Gruppen A & B ein Playoff um die Meisterschaft aus.', 3, '2021-01-02 14:55:53', '2021-03-24 12:11:19'),
-(11, 0, 26, '1. Liga - Saison 2020/21', 'In der Saison 2020 wird aufgrund der Teilnehmerzahl wieder in einer Liga in einem regulären Meisterschaftsmodus gespielt. Nach der durch die COVID-19-Pandemie bedingten Pause wurde beschlossen den Saison-Modus mit der Fortführung des Spielbetriebs umzustellen und die Saison in den Sommer 2021 zu verlängern.', NULL, '2021-01-02 14:55:53', '2021-02-19 14:40:16'),
-(12, 1, 1, 'Saison 2010', NULL, NULL, NULL, '2021-02-19 15:09:42'),
-(13, 1, 2, 'Saison 2011', NULL, NULL, NULL, '2021-02-19 15:09:35'),
-(14, 1, 3, 'Saison 2012', NULL, NULL, NULL, '2021-02-19 15:09:27'),
-(15, 1, 4, 'Saison 2013', NULL, NULL, NULL, '2021-02-19 15:09:20'),
-(16, 1, 5, 'Saison 2014', NULL, 7, NULL, '2021-03-24 12:16:38'),
-(17, 1, 6, 'Saison 2015', NULL, 5, NULL, '2021-03-24 12:16:45'),
-(18, 1, 7, 'Saison 2016', NULL, 7, NULL, '2021-03-24 12:15:56'),
-(19, 1, 8, 'Saison 2017', NULL, 6, NULL, '2021-03-24 12:15:40'),
-(20, 1, 9, 'Saison 2018', NULL, 1, NULL, '2021-03-24 12:14:56'),
-(21, 1, 10, 'Saison 2019', NULL, 2, NULL, '2021-03-24 12:14:36'),
-(22, 1, 11, 'Saison 2020', NULL, NULL, NULL, '2021-02-19 15:08:28');
+INSERT INTO `seasons` (`id`, `is_ah_season`, `number`, `year`, `title`, `description`, `final_position`, `created_at`, `updated_at`) VALUES
+(1, 0, 16, '2010', '1. Liga - Saison 2010', 'Die Plätze 1-4 tragen ein Play-off um die Meisterschaft aus. Die Plätze 5-8 nehmen am Pokal teil.', 6, '2021-01-02 14:55:53', '2021-03-24 12:14:05'),
+(2, 0, 17, '2011', '1. Liga - Saison 2011', NULL, 7, '2021-01-02 14:55:53', '2021-03-24 12:13:50'),
+(3, 0, 18, '2012', '1. Liga - Saison 2012', 'Die Plätze 1-4 trugen ein Play-off um die Meisterschaft aus. Die Plätze 5-8 nahmen am Pokal teil. Die Plätze 11 und 12 stiegen in die 2. Liga ab.', 5, '2021-01-02 14:55:53', '2021-03-24 12:13:37'),
+(4, 0, 19, '2013', '1. Liga - Saison 2013', 'Die Plätze 11 und 12 stiegen in die 2. Liga ab. Platz 10 Relegation gegen Platz 3 der 2. Liga.', 7, '2021-01-02 14:55:53', '2021-03-24 12:13:31'),
+(5, 0, 20, '2014', '1. Liga - Saison 2014', 'Die Plätze 11 und 12 stiegen in die 2. Liga ab. ', 8, '2021-01-02 14:55:53', '2021-03-24 12:13:24'),
+(6, 0, 21, '2015', '1. Liga - Saison 2015', 'Die Plätze 11 und 12 stiegen direkt in die 2. Liga ab. Platz 10 spielte ein Relegationsspiel gegen Platz 3 der 2. Liga.', 10, '2021-01-02 14:55:53', '2021-03-24 12:13:15'),
+(7, 0, 22, '2016', '1. Liga - Saison 2016', 'Platz 9 und 10 stiegen direkt in die 2. Liga ab.', 6, '2021-01-02 14:55:53', '2021-03-24 12:13:06'),
+(8, 0, 23, '2017', '1. Liga - Saison 2017', 'Die Plätze 11 und 12 stiegen in die 2. Liga ab. Platz 10 spielte ein Relegationsspiel gegen Platz 3 der 2. Liga.', 12, '2021-01-02 14:55:53', '2021-03-24 12:12:59'),
+(9, 0, 24, '2018', '2. Liga - Saison 2018', 'Die Plätze 11 und 12 stiegen in die 2. Liga ab.', 4, '2021-01-02 14:55:53', '2021-03-24 12:12:36'),
+(10, 0, 25, '2019', 'Gruppe A - Saison 2019', 'In der Saison 2019 spielten zum ersten Mal die Plätze 1-4 der zwei neuen Gruppen A & B ein Playoff um die Meisterschaft aus.', 3, '2021-01-02 14:55:53', '2021-03-24 12:11:19'),
+(11, 0, 26, '2020/21', '1. Liga - Saison 2020/21', 'In der Saison 2020 wird aufgrund der Teilnehmerzahl wieder in einer Liga in einem regulären Meisterschaftsmodus gespielt. Nach der durch die COVID-19-Pandemie bedingten Pause wurde beschlossen den Saison-Modus mit der Fortführung des Spielbetriebs umzustellen und die Saison in den Sommer 2021 zu verlängern.', NULL, '2021-01-02 14:55:53', '2021-02-19 14:40:16'),
+(12, 1, 1, '2010', 'Saison 2010', NULL, NULL, NULL, '2021-02-19 15:09:42'),
+(13, 1, 2, '2011', 'Saison 2011', NULL, NULL, NULL, '2021-02-19 15:09:35'),
+(14, 1, 3, '2012', 'Saison 2012', NULL, NULL, NULL, '2021-02-19 15:09:27'),
+(15, 1, 4, '2013', 'Saison 2013', NULL, NULL, NULL, '2021-02-19 15:09:20'),
+(16, 1, 5, '2014', 'Saison 2014', NULL, 7, NULL, '2021-03-24 12:16:38'),
+(17, 1, 6, '2015', 'Saison 2015', NULL, 5, NULL, '2021-03-24 12:16:45'),
+(18, 1, 7, '2016', 'Saison 2016', NULL, 7, NULL, '2021-03-24 12:15:56'),
+(19, 1, 8, '2017', 'Saison 2017', NULL, 6, NULL, '2021-03-24 12:15:40'),
+(20, 1, 9, '2018', 'Saison 2018', NULL, 1, NULL, '2021-03-24 12:14:56'),
+(21, 1, 10, '2019', 'Saison 2019', NULL, 2, NULL, '2021-03-24 12:14:36'),
+(22, 1, 11, '2020', 'Saison 2020', NULL, NULL, NULL, '2021-02-19 15:08:28');
 
 -- --------------------------------------------------------
 
@@ -4686,11 +4657,14 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('1sTAalw82iGBF2OduBWsrqwWVd4b2OtJlaVi38uz', NULL, '62.227.87.248', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:87.0) Gecko/20100101 Firefox/87.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoibVdJTmt1ekVpVEtFdFpjcHloVmNYMlRMUlFuVzhtd1NtVk1rNnFDTSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHBzOi8vc3diaWxrNzkuZGUvdGVhbS9ITFcva2FkZXIiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1619688280),
-('3zFf7yJp0L3CsWm3Qr32qddBbKPmJvA6kvKL8w9b', NULL, '62.227.87.248', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiWmNsVUVxQU9BT2ZWTnRzazRteDlzeHRyMXk2VURBWXU5dHoyNHlibiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1619629387),
-('Gn8PBz1jYtu8WhUqRJWRG0QHKcExLuFPhpcZ85vk', 1, '62.227.87.248', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiZ1dlenhxbHVHaUdaUXkzZ2tPQ3k0SzMzc3ZNYkdHZ0RrSnZLclNtOCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHBzOi8vc3diaWxrNzkuZGUvdGVhbS9ITFcva2FkZXIiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkZVAxLzBGNDF1dC5vZW0yb0FrY05QZUFhVWpFcEVwdGdWVVREOXNuOEoyai5hMWpIODNQT0MiO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJGVQMS8wRjQxdXQub2VtMm9Ba2NOUGVBYVVqRXBFcHRnVlVURDlzbjhKMmouYTFqSDgzUE9DIjt9', 1619688553),
-('JMrRtVgKvlHvej6N7IbdOmhzWgvjWDC4PcjPehu5', 1, '62.227.87.248', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiYUl4ZTRoYTVUUnltWTMxdmFKNFVlWG5BUmlHZ3lDRFVhWUYzYTNTYSI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjM4OiJodHRwczovL3N3Ymlsazc5LmRlL2FkbWluL3Njb3Jlci1raW5ncyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCRlUDEvMEY0MXV0Lm9lbTJvQWtjTlBlQWFVakVwRXB0Z1ZVVEQ5c244SjJqLmExakg4M1BPQyI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkZVAxLzBGNDF1dC5vZW0yb0FrY05QZUFhVWpFcEVwdGdWVVREOXNuOEoyai5hMWpIODNQT0MiO30=', 1619629471),
-('pT1X568m6JH36YfLsgeSJXost7Z0FLyXlGmk7grx', 1, '62.227.87.248', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiMVNBaUFxenA2WWc1ZlZSNTB1THVCMkJLSHNjUE9RaktMZjNKTUFmbSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzg6Imh0dHBzOi8vc3diaWxrNzkuZGUvYWRtaW4vYW5hbmFzLWtpbmdzIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJGVQMS8wRjQxdXQub2VtMm9Ba2NOUGVBYVVqRXBFcHRnVlVURDlzbjhKMmouYTFqSDgzUE9DIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCRlUDEvMEY0MXV0Lm9lbTJvQWtjTlBlQWFVakVwRXB0Z1ZVVEQ5c244SjJqLmExakg4M1BPQyI7fQ==', 1619615247);
+('3QM4o6qAWYXSVkX8r9fy2RZCvT40Z3qhah7mEosd', NULL, '62.227.87.248', 'Mozilla/5.0 (Linux; Android 11) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Mobile Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiWG1IWTFtQWtjV1V2VU9GWVJpUzZ1aklBWXNRVEJaem4zTVJKTzByaSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHBzOi8vc3diaWxrNzkuZGUvcnVobWVzaGFsbGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1620244014),
+('bkiFaaIxMhKQtz5DN7rTlAumnM0KKE7rjvQJMuAK', NULL, '62.227.87.248', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.49', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiNlh2bFJIN1lVSEF6dnZMVmRFcjBTeDZWbmZuN0FuM3h4ZUdOUHZiUSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1619790302),
+('bsFtlDSNo6IDlkOlgkvYL9ApYtEUyVAce7K5Hb5K', 1, '154.28.188.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.51', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiSEtWUnNDOUdEa25LMkJma2xrN1BjQkwwR08wZ3VqWmNrVGhFZGNQWSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHBzOi8vc3diaWxrNzkuZGUvdGVhbS9BSC9rYWRlciI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCRlUDEvMEY0MXV0Lm9lbTJvQWtjTlBlQWFVakVwRXB0Z1ZVVEQ5c244SjJqLmExakg4M1BPQyI7fQ==', 1620141404),
+('GNAh2Lrzntircka49ssdTobnvToh1MhnEgamX50Z', 1, '62.227.87.248', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.49', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoib0VtNHZxd3JBM2h3c0d2QnBHUlR0MVlGTXZ4ZHZsckpndTlYWVJDMyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MTk6Imh0dHBzOi8vc3diaWxrNzkuZGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkZVAxLzBGNDF1dC5vZW0yb0FrY05QZUFhVWpFcEVwdGdWVVREOXNuOEoyai5hMWpIODNQT0MiO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJGVQMS8wRjQxdXQub2VtMm9Ba2NOUGVBYVVqRXBFcHRnVlVURDlzbjhKMmouYTFqSDgzUE9DIjt9', 1619780746),
+('SQjHlEbgCWaAzdwMpzog2z6BBts3ProNqhdFm3Xi', NULL, '62.227.87.248', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.51', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiUVc1MU85dVVIcFh4UWxPOUpDQ0ltTHd0UlRhTUUxaURmTGZqQ0c0eSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHBzOi8vc3diaWxrNzkuZGUvcnVobWVzaGFsbGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1620312593),
+('toPDNvKVejX4WMPrOGUR9e5vYET46RuYIj1T2w2N', NULL, '46.114.152.81', 'Mozilla/5.0 (Linux; Android 11) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Mobile Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiMjg0NkhMcGoxVFdwdGRjSjRKTUJkR3BHbWJqWUVSdnBtT2U3enJKRSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MTk6Imh0dHBzOi8vc3diaWxrNzkuZGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1619783027),
+('wlXst9WBaYNGDZcbZ7oBVzSzLjh77y1NXdEaTLve', NULL, '62.227.87.248', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.51', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiR0laOG5CYkRiMjRZajFMQTZhemh0dmFrUGx6cHZxdHJKNWtmaElQNiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHBzOi8vc3diaWxrNzkuZGUvcnVobWVzaGFsbGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1620226147),
+('X0nEumQc59cgcH8NfMstvGnjODUK3npMQhrnj0nG', NULL, '62.227.87.248', 'Mozilla/5.0 (Linux; Android 11) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Mobile Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiOWFBYUJnNzNDREtvVHY0Q2tvM3cxYzhmMmNaM1hRczVoanZiN2RiTSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzI6Imh0dHBzOi8vc3diaWxrNzkuZGUvZXdpZ2UtYW5hbmFzIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1620226215);
 
 -- --------------------------------------------------------
 
@@ -5069,7 +5043,7 @@ ALTER TABLE `match_types`
 -- AUTO_INCREMENT für Tabelle `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT für Tabelle `personal_access_tokens`
