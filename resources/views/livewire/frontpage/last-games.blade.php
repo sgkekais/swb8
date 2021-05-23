@@ -79,7 +79,7 @@
                                 <div class="flex space-x-2 items-center">
                                     <i class="far fa-futbol"></i>
                                     <div class="">
-                                        {{ $goal->minute ? $goal->minute."'" : null }} {{ $goal->score }} {{ $goal->player->nickname ?: $goal->player->full_name_short }}
+                                        {{ $goal->minute ? $goal->minute."'" : null }} {{ $goal->score }} {{ $goal->player->name_short }}
                                     </div>
                                     @if ($goal->assist)
                                         <div class="text-sm">
