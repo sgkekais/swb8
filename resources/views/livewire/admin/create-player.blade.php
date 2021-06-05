@@ -139,7 +139,7 @@
                         @foreach ($player->clubs as $player_club)
                             <div class="flex items-end space-x-4">
                                 <div class="w-36">
-                                    {{ $player_club->name }}
+                                    {{ $player_club->name_code }}
                                 </div>
                                 <div class="">
                                     <x-jet-label for="player_number_{{ $player_club->id }}">
