@@ -9,7 +9,16 @@
             </div>
         </div>
     @endauth
-
+    <div class="mb-4 flex flex-wrap items-center space-x-2 ">
+        <div class="">
+            <span class="font-bold">Springe zu:</span>
+        </div>
+        @foreach ($club->players->where('pivot.playerStatus.display_in_squad')->sortByDesc('pivot.playerStatus.can_play')->groupBy('pivot.playerStatus.description') as $key => $player_status_group)
+            <div>
+                <a href="#{{ $key }}" class="inline-link">{{ $key }}</a> ({{ $player_status_group->count() }})
+            </div>
+        @endforeach
+    </div>
     @if ($club->players()->count() > 0)
         @foreach($club->players->where('pivot.playerStatus.display_in_squad')->sortByDesc('pivot.playerStatus.can_play')->groupBy('pivot.playerStatus.description') as $key => $player_status_group)
             <x-headline class="text-2xl" id="{{ $key }}">
