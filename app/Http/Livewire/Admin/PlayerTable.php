@@ -17,12 +17,16 @@ class PlayerTable extends LivewireDatatable
     public function columns()
     {
         return [
+
+            Column::callback(['id'], function ($id) {
+                return view('admin.includes.table-actions', ['id' => $id]);
+            }),
             NumberColumn::name('id')
                 ->label('ID')
                 ->defaultSort('asc'),
-            Column::name('PlayerStatus.description')
-                ->label('Status')
-                ->filterable($this->playerStatusDescription),
+//            Column::name('PlayerStatus.description')
+//                ->label('Status')
+//                ->filterable($this->playerStatusDescription),
             Column::name('user_id')
                 ->label('User'),
             Column::name('first_name')
@@ -49,14 +53,11 @@ class PlayerTable extends LivewireDatatable
                 ->label('Notiz (int.)')
                 ->truncate(),
             BooleanColumn::name('is_public')->label('Öffentl.'),
-            Column::callback(['id'], function ($id) {
-                return view('admin.includes.table-actions', ['id' => $id]);
-            })
         ];
     }
 
-    public function getPlayerStatusDescriptionProperty()
-    {
-        return PlayerStatus::all()->pluck('description');
-    }
+//    public function getPlayerStatusDescriptionProperty()
+//    {
+//        return PlayerStatus::all()->pluck('description');
+//    }
 }

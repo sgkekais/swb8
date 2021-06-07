@@ -26,9 +26,9 @@ class Poll extends Component
         {
             if (!isset($this->date_players))
             {
-                $this->date_players = $club->players->where('playerStatus.display_in_polls');
+                $this->date_players = $club->players->where('pivot.playerStatus.display_in_polls');
             } else {
-                $this->date_players = $this->date_players->merge($club->players->where('playerStatus.display_in_polls'));
+                $this->date_players = $this->date_players->merge($club->players->where('pivot.playerStatus.display_in_polls'));
             }
         }
     }

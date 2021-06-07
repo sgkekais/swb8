@@ -84,14 +84,14 @@
             @endif
             <div class="flex flex-wrap space-x-2 ">
                 <div class="">Anzahl Spieler: </div>
-                @foreach ($date_players->sortByDesc('playerStatus.can_play')->groupBy('playerStatus.description') as $key => $player_status_group)
+                @foreach ($date_players->sortByDesc('pivot.playerStatus.can_play')->groupBy('pivot.playerStatus.description') as $key => $player_status_group)
                     <div>
                         <a href="#{{ $key }}" class="inline-link"><span class="font-bold">{{ $key }}</span></a> {{ $player_status_group->count() }}
                     </div>
                 @endforeach
             </div>
             <div>
-                -> <span class="text-primary-700 font-bold">{{ $date_players->where('playerStatus.can_play', 1)->count() }}</span> können spielen
+                -> <span class="text-primary-700 font-bold">{{ $date_players->where('pivot.playerStatus.can_play', 1)->count() }}</span> können spielen
             </div>
         </div>
         <div class="p-2 flex items-center space-x-2 bg-gray-100">
@@ -159,7 +159,7 @@
             </div>
             <!-- poll participants -->
             <div class="table-row-group">
-                @foreach ($date_players->sortByDesc('playerStatus.can_play')->groupBy('playerStatus.description') as $key => $player_status_group)
+                @foreach ($date_players->sortByDesc('pivot.playerStatus.can_play')->groupBy('pivot.playerStatus.description') as $key => $player_status_group)
                     <div class="table-row">
                         <div class="table-cell">
                             <x-headline class="text-xl" id="{{ $key }}">

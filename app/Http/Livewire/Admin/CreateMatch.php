@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Http\Livewire\TrimAndNullEmptyStrings;
 use App\Models\Card;
 use App\Models\Club;
 use App\Models\Goal;
@@ -12,6 +13,8 @@ use Livewire\Component;
 
 class CreateMatch extends Component
 {
+    use TrimAndNullEmptyStrings;
+
     public $is_open = false;
     public Match $match;
     public $match_types;

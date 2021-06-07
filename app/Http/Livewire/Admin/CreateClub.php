@@ -59,7 +59,7 @@ class CreateClub extends Component
     public function mount()
     {
         $this->club ??= new Club();
-        $this->all_players = Player::orderBy('first_name')->with('PlayerStatus')->get();
+        $this->all_players = Player::orderBy('first_name')->with('clubs')->get();
     }
 
     public function openModal()

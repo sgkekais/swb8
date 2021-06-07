@@ -30,24 +30,6 @@
             <x-slot name="content">
                 <div class="flex mb-6 space-x-2">
                     <div class="">
-                        <x-jet-label class="" for="player_status">
-                            Spieler-Status
-                        </x-jet-label>
-                        <x-select id="player_status" wire:model="player.player_status_id" class="shadow-sm" autocomplete="off">
-                            <option selected="selected" value="">Bitte auswählen</option>
-                            @foreach($player_statuses as $player_status)
-                                <option value="{{ $player_status->id }}">({{ $player_status->id }}) - {{ $player_status->description }}</option>
-                            @endforeach
-                        </x-select>
-                        @if ($player->player_status_id)
-                            @if ($player->playerStatus->can_play)
-                                <span class="text-green-700">Kann spielen.</span>
-                            @else
-                                <span class="text-yellow-700">Kann nicht spielen.</span>
-                            @endif
-                        @endif
-                    </div>
-                    <div class="">
                         <x-jet-label class="" for="user_id">
                             User
                         </x-jet-label>
@@ -137,19 +119,41 @@
                     </div>
                     <div class="flex flex-col space-y-2">
                         @foreach ($player->clubs as $player_club)
-                            <div class="flex items-end space-x-4">
+                            <div class="flex items-center space-x-4">
+                                <x-button class="" wire:click="deleteClubAssignment({{ $player_club->id }})">
+                                    <i class="far fa-trash-alt fa-fw text-red-500" title="Löschen"></i>
+                                </x-button>
                                 <div class="w-36">
-                                    {{ $player_club->name_code }}
+                                    <x-jet-label class="" for="club_name_{{ $player_club->id }}">
+                                        Team
+                                    </x-jet-label>
+                                    <div id="club_name_{{ $player_club->id }}">
+                                        {{ $player_club->name_code }}
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <x-jet-label class="" for="player_status_{{ $player_club->id }}">
+                                        Status
+                                    </x-jet-label>
+                                    <x-select id="player_status_{{ $player_club->id }}" wire:model="club_to_be_synced.{{ $player_club->id }}.player_status_id" class="" autocomplete="off">
+                                        @foreach($player_statuses as $player_status)
+                                            <option value="{{ $player_status->id }}">({{ $player_status->id }}) - {{ $player_status->description }}</option>
+                                        @endforeach
+                                    </x-select>
+                                    @if (\App\Models\PlayerStatus::find($club_to_be_synced[$player_club->id]['player_status_id']))
+                                        @if (\App\Models\PlayerStatus::find($club_to_be_synced[$player_club->id]['player_status_id'])->can_play)
+                                            <span class="text-sm text-green-700">Kann spielen.</span>
+                                        @else
+                                            <span class="text-sm text-yellow-700">Kann nicht spielen.</span>
+                                        @endif
+                                    @endif
                                 </div>
                                 <div class="">
                                     <x-jet-label for="player_number_{{ $player_club->id }}">
                                         Nummer
                                     </x-jet-label>
-                                    <x-input-text type="number" id="player_number_{{ $player_club->id }}" wire:model="club_numbers_to_be_synced.{{ $player_club->id }}.number" />
+                                    <x-input-text type="number" id="player_number_{{ $player_club->id }}" wire:model="club_to_be_synced.{{ $player_club->id }}.number" />
                                 </div>
-                                <x-button class="" wire:click="deleteClubAssignment({{ $player_club->id }})">
-                                    <i class="far fa-trash-alt fa-fw text-red-500" title="Löschen"></i>
-                                </x-button>
                             </div>
                         @endforeach
                     </div>

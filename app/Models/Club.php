@@ -97,7 +97,7 @@ class Club extends Model
      */
     public function seasons()
     {
-        return $this->belongsToMany('App\Models\Season')->withTimestamps();;
+        return $this->belongsToMany('App\Models\Season')->withTimestamps();
     }
 
     /**
@@ -105,7 +105,10 @@ class Club extends Model
      */
     public function players()
     {
-        return $this->belongsToMany('App\Models\Player')->withTimestamps();
+        return $this->belongsToMany('App\Models\Player')
+            ->using('App\Models\ClubPlayer')
+            ->withPivot(['number', 'player_status_id'])
+            ->withTimestamps();
     }
 
     /**

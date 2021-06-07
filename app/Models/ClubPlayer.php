@@ -8,6 +8,12 @@ class ClubPlayer extends Pivot
 {
     //
     protected $fillable = [
-        'number'
+        'number',
+        'player_status_id'
     ];
+
+    public function playerStatus()
+    {
+        return $this->belongsTo('App\Models\PlayerStatus');
+    }
 }

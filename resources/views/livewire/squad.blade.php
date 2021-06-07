@@ -11,7 +11,7 @@
     @endauth
 
     @if ($club->players()->count() > 0)
-        @foreach($club->players->where('playerStatus.display_in_squad')->sortByDesc('playerStatus.can_play')->groupBy('playerStatus.description') as $key => $player_status_group)
+        @foreach($club->players->where('pivot.playerStatus.display_in_squad')->sortByDesc('pivot.playerStatus.can_play')->groupBy('pivot.playerStatus.description') as $key => $player_status_group)
             <x-headline class="text-2xl" id="{{ $key }}">
                 {{ $key }}
             </x-headline>
@@ -64,23 +64,26 @@
                                         &nbsp;
                                     @endif
                                 </div>
-                                <div class="pb-4 flex">
-                                    @if ($player->scorerTitles()->count() > 0)
+                                <div class="p-1 font-sans font-extrabold text-sm uppercase bg-gray-100">
+                                    {{ $club->name_code }} - Stats
+                                </div>
+                                <div class="py-2 flex">
+                                    @if ($player->scorerTitles()->where('is_ah_season', $club->ah)->count() > 0)
                                         <div class="flex w-1/2 -space-x-1 overflow-hidden items-center">
-                                            @foreach ($player->scorerTitles as $scorerTitle)
+                                            @foreach ($player->scorerTitles()->where('is_ah_season', $club->ah)->get() as $scorerTitle)
                                                 <x-cannon class="inline-block w-6 h-auto rounded-full ring-2 ring-white fill-current text-yellow-500 "/>
                                             @endforeach
-                                            <span class="inline-flex pl-2">x{{ $player->scorerTitles()->count() }}</span>
+                                            <span class="inline-flex pl-2">x{{ $player->scorerTitles()->where('is_ah_season', $club->ah)->count() }}</span>
                                         </div>
                                     @endif
-                                    @if ($player->ananasTitles()->count() > 0)
+                                    @if ($player->ananasTitles()->where('is_ah_season', $club->ah)->count() > 0)
                                         <div class="flex w-1/2 -space-x-2 overflow-hidden items-center">
-                                            @foreach ($player->ananasTitles as $ananasTitle)
+                                            @foreach ($player->ananasTitles()->where('is_ah_season', $club->ah)->get() as $ananasTitle)
                                                 <span class="inline-block">
                                                     &#127821;
                                                 </span>
                                             @endforeach
-                                            <span class="inline-block pl-2">x{{ $player->ananasTitles()->count() }}</span>
+                                            <span class="inline-block pl-2">x{{ $player->ananasTitles()->where('is_ah_season', $club->ah)->count() }}</span>
                                         </div>
                                     @else
                                         &nbsp;
@@ -88,13 +91,22 @@
                                 </div>
                                 <div class="pb-4 flex items-center space-x-4 text-gray-900">
                                     <div>
-                                        <i class="far fa-futbol"></i> {{ $player->goals()->count() }}
+                                        <i class="far fa-futbol"></i> {{ $player->goals()
+                                            ->whereHas('match', function($query) use ($club) { return $query->where('team_home', $club->id); })->count() +
+                                            $player->goals()
+                                            ->whereHas('match', function($query) use ($club) { return $query->where('team_away', $club->id); })->count() }}
                                     </div>
                                     <div>
-                                        <i class="fas fa-hands-helping"></i> {{ $player->assists()->count() }}
+                                        <i class="fas fa-hands-helping"></i> {{ $player->assists()
+                                            ->whereHas('goal.match', function($query) use ($club) { return $query->where('team_home', $club->id); })->count() +
+                                            $player->assists()
+                                            ->whereHas('goal.match', function($query) use ($club) { return $query->where('team_away', $club->id); })->count() }}
                                     </div>
                                     <div>
-                                        <i class="far fa-copy"></i> {{ $player->cards()->count() }}
+                                        <i class="far fa-copy"></i> {{ $player->cards()
+                                            ->whereHas('match', function($query) use ($club) { return $query->where('team_home', $club->id); })->count() +
+                                            $player->goals()
+                                            ->whereHas('match', function($query) use ($club) { return $query->where('team_away', $club->id); })->count() }}
                                     </div>
                                 </div>
                             </div>

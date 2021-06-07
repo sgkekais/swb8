@@ -60,7 +60,8 @@ class PlayerStatus extends Model
     protected static $logFillable = true;
     protected static $logOnlyDirty = true;
 
-    public function players() {
-        return $this->hasMany('App\Models\Player');
-    }
+    // TODO
+//    public function players() {
+//        return $this->hasMany('App\Models\Player');
+//    }
 }

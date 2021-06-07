@@ -93,7 +93,15 @@
                                     {{ $player->first_name.", ".$player->last_name }}
                                 </x-input-checkbox-label>
                                 <div class="">
-                                    {{ $player->playerStatus->description }}
+                                    @if ($player->clubs->where('id', $club->id)->first())
+                                        @if ($player->clubs->where('id', $club->id)->first()->pivot->playerStatus)
+                                            {{ $player->clubs->where('id',$club->id)->first()->pivot->playerStatus->description }}
+                                        @else
+                                            <span class="italic tracking-tighter text-gray-700">nicht zugewiesen</span>
+                                        @endif
+                                    @else
+                                        -
+                                    @endif
                                 </div>
                             </div>
                         @endforeach

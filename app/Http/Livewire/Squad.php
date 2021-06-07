@@ -13,7 +13,7 @@ class Squad extends Component
     public function mount(Club $club)
     {
         $this->club = $club;
-        $this->club->load('players.playerStatus', 'players.clubs');
+        $this->club->load('players.clubs');
     }
 
     public function render()

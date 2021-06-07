@@ -25,7 +25,7 @@ class Player extends Model
      * @var array
      */
     protected $fillable = [
-        'player_status_id',
+//        'player_status_id',
         'user_id',
         'first_name',
         'last_name',
@@ -129,17 +129,20 @@ class Player extends Model
      */
     public function clubs()
     {
-        return $this->belongsToMany('App\Models\Club')->withPivot('number')->withTimestamps();
+        return $this->belongsToMany('App\Models\Club')
+            ->using('App\Models\ClubPlayer')
+            ->withPivot(['number', 'player_status_id'])
+            ->withTimestamps();
     }
 
-    /**
-     * A player has a 'status' (e.g. active, passive, injured, ...)
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function playerStatus()
-    {
-        return $this->belongsTo('App\Models\PlayerStatus');
-    }
+//    /**
+//     * A player has a 'status' (e.g. active, passive, injured, ...)
+//     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+//     */
+//    public function playerStatus()
+//    {
+//        return $this->belongsTo('App\Models\PlayerStatus');
+//    }
 
     /**
      * A player has one or many goals
