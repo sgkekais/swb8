@@ -78,9 +78,9 @@
                                 <div class="">
                                     {{ $date->title }}
                                 </div>
-                                <div class="text-sm text-gray-500">
-                                    {{ \Illuminate\Support\Str::of($date->description)->limit(50) }}
-                                </div>
+{{--                                <div class="text-sm text-gray-500">--}}
+{{--                                    {{ \Illuminate\Support\Str::of($date->description)->limit(50) }}--}}
+{{--                                </div>--}}
                                 @break
                             {{-- matches --}}
                             @case (2)
@@ -115,9 +115,9 @@
                                     <div class="p-1 text-sm tracking-tighter font-bold bg-gray-100">
                                         {{ $date->datetime->format('H:i') }}
                                     </div>
-                                    <div class="p-1 text-sm text-gray-500">
-                                        {{ $date->tournament->description }}
-                                    </div>
+{{--                                    <div class="p-1 text-sm text-gray-500">--}}
+{{--                                        {{ $date->tournament->description }}--}}
+{{--                                    </div>--}}
                                 </div>
                                 @break
                             {{-- date or party --}}
@@ -132,9 +132,9 @@
                                     <div class="p-1 text-sm tracking-tighter font-bold bg-gray-100">
                                         {{ $date->datetime->format('H:i') }}
                                     </div>
-                                    <div class="p-1 text-sm text-gray-500">
-                                        {{ $date->description }}
-                                    </div>
+{{--                                    <div class="p-1 text-sm text-gray-500">--}}
+{{--                                        {{ $date->description }}--}}
+{{--                                    </div>--}}
                                 </div>
                                 @break
                         @endswitch
