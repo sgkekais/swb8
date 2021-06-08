@@ -205,7 +205,7 @@
                                             <span class="{{ $score_color }}">{{ $match->goals_home }}:{{ $match->goals_away }}</span>
                                         @endif
                                     </div>
-                                    @if ($match->goals_home_ht && $match->goals_away_ht)
+                                    @if (!is_null($match->goals_home_ht) && !is_null($match->goals_away_ht))
                                         <div class="text-center text-sm ">
                                             ({{ $match->goals_home_ht }}:{{ $match->goals_away_ht }})
                                         </div>
