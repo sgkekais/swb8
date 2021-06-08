@@ -16,6 +16,7 @@ class CreateSeason extends Component
     public $owned_clubs = [];
 
     protected $rules = [
+        'season.is_ah_season' => 'nullable',
         'season.number' => 'nullable|integer',
         'season.year' => 'nullable',
         'season.title' => 'nullable',

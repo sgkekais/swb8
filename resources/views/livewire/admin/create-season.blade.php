@@ -51,6 +51,12 @@
                         <x-jet-input-error for="season.title" />
                     </div>
                 </div>
+                <div class="mb-6 flex items-center space-x-2">
+                    <x-input-checkbox wire:model="season.is_ah_season" id="is_ah_season" />
+                    <x-input-checkbox-label for="is_ah_season">
+                        AH-Saison?
+                    </x-input-checkbox-label>
+                </div>
                 <!-- season description -->
                 <div class="mb-6">
                     <x-jet-label for="season.description" class="flex justify-between">
