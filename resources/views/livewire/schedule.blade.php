@@ -71,15 +71,17 @@
 
         <x-load-indicator />
 
-        @if ($matches->first()->season->description)
-            <div class="flex items-center p-4 mb-4 border border-gray-700 space-x-4" wire:loading.remove>
-                <div class="">
-                    <i class="far fa-lightbulb"></i>
+        @if ($matches->count() > 0)
+            @if ($matches->first()->season->description)
+                <div class="flex items-center p-4 mb-4 border border-gray-700 space-x-4" wire:loading.remove>
+                    <div class="">
+                        <i class="far fa-lightbulb"></i>
+                    </div>
+                    <div class="">
+                        {{ $matches->first()->season->description }}
+                    </div>
                 </div>
-                <div class="">
-                    {{ $matches->first()->season->description }}
-                </div>
-            </div>
+            @endif
         @endif
         <div class="flex items-center p-4 mb-4 border border-yellow-500 space-x-4" wire:loading.remove>
             <div class="">
