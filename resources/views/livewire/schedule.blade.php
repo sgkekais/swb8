@@ -270,7 +270,13 @@
                                 @if ($match->goals->count() > 0)
                                     @foreach ($match->goals as $goal)
                                         <div class="flex space-x-2 items-center">
-                                            <i class="far fa-futbol"></i>
+                                            <div class="w-6">
+                                                @unless ($goal->penalty)
+                                                    <i class="far fa-futbol"></i>
+                                                @else
+                                                    <span class="text-sm font-bold tracking-tighter">11m</span>
+                                                @endunless
+                                            </div>
                                             <div class="">
                                                 {{ $goal->minute ? $goal->minute."'" : null }} {{ $goal->score }} {{ $goal->player->name_short }}
                                             </div>
