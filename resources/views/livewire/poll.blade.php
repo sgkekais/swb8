@@ -45,6 +45,7 @@
 
             <!-- poll details -->
             <div class="flex items-center space-x-2">
+                <i class="far fa-question-circle fa-fw text-blue-500"></i>
                 @switch ($date->dateType->id)
                     @case (1)
                         <div class="trix-content text-gray-700">
@@ -72,7 +73,7 @@
             </div>
             @if ($date->datetime && $date->dateType->id != 1)
                 <div>
-                    <i class="far fa-clock fa-fw"></i>
+                    <i class="far fa-clock fa-fw text-gray-700"></i>
                     <span class="font-bold">{{ $date->datetime->isoFormat('DD.MM.YY HH:mm') }}</span>
                 </div>
             @endif
@@ -83,7 +84,7 @@
                 </div>
             @endif
             <div class="flex flex-wrap space-x-2 ">
-                <div class="">Anzahl Spieler: </div>
+                <div class=""><i class="fas fa-users fa-fw text-primary-700"></i> Anzahl Spieler: </div>
                 @foreach ($date_players->sortByDesc('pivot.playerStatus.can_play')->groupBy('pivot.playerStatus.description') as $key => $player_status_group)
                     <div>
                         <a href="#{{ $key }}" class="inline-link"><span class="font-bold">{{ $key }}</span></a> {{ $player_status_group->count() }}
@@ -91,7 +92,7 @@
                 @endforeach
             </div>
             <div>
-                -> <span class="text-primary-700 font-bold">{{ $date_players->where('pivot.playerStatus.can_play', 1)->count() }}</span> können spielen
+                <i class="fas fa-wheelchair fa-fw text-blue-700"></i> -> <span class="text-primary-700 font-bold">{{ $date_players->where('pivot.playerStatus.can_play', 1)->count() }}</span> können spielen
             </div>
         </div>
         <div class="p-2 flex items-center space-x-2 bg-gray-100">
