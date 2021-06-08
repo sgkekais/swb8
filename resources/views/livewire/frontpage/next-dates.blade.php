@@ -39,8 +39,8 @@
                                     <div class="text-lg font-bold">
                                         {{ $next_date->datetime->isoFormat('dddd') }}
                                     </div>
-                                    <div class="">
-                                        {{ $next_date->datetime->isoFormat('DD.MM.') }} <strong>{{ $next_date->datetime->isoFormat('H:mm') }}</strong>
+                                    <div class="font-bold">
+                                        {{ $next_date->datetime->isoFormat('DD.MM.') }} {{ $next_date->datetime->isoFormat('H:mm') }}
                                     </div>
                                     <div class="text-sm">
                                         {{ $next_date->datetime->diffForHumans() }}
@@ -82,8 +82,8 @@
                                 <div class="text-lg font-bold">
                                     {{ $next_date->datetime->isoFormat('dddd') }}
                                 </div>
-                                <div class="">
-                                    {{ $next_date->datetime->isoFormat('DD.MM.') }} <strong>{{ $next_date->datetime->isoFormat('H:mm') }}</strong>
+                                <div class="font-bold">
+                                    {{ $next_date->datetime->isoFormat('DD.MM.') }} {{ $next_date->datetime->isoFormat('H:mm') }}
                                 </div>
                                 <div class="text-sm">
                                     {{ $next_date->datetime->diffForHumans() }}
@@ -91,7 +91,7 @@
                             </div>
                             <div class="flex-1 flex-col">
                                 @foreach ($next_date->dateOptions as $dateOption)
-                                    <div class="flex items-center space-x-2">
+                                    <div class="flex items-center space-x-2 text-sm">
                                         <i class="fas fa-vote-yea text-gray-700"></i>
                                         <span>{{ $dateOption->description }}</span>
                                     </div>
