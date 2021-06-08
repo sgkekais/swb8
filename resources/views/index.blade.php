@@ -15,14 +15,16 @@
                     Hobbyfußball seit {{ \Carbon\Carbon::make('25.11.1979')->diffForHumans(['syntax' => \Carbon\CarbonInterface::DIFF_ABSOLUTE, 'parts' => 4, 'join' => ['n, ', ' und ']]) }}
                 </div>
             </div>
-            <x-main-box class="">
+            <x-main-box class="mt-4">
                 <x-slot name="header">
                     <x-headline class="mt-4 text-2xl text-white">
                         Demnächst
                     </x-headline>
                 </x-slot>
-
-                <livewire:frontpage.next-games />
+                <div class="mb-4">
+                    <livewire:frontpage.next-dates />
+                </div>
+{{--                <livewire:frontpage.next-games />--}}
             </x-main-box>
 
         </x-section>
