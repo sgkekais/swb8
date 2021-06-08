@@ -54,7 +54,7 @@
                         <i class="far fa-copy"></i>
                     </span>
                 </div>
-                @if ($matches)
+                @if ($matches->count() > 0)
                     @if ($matches->first()->season->final_position)
                         <div class="flex flex-1 flex-col items-center">
                             <span class="text-yellow-500">
