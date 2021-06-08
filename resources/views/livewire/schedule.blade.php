@@ -12,7 +12,6 @@
                     @endforeach
                 </x-select>
             </div>
-    @if ($matches->count() > 0)
             <!-- season stats -->
             <div class="flex flex-1 justify-around font-bold items-center text-3xl divide-x divide-gray-200 tracking-tighter" wire:loading.remove>
                 <div class="flex flex-1 flex-col items-center">
@@ -55,30 +54,34 @@
                         <i class="far fa-copy"></i>
                     </span>
                 </div>
-                @if ($matches->first()->season->final_position)
-                    <div class="flex flex-1 flex-col items-center">
-                        <span class="text-yellow-500">
-                            {{ $matches->first()->season->final_position }}.
-                        </span>
-                        <span class="font-normal text-xl text-gray-500">
-                            Pl.
-                        </span>
-                    </div>
+                @if ($matches->count() > 0)
+                    @if ($matches->first()->season->final_position)
+                        <div class="flex flex-1 flex-col items-center">
+                            <span class="text-yellow-500">
+                                {{ $matches->first()->season->final_position }}.
+                            </span>
+                            <span class="font-normal text-xl text-gray-500">
+                                Pl.
+                            </span>
+                        </div>
+                    @endif
                 @endif
             </div>
         </div>
 
         <x-load-indicator />
 
-        @if ($matches->first()->season->description)
-            <div class="flex items-center p-4 mb-4 border border-gray-700 space-x-4" wire:loading.remove>
-                <div class="">
-                    <i class="far fa-lightbulb"></i>
+        @if ($matches->count() > 0)
+            @if ($matches->first()->season->description)
+                <div class="flex items-center p-4 mb-4 border border-gray-700 space-x-4" wire:loading.remove>
+                    <div class="">
+                        <i class="far fa-lightbulb"></i>
+                    </div>
+                    <div class="">
+                        {{ $matches->first()->season->description }}
+                    </div>
                 </div>
-                <div class="">
-                    {{ $matches->first()->season->description }}
-                </div>
-            </div>
+            @endif
         @endif
         <div class="flex items-center p-4 mb-4 border border-yellow-500 space-x-4" wire:loading.remove>
             <div class="">
@@ -341,9 +344,6 @@
                 </div>
             @endforeach
         </div>
-    @else
-        Hier gibt's (noch) nix zu sehen ¯\_(ツ)_/¯
-    @endif
     </div>
 </x-section>
 
