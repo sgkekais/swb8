@@ -96,7 +96,7 @@
             </div>
         </div>
         <div class="p-2 flex items-center space-x-2 bg-gray-100">
-            <i class="fas fa-user-clock fa-fw"></i>
+            <i class="fas fa-hourglass-half fa-fw text-yellow-500"></i>
             <div>
                 Umfrage geöffnet vom <span class="font-bold">{{ $date->poll_begins->isoFormat('dd D.M.YY') }}</span> bis <span class="font-bold">{{ $date->poll_ends->isoFormat('dd D.M.YY') }}</span>
             </div>
