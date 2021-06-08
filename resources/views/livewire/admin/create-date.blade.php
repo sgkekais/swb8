@@ -8,10 +8,6 @@
         </x-slot>
         <x-slot name="content">
             <p>Möchten Sie diesen Termin wirklich löschen?</p>
-            Löscht auch:
-            <ul>
-
-            </ul>
         </x-slot>
         <x-slot name="footer">
             <x-button wire:click="closeDeleteModal()">
@@ -223,7 +219,7 @@
                                 Option {{ $loop->iteration }}:
                             </label>
                             <x-jet-input id="date_option_description{{ $key }}" type="text" class="flex-1" wire:model="date_options.{{ $key }}.description"/>
-                            @if($date->date_type_id === 1 || $date->date_type_id === 4)
+                            @if($date->date_type_id == 1 || $date->date_type_id == 4)
                                 <div class="">
                                     <x-delete-button wire:click="removeDateOption({{ $key }})" class="" >
                                         Entfernen

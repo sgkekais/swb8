@@ -12,6 +12,7 @@ use App\Models\Match;
 use App\Models\MatchType;
 use App\Models\Season;
 use App\Models\Tournament;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 
@@ -128,7 +129,16 @@ class CreateDate extends Component
 
     public  function removeDateOption($key)
     {
+        // delete table record if model exists
+        if ($this->date_options->get($key)->id)
+        {
+            $d = DateOption::find($this->date_options->get($key)->id);
+            $d->delete();
+            $this->emit('refreshLivewireDatatable');
+        }
+
         $this->date_options->pull($key);
+
     }
 
     public function store()
@@ -145,16 +155,28 @@ class CreateDate extends Component
                 $this->date->datetime = $this->date->poll_begins;
             }
             $this->date->save();
-            // only create new dateoptions if the date doesn't have any yet
-            if (!$this->date->dateOptions()->count() > 0) {
-                foreach ($this->date_options as $key => $value) {
-                    $new_date_option = new DateOption(['description' => $value['description']]);
-                    $this->date->dateOptions()->save($new_date_option);
-                }
-            } else {
-                // we have to  a) check if options were removed and delete these, and b) save any new options
 
+            foreach ($this->date_options as $date_option_to_insert_or_update)
+            {
+                if ($date_option_to_insert_or_update->id)
+                {
+                    // update
+                    $do = DateOption::find($date_option_to_insert_or_update->id);
+                    $do->description = $date_option_to_insert_or_update->description;
+                    $do->save();
+                } else {
+                    // create
+                    $this->date->dateOptions()->save($date_option_to_insert_or_update);
+                }
             }
+
+//            // only create new dateoptions if the date doesn't have any yet
+//            if (!$this->date->dateOptions()->count() > 0) {
+//                foreach ($this->date_options as $key => $value) {
+//                    $new_date_option = new DateOption(['description' => $value['description']]);
+//                    $this->date->dateOptions()->save($new_date_option);
+//                }
+//            }
             // sync the clubs
             $this->date->clubs()->sync($this->assigned_clubs);
 
