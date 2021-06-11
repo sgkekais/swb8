@@ -1,2 +1,6 @@
 *.sqlite
 *.sqlite-journal
+/swb8.sql
+/swb8_dev-backup-vor-hlw-ah-loeschung.sql
+/swbilk79_de_old.sql
+/users.php

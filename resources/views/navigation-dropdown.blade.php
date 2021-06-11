@@ -1,64 +1,62 @@
 <nav x-data="{ open: false }" class="">
     <!-- Primary Navigation Menu -->
     <div class="flex justify-between h-12">
-        <div class="flex">
-            <!-- Logo -->
-            <a href="{{ route('home') }}" title="zur Startseite">
-                <x-jet-application-mark class="h-20 lg:h-24 w-auto fill-current text-white hover:text-black "/>
-            </a>
-            <!-- Navigation Links -->
-            <div class="hidden md:space-x-2 lg:space-x-4 md:ml-4 md:flex md:items-stretch">
-                <x-jet-nav-link href="{{ route('calendar').'#'.(\Carbon\Carbon::now()->translatedFormat('F')) }}" :active="request()->routeIs('calendar')" class="">
-                    Kalender
-                </x-jet-nav-link>
-                @foreach(\App\Models\Club::owner(true)->orderByDesc('name_code')->get() as $nav_club)
-                    <x-jet-dropdown align="left">
-                        <x-slot name="trigger">
-                            <x-jet-nav-link class="cursor-pointer" :active="request()->segment(2) == $nav_club->id">
-                                {{ __($nav_club->name_code) }} <i class="inline-block ml-1 fas fa-sort-down"></i>
-                            </x-jet-nav-link>
-                        </x-slot>
-                        <x-slot name="content">
-                            <x-jet-dropdown-link href="{{ route('club.schedule', $nav_club) }}" :active="request()->segment(2) == $nav_club->id && request()->segment(3) === 'spielplan'">
-                                <i class="far fa-fw fa-calendar-alt"></i> Spielplan
-                            </x-jet-dropdown-link>
-                            <x-jet-dropdown-link href="{{ route('club.scorers', $nav_club) }}" :active="request()->segment(2) == $nav_club->id && request()->segment(3) === 'scorer'">
-                                <i class="far fa-fw fa-futbol"></i> Tore & Assists
-                            </x-jet-dropdown-link>
-                            <x-jet-dropdown-link href="{{ route('club.sinners', $nav_club) }}" :active="request()->segment(2) == $nav_club->id && request()->segment(3) === 'suender'">
-                                <i class="far fa-fw fa-copy"></i> Karten
-                            </x-jet-dropdown-link>
-                            <x-jet-dropdown-link href="{{ route('club.squad', $nav_club) }}" :active="request()->segment(2) == $nav_club->id && request()->segment(3) === 'kader'">
-                                <i class="fas fa-fw fa-users"></i> Kader
-                            </x-jet-dropdown-link>
-                        </x-slot>
-                    </x-jet-dropdown>
-                @endforeach
+        <!-- Navigation Links -->
+        <div class="hidden md:space-x-2 lg:space-x-4 md:flex md:flex-1 md:items-stretch">
+            <x-jet-nav-link href="{{ route('calendar').'#'.(\Carbon\Carbon::now()->translatedFormat('F')) }}" :active="request()->routeIs('calendar')" class="">
+                Kalender
+            </x-jet-nav-link>
+            @foreach(\App\Models\Club::owner(true)->orderByDesc('name_code')->get() as $nav_club)
                 <x-jet-dropdown align="left">
                     <x-slot name="trigger">
-                        <x-jet-nav-link class="cursor-pointer">
-                            Verein <i class="inline-block ml-1 fas fa-sort-down"></i>
+                        <x-jet-nav-link class="cursor-pointer" :active="request()->segment(2) == $nav_club->id">
+                            {{ __($nav_club->name_code) }} <i class="inline-block ml-1 fas fa-sort-down"></i>
                         </x-jet-nav-link>
                     </x-slot>
                     <x-slot name="content">
-                        <x-jet-dropdown-link href="{{ route('about') }}" :active="request()->routeIs('about')" class="">
-                            <i class="fas fa-fw fa-info-circle"></i> Über uns
+                        <x-jet-dropdown-link href="{{ route('club.schedule', $nav_club) }}" :active="request()->segment(2) == $nav_club->id && request()->segment(3) === 'spielplan'">
+                            <i class="far fa-fw fa-calendar-alt"></i> Spielplan
                         </x-jet-dropdown-link>
-                        <x-jet-dropdown-link href="{{ route('historic-scorers') }}" :active="request()->routeIs('historic-scorers')" class="">
-                            <i class="fas fa-fw fa-book"></i> Ewige Scorer
+                        <x-jet-dropdown-link href="{{ route('club.scorers', $nav_club) }}" :active="request()->segment(2) == $nav_club->id && request()->segment(3) === 'scorer'">
+                            <i class="far fa-fw fa-futbol"></i> Tore & Assists
                         </x-jet-dropdown-link>
-                        <x-jet-dropdown-link href="{{ route('historic-ananas-farmers') }}" :active="request()->routeIs('historic-ananas-farmers')" class="">
-                            <i class="fas fa-fw fa-book"></i> Ewige Ananas
+                        <x-jet-dropdown-link href="{{ route('club.sinners', $nav_club) }}" :active="request()->segment(2) == $nav_club->id && request()->segment(3) === 'suender'">
+                            <i class="far fa-fw fa-copy"></i> Karten
                         </x-jet-dropdown-link>
-                        <x-jet-dropdown-link href="{{ route('hall-of-fame') }}" :active="request()->routeIs('hall-of-fame')" class="">
-                            <i class="fas fa-fw fa-crown"></i> Ruhmeshalle
+                        <x-jet-dropdown-link href="{{ route('club.squad', $nav_club) }}" :active="request()->segment(2) == $nav_club->id && request()->segment(3) === 'kader'">
+                            <i class="fas fa-fw fa-users"></i> Kader
                         </x-jet-dropdown-link>
                     </x-slot>
                 </x-jet-dropdown>
-            </div>
+            @endforeach
+            <x-jet-dropdown align="left">
+                <x-slot name="trigger">
+                    <x-jet-nav-link class="cursor-pointer">
+                        Verein <i class="inline-block ml-1 fas fa-sort-down"></i>
+                    </x-jet-nav-link>
+                </x-slot>
+                <x-slot name="content">
+                    <x-jet-dropdown-link href="{{ route('about') }}" :active="request()->routeIs('about')" class="">
+                        <i class="fas fa-fw fa-info-circle"></i> Über uns
+                    </x-jet-dropdown-link>
+                    <x-jet-dropdown-link href="{{ route('historic-scorers') }}" :active="request()->routeIs('historic-scorers')" class="">
+                        <i class="fas fa-fw fa-book"></i> Ewige Scorer
+                    </x-jet-dropdown-link>
+                    <x-jet-dropdown-link href="{{ route('historic-ananas-farmers') }}" :active="request()->routeIs('historic-ananas-farmers')" class="">
+                        <i class="fas fa-fw fa-book"></i> Ewige Ananas
+                    </x-jet-dropdown-link>
+                    <x-jet-dropdown-link href="{{ route('hall-of-fame') }}" :active="request()->routeIs('hall-of-fame')" class="">
+                        <i class="fas fa-fw fa-crown"></i> Ruhmeshalle
+                    </x-jet-dropdown-link>
+                </x-slot>
+            </x-jet-dropdown>
         </div>
-
-        <div class="hidden md:flex md:items-center md:items-stretch md:ml-6 md:space-x-2 lg:space-x-4">
+        <!-- Logo -->
+        <a class="flex flex-1 justify-start md:justify-center" href="{{ route('home') }}" title="zur Startseite">
+            <x-jet-application-mark class="h-20 md:h-28 w-auto fill-current text-white hover:text-black "/>
+        </a>
+        <!-- Profile-related Links -->
+        <div class="hidden md:flex md:flex-1 md:justify-end md:items-center md:items-stretch md:ml-6 md:space-x-2 lg:space-x-4">
             @auth
                 <!-- Settings Dropdown -->
                 <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
@@ -188,8 +186,7 @@
                 </div>
             @endguest
         </div>
-
-        <!-- hamberder -->
+        <!-- Hamberder -->
         <div class="flex items-center md:hidden">
             <x-button @click="open = ! open">
                 <svg class="h-4 w-4" stroke="currentColor" fill="none" viewBox="0 0 24 24">
