@@ -139,8 +139,8 @@
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                 <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out relative">
                                     <img class="relative h-12 w-12 rounded-full object-cover ring ring-white hover:opacity-90" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" title="Profil-Einstellungen"/>
-                                    <div class="absolute bottom-0 right-0">
-                                        <i class="fas fa-cog fa-lg text-black"></i>
+                                    <div class="absolute -bottom-2 right-0">
+                                        <i class="fas fa-cog fa-lg text-gray-900"></i>
                                     </div>
                                 </button>
                             @else
