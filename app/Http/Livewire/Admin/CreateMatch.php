@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Http\Livewire\TrimAndNullEmptyStrings;
+use App\Models\Assist;
 use App\Models\Card;
 use App\Models\Club;
 use App\Models\Goal;
@@ -109,6 +110,13 @@ class CreateMatch extends Component
         $goal->penalty = $this->goal_to_be_added[0]['penalty'];
 
         $this->match->goals()->save($goal);
+        if ($this->goal_to_be_added[0]['assist'])
+        {
+            $assist = new Assist();
+            $assist->player_id = $this->goal_to_be_added[0]['assist'];
+            $goal->assist()->save($assist);
+        }
+
         $this->match->refresh();
     }
 

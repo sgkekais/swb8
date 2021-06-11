@@ -226,6 +226,17 @@
                                 </x-jet-label>
                                 <x-input-text id="score" type="text" wire:model="goal_to_be_added.0.score" />
                             </div>
+                            <div>
+                                <x-jet-label for="assist">
+                                    Vorlage
+                                </x-jet-label>
+                                <x-select id="assist" wire:model="goal_to_be_added.0.assist" autocomplete="off" >
+                                    <option selected="selected" value="">Bitte auswählen</option>
+                                    @foreach($players_of_club as $player)
+                                        <option value="{{ $player->id }}">{{ $player->full_name_short }}</option>
+                                    @endforeach
+                                </x-select>
+                            </div>
                             <div class="flex items-center space-x-2">
                                 <x-input-checkbox wire:model="goal_to_be_added.0.penalty" id="penalty" />
                                 <x-input-checkbox-label for="penalty">
@@ -255,6 +266,11 @@
                                 </div>
                                 <div class="">
                                     {{ $goal->player->full_name_short }}
+                                </div>
+                                <div>
+                                    @if ($goal->assist)
+                                        | Vorlage: <span class="text-gray-700">{{ $goal->assist->id }}</span> {{ $goal->assist->player->full_name_short }}
+                                    @endif
                                 </div>
                             </div>
                         @endforeach
