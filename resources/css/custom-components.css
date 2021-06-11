@@ -43,7 +43,7 @@
 }
 .logo-heartbeat {
     animation-name: animateHeart;
-    animation-duration: 4s;
+    animation-duration: 3s;
     animation-delay: 4s;
     animation-iteration-count: infinite;
 }
