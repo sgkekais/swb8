@@ -29,7 +29,7 @@
                                 @if (auth()->user()->dateOptions()->where('date_id', $date->id)->count() > 0)
                                     <i class="far fa-calendar-check text-primary-600" title="Du hast dich rückgemeldet."></i>
                                 @else
-                                    <i class="far fa-calendar-plus text-yellow-500" title="Du hast dich noch nicht rückgemeldet."></i>
+                                    <i class="far fa-calendar-plus text-yellow-500 animate-pulse" title="Du hast dich noch nicht rückgemeldet."></i>
                                 @endif
                                 <span class="hidden sm:inline-block pl-1">{{ $slot }}</span>
                             </x-button>
