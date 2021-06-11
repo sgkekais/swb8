@@ -53,7 +53,7 @@
         </div>
         <!-- Logo -->
         <a class="flex flex-1 justify-start md:justify-center" href="{{ route('home') }}" title="zur Startseite">
-            <x-jet-application-mark class="h-20 md:h-28 w-auto fill-current text-white hover:text-black "/>
+            <x-jet-application-mark class="h-20 md:h-28 w-auto fill-current text-white hover:text-black logo-heartbeat  "/>
         </a>
         <!-- Profile-related Links -->
         <div class="hidden md:flex md:flex-1 md:justify-end md:items-center md:items-stretch md:ml-6 md:space-x-2 lg:space-x-4">
