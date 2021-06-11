@@ -180,7 +180,7 @@
                                     @if ($player->user)
                                         <img class="inline-flex h-10 w-10 rounded-full object-cover" src="{{ $player->user->profile_photo_url }}" alt="{{ $player->first_name }}" />
                                     @else
-                                        <img class="inline-flex h-10 w-10 rounded-full object-cover" src="https://ui-avatars.com/api/?name={{ $player->first_name }}+{{ $player->last_name }}&color=333&background=ddd" />
+                                        <img class="inline-flex h-10 w-10 rounded-full object-cover" src="https://eu.ui-avatars.com/api/?name={{ $player->first_name }}+{{ $player->last_name }}&color=333333&background=dddddd" />
                                     @endif
                                     {{ $player->name_short }}
                                 </div>
