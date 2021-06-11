@@ -127,8 +127,8 @@
                             <x-jet-dropdown-link href="{{ route('admin.log') }}" :active="request()->routeIs('admin.log')">
                                 <i class="fas fa-fw fa-history"></i> Logbuch
                             </x-jet-dropdown-link>
-                            <x-jet-dropdown-link href="#">
-                                <i class="fas fa-fw fa-user"></i> Users
+                            <x-jet-dropdown-link href="{{ route('admin.users') }}" :active="request()->routeIs('admin.users')">
+                                <i class="fas fa-fw fa-user"></i> User
                             </x-jet-dropdown-link>
                         </x-slot>
                     </x-jet-dropdown>

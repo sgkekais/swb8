@@ -71,6 +71,8 @@ Route::middleware(['auth:sanctum', 'verified', 'is_banned'])->group(function () 
     Route::prefix('admin')->name('admin.')->middleware('is_admin')->group(function () {
         // Log
         Route::view('log', 'admin.log')->name('log');
+        // Users
+        Route::view('users', 'admin.users')->name('users');
 
         // Date Types
         Route::view('date-types', 'admin.date_types.index')->name('date-types');
