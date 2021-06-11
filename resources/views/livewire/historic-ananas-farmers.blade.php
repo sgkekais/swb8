@@ -6,7 +6,7 @@
                 <span class="text-gray-700">
                     {{ $sinners->count() }}
                 </span>
-                <span class="font-normal text-base lg:text-xl text-gray-500">
+                <span class="font-normal text-sm sm:text-base lg:text-xl text-gray-500">
                     Farmer
                 </span>
             </div>
@@ -14,7 +14,7 @@
                 <span class="text-gray-700">
                     {{ $sinners->sum('cards_count') }}
                 </span>
-                <span class="font-normal text-base lg:text-xl text-gray-500">
+                <span class="font-normal text-sm sm:text-base lg:text-xl text-gray-500">
                     Karten
                 </span>
             </div>
@@ -22,7 +22,7 @@
                 <span class="text-gray-700">
                     {{ $sinners->sum('total_time_penalties') }}
                 </span>
-                <span class="font-normal text-base lg:text-xl text-gray-500">
+                <span class="font-normal text-sm sm:text-base lg:text-xl text-gray-500">
                     10 Min.
                 </span>
             </div>
@@ -30,7 +30,7 @@
                 <span class="text-gray-700">
                      {{ $sinners->sum('total_yellow_cards') }}
                 </span>
-                <span class="font-normal text-base lg:text-xl text-gray-500">
+                <span class="font-normal text-sm sm:text-base lg:text-xl text-gray-500">
                     Gelbe
                 </span>
             </div>
@@ -38,7 +38,7 @@
                 <span class="text-gray-700">
                     {{ $sinners->sum('total_yellow_red_cards') }}
                 </span>
-                <span class="font-normal text-base lg:text-xl text-gray-500">
+                <span class="font-normal text-sm sm:text-base lg:text-xl text-gray-500">
                     Gelb-Rote
                 </span>
             </div>
@@ -46,7 +46,7 @@
                 <span class="text-gray-700">
                     {{ $sinners->sum('total_red_cards') }}
                 </span>
-                <span class="font-normal text-base lg:text-xl text-gray-500">
+                <span class="font-normal text-sm sm:text-base lg:text-xl text-gray-500">
                     Rote
                 </span>
             </div>
@@ -151,11 +151,11 @@
                             </div>
                         </x-table.cell>
                         <x-table.cell class="py-2 pl-4 md:pl-0 flex-col ">
-                            <div class="flex space-x-2">
+                            <div class="flex flex-col space-y-1 sm:space-y-0 sm:flex-row sm:space-x-2">
                                 <div>
                                     {{ $sinner->name_short }}
                                 </div>
-                                <div class="flex -space-x-1 overflow-hidden flex-wrap items-center">
+                                <div class="flex -space-x-1 overflow-hidden flex-wrap items-center text-sm sm:text-base">
                                     @foreach ($sinner->ananasTitles as $ananasTitle)
                                         <span class="inline-block">&#127821;</span>
                                     @endforeach
@@ -172,12 +172,12 @@
                                 <div class="text-xs pl-2">{{ round( $sinner->sinner_points / $sinners->sum('sinner_points'), 4 ) * 100 }}%</div>
                             </div>
                         </x-table.cell>
-                        <x-table.cell class="text-lg text-center">{{ $sinner->total_time_penalties }}</x-table.cell>
-                        <x-table.cell class="text-lg text-center">{{ $sinner->total_yellow_cards }}</x-table.cell>
-                        <x-table.cell class="text-lg text-center">{{ $sinner->total_yellow_red_cards }}</x-table.cell>
-                        <x-table.cell class="text-lg text-center">{{ $sinner->total_red_cards }}</x-table.cell>
-                        <x-table.cell class="text-lg text-center">{{ $sinner->cards_count }}</x-table.cell>
-                        <x-table.cell class="text-lg text-center font-bold text-primary-700">{{ $sinner->sinner_points }}</x-table.cell>
+                        <x-table.cell class="text-sm sm:text-base md:text-lg text-center">{{ $sinner->total_time_penalties }}</x-table.cell>
+                        <x-table.cell class="text-sm sm:text-base md:text-lg text-center">{{ $sinner->total_yellow_cards }}</x-table.cell>
+                        <x-table.cell class="text-sm sm:text-base md:text-lg text-center">{{ $sinner->total_yellow_red_cards }}</x-table.cell>
+                        <x-table.cell class="text-sm sm:text-base md:text-lg text-center">{{ $sinner->total_red_cards }}</x-table.cell>
+                        <x-table.cell class="text-sm sm:text-base md:text-lg text-center">{{ $sinner->cards_count }}</x-table.cell>
+                        <x-table.cell class="text-sm sm:text-base md:text-lg text-center font-bold text-primary-700">{{ $sinner->sinner_points }}</x-table.cell>
                     </x-table.row>
                 @php
                     ${"prev_$sortField"} = $sinner->$sortField;
