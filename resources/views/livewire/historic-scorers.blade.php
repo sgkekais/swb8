@@ -57,7 +57,7 @@
 
         <x-table.table wire:loading.remove class="w-full">
             <x-slot name="header">
-                <x-table.row>
+                <x-table.row class="">
                     <x-table.heading class="w-1/12 text-center">#</x-table.heading>
                     <x-table.heading class=""></x-table.heading>
                     <x-table.heading class="w-1/12 text-center" wire:click="sortBy('assists_count')" selectable direction="{{ $sortField == 'assists_count' ? $sortDirection : null }}">
