@@ -12,7 +12,7 @@
                     Schwarz-Weiß Bilk '79
                 </div>
                 <div>
-                    Hobbyfußball seit {{ \Carbon\Carbon::make('25.11.1979')->diffForHumans(['syntax' => \Carbon\CarbonInterface::DIFF_ABSOLUTE, 'parts' => 4, 'join' => ['n, ', ' und ']]) }}
+                    Hobbyfußball seit {{ \Carbon\Carbon::make('25.11.1979')->diffForHumans(['syntax' => \Carbon\CarbonInterface::DIFF_ABSOLUTE, 'parts' => 4, 'short' => true, 'join' => [', ', ' und ']]) }}
                 </div>
             </div>
             <x-main-box class="mt-4">
