@@ -116,7 +116,8 @@
                             {{ $date_option->description }}
                         </div>
                         <div class="flex flex-col text-sm">
-                            <div><span class="font-bold">{{ $date_option->users()->wherePivot('attend', true)->count() }}</span>/{{ $date_players->count() }} zugesagt</div>
+                            <div><span class="font-bold">{{ $date_option->users()->count() }}</span>/{{ $date_players->count() }} rückgemeldet</div>
+                            <div><span class="font-bold text-primary-800">{{ $date_option->users()->wherePivot('attend', true)->count() }}</span>/{{ $date_players->count() }} <span class="text-primary-700">zugesagt</span></div>
                         </div>
                         <div>
                             <i class="fas fa-vote-yea text-gray-700"></i>

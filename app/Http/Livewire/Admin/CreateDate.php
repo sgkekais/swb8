@@ -196,7 +196,7 @@ class CreateDate extends Component
                 }
                 if (!$this->date->poll_ends)
                 {
-                    $this->date->poll_ends = $this->date->datetime->subDay();
+                    $this->date->poll_ends = $this->date->datetime;
                 }
             }
             // save the date
