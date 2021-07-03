@@ -15,6 +15,9 @@
                     Hobbyfußball seit {{ \Carbon\Carbon::make('25.11.1979')->diffForHumans(['syntax' => \Carbon\CarbonInterface::DIFF_ABSOLUTE, 'parts' => 4, 'short' => true, 'join' => [', ', ' und ']]) }}
                 </div>
             </div>
+            @auth
+                <livewire:frontpage.active-general-polls />
+            @endauth
             <x-main-box class="mt-4">
                 <x-slot name="header">
                     <x-headline class="mt-4 text-2xl text-white">

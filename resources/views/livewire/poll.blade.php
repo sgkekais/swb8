@@ -91,9 +91,9 @@
                     </div>
                 @endforeach
             </div>
-            <div>
-                <i class="fas fa-wheelchair fa-fw text-blue-700"></i> -> <span class="text-primary-700 font-bold">{{ $date_players->where('pivot.playerStatus.can_play', 1)->count() }}</span> können spielen
-            </div>
+{{--            <div>--}}
+{{--                <i class="fas fa-wheelchair fa-fw text-blue-700"></i> -> <span class="text-primary-700 font-bold">{{ $date_players->where('pivot.playerStatus.can_play', 1)->count() }}</span> können spielen--}}
+{{--            </div>--}}
         </div>
         <div class="p-2 flex items-center space-x-2 bg-gray-100">
             <i class="fas fa-hourglass-half fa-fw text-yellow-500"></i>
