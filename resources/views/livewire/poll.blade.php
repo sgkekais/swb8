@@ -104,26 +104,28 @@
     </x-box-with-shadow>
 
     <!-- poll participation -->
-    <div class="max-w-screen overflow-x-scroll bg-scroll-gradient sm:shadow-none">
-        <div class="table align-middle ">
-            <div class="table-header-group">
-                <div class="table-cell">
-                    &nbsp;&nbsp;
-                </div>
-                @foreach ($date->dateOptions as $date_option)
-                    <div class="table-cell p-4 text-center whitespace-nowrap">
-                        <div class="font-bold text-lg">
-                            {{ $date_option->description }}
-                        </div>
-                        <div class="flex flex-col text-sm">
-                            <div><span class="font-bold">{{ $date_option->users()->count() }}</span>/{{ $date_players->count() }} rückgemeldet</div>
-                            <div><span class="font-bold text-primary-800">{{ $date_option->users()->wherePivot('attend', true)->count() }}</span>/{{ $date_players->count() }} <span class="text-primary-700">zugesagt</span></div>
-                        </div>
-                        <div>
-                            <i class="fas fa-vote-yea text-gray-700"></i>
-                        </div>
+    <div class="max-w-screen overflow-x-scroll bg-scroll-gradient <!--sm:shadow-none-->">
+        <div class="table">
+            <div class="table-header-group sticky top-0">
+                <div class="table-row">
+                    <div class="table-cell">
+                        &nbsp;&nbsp;
                     </div>
-                @endforeach
+                    @foreach ($date->dateOptions as $date_option)
+                        <div class="table-cell p-4 text-center whitespace-nowrap">
+                            <div class="font-bold text-lg">
+                                {{ $date_option->description }}
+                            </div>
+                            <div class="flex flex-col text-sm">
+                                <div><span class="font-bold">{{ $date_option->users()->count() }}</span>/{{ $date_players->count() }} rückgemeldet</div>
+                                <div><span class="font-bold text-primary-800">{{ $date_option->users()->wherePivot('attend', true)->count() }}</span>/{{ $date_players->count() }} <span class="text-primary-700">zugesagt</span></div>
+                            </div>
+                            <div>
+                                <i class="fas fa-vote-yea text-gray-700"></i>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
             <div class="table-row-group">
                 <div class="table-row">
