@@ -209,7 +209,7 @@
                                 </x-jet-label>
                                 <x-select id="player" wire:model="goal_to_be_added.0.player" autocomplete="off" >
                                     <option selected="selected" value="">Bitte auswählen</option>
-                                    @foreach($players_of_club as $player)
+                                    @foreach($players_of_club->sortBy('last_name') as $player)
                                         <option value="{{ $player->id }}">{{ $player->full_name_short }}</option>
                                     @endforeach
                                 </x-select>
