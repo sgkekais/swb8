@@ -51,7 +51,7 @@
                                     </div>
                                     <!-- away -->
                                     <div class="flex-1 flex-col text-center font-bold">
-                                        @if ($next_date->match->teamHome)
+                                        @if ($next_date->match->teamAway)
                                             <img src="{{ $next_date->match->teamAway->logo() }}" class="m-auto w-16 h-auto" title="{{ $next_date->match->teamHome->name }}" alt="{{ $next_date->match->teamHome->name }}-Wappen"/>
                                             <span class="tracking-tighter">{{ $next_date->match->teamAway->name  }}</span>
                                         @endif
