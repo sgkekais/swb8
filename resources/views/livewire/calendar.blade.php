@@ -102,6 +102,8 @@
                                                     <span class="inline-block sm:hidden text-sm">{{ $date->match->teamHome->name_short }}</span>
                                                     <span class="hidden sm:inline-block md:hidden">{{ $date->match->teamHome->name_short }}</span>
                                                     <span class="hidden md:inline-block">{{ $date->match->teamHome->name }}</span>
+                                                @else
+                                                    <span class="italic">noch unbekannt</span>
                                                 @endif
                                             </div>
                                             <div class="p-1 text-sm tracking-tighter font-bold bg-gray-100">
@@ -112,6 +114,8 @@
                                                     <span class="inline-block sm:hidden text-sm">{{ $date->match->teamAway->name_short }}</span>
                                                     <span class="hidden sm:inline-block md:hidden">{{ $date->match->teamAway->name_short }}</span>
                                                     <span class="hidden md:inline-block">{{ $date->match->teamAway->name }}</span>
+                                                @else
+                                                    <span class="italic">noch unbekannt</span>
                                                 @endif
                                             </div>
                                         </div>
