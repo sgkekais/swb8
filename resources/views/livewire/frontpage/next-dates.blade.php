@@ -35,6 +35,8 @@
                                         @if ($next_date->match->teamHome)
                                             <img src="{{ $next_date->match->teamHome->logo() }}" class="m-auto w-16 h-auto" title="{{ $next_date->match->teamHome->name }}" alt="{{ $next_date->match->teamHome->name }}-Wappen"/>
                                             <span>{{ $next_date->match->teamHome->name  }}</span>
+                                        @else
+                                            <span>noch unbekannt</span>
                                         @endif
                                     </div>
                                     <!-- result -->
@@ -54,6 +56,8 @@
                                         @if ($next_date->match->teamAway)
                                             <img src="{{ $next_date->match->teamAway->logo() }}" class="m-auto w-16 h-auto" title="{{ $next_date->match->teamHome->name }}" alt="{{ $next_date->match->teamHome->name }}-Wappen"/>
                                             <span class="tracking-tighter">{{ $next_date->match->teamAway->name  }}</span>
+                                        @else
+                                            <span>noch unbekannt</span>
                                         @endif
                                     </div>
                                 </div>
