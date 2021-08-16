@@ -98,17 +98,21 @@
                                         </div>
                                         <div class="flex items-center space-x-1">
                                             <div class="tracking-tighter">
-                                                <span class="inline-block sm:hidden text-sm">{{ $date->match->teamHome->name_short }}</span>
-                                                <span class="hidden sm:inline-block md:hidden">{{ $date->match->teamHome->name_short }}</span>
-                                                <span class="hidden md:inline-block">{{ $date->match->teamHome->name }}</span>
+                                                @if ($date->match->teamHome)
+                                                    <span class="inline-block sm:hidden text-sm">{{ $date->match->teamHome->name_short }}</span>
+                                                    <span class="hidden sm:inline-block md:hidden">{{ $date->match->teamHome->name_short }}</span>
+                                                    <span class="hidden md:inline-block">{{ $date->match->teamHome->name }}</span>
+                                                @endif
                                             </div>
                                             <div class="p-1 text-sm tracking-tighter font-bold bg-gray-100">
                                                 {{ $date->datetime->format('H:i') }}
                                             </div>
                                             <div class="tracking-tighter">
-                                                <span class="inline-block sm:hidden text-sm">{{ $date->match->teamAway->name_short }}</span>
-                                                <span class="hidden sm:inline-block md:hidden">{{ $date->match->teamAway->name_short }}</span>
-                                                <span class="hidden md:inline-block">{{ $date->match->teamAway->name }}</span>
+                                                @if ($date->match->teamAway)
+                                                    <span class="inline-block sm:hidden text-sm">{{ $date->match->teamAway->name_short }}</span>
+                                                    <span class="hidden sm:inline-block md:hidden">{{ $date->match->teamAway->name_short }}</span>
+                                                    <span class="hidden md:inline-block">{{ $date->match->teamAway->name }}</span>
+                                                @endif
                                             </div>
                                         </div>
                                         @if ($date->location)
