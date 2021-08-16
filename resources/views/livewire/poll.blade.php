@@ -53,11 +53,19 @@
                         </div>
                         @break
                     @case (2)
-                        <span class="text-right">{{ $date->match->teamHome->name }}</span>
-                        <img src="{{ $date->match->teamHome->logo() }}" class="w-8 h-auto" alt="{{ $date->match->teamHome->name_short." Logo" }}"/>
+                        @if ($date->match->teamHome)
+                            <span class="text-right">{{ $date->match->teamHome->name }}</span>
+                            <img src="{{ $date->match->teamHome->logo() }}" class="w-8 h-auto" alt="{{ $date->match->teamHome->name_short." Logo" }}"/>
+                        @else
+                            <span class="italic">noch unbekannt</span>
+                        @endif
                         <span class="font-bold text-sm">VS</span>
-                        <img src="{{ $date->match->teamAway->logo() }}" class="w-8 h-auto" alt="{{ $date->match->teamAway->name_short." Logo" }}"/>
-                        <span class="">{{ $date->match->teamAway->name }}</span>
+                        @if ($date->match->teamAway)
+                            <img src="{{ $date->match->teamAway->logo() }}" class="w-8 h-auto" alt="{{ $date->match->teamAway->name_short." Logo" }}"/>
+                            <span class="">{{ $date->match->teamAway->name }}</span>
+                        @else
+                            <span class="italic">noch unbekannt</span>
+                        @endif
                         @break
                     @case (3)
                         <div class="trix-content text-gray-700">
