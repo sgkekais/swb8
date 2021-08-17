@@ -169,10 +169,14 @@
                         <div class="w-2/4 flex justify-around">
                             {{-- home team --}}
                             <div class="w-2/5 flex flex-col flex-col-reverse sm:flex-row justify-center sm:justify-end items-center sm:space-x-2 tracking-tighter text-right">
-                                <span class="inline-block md:hidden text-sm">{{ $match->teamHome->name_code }}</span>
-                                <span class="hidden md:inline-block lg:hidden">{{ $match->teamHome->name_short }}</span>
-                                <span class="hidden lg:inline-block">{{ $match->teamHome->name }}</span>
-                                <img src="{{ $match->teamHome->logo() }}" class="w-8 h-auto" alt="{{ $match->teamHome->name_short." Logo" }}"/>
+                                @if ($match->teamHome)
+                                    <span class="inline-block md:hidden text-sm">{{ $match->teamHome->name_code }}</span>
+                                    <span class="hidden md:inline-block lg:hidden">{{ $match->teamHome->name_short }}</span>
+                                    <span class="hidden lg:inline-block">{{ $match->teamHome->name }}</span>
+                                    <img src="{{ $match->teamHome->logo() }}" class="w-8 h-auto" alt="{{ $match->teamHome->name_short." Logo" }}"/>
+                                @else
+                                    <span class="italic">noch unbekannt</span>
+                                @endif
                             </div>
                             {{-- result --}}
                             <div class="w-1/5 flex flex-col justify-center">
@@ -216,10 +220,14 @@
                             </div>
                             {{-- away team --}}
                             <div class="w-2/5 flex flex-col sm:flex-row justify-center sm:justify-start items-center sm:space-x-2 tracking-tighter text-left">
-                                <img src="{{ $match->teamAway->logo() }}" class="w-8 h-auto" alt="{{ $match->teamAway->name_short." Logo" }}"/>
-                                <span class="inline-block md:hidden text-sm">{{ $match->teamAway->name_code }}</span>
-                                <span class="hidden md:inline-block lg:hidden">{{ $match->teamAway->name_short }}</span>
-                                <span class="hidden lg:inline-block">{{ $match->teamAway->name }}</span>
+                                @if ($match->teamAway)
+                                    <img src="{{ $match->teamAway->logo() }}" class="w-8 h-auto" alt="{{ $match->teamAway->name_short." Logo" }}"/>
+                                    <span class="inline-block md:hidden text-sm">{{ $match->teamAway->name_code }}</span>
+                                    <span class="hidden md:inline-block lg:hidden">{{ $match->teamAway->name_short }}</span>
+                                    <span class="hidden lg:inline-block">{{ $match->teamAway->name }}</span>
+                                @else
+                                    <span class="italic">noch unbekannt</span>
+                                @endif
                             </div>
                         </div>
                         {{-- third, location and points --}}
