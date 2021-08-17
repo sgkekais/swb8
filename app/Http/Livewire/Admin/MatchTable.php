@@ -45,7 +45,10 @@ class MatchTable extends LivewireDatatable
                 ->alignCenter(),
             // Column::name('teamHome.name')->label('Heim')->searchable(),
             Column::callback(['team_home'], function ($team_home) {
-                return Club::find($team_home)->name;
+                if (Club::find($team_home))
+                    return Club::find($team_home)->name;
+                else
+                    return null;
             })
                 ->label('Heim'),
             Column::callback(['goals_home', 'goals_home_ht', 'goals_away', 'goals_away_ht', 'goals_home_pen', 'goals_away_pen', 'goals_home_rated', 'goals_away_rated'], function ($goals_home, $goals_home_ht, $goals_away, $goals_away_ht, $goals_home_pen, $goals_away_pen, $goals_home_rated, $goals_away_rated) {
@@ -54,7 +57,10 @@ class MatchTable extends LivewireDatatable
             })->label('Erg.')->alignCenter(),
             // Column::name('teamAway.name')->label('Gast')->searchable(),
             Column::callback(['team_away'], function ($team_away) {
-                return Club::find($team_away)->name;
+                if (Club::find($team_away))
+                    return Club::find($team_away)->name;
+                else
+                    return null;
             })->label('Gast'),
             Column::name('cards.id:count')
                 ->label('Karten'),
