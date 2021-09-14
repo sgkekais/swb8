@@ -85,7 +85,11 @@ class CreateMatch extends Component
         $card = new Card();
         $card->player_id = $this->card_to_be_added[0]['player'];
         $card->color = $this->card_to_be_added[0]['color'];
-        $card->note = $this->card_to_be_added[0]['note'];
+        if (isset($this->card_to_be_added[0]['note'])) {
+            $card->note = $this->card_to_be_added[0]['note'];
+        } else {
+            $card->note = null;
+        }
 
         $this->match->cards()->save($card);
         $this->match->refresh();
@@ -106,7 +110,11 @@ class CreateMatch extends Component
         $goal = new Goal();
         $goal->player_id = $this->goal_to_be_added[0]['player'];
         $goal->score = $this->goal_to_be_added[0]['score'];
-        $goal->minute = $this->goal_to_be_added[0]['minute'];
+        if (isset($this->goal_to_be_added[0]['minute'])) {
+            $goal->minute = $this->goal_to_be_added[0]['minute'];
+        } else {
+            $goal->minute = null;
+        }
         $goal->penalty = $this->goal_to_be_added[0]['penalty'];
 
         $this->match->goals()->save($goal);
