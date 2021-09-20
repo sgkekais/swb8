@@ -85,8 +85,6 @@ class CreatePlayer extends Component
 
         $this->player->save();
 
-        // $this->club_to_be_synced
-        // dd($this->club_to_be_synced);
         if (!empty($this->club_to_be_synced))
         {
             $this->player->clubs()->sync($this->club_to_be_synced);
