@@ -45,7 +45,7 @@
 
             <!-- poll details -->
             <div class="flex items-center space-x-2">
-                <i class="far fa-bullhorn fa-fw text-blue-500"></i>
+                <i class="fas fa-bullhorn fa-fw text-blue-500"></i>
                 @switch ($date->dateType->id)
                     @case (1)
                         <div class="trix-content text-gray-700">
