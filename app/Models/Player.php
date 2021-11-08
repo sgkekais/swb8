@@ -103,6 +103,16 @@ class Player extends Model
         return $query->where('is_public', $true);
     }
 
+    public function scopeHasNotLeft($query)
+    {
+        return $query->whereNull('left');
+    }
+
+    public function scopeHasLeft($query)
+    {
+        return $query->whereNotNull('left');
+    }
+
     /*
      * --------------------------------------------------------------------------
      * RELATIONSHIPS

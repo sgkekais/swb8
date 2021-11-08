@@ -12,7 +12,7 @@ class NextBirthday extends Component
 
     public function mount()
     {
-        $this->players = Player::whereMonth('dob',Carbon::now()->format('m'))->get();
+        $this->players = Player::hasNotLeft()->whereMonth('dob',Carbon::now()->format('m'))->get();
         $this->players = $this->players->sortBy(function ($player){
             return $player->dob->format('d');
         });
