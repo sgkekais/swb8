@@ -26,9 +26,13 @@ class GoalTable extends LivewireDatatable
             Column::callback('match_id', function ($match_id) {
                 return "<a href='".route('admin.matches', ['match_id' => $match_id])."' class='text-blue-700'>".$match_id."</a>";
             })->label('Match-ID'),
-            Column::name('player.nickname')
+            Column::name('player_id')
+                ->label('Spieler_ID')
+                ->filterable($this->player_ids),
+            Column::callback(['player_id'], function ($id) {
+                return Player::find($id)->full_name_short;
+            })
                 ->label('Spieler')
-                ->filterable($this->players)
                 ->searchable(),
             Column::name('score')
                 ->label('Ergebnis')
@@ -41,9 +45,8 @@ class GoalTable extends LivewireDatatable
         ];
     }
 
-    public function getPlayersProperty ()
+    public function getPlayerIDsProperty()
     {
-        return Player::orderBy('nickname')->pluck('nickname');
+        return Player::all()->pluck('id');
     }
-
 }

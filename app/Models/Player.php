@@ -50,6 +50,8 @@ class Player extends Model
         'is_public' => 'boolean'
     ];
 
+    protected $appends =  ['full_name_short', 'full_name'];
+
     /**
      * The attributes that should be logged.
      *

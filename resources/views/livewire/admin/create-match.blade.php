@@ -150,7 +150,7 @@
                                 </x-jet-label>
                                 <select id="player" wire:model="card_to_be_added.0.player" autocomplete="off" >
                                     <option selected="selected" value="">Bitte auswählen</option>
-                                    @foreach($players_of_club as $player)
+                                    @foreach($players_of_club->sortBy(['first_name', 'last_name']) as $player)
                                         <option value="{{ $player->id }}">{{ $player->full_name_short }}</option>
                                     @endforeach
                                 </select>
@@ -164,7 +164,7 @@
                                     <option value="gelb">Gelb</option>
                                     <option value="10min">10 Min.</option>
                                     <option value="gelb-rot">Gelb-Rot</option>
-                                    <option value="red">Rot</option>
+                                    <option value="rot">Rot</option>
                                 </x-select>
                             </div>
                             <div>

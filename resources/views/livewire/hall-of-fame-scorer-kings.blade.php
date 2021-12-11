@@ -78,7 +78,7 @@
                                 @if ($scorer_king->total_hlw_titles > 0)
                                     <div>
                                         HLW:
-                                        @foreach($scorer_king->scorerTitles->where('is_ah_season', false) as $hlw_title)
+                                        @foreach($scorer_king->scorerTitles->sortByDesc('year')->where('is_ah_season', false) as $hlw_title)
                                             <span class="inline-block tracking-tighter">
                                             {{ $hlw_title->year }}@unless($loop->last),@endunless
                                         </span>
@@ -88,7 +88,7 @@
                                 @if ($scorer_king->total_ah_titles > 0)
                                     <div>
                                         AH:
-                                        @foreach($scorer_king->scorerTitles->where('is_ah_season', true) as $ah_title)
+                                        @foreach($scorer_king->scorerTitles->sortByDesc('year')->where('is_ah_season', true) as $ah_title)
                                             <span class="inline-block tracking-tighter">
                                             {{ $ah_title->year }}@unless($loop->last),@endunless
                                         </span>

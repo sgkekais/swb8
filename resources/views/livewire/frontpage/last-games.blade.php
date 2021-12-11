@@ -73,8 +73,8 @@
                 @endif
                 <!-- goals and cards -->
                 <div class="p-1 flex flex-col sm:flex-row bg-gray-100 text-sm space-y-2 sm:space-y-0 sm:space-x-2">
-                    @if ($last_date->match->goals->count() > 0)
-                        <div class="flex-1 flex-col">
+                    <div class="flex-1 flex-col">
+                        @if ($last_date->match->goals->count() > 0)
                             @foreach ($last_date->match->goals as $goal)
                                 <div class="flex space-x-2 items-center">
                                     <i class="far fa-futbol"></i>
@@ -88,12 +88,12 @@
                                     @endif
                                 </div>
                             @endforeach
-                        </div>
-                    @else
-                        Torflaute
-                    @endif
-                    @if ($last_date->match->cards->count() > 0)
-                        <div class="flex w-1/3 flex-col">
+                        @else
+                            Torflaute
+                        @endif
+                    </div>
+                    <div class="flex w-1/3 flex-col">
+                        @if ($last_date->match->cards->count() > 0)
                             @foreach ($last_date->match->cards as $card)
                                 <div class="flex-col">
                                     <div>
@@ -115,8 +115,8 @@
                                     </div>
                                 </div>
                             @endforeach
-                        </div>
-                    @endif
+                        @endif
+                    </div>
                 </div>
                 {{-- match details --}}
                 <div class="flex-grow p-1 bg-gray-200 trix-content text-sm">
