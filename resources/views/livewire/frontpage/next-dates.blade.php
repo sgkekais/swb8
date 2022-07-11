@@ -73,6 +73,39 @@
                                     @endif
                                 </div>
                             </div>
+                        @elseif ($next_date->date_type_id == 3)
+                            <div class="flex items-center justify-center text-sm space-x-2">
+                                <x-date-and-match-type :date="$next_date" />
+                                <div class="">
+                                    {{ $next_date->dateType->description }}
+                                </div>
+                                @foreach ($next_date->clubs()->pluck('name_code') as $club_name_code)
+                                    <div class="p-1 bg-gray-100 text-xs font-bold">{{ $club_name_code }}</div>
+                                @endforeach
+                            </div>
+                            <div class="flex items-center justify-center text-center font-bold">
+                                {{ $next_date->tournament->title }}
+                            </div>
+                            <div class="py-2 flex items-center space-x-4 {{ $next_date->cancelled ? "line-through" : null }}">
+                                <div class="flex-1 flex-col text-center justify-center items-center w-1/2">
+                                    <div class="text-lg font-bold">
+                                        {{ $next_date->datetime->isoFormat('dddd') }}
+                                    </div>
+                                    <div class="font-bold">
+                                        {{ $next_date->datetime->isoFormat('DD.MM.') }} {{ $next_date->datetime->isoFormat('H:mm') }}
+                                    </div>
+                                    <div class="text-sm">
+                                        {{ $next_date->datetime->diffForHumans() }}
+                                    </div>
+                                </div>
+                                <div class="flex-1 flex-col text-center justify-center items-center w-1/2">
+                                    @if ($next_date->location)
+                                        <div class="text-sm">
+                                            <i class="fas fa-map-marker-alt text-red-500"></i> {{ $next_date->location->name_short ?: $next_date->location->name }}
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
                         @elseif ($next_date->date_type_id == 4)
                             <div class="flex items-center justify-center text-sm space-x-2">
                                 <x-date-and-match-type :date="$next_date" />

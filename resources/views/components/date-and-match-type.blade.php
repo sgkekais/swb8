@@ -27,7 +27,7 @@
             </span>
             @break
         @case (3)
-            <i class="fas fa-list-ol text-purple-600" title="{{ $date->dateType->description }}"></i>
+            <i class="fas fa-medal text-yellow-600" title="{{ $date->dateType->description }}"></i>
             @break
         @case (4)
             <i class="fas fa-glass-cheers text-pink-600" title="{{ $date->dateType->description }}"></i>
