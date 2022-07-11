@@ -99,10 +99,14 @@
                                     </div>
                                 </div>
                                 <div class="flex-1 flex-col text-center justify-center items-center w-1/2">
-                                    @if ($next_date->location)
-                                        <div class="text-sm">
-                                            <i class="fas fa-map-marker-alt text-red-500"></i> {{ $next_date->location->name_short ?: $next_date->location->name }}
-                                        </div>
+                                    @if( $next_date->location)
+                                        <i class="fas fa-map-marker-alt text-red-500"></i>
+                                        @if ($next_date->location->url)
+                                            <a href="{{ $next_date->location->url }}" target="_blank" class="inline-link " title="Auf Google Maps zeigen">{{ $next_date->location ? $next_date->location->name_short : "-" }}</a>
+                                            <i class="fas fa-external-link-alt text-gray-700 fa-sm"></i>
+                                        @else
+                                            {{ $next_date->location->name_short ?: $next_date->location->name }}
+                                        @endif
                                     @endif
                                 </div>
                             </div>
