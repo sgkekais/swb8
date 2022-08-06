@@ -15,11 +15,11 @@
                     Hobbyfußball seit {{ \Carbon\Carbon::make('25.11.1979')->diffForHumans(['syntax' => \Carbon\CarbonInterface::DIFF_ABSOLUTE, 'parts' => 4, 'short' => true, 'join' => [', ', ' und ']]) }}
                 </div>
             </div>
-            <div class="mt-2">
+            {{--<div class="mt-2">
                 <x-box-with-shadow class="p-2 bg-yellow-50 text-yellow-800" shadow-color="bg-yellow-600">
                     <i class="fas fa-bullhorn"></i> Wir suchen Spieler für unser HLW-Team!</strong> Interesse? Melde dich bei hi@swbilk79.de!
                 </x-box-with-shadow>
-            </div>
+            </div>--}}
             @auth
                 <livewire:frontpage.active-general-polls />
             @endauth
