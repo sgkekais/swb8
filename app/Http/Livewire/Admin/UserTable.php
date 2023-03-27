@@ -16,10 +16,12 @@ class UserTable extends LivewireDatatable
     public function columns()
     {
         return [
-
+            Column::callback(['id'], function ($id) {
+                return view('admin.includes.table-actions', ['id' => $id]);
+            }),
             NumberColumn::name('id')
                 ->label('ID')
-                ->defaultSort('asc'),
+                ->defaultSort('desc'),
             Column::name('name')
                 ->label('Name')
                 ->searchable(),
@@ -32,9 +34,6 @@ class UserTable extends LivewireDatatable
             BooleanColumn::name('banned')
                 ->label('Gebannt')
                 ->editable(),
-//            Column::callback(['id'], function ($id) {
-//                return view('admin.includes.table-actions', ['id' => $id]);
-//            }),
         ];
     }
 }
