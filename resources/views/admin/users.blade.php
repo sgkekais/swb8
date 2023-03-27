@@ -4,6 +4,8 @@
     </x-slot>
 
     <x-section>
+        <livewire:admin.create-user />
+
         <livewire:admin.user-table />
     </x-section>
 
