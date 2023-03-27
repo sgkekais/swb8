@@ -16,9 +16,9 @@ class UserTable extends LivewireDatatable
     public function columns()
     {
         return [
-            Column::callback(['id'], function ($id) {
+            /*Column::callback(['id'], function ($id) {
                 return view('admin.includes.table-actions', ['id' => $id]);
-            }),
+            }),*/
             NumberColumn::name('id')
                 ->label('ID')
                 ->defaultSort('desc'),

@@ -11,24 +11,22 @@ class CreateUser extends Component
 {
     use TrimAndNullEmptyStrings;
 
-    public ?User $user = null;
+    public $name;
+    public $email;
+    public $password;
     public $is_open = false;
     public $is_open_delete = false;
 
     protected $rules = [
-        'user.name' => 'required',
-        'user.email' => 'required|email'
+        'name' => 'required',
+        'email' => 'required|email|unique:users,email',
+        'password' => 'required'
     ];
 
     protected $listeners = [
         'editTableEntry' => 'edit',
         'deleteTableEntry' => 'delete'
     ];
-
-    public function mount()
-    {
-        $this->user ??= new User();
-    }
 
     public function openModal()
     {
@@ -53,7 +51,9 @@ class CreateUser extends Component
 
     public function resetInputFields()
     {
-        $this->user = new User();
+        $this->name = null;
+        $this->email = null;
+        $this->password = null;
     }
 
     public function create()
@@ -66,8 +66,11 @@ class CreateUser extends Component
     {
         $this->validate();
 
-        $this->user->password = Hash::make($this->user->password);
-        $this->user->save();
+        User::create([
+            'name' => $this->name,
+            'email' => $this->email,
+            'password' => Hash::make($this->password)
+        ]);
 
         session()->flash('success', 'User erfolgreich angelegt.');
 
@@ -75,7 +78,7 @@ class CreateUser extends Component
         $this->emit('refreshLivewireDatatable');
     }
 
-    public function edit(User $user)
+    /*public function edit(User $user)
     {
         $this->user = $user;
         $this->openModal();
@@ -97,7 +100,7 @@ class CreateUser extends Component
 
         session()->flash('success', 'User '.$this->user->id.' erfolgreich gelöscht.');
         $this->emit('refreshLivewireDatatable');
-    }
+    }*/
 
     public function render()
     {
