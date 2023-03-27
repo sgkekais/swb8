@@ -37,14 +37,14 @@
                 </div>
                 <div class="mb-6">
                     <x-jet-label for="email" class="flex justify-between">
-                        E-Mail
+                        E-Mail <i class="fas fa-fw fa-asterisk text-xs text-red-400"></i>
                     </x-jet-label>
                     <x-input-text class="w-full" type="text" id="email" wire:model.defer="user.email" placeholder=""/>
                     <x-jet-input-error for="user.email" />
                 </div>
                 <div class="mb-6">
                     <x-jet-label for="password" class="flex justify-between">
-                        Passwort
+                        Passwort <i class="fas fa-fw fa-asterisk text-xs text-red-400"></i>
                     </x-jet-label>
                     <x-input-text class="w-full" type="text" id="password" wire:model.defer="user.password" placeholder=""/>
                     <x-jet-input-error for="user.password" />
