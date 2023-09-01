@@ -50,6 +50,13 @@
                         Anzeige in Kader?
                     </x-input-checkbox-label>
                 </div>
+                <!-- sort order -->
+                <div class="">
+                    <x-jet-label for="sort_order">
+                        Anzeigereihenfolge
+                    </x-jet-label>
+                    <x-input-text type="number" id="sort_order" wire:model="player_status.sort_order" />
+                </div>
             </x-slot>
             <x-slot name="footer">
                 <div class="sm:flex sm:flex-row-reverse">

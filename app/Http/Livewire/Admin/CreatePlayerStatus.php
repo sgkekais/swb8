@@ -16,6 +16,7 @@ class CreatePlayerStatus extends Component
         'player_status.can_play' => 'boolean',
         'player_status.display_in_polls' => 'boolean',
         'player_status.display_in_squad' => 'boolean',
+        'player_status.sort_order' => 'numeric|nullable'
     ];
 
     protected $listeners = [
