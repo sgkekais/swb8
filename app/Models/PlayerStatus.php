@@ -27,7 +27,8 @@ class PlayerStatus extends Model
         'description',
         'can_play',
         'display_in_polls',
-        'display_in_squad'
+        'display_in_squad',
+        'sort_order'
     ];
 
     /**

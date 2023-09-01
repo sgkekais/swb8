@@ -27,6 +27,8 @@ class PlayerStatusTable extends LivewireDatatable
                 ->label('Anzeige in Umfrage?'),
             BooleanColumn::name('display_in_squad')
                 ->label('Anzeige in Kader?'),
+            NumberColumn::name('sort_order')
+                ->label('Anzeigereihenfolge'),
             Column::callback(['id'], function ($id) {
                 return view('admin.includes.table-actions', ['id' => $id]);
             })
