@@ -171,7 +171,7 @@
             </div>
             <!-- poll participants -->
             <div class="table-row-group">
-                @foreach ($date_players->sortByDesc('pivot.playerStatus.can_play')->groupBy('pivot.playerStatus.description') as $key => $player_status_group)
+                @foreach ($date_players->sortByDesc('pivot.playerStatus.sort_order')->groupBy('pivot.playerStatus.description') as $key => $player_status_group)
                     <div class="table-row">
                         <div class="table-cell">
                             <x-headline class="text-xl" id="{{ $key }}">
