@@ -93,7 +93,7 @@
             @endif
             <div class="flex flex-wrap space-x-2 ">
                 <div class=""><i class="fas fa-users fa-fw text-primary-700"></i> Anzahl Spieler: </div>
-                @foreach ($date_players->sortByDesc('pivot.playerStatus.can_play')->groupBy('pivot.playerStatus.description') as $key => $player_status_group)
+                @foreach ($date_players->sortBy('pivot.playerStatus.sort_order')->groupBy('pivot.playerStatus.description') as $key => $player_status_group)
                     <div>
                         <a href="#{{ $key }}" class="inline-link"><span class="font-bold">{{ $key }}</span></a> {{ $player_status_group->count() }}
                     </div>
@@ -171,7 +171,7 @@
             </div>
             <!-- poll participants -->
             <div class="table-row-group">
-                @foreach ($date_players->sortByDesc('pivot.playerStatus.sort_order')->groupBy('pivot.playerStatus.description') as $key => $player_status_group)
+                @foreach ($date_players->sortBy('pivot.playerStatus.sort_order')->groupBy('pivot.playerStatus.description') as $key => $player_status_group)
                     <div class="table-row">
                         <div class="table-cell">
                             <x-headline class="text-xl" id="{{ $key }}">
