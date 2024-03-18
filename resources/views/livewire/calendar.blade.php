@@ -50,13 +50,15 @@
                                                 <i class="far fa-handshake text-blue-600" title=""></i>
                                                 @break
                                             @case (2)
-                                                <x-hlw-logo class="fill-current text-primary-600 h-3"/>
+                                                {{-- <x-hlw-logo class="fill-current text-primary-600 h-3"/> --}}
+                                                <i class="far fa-sort-numeric-up text-primary-600" title=""></i>
                                                 @break
                                             @case (3)
                                                 <i class="fas fa-trophy text-yellow-600" title=""></i>
                                                 @break
                                             @case (4)
-                                                <x-hlw-logo class="fill-current text-primary-600 h-3"/>
+                                                {{-- <x-hlw-logo class="fill-current text-primary-600 h-3"/> --}}
+                                                <i class="far fa-skull-crossbones text-primary-600" title=""></i>
                                                 @break
                                         @endswitch
                                         @break
