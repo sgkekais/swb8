@@ -5,6 +5,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class Date extends Model
@@ -79,8 +80,12 @@ class Date extends Model
      *
      * @var array
      */
-    protected static $logFillable = true;
-    protected static $logOnlyDirty = true;
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logFillable()
+            ->logOnlyDirty();
+    }
 
     /*
      * --------------------------------------------------------------------------
@@ -171,7 +176,7 @@ class Date extends Model
      */
     public function match()
     {
-        return $this->hasOne('App\Models\Match');
+        return $this->hasOne('App\Models\Game');
     }
 
     /**

@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Game;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -25,6 +27,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // the activity log stores matches under the former class name
+        Relation::morphMap([
+            'App\Models\Match' => Game::class,
+        ]);
         // necessary for mysql compatibility
         Schema::defaultStringLength(191);
         // set German locale for php date time and Carbon
