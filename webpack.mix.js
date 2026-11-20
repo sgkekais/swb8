@@ -12,6 +12,14 @@ const mix = require('laravel-mix');
  */
 
 mix.copy('node_modules/trix/dist/trix.js', 'public/vendor/trix/trix.js');
+mix.copy('node_modules/chart.js/dist/chart.umd.min.js', 'public/vendor/chartjs/chart.umd.min.js');
+mix.copy('node_modules/@fortawesome/fontawesome-free/css/all.min.css', 'public/vendor/fontawesome/css/all.min.css');
+mix.copy([
+    'node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2',
+    'node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff',
+    'node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2',
+    'node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff',
+], 'public/vendor/fontawesome/webfonts');
 
 mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
