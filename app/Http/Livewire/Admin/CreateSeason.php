@@ -78,7 +78,7 @@ class CreateSeason extends Component
         session()->flash('success', 'Saison erfolgreich angelegt.');
 
         $this->closeModal();
-        $this->emit('refreshLivewireDatatable');
+        $this->dispatch('refreshLivewireDatatable');
     }
 
     public function edit(Season $season)
@@ -104,7 +104,7 @@ class CreateSeason extends Component
         $this->closeDeleteModal();
 
         session()->flash('success', 'Saison ' . $this->season->id . ' erfolgreich gelöscht.');
-        $this->emit('refreshLivewireDatatable');
+        $this->dispatch('refreshLivewireDatatable');
     }
 
     public function render()

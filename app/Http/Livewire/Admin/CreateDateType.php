@@ -66,7 +66,7 @@ class CreateDateType extends Component
         session()->flash('success', 'Terminart erfolgreich angelegt.');
 
         $this->closeModal();
-        $this->emit('refreshLivewireDatatable');
+        $this->dispatch('refreshLivewireDatatable');
     }
 
     public function edit(DateType $date_type)
@@ -90,7 +90,7 @@ class CreateDateType extends Component
         $this->closeDeleteModal();
 
         session()->flash('success', 'Terminart ' . $this->date_type->id . ' erfolgreich gelöscht.');
-        $this->emit('refreshLivewireDatatable');
+        $this->dispatch('refreshLivewireDatatable');
     }
     public function render()
     {

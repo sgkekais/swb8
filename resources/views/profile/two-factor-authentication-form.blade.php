@@ -1,4 +1,4 @@
-<x-jet-action-section>
+<x-jet.action-section>
     <x-slot name="title">
         <x-headline class="text-2xl">
             Zwei-Faktor-Authentifizierung
@@ -54,32 +54,32 @@
 
         <div class="mt-5 flex items-center space-x-2">
             @if (! $this->enabled)
-                <x-jet-confirms-password wire:then="enableTwoFactorAuthentication">
+                <x-jet.confirms-password wire:then="enableTwoFactorAuthentication">
                     <x-confirmation-button type="button" wire:loading.attr="disabled">
                         Aktivieren
                     </x-confirmation-button>
-                </x-jet-confirms-password>
+                </x-jet.confirms-password>
             @else
                 @if ($showingRecoveryCodes)
-                    <x-jet-confirms-password wire:then="regenerateRecoveryCodes">
+                    <x-jet.confirms-password wire:then="regenerateRecoveryCodes">
                         <x-button type="button" class="">
                             Wiederherstellungs-Codes regenerieren
                         </x-button>
-                    </x-jet-confirms-password>
+                    </x-jet.confirms-password>
                 @else
-                    <x-jet-confirms-password wire:then="showRecoveryCodes">
+                    <x-jet.confirms-password wire:then="showRecoveryCodes">
                         <x-button type="button" class="">
                             Wiederherstellungs-Codes anzeigen
                         </x-button>
-                    </x-jet-confirms-password>
+                    </x-jet.confirms-password>
                 @endif
 
-                <x-jet-confirms-password wire:then="disableTwoFactorAuthentication">
+                <x-jet.confirms-password wire:then="disableTwoFactorAuthentication">
                     <x-delete-button type="button" wire:loading.attr="disabled">
                         Deaktivieren
                     </x-delete-button>
-                </x-jet-confirms-password>
+                </x-jet.confirms-password>
             @endif
         </div>
     </x-slot>
-</x-jet-action-section>
+</x-jet.action-section>

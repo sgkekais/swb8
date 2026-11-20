@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class MatchType extends Model
@@ -50,10 +51,14 @@ class MatchType extends Model
      *
      * @var array
      */
-    protected static $logFillable = true;
-    protected static $logOnlyDirty = true;
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logFillable()
+            ->logOnlyDirty();
+    }
 
     public function matches () {
-        return $this->hasMany('App\Models\Match');
+        return $this->hasMany('App\Models\Game');
     }
 }

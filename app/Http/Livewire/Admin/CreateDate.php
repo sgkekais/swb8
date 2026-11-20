@@ -8,7 +8,7 @@ use App\Models\Date;
 use App\Models\DateOption;
 use App\Models\DateType;
 use App\Models\Location;
-use App\Models\Match;
+use App\Models\Game;
 use App\Models\MatchType;
 use App\Models\Season;
 use App\Models\Tournament;
@@ -23,7 +23,7 @@ class CreateDate extends Component
     public $is_open = false;
     public $is_open_delete = false;
     public ?Date $date = null;
-    public ?Match $match = null;
+    public ?Game $match = null;
     public ?DateOption $date_option = null;
     public ?Tournament $tournament = null;
     public $date_types = [];
@@ -43,7 +43,7 @@ class CreateDate extends Component
     public function mount()
     {
         $this->date ??= new Date();
-        $this->match ??= new Match();
+        $this->match ??= new Game();
         $this->tournament ??= new Tournament();
         $this->date_option ??= new DateOption();
         $this->date_options = $this->date->dateOptions;
@@ -115,7 +115,7 @@ class CreateDate extends Component
     public function resetInputFields()
     {
         $this->date = new Date();
-        $this->match = new Match();
+        $this->match = new Game();
         $this->tournament = new Tournament();
         $this->date_option = new DateOption();
         $this->date_options = $this->date->dateOptions;
@@ -134,7 +134,7 @@ class CreateDate extends Component
         {
             $d = DateOption::find($this->date_options->get($key)->id);
             $d->delete();
-            $this->emit('refreshLivewireDatatable');
+            $this->dispatch('refreshLivewireDatatable');
         }
 
         $this->date_options->pull($key);
@@ -224,7 +224,7 @@ class CreateDate extends Component
 
         session()->flash('success', 'Termin erfolgreich '.($this->date->id ? 'geändert' : 'angelegt.'));
         $this->closeModal();
-        $this->emit('refreshLivewireDatatable');
+        $this->dispatch('refreshLivewireDatatable');
     }
 
     public function edit(Date $date)
@@ -254,7 +254,7 @@ class CreateDate extends Component
         $this->closeDeleteModal();
 
         session()->flash('success', 'Termin '.$this->date->id.' erfolgreich gelöscht.');
-        $this->emit('refreshLivewireDatatable');
+        $this->dispatch('refreshLivewireDatatable');
     }
 
     public function render()

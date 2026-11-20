@@ -19,3 +19,4 @@ yarn-error.log
 /_archive
 /todo.xlsx
 /club-logos-for-upload/
+/.phpunit.cache

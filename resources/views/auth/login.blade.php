@@ -1,12 +1,12 @@
 <x-guest-layout>
-    <x-jet-authentication-card>
+    <x-jet.authentication-card>
         <x-slot name="logo">
             <a href="{{ route('home') }}" title="zurück zur Startseite">
-                <x-jet-authentication-card-logo />
+                <x-jet.authentication-card-logo />
             </a>
         </x-slot>
 
-        <x-jet-validation-errors class="mb-4" />
+        <x-jet.validation-errors class="mb-4" />
 
         @if (session('status'))
             <div class="mb-4 font-medium text-green-600">
@@ -23,12 +23,12 @@
             </div>
 
             <div class="mt-4 flex flex-col">
-                <x-jet-label value="{{ __('Email') }}" />
+                <x-jet.label value="{{ __('Email') }}" />
                 <x-input-text type="email" name="email" class="flex-1" :value="old('email')" required autofocus />
             </div>
 
             <div class="mt-4 flex flex-col">
-                <x-jet-label value="{{ __('Password') }}" />
+                <x-jet.label value="{{ __('Password') }}" />
                 <x-input-text type="password" name="password" class="flex-1" required autocomplete="current-password"  />
             </div>
 
@@ -51,5 +51,5 @@
                 </x-confirmation-button>
             </div>
         </form>
-    </x-jet-authentication-card>
+    </x-jet.authentication-card>
 </x-guest-layout>

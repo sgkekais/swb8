@@ -2,18 +2,18 @@
 
 namespace App\Http\Livewire\Admin;
 
+use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
-use Mediconesystems\LivewireDatatables\BooleanColumn;
-use Mediconesystems\LivewireDatatables\Column;
-use Mediconesystems\LivewireDatatables\DateColumn;
-use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
-use Mediconesystems\LivewireDatatables\NumberColumn;
+use Arm092\LivewireDatatables\BooleanColumn;
+use Arm092\LivewireDatatables\Column;
+use Arm092\LivewireDatatables\DateColumn;
+use Arm092\LivewireDatatables\NumberColumn;
 
-class UserTable extends LivewireDatatable
+class UserTable extends Datatable
 {
-    public $model = User::class;
+    public Model|string|null $model = User::class;
 
-    public function columns()
+    public function getColumns(): array|Model
     {
         return [
             /*Column::callback(['id'], function ($id) {

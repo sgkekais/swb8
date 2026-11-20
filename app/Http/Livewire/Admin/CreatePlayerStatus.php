@@ -70,7 +70,7 @@ class CreatePlayerStatus extends Component
         session()->flash('success', 'Spieler-Status erfolgreich angelegt.');
 
         $this->closeModal();
-        $this->emit('refreshLivewireDatatable');
+        $this->dispatch('refreshLivewireDatatable');
     }
 
     public function edit(PlayerStatus $player_status)
@@ -94,7 +94,7 @@ class CreatePlayerStatus extends Component
         $this->closeDeleteModal();
 
         session()->flash('success', 'Spieler-Status ' . $this->player_status->id . ' erfolgreich gelöscht.');
-        $this->emit('refreshLivewireDatatable');
+        $this->dispatch('refreshLivewireDatatable');
     }
 
     public function render()

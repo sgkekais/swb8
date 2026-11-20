@@ -4,9 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
-class Match extends Model
+/**
+ * A match of a club.
+ *
+ * Formerly App\Models\Match: "match" is a reserved word since PHP 8.0.
+ * The table, the foreign keys (match_id) and the morph type stored in the
+ * activity log keep the old name.
+ */
+class Game extends Model
 {
     use HasFactory;
     use LogsActivity;
@@ -17,6 +25,16 @@ class Match extends Model
      * @var string
      */
     protected $table = 'matches';
+
+    /**
+     * Keep the foreign key name of the former Match model.
+     *
+     * @return string
+     */
+    public function getForeignKey()
+    {
+        return 'match_id';
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -71,8 +89,12 @@ class Match extends Model
      *
      * @var array
      */
-    protected static $logFillable = true;
-    protected static $logOnlyDirty = true;
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logFillable()
+            ->logOnlyDirty();
+    }
 
     /*
      * --------------------------------------------------------------------------

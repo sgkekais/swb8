@@ -2,17 +2,17 @@
 
 namespace App\Http\Livewire\Admin;
 
+use Illuminate\Database\Eloquent\Model;
 use App\Models\Player;
 use App\Models\ScorerKing;
 use App\Models\Season;
-use Mediconesystems\LivewireDatatables\Column;
-use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
+use Arm092\LivewireDatatables\Column;
 
-class ScorerKingTable extends LivewireDatatable
+class ScorerKingTable extends Datatable
 {
-    public $model = ScorerKing::class;
+    public Model|string|null $model = ScorerKing::class;
 
-    public function columns()
+    public function getColumns(): array|Model
     {
         return [
             Column::callback('season_id', function ($season_id) {

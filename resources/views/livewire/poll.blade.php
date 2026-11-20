@@ -145,7 +145,7 @@
                         <div class="table-cell pb-4 text-center">
                             <x-input-checkbox
                                 wire:key="{{ $date_option->id }}"
-                                wire:model.defer="checked_options"
+                                wire:model="checked_options"
                                 name="date_option_{{ $date_option->id }}"
                                 value="{{ $date_option->id }}" />
                         </div>

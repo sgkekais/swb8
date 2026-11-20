@@ -7,7 +7,7 @@ use App\Models\Assist;
 use App\Models\Card;
 use App\Models\Club;
 use App\Models\Goal;
-use App\Models\Match;
+use App\Models\Game;
 use App\Models\MatchType;
 use App\Models\Season;
 use Livewire\Component;
@@ -17,7 +17,7 @@ class CreateMatch extends Component
     use TrimAndNullEmptyStrings;
 
     public $is_open = false;
-    public Match $match;
+    public Game $match;
     public $match_types;
     public $clubs;
     public $seasons;
@@ -77,7 +77,7 @@ class CreateMatch extends Component
 
     public function resetInputFields()
     {
-        $this->match = new Match();
+        $this->match = new Game();
     }
 
     public function addCard()
@@ -149,10 +149,10 @@ class CreateMatch extends Component
 
         $this->closeModal();
         session()->flash('success', 'Spiel erfolgreich '.($this->match->id ? 'geändert' : 'angelegt.'));
-        $this->emit('refreshLivewireDatatable');
+        $this->dispatch('refreshLivewireDatatable');
     }
 
-    public function edit(Match $match)
+    public function edit(Game $match)
     {
         $this->match = $match;
         $this->match->match_details = $match->match_details;

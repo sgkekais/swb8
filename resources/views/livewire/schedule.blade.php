@@ -6,7 +6,7 @@
                 <x-select-label for="selected_season" class="text-primary-700">
                     Saison:
                 </x-select-label>
-                <x-select name="selected_season" wire:model="selected_season">
+                <x-select name="selected_season" wire:model.live="selected_season">
                     @foreach ($seasons as $season)
                         <option value="{{ $season->id }}">{{ $season->title }}</option>
                     @endforeach
@@ -272,7 +272,7 @@
                         </div>
                     </div>
                     <!-- match details -->
-                    <div x-show.transition="show" class="p-4 flex flex-col space-y-2 lg:flex-row lg:space-x-2 lg:space-y-0 bg-gray-100">
+                    <div x-show="show" x-transition class="p-4 flex flex-col space-y-2 lg:flex-row lg:space-x-2 lg:space-y-0 bg-gray-100">
                         @if ($match->isPlayedorRated())
                             {{-- goals --}}
                             <div class="flex flex-col lg:w-1/5">

@@ -1,4 +1,4 @@
-<x-jet-action-section>
+<x-jet.action-section>
     <x-slot name="title">
         <x-headline class="text-2xl">
             {{ __('Browser Sessions') }}
@@ -58,13 +58,13 @@
                 Andere Browser-Sitzungen abmelden
             </x-confirmation-button>
 
-            <x-jet-action-message class="ml-3" on="loggedOut">
+            <x-jet.action-message class="ml-3" on="loggedOut">
                 Erledigt.
-            </x-jet-action-message>
+            </x-jet.action-message>
         </div>
 
         <!-- Logout Other Devices Confirmation Modal -->
-        <x-jet-dialog-modal wire:model="confirmingLogout">
+        <x-jet.dialog-modal wire:model.live="confirmingLogout">
             <x-slot name="title">
                 Andere Browser-Sitzungen abmelden
             </x-slot>
@@ -75,10 +75,10 @@
                 <div class="mt-4" x-data="{}" x-on:confirming-logout-other-browser-sessions.window="setTimeout(() => $refs.password.focus(), 250)">
                     <x-input-text type="password" class="mt-1 block w-full" placeholder="{{ __('Password') }}"
                                 x-ref="password"
-                                wire:model.defer="password"
+                                wire:model="password"
                                 wire:keydown.enter="logoutOtherBrowserSessions" />
 
-                    <x-jet-input-error for="password" class="mt-2" />
+                    <x-jet.input-error for="password" class="mt-2" />
                 </div>
             </x-slot>
 
@@ -93,6 +93,6 @@
                     </x-confirmation-button>
                 </div>
             </x-slot>
-        </x-jet-dialog-modal>
+        </x-jet.dialog-modal>
     </x-slot>
-</x-jet-action-section>
+</x-jet.action-section>

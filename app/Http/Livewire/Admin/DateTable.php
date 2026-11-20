@@ -2,35 +2,36 @@
 
 namespace App\Http\Livewire\Admin;
 
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use App\Models\Date;
 use App\Models\DateOption;
 use App\Models\DateType;
 use Carbon\Carbon;
-use Mediconesystems\LivewireDatatables\BooleanColumn;
-use Mediconesystems\LivewireDatatables\Column;
-use Mediconesystems\LivewireDatatables\DateColumn;
-use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
-use Mediconesystems\LivewireDatatables\NumberColumn;
-use Mediconesystems\LivewireDatatables\TimeColumn;
+use Arm092\LivewireDatatables\BooleanColumn;
+use Arm092\LivewireDatatables\Column;
+use Arm092\LivewireDatatables\DateColumn;
+use Arm092\LivewireDatatables\NumberColumn;
+use Arm092\LivewireDatatables\TimeColumn;
 use PHPUnit\Framework\Constraint\Callback;
 
-class DateTable extends LivewireDatatable
+class DateTable extends Datatable
 {
-    // public $model = Date::class;
+    public Model|string|null $model = Date::class;
 
-    public function builder()
+    public function builder(): Builder
     {
         return $dates = Date::query()->with(['dateType', 'dateOptions']);
     }
 
-    public function mount($model = null, $include = [], $exclude = [], $hide = [], $dates = [], $times = [], $searchable = [], $sort = null, $hideHeader = null, $hidePagination = null, $perPage = 10, $exportable = false, $hideable = false, $beforeTableSlot = false, $afterTableSlot = false, $params = [])
+    public function mount($model = false, $include = [], $exclude = [], $hide = [], $dates = [], $times = [], $searchable = [], $sortIndex = null, $hideHeader = null, $hidePagination = null, $perPage = null, $exportable = false, $hideable = false, $beforeTableSlot = false, $buttonsSlot = false, $afterTableSlot = false, $params = []): void
     {
-        parent::mount($model, $include, $exclude, $hide, $dates, $times, $searchable, $sort, $hideHeader, $hidePagination, $perPage, $exportable, $hideable, $beforeTableSlot, $afterTableSlot, $params);
+        parent::mount($model, $include, $exclude, $hide, $dates, $times, $searchable, $sortIndex, $hideHeader, $hidePagination, $perPage, $exportable, $hideable, $beforeTableSlot, $buttonsSlot, $afterTableSlot, $params);
         // override search with parameter to allow linking to
         $this->search = request('date_id');
     }
 
-    public function columns()
+    public function getColumns(): array|Model
     {
         return [
             Column::callback(['id'], function ($id) {

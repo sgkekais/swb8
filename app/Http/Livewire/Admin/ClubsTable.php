@@ -2,24 +2,25 @@
 
 namespace App\Http\Livewire\Admin;
 
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use App\Models\Club;
-use Mediconesystems\LivewireDatatables\BooleanColumn;
-use Mediconesystems\LivewireDatatables\Column;
-use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
-use Mediconesystems\LivewireDatatables\NumberColumn;
+use Arm092\LivewireDatatables\BooleanColumn;
+use Arm092\LivewireDatatables\Column;
+use Arm092\LivewireDatatables\NumberColumn;
 
-class ClubsTable extends LivewireDatatable
+class ClubsTable extends Datatable
 {
-    public $model = Club::class;
+    public Model|string|null $model = Club::class;
 
-    // public $exportable = true;
+    // public bool $exportable = true;
 
-  /*  public function builder()
+  /*  public function builder(): Builder
     {
         return Club::withCount('players');
     }*/
 
-    public function columns()
+    public function getColumns(): array|Model
     {
         return [
             NumberColumn::name('id')

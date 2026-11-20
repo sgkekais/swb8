@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class Club extends Model
@@ -53,8 +54,12 @@ class Club extends Model
      *
      * @var array
      */
-    protected static $logFillable = true;
-    protected static $logOnlyDirty = true;
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logFillable()
+            ->logOnlyDirty();
+    }
 
     /*
      * --------------------------------------------------------------------------
@@ -121,12 +126,12 @@ class Club extends Model
 
     public function homeMatches()
     {
-        return $this->hasMany(Match::class, 'team_home');
+        return $this->hasMany(Game::class, 'team_home');
     }
 
     public function awayMatches()
     {
-        return $this->hasMany(Match::class, 'team_away');
+        return $this->hasMany(Game::class, 'team_away');
     }
 
     public function matches()

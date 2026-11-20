@@ -8,7 +8,7 @@
             <x-select-label for="selected_player" class="text-primary-700">
                 Kontrahent:
             </x-select-label>
-            <x-select name="selected_player" wire:model="selected_player">
+            <x-select name="selected_player" wire:model.live="selected_player">
                 <option>Bitte auswählen</option>
                 @foreach ($players as $player)
                     <option value="{{ $player->id }}">{{ $player->name_short }}</option>

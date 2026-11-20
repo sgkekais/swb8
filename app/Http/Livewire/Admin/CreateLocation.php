@@ -70,7 +70,7 @@ class CreateLocation extends Component
         session()->flash('success', 'Standort erfolgreich angelegt.');
 
         $this->closeModal();
-        $this->emit('refreshLivewireDatatable');
+        $this->dispatch('refreshLivewireDatatable');
     }
 
     public function edit(Location $location)
@@ -94,7 +94,7 @@ class CreateLocation extends Component
         $this->closeDeleteModal();
 
         session()->flash('success', 'Standort '.$this->location->id.' erfolgreich gelöscht.');
-        $this->emit('refreshLivewireDatatable');
+        $this->dispatch('refreshLivewireDatatable');
     }
 
     public function render()

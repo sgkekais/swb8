@@ -3,7 +3,7 @@
         <x-select-label for="selected_year" class="text-primary-700">
             Jahr auswählen:
         </x-select-label>
-        <x-select name="selected_year" wire:model="selected_year" >
+        <x-select name="selected_year" wire:model.live="selected_year" >
             @foreach ($selectable_years->sortByDesc('date') as $selectable_year)
                 <option value="{{ $selectable_year->date }}">{{ $selectable_year->date }}</option>
             @endforeach

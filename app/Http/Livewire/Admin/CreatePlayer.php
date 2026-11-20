@@ -93,7 +93,7 @@ class CreatePlayer extends Component
         session()->flash('success', 'Spieler erfolgreich angelegt.');
 
         $this->closeModal();
-        $this->emit('refreshLivewireDatatable');
+        $this->dispatch('refreshLivewireDatatable');
     }
 
     public function edit(Player $player)
@@ -130,7 +130,7 @@ class CreatePlayer extends Component
         $this->closeDeleteModal();
 
         session()->flash('success', 'Spieler '.$this->player->id.' erfolgreich gelöscht.');
-        $this->emit('refreshLivewireDatatable');
+        $this->dispatch('refreshLivewireDatatable');
     }
 
     public function deleteClubAssignment(Club $club)

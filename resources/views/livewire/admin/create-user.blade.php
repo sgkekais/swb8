@@ -2,7 +2,7 @@
     @include('admin.includes.alert')
 
     {{-- create or maintain modal --}}
-    <x-jet-dialog-modal wire:model="is_open">
+    <x-jet.dialog-modal wire:model.live="is_open">
         <x-slot name="title">
             <div class="font-semibold">
                 User anlegen
@@ -12,25 +12,25 @@
             @csrf
             <x-slot name="content">
                 <div class="mb-6">
-                    <x-jet-label for="name" class="flex justify-between">
+                    <x-jet.label for="name" class="flex justify-between">
                         Name <i class="fas fa-fw fa-asterisk text-xs text-red-400"></i>
-                    </x-jet-label>
-                    <x-input-text class="w-full" type="text" id="name" wire:model.defer="name" placeholder="" required />
-                    <x-jet-input-error for="name" />
+                    </x-jet.label>
+                    <x-input-text class="w-full" type="text" id="name" wire:model="name" placeholder="" required />
+                    <x-jet.input-error for="name" />
                 </div>
                 <div class="mb-6">
-                    <x-jet-label for="email" class="flex justify-between">
+                    <x-jet.label for="email" class="flex justify-between">
                         E-Mail <i class="fas fa-fw fa-asterisk text-xs text-red-400"></i>
-                    </x-jet-label>
-                    <x-input-text class="w-full" type="text" id="email" wire:model.defer="email" placeholder="" required/>
-                    <x-jet-input-error for="email" />
+                    </x-jet.label>
+                    <x-input-text class="w-full" type="text" id="email" wire:model="email" placeholder="" required/>
+                    <x-jet.input-error for="email" />
                 </div>
                 <div class="mb-6">
-                    <x-jet-label for="password" class="flex justify-between">
+                    <x-jet.label for="password" class="flex justify-between">
                         Passwort <i class="fas fa-fw fa-asterisk text-xs text-red-400"></i>
-                    </x-jet-label>
-                    <x-input-text class="w-full" type="text" id="password" wire:model.defer="password" placeholder="" required/>
-                    <x-jet-input-error for="password" />
+                    </x-jet.label>
+                    <x-input-text class="w-full" type="text" id="password" wire:model="password" placeholder="" required/>
+                    <x-jet.input-error for="password" />
                 </div>
             </x-slot>
             <x-slot name="footer">
@@ -48,7 +48,7 @@
                 </div>
             </x-slot>
         </form>
-    </x-jet-dialog-modal>
+    </x-jet.dialog-modal>
     {{-- create a new user, opens modal --}}
     <div class="mb-4 flex justify-center sm:justify-start">
         <x-confirmation-button wire:click="create()">
