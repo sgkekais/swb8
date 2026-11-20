@@ -42,7 +42,7 @@
                 <div class="flex items-center w-full ">
                     <div class="w-1/3">
                         <h3 class="font-sans ">
-                            {{ $user_player->joined->diffInYears() }}
+                            {{ (int) $user_player->joined->diffInYears() }}
                         </h3>
                         <div class="font-normal text-base">
                             {{ $user_player->joined->isoFormat('MM.Y') }}
@@ -55,7 +55,7 @@
                     </div>
                     <div class="w-1/3 text-right">
                         <h3 class="font-sans ">
-                            {{ $vs_player->joined->diffInYears() }}
+                            {{ (int) $vs_player->joined->diffInYears() }}
                         </h3>
                         <div class="font-normal text-base">
                             {{ $vs_player->joined->isoFormat('MM.Y') }}
@@ -63,11 +63,11 @@
                     </div>
                 </div>
                 <div class="flex items-center py-2">
-                    @unless ($user_player->joined->diffInYears() == 0 && $vs_player->joined->diffInYears() == 0)
-                        <div class="h-2 bg-primary-600" style="width: {{ ceil(($user_player->joined->diffInYears() / ($user_player->joined->diffInYears() + $vs_player->joined->diffInYears()))*100) }}%">
+                    @unless ((int) $user_player->joined->diffInYears() == 0 && (int) $vs_player->joined->diffInYears() == 0)
+                        <div class="h-2 bg-primary-600" style="width: {{ ceil(((int) $user_player->joined->diffInYears() / ((int) $user_player->joined->diffInYears() + (int) $vs_player->joined->diffInYears()))*100) }}%">
 
                         </div>
-                        <div class="h-2 bg-gray-600" style="width: {{ ceil(($vs_player->joined->diffInYears() / ($user_player->joined->diffInYears() + $vs_player->joined->diffInYears()))*100) }}%">
+                        <div class="h-2 bg-gray-600" style="width: {{ ceil(((int) $vs_player->joined->diffInYears() / ((int) $user_player->joined->diffInYears() + (int) $vs_player->joined->diffInYears()))*100) }}%">
 
                         </div>
                     @else

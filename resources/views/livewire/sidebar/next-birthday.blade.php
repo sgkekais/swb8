@@ -16,7 +16,7 @@
                     </div>
                     <div class="w-full">
                         {{ $player->name_short }}
-                        ({{ $player->dob->isoFormat('D') > \Carbon\Carbon::today()->isoFormat('D') ? ("wird ".($player->dob->diffInYears() + 1)) : $player->dob->diffinYears() }})
+                        ({{ $player->dob->isoFormat('D') > \Carbon\Carbon::today()->isoFormat('D') ? ("wird ".((int) $player->dob->diffInYears() + 1)) : (int) $player->dob->diffInYears() }})
                     </div>
                 </div>
             @endforeach
