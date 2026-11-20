@@ -2,7 +2,7 @@
     <div class="grid gap-16 row-gap-10 mb-8 lg:grid-cols-6">
         <div class="md:max-w-md lg:col-span-2">
             <a href="{{ route('home') }}" aria-label="Startseite" title="SW Bilk '79 - Startseite" class="inline-flex items-center">
-                <x-jet-application-mark class="fill-current text-white w-32 h-auto" />
+                <x-jet.application-mark class="fill-current text-white w-32 h-auto" />
                 <span class="ml-4 font-sans font-bold text-3xl tracking-tighter text-gray-100 uppercase">Schwarz-Weiß Bilk '79</span>
             </a>
             <div class="mt-4 lg:max-w-sm">

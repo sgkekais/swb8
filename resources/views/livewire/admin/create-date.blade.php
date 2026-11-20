@@ -2,7 +2,7 @@
     @include('admin.includes.alert')
 
     <!-- delete confirmation -->
-    <x-jet-confirmation-modal wire:model="is_open_delete">
+    <x-jet.confirmation-modal wire:model.live="is_open_delete">
         <x-slot name="title">
             Termin {{ $date->id }} löschen
         </x-slot>
@@ -17,9 +17,9 @@
                 Löschen
             </x-delete-button>
         </x-slot>
-    </x-jet-confirmation-modal>
+    </x-jet.confirmation-modal>
     <!-- create or maintain modal -->
-    <x-jet-dialog-modal wire:model="is_open">
+    <x-jet.dialog-modal wire:model.live="is_open">
         <x-slot name="title">
             <div class="font-semibold">
                 Termin
@@ -38,41 +38,41 @@
                 </div>
                 <!-- date type -->
                 <div class="mb-6">
-                    <x-jet-label class="" for="date_type">
+                    <x-jet.label class="" for="date_type">
                         Art des Termins
-                    </x-jet-label>
+                    </x-jet.label>
                     <div class="flex items-center">
-                        <select id="date_type" wire:model="date.date_type_id" class="form-select shadow-sm" autocomplete="off" {{ $date->id ? "disabled" : null }}>
+                        <select id="date_type" wire:model.live="date.date_type_id" class="form-select shadow-sm" autocomplete="off" {{ $date->id ? "disabled" : null }}>
                             <option selected="selected" value="">Bitte auswählen</option>
                             @foreach($date_types as $date_type)
                                 <option value="{{ $date_type->id }}">{{ $date_type->description }}</option>
                             @endforeach
                         </select>
                     </div>
-                    <x-jet-input-error for="date.date_type_id" />
+                    <x-jet.input-error for="date.date_type_id" />
                 </div>
                 @if($date->date_type_id && $date->date_type_id != "")
                     <!-- title and datetime -->
                     <div class="mb-6 flex items-center space-x-4">
                         @unless($date->date_type_id == 2 || $date->date_type_id == 3)
                             <div class="w-4/6">
-                                <x-jet-label class="" for="title">
+                                <x-jet.label class="" for="title">
                                     Titel
-                                </x-jet-label>
+                                </x-jet.label>
                                 <x-input-text class="w-full" type="text" id="title" wire:model.lazy="date.title" />
-                                <x-jet-input-error for="date.title" />
+                                <x-jet.input-error for="date.title" />
                             </div>
                         @endunless
                         @unless($date->date_type_id == 1)
                             <div class="w-full">
-                                <x-jet-label class="" for="datetime">
+                                <x-jet.label class="" for="datetime">
                                     Wann?
-                                </x-jet-label>
+                                </x-jet.label>
                                 <x-input-text class="w-full" type="datetime-local" id="datetime" wire:model.lazy="date.datetime" />
                                 <div>
                                     Leer lassen, wenn unbekannt. Wenn nur Datum unbekannt, dann Uhrzeit 00:00 eingeben!
                                 </div>
-                                <x-jet-input-error for="date.datetime" />
+                                <x-jet.input-error for="date.datetime" />
                             </div>
                         @endunless
                     </div>
@@ -80,25 +80,25 @@
                     <div class="mb-6 flex items-center space-x-4">
                         @unless($date->date_type_id == 2 || $date->date_type_id == 3)
                             <div class="w-4/6">
-                                <x-jet-label class="" for="description">
+                                <x-jet.label class="" for="description">
                                     Beschreibung
-                                </x-jet-label>
+                                </x-jet.label>
                                 <x-rich-text class="trix-content" wire:model.lazy="date.description" :initial-value="$date->description" wire:key="{{ $date->id }}"></x-rich-text>
 
 {{--                                <textarea id="description" class="form-textarea w-full shadow-sm" wire:model.lazy="date.description">--}}
 
 {{--                                </textarea>--}}
-                                <x-jet-input-error for="date.description" />
+                                <x-jet.input-error for="date.description" />
                             </div>
                         @endunless
                         <div class="w-full">
-                            <x-jet-label class="" for="note">
+                            <x-jet.label class="" for="note">
                                 Interne Notiz, nur für Admins sichtbar
-                            </x-jet-label>
+                            </x-jet.label>
                             <textarea id="note" class="form-textarea w-full shadow-sm" wire:model.lazy="date.note">
 
                             </textarea>
-                            <x-jet-input-error for="date.note" />
+                            <x-jet.input-error for="date.note" />
                         </div>
                     </div>
                     <!-- clubs -->
@@ -110,7 +110,7 @@
                             <div class="flex items-center space-x-2">
                                 <x-input-checkbox
                                     wire:key="{{ $owned_club->id }}"
-                                    wire:model.defer="assigned_clubs"
+                                    wire:model="assigned_clubs"
                                     name="owned_club_{{ $owned_club->id }}"
                                     value="{{ $owned_club->id }}" />
                                 <x-input-checkbox-label class="" for="owned_club_{{ $owned_club->id }}">
@@ -123,9 +123,9 @@
 
                     <!-- location -->
                     <div class="mb-6">
-                        <x-jet-label class="" for="location">
+                        <x-jet.label class="" for="location">
                             Wo?
-                        </x-jet-label>
+                        </x-jet.label>
                         <select id="location" wire:model.lazy="date.location_id" class="form-select w-full shadow-sm">
                             <option selected="selected" value="NULL">Nicht festgelegt</option>
                             @foreach($locations as $location)
@@ -135,11 +135,11 @@
                     </div>
                     <!-- date published / cancelled -->
                     <div class="flex items-center space-x-2">
-                        <x-input-checkbox wire:model="date.published" id="published" />
+                        <x-input-checkbox wire:model.live="date.published" id="published" />
                         <x-input-checkbox-label for="published">
                             Veröffentlichen?
                         </x-input-checkbox-label>
-                        <x-input-checkbox wire:model="date.cancelled" id="cancelled" />
+                        <x-input-checkbox wire:model.live="date.cancelled" id="cancelled" />
                         <x-input-checkbox-label for="cancelled">
                             Abgesagt?
                         </x-input-checkbox-label>
@@ -176,21 +176,21 @@
                     </div>
                     <div class="mb-6 flex items-center space-x-4">
                         <div class="w-2/6">
-                            <x-jet-label class="" for="poll_begins">
+                            <x-jet.label class="" for="poll_begins">
                                 Umfragebeginn
-                            </x-jet-label>
-                            <x-jet-input class="w-full" type="date" id="poll_begins" wire:model.lazy="date.poll_begins" />
-                            <x-jet-input-error for="date.poll_begins" />
+                            </x-jet.label>
+                            <x-jet.input class="w-full" type="date" id="poll_begins" wire:model.lazy="date.poll_begins" />
+                            <x-jet.input-error for="date.poll_begins" />
                         </div>
                         <div class="w-2/6">
-                            <x-jet-label class="" for="poll_ends">
+                            <x-jet.label class="" for="poll_ends">
                                 Umfrageschluss
-                            </x-jet-label>
-                            <x-jet-input class="w-full" type="date" id="poll_ends" wire:model.lazy="date.poll_ends"/>
-                            <x-jet-input-error for="date.poll_ends" />
+                            </x-jet.label>
+                            <x-jet.input class="w-full" type="date" id="poll_ends" wire:model.lazy="date.poll_ends"/>
+                            <x-jet.input-error for="date.poll_ends" />
                         </div>
                         <div class="flex space-x-2">
-                            <x-input-checkbox wire:model="date.poll_is_open" id="poll_is_open" />
+                            <x-input-checkbox wire:model.live="date.poll_is_open" id="poll_is_open" />
                             <x-input-checkbox-label for="poll_is_open">
                                 Umfrage offen?
                             </x-input-checkbox-label>
@@ -200,10 +200,10 @@
                     @if ($date->date_type_id == 1 || $date->date_type_id == 4)
                         <div class="mb-6 flex items-end space-x-4">
                             <div class="w-full">
-                                <x-jet-label class="" for="date_option" >
+                                <x-jet.label class="" for="date_option" >
                                     Umfrageoptionen
-                                </x-jet-label>
-                                <x-jet-input id="date_option" type="text" class="w-full" wire:model.lazy="date_option.description" />
+                                </x-jet.label>
+                                <x-jet.input id="date_option" type="text" class="w-full" wire:model.lazy="date_option.description" />
                             </div>
                             <div class="">
                                 <x-confirmation-button wire:click="addDateOption()" class="" >
@@ -218,7 +218,7 @@
                             <label class="flex font-bold text-primary-600" for="date_option_description{{ $key }}">
                                 Option {{ $loop->iteration }}:
                             </label>
-                            <x-jet-input id="date_option_description{{ $key }}" type="text" class="flex-1" wire:model="date_options.{{ $key }}.description"/>
+                            <x-jet.input id="date_option_description{{ $key }}" type="text" class="flex-1" wire:model.live="date_options.{{ $key }}.description"/>
                             @if($date->date_type_id == 1 || $date->date_type_id == 4)
                                 <div class="">
                                     <x-delete-button wire:click="removeDateOption({{ $key }})" class="" >
@@ -237,11 +237,11 @@
                             <!-- match type and season-->
                             <div class="mb-6 flex items-center space-x-4">
                                 <div>
-                                    <x-jet-label class="" for="match_type">
+                                    <x-jet.label class="" for="match_type">
                                         Art des Spiels
-                                    </x-jet-label>
+                                    </x-jet.label>
                                     <div class="flex items-center">
-                                        <select id="match_type" wire:model="match.match_type_id" class="form-select shadow-sm" autocomplete="off">
+                                        <select id="match_type" wire:model.live="match.match_type_id" class="form-select shadow-sm" autocomplete="off">
                                             <option selected="selected" value="">Bitte auswählen</option>
                                             @foreach($match_types as $match_type)
                                                 <option value="{{ $match_type->id }}">{{ $match_type->description }}</option>
@@ -250,11 +250,11 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <x-jet-label class="" for="season_id">
+                                    <x-jet.label class="" for="season_id">
                                         Saison
-                                    </x-jet-label>
+                                    </x-jet.label>
                                     <div class="flex items-center">
-                                        <select id="season_id" wire:model="match.season_id" class="form-select shadow-sm" autocomplete="off">
+                                        <select id="season_id" wire:model.live="match.season_id" class="form-select shadow-sm" autocomplete="off">
                                             <option selected="selected" value="">Bitte auswählen</option>
                                             @foreach($seasons as $season)
                                                 <option value="{{ $season->id }}">{{ $season->title }}</option>
@@ -263,19 +263,19 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <x-jet-label for="match.matchweek">
+                                    <x-jet.label for="match.matchweek">
                                         Spielwoche
-                                    </x-jet-label>
-                                    <x-input-text type="text" id="match.matchweek" wire:model="match.matchweek" />
+                                    </x-jet.label>
+                                    <x-input-text type="text" id="match.matchweek" wire:model.live="match.matchweek" />
                                 </div>
                             </div>
                             <!-- home and away club + result -->
                             <div class="mb-6 flex space-x-4 items-center">
                                 <div class="flex-grow">
-                                    <x-jet-label class=" text-center" for="team_home">
+                                    <x-jet.label class=" text-center" for="team_home">
                                         Heim
-                                    </x-jet-label>
-                                    <x-select id="team_home" wire:model="match.team_home" class="w-full">
+                                    </x-jet.label>
+                                    <x-select id="team_home" wire:model.live="match.team_home" class="w-full">
                                         <option selected="selected">Nicht festgelegt</option>
                                         @foreach($clubs as $club_home)
                                             <option value="{{ $club_home->id }}">{{ $club_home->name }}</option>
@@ -283,10 +283,10 @@
                                     </x-select>
                                 </div>
                                 <div class="flex-grow">
-                                    <x-jet-label class=" text-center" for="team_away">
+                                    <x-jet.label class=" text-center" for="team_away">
                                         Gast
-                                    </x-jet-label>
-                                    <x-select id="team_away" wire:model="match.team_away" class="w-full">
+                                    </x-jet.label>
+                                    <x-select id="team_away" wire:model.live="match.team_away" class="w-full">
                                         <option selected="selected">Nicht festgelegt</option>
                                         @foreach($clubs as $club_away)
                                             <option value="{{ $club_away->id }}">{{ $club_away->name }}</option>
@@ -296,11 +296,11 @@
                             </div>
                             <!-- match published / cancelled -->
                             <div class="mb-6 flex items-center space-x-2">
-                                <x-input-checkbox id="published" wire:model="match.published"/>
+                                <x-input-checkbox id="published" wire:model.live="match.published"/>
                                 <x-input-checkbox-label for="published">
                                     Veröffentlichen?
                                 </x-input-checkbox-label>
-                                <x-input-checkbox id="cancelled" wire:model="match.cancelled"/>
+                                <x-input-checkbox id="cancelled" wire:model.live="match.cancelled"/>
                                 <x-input-checkbox-label for="cancelled">
                                     Abgesagt?
                                 </x-input-checkbox-label>
@@ -311,26 +311,26 @@
                                 Das zugehörige Turnier {{ $tournament->id ? "bearbeiten (ID: ".$tournament->id.")" : "anlegen" }}
                             </div>
                             <div class="mb-6">
-                                <x-jet-label class="" for="tournament_title">
+                                <x-jet.label class="" for="tournament_title">
                                     Titel des Turniers
-                                </x-jet-label>
-                                <x-jet-input class="w-full" type="text" id="tournament_title" wire:model.lazy="tournament.title" />
-                                <x-jet-input-error for="tournament.title" />
+                                </x-jet.label>
+                                <x-jet.input class="w-full" type="text" id="tournament_title" wire:model.lazy="tournament.title" />
+                                <x-jet.input-error for="tournament.title" />
                             </div>
                             <div class="mb-6">
-                                <x-jet-label class="" for="tournament_desc">
+                                <x-jet.label class="" for="tournament_desc">
                                     Beschreibung des Turniers
-                                </x-jet-label>
+                                </x-jet.label>
                                 <x-rich-text class="trix-content" wire:model.lazy="tournament.description" :initial-value="$tournament->description" wire:key="{{ $date->id + 1 }}"></x-rich-text>
-{{--                                <x-jet-input class="w-full" type="text" id="tournament_desc" wire:model.lazy="tournament.description" />--}}
-                                <x-jet-input-error for="tournament.description" />
+{{--                                <x-jet.input class="w-full" type="text" id="tournament_desc" wire:model.lazy="tournament.description" />--}}
+                                <x-jet.input-error for="tournament.description" />
                             </div>
                             <div class="mb-6">
-                                <x-jet-label class="" for="tournament_place">
+                                <x-jet.label class="" for="tournament_place">
                                     Platz (Textfeld)
-                                </x-jet-label>
-                                <x-jet-input class="w-1/4" type="text" id="tournament_place" wire:model.lazy="tournament.place" />
-                                <x-jet-input-error for="tournament.place" />
+                                </x-jet.label>
+                                <x-jet.input class="w-1/4" type="text" id="tournament_place" wire:model.lazy="tournament.place" />
+                                <x-jet.input-error for="tournament.place" />
                             </div>
                             @break
                     @endswitch
@@ -339,7 +339,7 @@
             </x-slot>
             <x-slot name="footer">
                 <div class="sm:flex sm:flex-row-reverse">
-                    <x-jet-validation-errors />
+                    <x-jet.validation-errors />
                     <span class="flex w-full sm:w-auto mb-2 sm:mb-0 sm:ml-2">
                         @if ($date->date_type_id && $date->date_type_id != "")
                             <x-confirmation-button wire:click.prevent="store()" class="w-full justify-center" >
@@ -355,7 +355,7 @@
                 </div>
             </x-slot>
         </form>
-    </x-jet-dialog-modal>
+    </x-jet.dialog-modal>
     {{-- create a new date, opens modal --}}
     <div class="mb-4 flex justify-center sm:justify-start">
         <x-confirmation-button wire:click="create()">

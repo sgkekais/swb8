@@ -75,7 +75,7 @@ class CreateAnanasKing extends Component
 
         session()->flash('success', 'Ananaskönig erfolgreich angelegt.');
         $this->closeModal();
-        $this->emit('refreshLivewireDatatable');
+        $this->dispatch('refreshLivewireDatatable');
     }
 
     public function delete($season_id, $player_id)
@@ -94,7 +94,7 @@ class CreateAnanasKing extends Component
 
         session()->flash('success', 'Ananas erfolgreich gelöscht.');
         $this->closeModal();
-        $this->emit('refreshLivewireDatatable');
+        $this->dispatch('refreshLivewireDatatable');
     }
 
     public function render()

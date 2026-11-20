@@ -117,7 +117,7 @@ class CreateClub extends Component
         session()->flash('success', 'Mannschaft erfolgreich angelegt.');
 
         $this->closeModal();
-        $this->emit('refreshLivewireDatatable');
+        $this->dispatch('refreshLivewireDatatable');
     }
 
     public function edit(Club $club)
@@ -146,7 +146,7 @@ class CreateClub extends Component
         $this->closeDeleteModal();
 
         session()->flash('success', 'Mannschaft '.$this->club->id.' erfolgreich gelöscht.');
-        $this->emit('refreshLivewireDatatable');
+        $this->dispatch('refreshLivewireDatatable');
     }
 
     public function render()

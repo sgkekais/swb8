@@ -68,7 +68,7 @@ class CreateTournament extends Component
         session()->flash('success', 'Turnier erfolgreich angelegt.');
 
         $this->closeModal();
-        $this->emit('refreshLivewireDatatable');
+        $this->dispatch('refreshLivewireDatatable');
     }
 
     public function edit(Tournament $tournament)
@@ -92,7 +92,7 @@ class CreateTournament extends Component
         $this->closeDeleteModal();
 
         session()->flash('success', 'Turnier ' . $this->tournament->id . ' erfolgreich gelöscht.');
-        $this->emit('refreshLivewireDatatable');
+        $this->dispatch('refreshLivewireDatatable');
     }
 
     public function render()

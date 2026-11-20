@@ -1,3 +1,4 @@
+<div>
 @isset ($next_dates)
     @if ($next_dates->isNotEmpty())
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -169,3 +170,4 @@
     @endif
 @endisset
 
+</div>

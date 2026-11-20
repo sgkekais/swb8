@@ -68,7 +68,7 @@ class CreateMatchType extends Component
         session()->flash('success', 'Spielart erfolgreich angelegt.');
 
         $this->closeModal();
-        $this->emit('refreshLivewireDatatable');
+        $this->dispatch('refreshLivewireDatatable');
     }
 
     public function edit(MatchType $match_type)
@@ -92,7 +92,7 @@ class CreateMatchType extends Component
         $this->closeDeleteModal();
 
         session()->flash('success', 'Spielart ' . $this->match_type->id . ' erfolgreich gelöscht.');
-        $this->emit('refreshLivewireDatatable');
+        $this->dispatch('refreshLivewireDatatable');
     }
 
     public function render()

@@ -2,7 +2,7 @@
     @include('admin.includes.alert')
 
     {{-- delete confirmation --}}
-    <x-jet-confirmation-modal wire:model="is_open_delete">
+    <x-jet.confirmation-modal wire:model.live="is_open_delete">
         <x-slot name="title">
             Mannschaft {{ $club->id }} löschen
         </x-slot>
@@ -10,16 +10,16 @@
             Möchten Sie die Mannschaft wirklich löschen?
         </x-slot>
         <x-slot name="footer">
-            <x-jet-secondary-button wire:click="closeDeleteModal()">
+            <x-jet.secondary-button wire:click="closeDeleteModal()">
                 Abbrechen
-            </x-jet-secondary-button>
-            <x-jet-danger-button wire:click="destroy({{ $club->id }})">
+            </x-jet.secondary-button>
+            <x-jet.danger-button wire:click="destroy({{ $club->id }})">
                 Löschen
-            </x-jet-danger-button>
+            </x-jet.danger-button>
         </x-slot>
-    </x-jet-confirmation-modal>
+    </x-jet.confirmation-modal>
     {{-- create or maintain modal --}}
-    <x-jet-dialog-modal wire:model="is_open">
+    <x-jet.dialog-modal wire:model.live="is_open">
         <x-slot name="title">
             <div class="font-semibold">
                 Mannschaft {{ $club->id ? $club->id." ändern" : "anlegen" }}
@@ -29,22 +29,22 @@
             @csrf
             <x-slot name="content">
                 <div class="mb-6">
-                    <x-jet-label for="club.name" class="flex justify-between">
+                    <x-jet.label for="club.name" class="flex justify-between">
                         Name <i class="fas fa-fw fa-asterisk text-xs text-red-400"></i>
-                    </x-jet-label>
+                    </x-jet.label>
                     <x-input-text class="w-full" type="text" id="club.name" wire:model.lazy="club.name" placeholder="Schwarz-Weiß Bilk '79" required />
-                    <x-jet-input-error for="club.name" />
+                    <x-jet.input-error for="club.name" />
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                        <x-jet-label for="club.name_short" value="Name - kurz" />
+                        <x-jet.label for="club.name_short" value="Name - kurz" />
                         <x-input-text class="w-full" type="text" id="club.name_short" wire:model.lazy="club.name_short" placeholder="SW Bilk" maxlength="15" />
-                        <x-jet-input-error for="club.name_short" />
+                        <x-jet.input-error for="club.name_short" />
                     </div>
                     <div class="w-full md:w-1/2 px-3">
-                        <x-jet-label for="club.name_code" value="Name - Code" />
+                        <x-jet.label for="club.name_code" value="Name - Code" />
                         <x-input-text class="w-full" type="text" id="club.name_code" wire:model.lazy="club.name_code" placeholder="SWB" maxlength="6" />
-                        <x-jet-input-error for="club.name_code" />
+                        <x-jet.input-error for="club.name_code" />
                     </div>
                 </div>
                 <div class="mb-6">
@@ -57,23 +57,23 @@
                             @endif
                         </div>
                         <div>
-                            <x-jet-label for="club_logo" value="Logo-URL" />
-                            <input type="file" wire:model="club_logo">
+                            <x-jet.label for="club_logo" value="Logo-URL" />
+                            <input type="file" wire:model.live="club_logo">
 
-                            <x-jet-input-error for="club_logo" />
+                            <x-jet.input-error for="club_logo" />
                         </div>
                     </div>
 
                 </div>
                 <div class="mb-6 flex justify-start space-x-2">
                     <div class="flex items-center space-x-2">
-                        <x-input-checkbox wire:model="club.owner" id="owner" />
+                        <x-input-checkbox wire:model.live="club.owner" id="owner" />
                         <x-input-checkbox-label for="owner">
                             Besitzer?
                         </x-input-checkbox-label>
                     </div>
                     <div class="flex items-center space-x-2">
-                        <x-input-checkbox wire:model="club.ah" id="ah" />
+                        <x-input-checkbox wire:model.live="club.ah" id="ah" />
                         <x-input-checkbox-label for="ah">
                             Altherren-Team?
                         </x-input-checkbox-label>
@@ -86,7 +86,7 @@
                             <div class="flex items-center space-x-3">
                                 <x-input-checkbox
                                     wire:key="{{ $player->id }}"
-                                    wire:model="selected_players"
+                                    wire:model.live="selected_players"
                                     name="player_{{ $player->id }}"
                                     value="{{ $player->id }}" />
                                 <x-input-checkbox-label for="player_{{ $player->id }}" class="w-1/3">
@@ -123,7 +123,7 @@
                 </div>
             </x-slot>
         </form>
-    </x-jet-dialog-modal>
+    </x-jet.dialog-modal>
     {{-- create a new club, opens modal --}}
     <div class="mb-4 flex justify-center sm:justify-start">
         <x-confirmation-button wire:click="create()">

@@ -75,7 +75,7 @@ class CreateUser extends Component
         session()->flash('success', 'User erfolgreich angelegt.');
 
         $this->closeModal();
-        $this->emit('refreshLivewireDatatable');
+        $this->dispatch('refreshLivewireDatatable');
     }
 
     /*public function edit(User $user)
@@ -99,7 +99,7 @@ class CreateUser extends Component
         $this->closeDeleteModal();
 
         session()->flash('success', 'User '.$this->user->id.' erfolgreich gelöscht.');
-        $this->emit('refreshLivewireDatatable');
+        $this->dispatch('refreshLivewireDatatable');
     }*/
 
     public function render()

@@ -2,7 +2,7 @@
     @include('admin.includes.alert')
 
     {{-- delete confirmation --}}
-    <x-jet-confirmation-modal wire:model="is_open_delete">
+    <x-jet.confirmation-modal wire:model.live="is_open_delete">
         <x-slot name="title">
             Saison {{ $season->id }} löschen
         </x-slot>
@@ -10,16 +10,16 @@
             Möchten Sie die Saison wirklich löschen?
         </x-slot>
         <x-slot name="footer">
-            <x-jet-secondary-button wire:click="closeDeleteModal()">
+            <x-jet.secondary-button wire:click="closeDeleteModal()">
                 Abbrechen
-            </x-jet-secondary-button>
-            <x-jet-danger-button wire:click="destroy({{ $season->id }})">
+            </x-jet.secondary-button>
+            <x-jet.danger-button wire:click="destroy({{ $season->id }})">
                 Löschen
-            </x-jet-danger-button>
+            </x-jet.danger-button>
         </x-slot>
-    </x-jet-confirmation-modal>
+    </x-jet.confirmation-modal>
     {{-- create or maintain modal --}}
-    <x-jet-dialog-modal wire:model="is_open">
+    <x-jet.dialog-modal wire:model.live="is_open">
         <x-slot name="title">
             <div class="font-semibold">
                 Saison {{ $season->id ? $season->id." ändern" : "anlegen" }}
@@ -30,51 +30,51 @@
             <x-slot name="content">
                 <div class="mb-6 flex items-center space-x-2">
                     <div>
-                        <x-jet-label for="season.number" class="flex justify-between">
+                        <x-jet.label for="season.number" class="flex justify-between">
                             Nummer
-                        </x-jet-label>
-                        <x-input-text class="w-full" type="number" id="season.number" wire:model="season.number" />
-                        <x-jet-input-error for="season.number" />
+                        </x-jet.label>
+                        <x-input-text class="w-full" type="number" id="season.number" wire:model.live="season.number" />
+                        <x-jet.input-error for="season.number" />
                     </div>
                     <div>
-                        <x-jet-label for="season.year" class="flex justify-between">
+                        <x-jet.label for="season.year" class="flex justify-between">
                             Jahr
-                        </x-jet-label>
-                        <x-input-text class="w-full" type="text" id="season.year" wire:model="season.year" />
-                        <x-jet-input-error for="season.year" />
+                        </x-jet.label>
+                        <x-input-text class="w-full" type="text" id="season.year" wire:model.live="season.year" />
+                        <x-jet.input-error for="season.year" />
                     </div>
                     <div class="w-full">
-                        <x-jet-label for="season.title" class="flex justify-between">
+                        <x-jet.label for="season.title" class="flex justify-between">
                             Titel
-                        </x-jet-label>
-                        <x-input-text class="w-full" type="text" id="season.title" wire:model.defer="season.title" />
-                        <x-jet-input-error for="season.title" />
+                        </x-jet.label>
+                        <x-input-text class="w-full" type="text" id="season.title" wire:model="season.title" />
+                        <x-jet.input-error for="season.title" />
                     </div>
                 </div>
                 <div class="mb-6 flex items-center space-x-2">
-                    <x-input-checkbox wire:model="season.is_ah_season" id="is_ah_season" />
+                    <x-input-checkbox wire:model.live="season.is_ah_season" id="is_ah_season" />
                     <x-input-checkbox-label for="is_ah_season">
                         AH-Saison?
                     </x-input-checkbox-label>
                 </div>
                 <!-- season description -->
                 <div class="mb-6">
-                    <x-jet-label for="season.description" class="flex justify-between">
+                    <x-jet.label for="season.description" class="flex justify-between">
                         Beschreibung / Zusammenfassung der Saison
-                    </x-jet-label>
-                    <textarea id="season.description" wire:model.defer="season.description" class="w-full" rows="5">
+                    </x-jet.label>
+                    <textarea id="season.description" wire:model="season.description" class="w-full" rows="5">
 
                     </textarea>
-                    <x-jet-input-error for="season.description" />
+                    <x-jet.input-error for="season.description" />
                 </div>
                 <!-- final position -->
                 <div class="mb-6 flex ">
                     <div>
-                        <x-jet-label for="season.final_position" class="flex justify-between">
+                        <x-jet.label for="season.final_position" class="flex justify-between">
                             Platzierung
-                        </x-jet-label>
-                        <x-input-text class="" type="number" id="season.final_position" wire:model="season.final_position" />
-                        <x-jet-input-error for="season.final_position" />
+                        </x-jet.label>
+                        <x-input-text class="" type="number" id="season.final_position" wire:model.live="season.final_position" />
+                        <x-jet.input-error for="season.final_position" />
                     </div>
                 </div>
                 <!-- clubs -->
@@ -86,7 +86,7 @@
                         <div class="flex items-center space-x-2">
                             <x-input-checkbox
                                 wire:key="{{ $owned_club->id }}"
-                                wire:model.defer="assigned_clubs"
+                                wire:model="assigned_clubs"
                                 name="owned_club_{{ $owned_club->id }}"
                                 value="{{ $owned_club->id }}" />
                             <x-input-checkbox-label class="" for="owned_club_{{ $owned_club->id }}">
@@ -112,7 +112,7 @@
                 </div>
             </x-slot>
         </form>
-    </x-jet-dialog-modal>
+    </x-jet.dialog-modal>
     {{-- create a new match type, opens modal --}}
     <div class="mb-4 flex justify-center sm:justify-start">
         <x-confirmation-button wire:click="create()">
