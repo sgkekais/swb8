@@ -143,6 +143,7 @@
                         <div class="border-b border-gray-300">
                             <h2 class="font-sans font-extrabold text-lg tracking-tighter uppercase text-primary-600">Karten</h2>
                         </div>
+                        <x-jet.input-error for="match" class="mt-2" />
                         <div class="py-2 flex items-center space-x-2">
                             <div>
                                 <x-jet.label for="player">
@@ -154,6 +155,7 @@
                                         <option value="{{ $player->id }}">{{ $player->full_name_short }}</option>
                                     @endforeach
                                 </select>
+                                <x-jet.input-error for="card_to_be_added.0.player" />
                             </div>
                             <div>
                                 <x-jet.label for="color">
@@ -166,12 +168,14 @@
                                     <option value="gelb-rot">Gelb-Rot</option>
                                     <option value="rot">Rot</option>
                                 </x-select>
+                                <x-jet.input-error for="card_to_be_added.0.color" />
                             </div>
                             <div>
                                 <x-jet.label for="note">
                                     Notiz
                                 </x-jet.label>
                                 <x-input-text id="note" type="text" wire:model.live="card_to_be_added.0.note" />
+                                <x-jet.input-error for="card_to_be_added.0.note" />
                             </div>
                             <x-confirmation-button wire:click="addCard" target="addCard">
                                 Hinzufügen
@@ -179,7 +183,7 @@
                         </div>
                         @foreach ($match->cards as $card)
                             <div class="py-2 flex items-center space-x-2">
-                                <x-button class="" wire:click="deleteCard({{ $card }})">
+                                <x-button class="" wire:click="deleteCard({{ $card->id }})">
                                     <i class="far fa-trash-alt fa-fw text-red-500" title="Löschen"></i>
                                 </x-button>
                                 <div class="text-center text-gray-700">
@@ -202,6 +206,7 @@
                         <div class="border-b border-gray-300">
                             <h2 class="font-sans font-extrabold text-lg tracking-tighter uppercase text-primary-600">Tore</h2>
                         </div>
+                        <x-jet.input-error for="match" class="mt-2" />
                         <div class="py-2 flex items-center space-x-2">
                             <div>
                                 <x-jet.label for="player">
@@ -213,18 +218,21 @@
                                         <option value="{{ $player->id }}">{{ $player->full_name_short }}</option>
                                     @endforeach
                                 </x-select>
+                                <x-jet.input-error for="goal_to_be_added.0.player" />
                             </div>
                             <div>
                                 <x-jet.label for="minute">
                                     Minute
                                 </x-jet.label>
                                 <x-input-text id="minute" type="text" wire:model.live="goal_to_be_added.0.minute" />
+                                <x-jet.input-error for="goal_to_be_added.0.minute" />
                             </div>
                             <div>
                                 <x-jet.label for="score">
                                     Stand
                                 </x-jet.label>
                                 <x-input-text id="score" type="text" wire:model.live="goal_to_be_added.0.score" />
+                                <x-jet.input-error for="goal_to_be_added.0.score" />
                             </div>
                             <div>
                                 <x-jet.label for="assist">
@@ -236,6 +244,7 @@
                                         <option value="{{ $player->id }}">{{ $player->full_name_short }}</option>
                                     @endforeach
                                 </x-select>
+                                <x-jet.input-error for="goal_to_be_added.0.assist" />
                             </div>
                             <div class="flex items-center space-x-2">
                                 <x-input-checkbox wire:model.live="goal_to_be_added.0.penalty" id="penalty" />
@@ -249,7 +258,7 @@
                         </div>
                         @foreach ($match->goals as $goal)
                             <div class="py-2 flex items-center space-x-2">
-                                <x-button class="" wire:click="deleteGoal({{ $goal }})">
+                                <x-button class="" wire:click="deleteGoal({{ $goal->id }})">
                                     <i class="far fa-trash-alt fa-fw text-red-500" title="Löschen"></i>
                                 </x-button>
                                 <div class="text-center text-gray-700">
@@ -297,5 +306,5 @@
 </div>
 
 @push('scripts')
-    <script src="https://unpkg.com/trix@1.3.1/dist/trix.js"></script>
+    <script src="{{ asset('vendor/trix/trix.js') }}"></script>
 @endpush

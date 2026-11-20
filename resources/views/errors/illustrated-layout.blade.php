@@ -7,8 +7,6 @@
         <title>@yield('title')</title>
 
         <!-- Fonts -->
-        <link rel="dns-prefetch" href="//fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
         <!-- Styles -->
         <style>
@@ -294,7 +292,7 @@
             }
 
             .font-sans {
-                font-family: Nunito, sans-serif;
+                font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             }
 
             .font-light {

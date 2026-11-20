@@ -11,6 +11,8 @@ const mix = require('laravel-mix');
  |
  */
 
+mix.copy('node_modules/trix/dist/trix.js', 'public/vendor/trix/trix.js');
+
 mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         require('postcss-import'),

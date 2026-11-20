@@ -82,14 +82,24 @@ class CreateMatch extends Component
 
     public function addCard()
     {
+        if (! $this->matchIsSaved()) {
+            return;
+        }
+
+        $this->validate([
+            'card_to_be_added.0.player' => 'required|exists:players,id',
+            'card_to_be_added.0.color' => 'required|in:gelb,10min,gelb-rot,rot',
+            'card_to_be_added.0.note' => 'nullable|string|max:191',
+        ], [], [
+            'card_to_be_added.0.player' => 'Spieler',
+            'card_to_be_added.0.color' => 'Farbe',
+            'card_to_be_added.0.note' => 'Notiz',
+        ]);
+
         $card = new Card();
         $card->player_id = $this->card_to_be_added[0]['player'];
         $card->color = $this->card_to_be_added[0]['color'];
-        if (isset($this->card_to_be_added[0]['note'])) {
-            $card->note = $this->card_to_be_added[0]['note'];
-        } else {
-            $card->note = null;
-        }
+        $card->note = filled($this->card_to_be_added[0]['note'] ?? null) ? $this->card_to_be_added[0]['note'] : null;
 
         $this->match->cards()->save($card);
         $this->match->refresh();
@@ -107,18 +117,32 @@ class CreateMatch extends Component
      */
     public function addGoal()
     {
+        if (! $this->matchIsSaved()) {
+            return;
+        }
+
+        $this->validate([
+            'goal_to_be_added.0.player' => 'required|exists:players,id',
+            'goal_to_be_added.0.score' => 'required|string|max:191',
+            'goal_to_be_added.0.minute' => 'nullable|string|max:191',
+            'goal_to_be_added.0.assist' => 'nullable|exists:players,id',
+            'goal_to_be_added.0.penalty' => 'boolean',
+        ], [], [
+            'goal_to_be_added.0.player' => 'Spieler',
+            'goal_to_be_added.0.score' => 'Stand',
+            'goal_to_be_added.0.minute' => 'Minute',
+            'goal_to_be_added.0.assist' => 'Vorlage',
+            'goal_to_be_added.0.penalty' => '11m',
+        ]);
+
         $goal = new Goal();
         $goal->player_id = $this->goal_to_be_added[0]['player'];
         $goal->score = $this->goal_to_be_added[0]['score'];
-        if (isset($this->goal_to_be_added[0]['minute'])) {
-            $goal->minute = $this->goal_to_be_added[0]['minute'];
-        } else {
-            $goal->minute = null;
-        }
-        $goal->penalty = $this->goal_to_be_added[0]['penalty'];
+        $goal->minute = filled($this->goal_to_be_added[0]['minute'] ?? null) ? $this->goal_to_be_added[0]['minute'] : null;
+        $goal->penalty = (bool) ($this->goal_to_be_added[0]['penalty'] ?? false);
 
         $this->match->goals()->save($goal);
-        if (isset($this->goal_to_be_added[0]['assist']))
+        if (filled($this->goal_to_be_added[0]['assist'] ?? null))
         {
             $assist = new Assist();
             $assist->player_id = $this->goal_to_be_added[0]['assist'];
@@ -138,6 +162,20 @@ class CreateMatch extends Component
         $goal->delete();
         $this->goal_deleted = true;
         $this->match->refresh();
+    }
+
+    /**
+     * Goals and cards need a saved match.
+     */
+    protected function matchIsSaved(): bool
+    {
+        if (isset($this->match) && $this->match->exists) {
+            return true;
+        }
+
+        $this->addError('match', 'Bitte das Spiel zuerst speichern.');
+
+        return false;
     }
 
     public function store()
