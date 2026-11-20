@@ -75,11 +75,11 @@
 </div>
 <x-headline class="mt-2 text-lg">Speicherdauer und eingesetzte Cookies:</x-headline>
 <div class="flex flex-col space-y-4 leading-7">
-    <p>Soweit Sie uns durch Ihre Browsereinstellungen oder Zustimmung die Verwendung von Cookies erlauben, können folgende Cookies auf unseren Webseiten zum Einsatz kommen:</p>
+    <p>Auf unseren Webseiten kommen ausschließlich folgende technisch notwendige Cookies zum Einsatz:</p>
     <ul class="list-inside list-disc">
-        <li>FontAwesome Icons - 30 Tage</li>
-        <li>XSRF-Token - 1 Tag</li>
-        <li>Session-Cookie (nur für Mitglieder relevant) - 1 Tag</li>
+        <li>XSRF-Token - 2 Stunden</li>
+        <li>Session-Cookie (nur für Mitglieder relevant) - 2 Stunden</li>
+        <li>„Angemeldet bleiben“-Cookie (nur wenn Sie diese Option bei der Anmeldung wählen) - ca. 400 Tage oder bis zur Abmeldung</li>
     </ul>
 </div>
 <x-headline class="mt-4 text-xl">Technisch notwendige Cookies </x-headline>
@@ -88,6 +88,10 @@
     <p>Wir setzen Cookies ein, um unsere Website nutzerfreundlicher zu gestalten. Einige Elemente unserer Internetseite erfordern es, dass der aufrufende Browser auch nach einem Seitenwechsel identifiziert werden kann.</p>
     <p>Der Zweck der Verwendung technisch notwendiger Cookies ist, die Nutzung von Websites für die Nutzer zu vereinfachen. Einige Funktionen unserer Internetseite können ohne den Einsatz von Cookies nicht angeboten werden. Für diese ist es erforderlich, dass der Browser auch nach einem Seitenwechsel wiedererkannt wird.</p>
     <p>Für folgende Anwendungen benötigen wir Cookies:</p>
+    <ul class="list-disc list-inside">
+        <li>Anmeldung im Mitgliederbereich,</li>
+        <li>Schutz von Formularen vor missbräuchlichen Anfragen (CSRF-Schutz).</li>
+    </ul>
 </div>
 <x-headline class="mt-2 text-lg">Rechtsgrundlage und berechtigtes Interesse: </x-headline>
 <div class="flex flex-col space-y-4 leading-7">
@@ -105,34 +109,17 @@
 <div class="flex flex-col space-y-4 leading-7">
     <p>Lesen Sie dazu die Informationen über Ihr Widerspruchsrecht nach Art. 21 DSGVO weiter unten.</p>
 </div>
-{{--
-<x-headline class="mt-4 text-xl">Verwendung von Scriptbibliotheken (Google Webfonts)</x-headline>
+<x-headline id="google-maps" class="mt-4 text-xl">Verwendung von Google Maps</x-headline>
 <div class="flex flex-col space-y-4 leading-7">
-    <p>Um unsere Inhalte browserübergreifend korrekt und grafisch ansprechend darzustellen, verwenden wir auf dieser Website „Google Web Fonts“ der Google LLC (1600 Amphitheatre Parkway, Mountain View, CA 94043, USA; nachfolgend „Google“) zur Darstellung von Schriften.</p>
-    <p>Weitere Informationen zu Google Web Fonts finden Sie unter <a class="inline-link" href="https://developers.google.com/fonts/faq" rel="noopener nofollow" target="_blank">https://developers.google.com/fonts/faq</a> und in der Datenschutzerklärung von Google: <a href="https://www.google.com/policies/privacy/" rel="noopener nofollow" target="_blank">https://www.google.com/policies/privacy/</a>.</p>
+    <p>Auf der Seite „Über uns“ können Sie sich den Standort unseres Heimplatzes auf einer Karte von Google Maps anzeigen lassen. Anbieter ist die Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland (nachfolgend „Google“).</p>
+    <p>Die Karte wird nicht automatisch geladen. Erst wenn Sie auf „Karte laden“ klicken, stellt Ihr Browser eine Verbindung zu den Servern von Google her. Dabei werden insbesondere Ihre IP-Adresse, die aufgerufene Seite sowie technische Informationen zu Ihrem Browser an Google übermittelt; Google kann zudem Cookies setzen. Eine Übermittlung dieser Daten an die Google LLC in den USA ist dabei nicht auszuschließen. Wenn Sie bei Google eingeloggt sind, kann Google den Aufruf Ihrem Konto zuordnen.</p>
+    <p>Rechtsgrundlage ist Ihre Einwilligung, die Sie durch den Klick auf „Karte laden“ erteilen (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG). Sie gilt nur für den jeweiligen Seitenaufruf; beim nächsten Besuch wird die Karte erst nach einem erneuten Klick geladen. Ohne Klick werden keine Daten an Google übertragen.</p>
+    <p>Alternativ können Sie den Link „In Google Maps öffnen“ verwenden. Dann verlassen Sie unsere Website und es gelten die Datenschutzbestimmungen von Google.</p>
+    <p>Nähere Informationen über die Datenverarbeitung durch Google finden Sie in den Google-Datenschutzhinweisen: <a class="inline-link" href="https://policies.google.com/privacy" rel="noopener nofollow" target="_blank">https://policies.google.com/privacy</a>.</p>
 </div>
---}}
-<x-headline class="mt-4 text-xl">Verwendung von Google Maps</x-headline>
+<x-headline class="mt-4 text-xl">Schriftarten und Icons</x-headline>
 <div class="flex flex-col space-y-4 leading-7">
-    <p>Auf dieser Website nutzen wir das Angebot von Google Maps. Google Maps wird von Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA (nachfolgend „Google“) betrieben. Dadurch können wir Ihnen interaktive Karten direkt in der Webseite anzeigen und ermöglichen Ihnen die komfortable Nutzung der Karten-Funktion.<br>Nähere Informationen über die Datenverarbeitung durch Google können Sie den Google-Datenschutzhinweisen entnehmen: <a href="https://policies.google.com/privacy" rel="noopener nofollow" target="_blank">https://policies.google.com/privacy</a>. Dort können Sie im Datenschutzcenter auch Ihre persönlichen Datenschutz-Einstellungen verändern.</p>
-    <p>Ausführliche Anleitungen zur Verwaltung der eigenen Daten im Zusammenhang mit Google-Produkten finden Sie hier: <a class="inline-link" href="https://www.dataliberation.org/" rel="noopener nofollow" target="_blank">https://www.dataliberation.org</a></p>
-    <p>Durch den Besuch der Website erhält Google Informationen, dass Sie die entsprechende Unterseite unserer Webseite aufgerufen haben. Dies erfolgt unabhängig davon, ob Google ein Nutzerkonto bereitstellt, über das Sie eingeloggt sind, oder ob keine Nutzerkonto besteht. Wenn Sie bei Google eingeloggt sind, werden Ihre Daten direkt Ihrem Konto zugeordnet. </p>
-    <p>Wenn Sie die Zuordnung in Ihrem Profil bei Google nicht wünschen, müssen Sie sich vor Aktivierung des Buttons bei Google ausloggen. Google speichert Ihre Daten als Nutzungsprofile und nutzt sie für Zwecke der Werbung, Marktforschung und/oder bedarfsgerechter Gestaltung seiner Websites. Eine solche Auswertung erfolgt insbesondere (selbst für nicht eingeloggte Nutzer) zur Erbringung bedarfsgerechter Werbung und um andere Nutzer des sozialen Netzwerks über Ihre Aktivitäten auf unserer Website zu informieren. Ihnen steht ein Widerspruchsrecht zu gegen die Bildung dieser Nutzerprofile, wobei Sie sich zur Ausübung dessen an Google richten müssen. </p>
-</div>
-<x-headline class="mt-4 text-xl">Font Awesome</x-headline>
-<div class="flex flex-col space-y-4 leading-7">
-    <p>Diese Seite nutzt zur einheitlichen Darstellung von Icons Font Awesome. Anbieter ist
-         Fonticons, Inc., 6 Porter Road Apartment 3R, Cambridge, Massachusetts, USA.</p>
-    <p>Beim Aufruf einer Seite lädt Ihr Browser die benötigten Fonts in ihren Browsercache, um Texte, Schriftarten
-        und Symbole korrekt anzuzeigen. Zu diesem Zweck muss der von Ihnen verwendete Browser Verbindung zu
-        den Servern von Font Awesome aufnehmen. Hierdurch erlangt Font Awesome Kenntnis darüber, dass über
-        Ihre IP-Adresse diese Website aufgerufen wurde. Die Nutzung von Font Awesome erfolgt auf Grundlage von
-        Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an der einheitlichen Darstellung des
-        Schriftbildes auf unserer Website.
-    </p>
-    <p>
-        Weitere Informationen zu Font Awesome finden Sie&nbsp;und in der Datenschutzerkl&auml;rung von Font Awesome unter: <a class="inline-link" href="https://fontawesome.com/privacy" target="_blank" rel="noopener noreferrer">https://fontawesome.com/privacy</a>.
-    </p>
+    <p>Die auf dieser Website verwendeten Schriftarten und Icons (Font Awesome Free) werden direkt von unserem eigenen Webserver geladen. Dabei wird keine Verbindung zu Servern Dritter (z. B. Google oder Font Awesome) aufgebaut.</p>
 </div>
 <x-headline class="mt-4 text-xl">SSL-Verschlüsselung</x-headline>
 <div class="flex flex-col space-y-4 leading-7">
