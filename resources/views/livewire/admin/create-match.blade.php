@@ -297,5 +297,5 @@
 </div>
 
 @push('scripts')
-    <script src="https://unpkg.com/trix@1.3.1/dist/trix.js"></script>
+    <script src="{{ asset('vendor/trix/trix.js') }}"></script>
 @endpush
