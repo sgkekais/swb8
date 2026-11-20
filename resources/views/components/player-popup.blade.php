@@ -50,7 +50,7 @@
                 </div>
                 <div class="py-4 text-sm text-gray-900">
                     @if ($player->joined)
-                        <i class="fas fa-pen-nib"></i> {{ $player->joined->isoFormat('MM.Y') }} ({{ $player->joined->diffInYears() > 0 ? $player->joined->diffInYears()." J." : $player->joined->diffInMonths()." M." }})
+                        <i class="fas fa-pen-nib"></i> {{ $player->joined->isoFormat('MM.Y') }} ({{ (int) $player->joined->diffInYears() > 0 ? (int) $player->joined->diffInYears()." J." : (int) $player->joined->diffInMonths()." M." }})
                     @else
                         &nbsp;
                     @endif
