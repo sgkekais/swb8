@@ -3,7 +3,8 @@ const colors = require('tailwindcss/colors');
 
 module.exports = {
     purge: [
-        './vendor/laravel/jetstream/**/*.blade.php',
+        './vendor/arm092/livewire-datatables/resources/**/*.blade.php',
+        './vendor/arm092/livewire-datatables/resources/js/*.js',
         './storage/framework/views/*.php',
         './resources/**/*.blade.php',
         './resources/**/*.js',
