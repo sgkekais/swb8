@@ -2,16 +2,16 @@
 
 namespace App\Http\Livewire\Admin;
 
+use Illuminate\Database\Eloquent\Model;
 use App\Models\DateType;
-use Mediconesystems\LivewireDatatables\Column;
-use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
-use Mediconesystems\LivewireDatatables\NumberColumn;
+use Arm092\LivewireDatatables\Column;
+use Arm092\LivewireDatatables\NumberColumn;
 
-class DateTypeTable extends LivewireDatatable
+class DateTypeTable extends Datatable
 {
-    public $model = DateType::class;
+    public Model|string|null $model = DateType::class;
 
-    public function columns()
+    public function getColumns(): array|Model
     {
         return [
             NumberColumn::name('id')

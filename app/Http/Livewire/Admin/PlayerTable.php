@@ -2,19 +2,19 @@
 
 namespace App\Http\Livewire\Admin;
 
+use Illuminate\Database\Eloquent\Model;
 use App\Models\Player;
 use App\Models\PlayerStatus;
-use Mediconesystems\LivewireDatatables\BooleanColumn;
-use Mediconesystems\LivewireDatatables\Column;
-use Mediconesystems\LivewireDatatables\DateColumn;
-use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
-use Mediconesystems\LivewireDatatables\NumberColumn;
+use Arm092\LivewireDatatables\BooleanColumn;
+use Arm092\LivewireDatatables\Column;
+use Arm092\LivewireDatatables\DateColumn;
+use Arm092\LivewireDatatables\NumberColumn;
 
-class PlayerTable extends LivewireDatatable
+class PlayerTable extends Datatable
 {
-    public $model = Player::class;
+    public Model|string|null $model = Player::class;
 
-    public function columns()
+    public function getColumns(): array|Model
     {
         return [
 

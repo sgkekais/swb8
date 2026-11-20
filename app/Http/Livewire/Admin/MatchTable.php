@@ -2,27 +2,27 @@
 
 namespace App\Http\Livewire\Admin;
 
+use Illuminate\Database\Eloquent\Model;
 use App\Models\Club;
-use App\Models\Match;
+use App\Models\Game;
 use App\Models\MatchType;
-use Mediconesystems\LivewireDatatables\BooleanColumn;
-use Mediconesystems\LivewireDatatables\Column;
-use Mediconesystems\LivewireDatatables\DateColumn;
-use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
-use Mediconesystems\LivewireDatatables\NumberColumn;
+use Arm092\LivewireDatatables\BooleanColumn;
+use Arm092\LivewireDatatables\Column;
+use Arm092\LivewireDatatables\DateColumn;
+use Arm092\LivewireDatatables\NumberColumn;
 
-class MatchTable extends LivewireDatatable
+class MatchTable extends Datatable
 {
-    public $model = Match::class;
+    public Model|string|null $model = Game::class;
 
-    public function mount($model = null, $include = [], $exclude = [], $hide = [], $dates = [], $times = [], $searchable = [], $sort = null, $hideHeader = null, $hidePagination = null, $perPage = 10, $exportable = false, $hideable = false, $beforeTableSlot = false, $afterTableSlot = false, $params = [])
+    public function mount($model = false, $include = [], $exclude = [], $hide = [], $dates = [], $times = [], $searchable = [], $sortIndex = null, $hideHeader = null, $hidePagination = null, $perPage = null, $exportable = false, $hideable = false, $beforeTableSlot = false, $buttonsSlot = false, $afterTableSlot = false, $params = []): void
     {
-        parent::mount($model, $include, $exclude, $hide, $dates, $times, $searchable, $sort, $hideHeader, $hidePagination, $perPage, $exportable, $hideable, $beforeTableSlot, $afterTableSlot, $params);
+        parent::mount($model, $include, $exclude, $hide, $dates, $times, $searchable, $sortIndex, $hideHeader, $hidePagination, $perPage, $exportable, $hideable, $beforeTableSlot, $buttonsSlot, $afterTableSlot, $params);
 
         $this->search = request('match_id');
     }
 
-    public function columns()
+    public function getColumns(): array|Model
     {
         return [
             NumberColumn::name('id')

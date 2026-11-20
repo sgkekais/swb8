@@ -2,17 +2,17 @@
 
 namespace App\Http\Livewire\Admin;
 
+use Illuminate\Database\Eloquent\Model;
 use App\Models\PlayerStatus;
-use Mediconesystems\LivewireDatatables\BooleanColumn;
-use Mediconesystems\LivewireDatatables\Column;
-use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
-use Mediconesystems\LivewireDatatables\NumberColumn;
+use Arm092\LivewireDatatables\BooleanColumn;
+use Arm092\LivewireDatatables\Column;
+use Arm092\LivewireDatatables\NumberColumn;
 
-class PlayerStatusTable extends LivewireDatatable
+class PlayerStatusTable extends Datatable
 {
-    public $model = PlayerStatus::class;
+    public Model|string|null $model = PlayerStatus::class;
 
-    public function columns()
+    public function getColumns(): array|Model
     {
         return [
             NumberColumn::name('id')

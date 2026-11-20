@@ -2,22 +2,22 @@
 
 namespace App\Http\Livewire\Admin;
 
+use Illuminate\Database\Eloquent\Model;
 use App\Models\Goal;
 use App\Models\Player;
-use Mediconesystems\LivewireDatatables\BooleanColumn;
-use Mediconesystems\LivewireDatatables\Column;
-use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
-use Mediconesystems\LivewireDatatables\NumberColumn;
+use Arm092\LivewireDatatables\BooleanColumn;
+use Arm092\LivewireDatatables\Column;
+use Arm092\LivewireDatatables\NumberColumn;
 
-class GoalTable extends LivewireDatatable
+class GoalTable extends Datatable
 {
-    public $model = Goal::class;
+    public Model|string|null $model = Goal::class;
 
-    public $exportable = true;
+    public bool $exportable = true;
 
-    public $perPage = 15;
+    public ?int $perPage = 15;
 
-    public function columns()
+    public function getColumns(): array|Model
     {
         return [
             NumberColumn::name('id')
@@ -45,7 +45,7 @@ class GoalTable extends LivewireDatatable
         ];
     }
 
-    public function getPlayerIDsProperty()
+    public function getPlayerIdsProperty()
     {
         return Player::all()->pluck('id');
     }

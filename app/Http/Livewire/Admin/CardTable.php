@@ -2,22 +2,22 @@
 
 namespace App\Http\Livewire\Admin;
 
+use Illuminate\Database\Eloquent\Model;
 use App\Models\Card;
 use App\Models\Player;
-use Mediconesystems\LivewireDatatables\BooleanColumn;
-use Mediconesystems\LivewireDatatables\Column;
-use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
-use Mediconesystems\LivewireDatatables\NumberColumn;
+use Arm092\LivewireDatatables\BooleanColumn;
+use Arm092\LivewireDatatables\Column;
+use Arm092\LivewireDatatables\NumberColumn;
 
-class CardTable extends LivewireDatatable
+class CardTable extends Datatable
 {
-    public $model = Card::class;
+    public Model|string|null $model = Card::class;
 
-    public $exportable = true;
+    public bool $exportable = true;
 
-    public $perPage = 15;
+    public ?int $perPage = 15;
 
-    public function columns()
+    public function getColumns(): array|Model
     {
         return [
             NumberColumn::name('id')
