@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Support\InitialsAvatar;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -106,9 +107,9 @@ class User extends Authenticatable
     protected function defaultProfilePhotoUrl()
     {
         if ($this->player) {
-            return 'https://eu.ui-avatars.com/api/?name='.urlencode($this->player->first_name).'+'.urlencode($this->player->last_name).'&color=333333&background=dddddd';
+            return InitialsAvatar::url($this->player->first_name.' '.$this->player->last_name);
         } else {
-            return 'https://eu.ui-avatars.com/api/?name='.urlencode($this->name).'&color=333333&background=dddddd';
+            return InitialsAvatar::url($this->name);
         }
 
     }
