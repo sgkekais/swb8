@@ -29,15 +29,9 @@
         <meta name="fb:app_id" content="175477382466028">
         <meta name="og:type" content="website">
 
-        {{--
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
-        --}}
-
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/all.min.css') }}">
         @livewireStyles
 
         <!-- retro numbers -->
@@ -128,7 +122,6 @@
         <!-- Scripts -->
         @livewireScripts
         <script src="{{ asset('js/app.js') }}"></script>
-        <script src="https://kit.fontawesome.com/3e5662e9c8.js" crossorigin="anonymous"></script>
 
         @stack('scripts')
 

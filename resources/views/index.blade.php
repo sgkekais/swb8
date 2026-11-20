@@ -76,7 +76,7 @@
 
             <div class="grid sm:grid-cols-2 sm:gap-2">
                 @push('scripts')
-                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script src="{{ asset('vendor/chartjs/chart.umd.min.js') }}"></script>
                 @endpush
                 @foreach (\App\Models\Club::owner(true)->get() as $club)
                     <div class="flex flex-col">

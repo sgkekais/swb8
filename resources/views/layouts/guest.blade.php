@@ -32,7 +32,8 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    @livewireStyles
+        <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/all.min.css') }}">
+        @livewireStyles
 
     <!-- Favicons -->
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=jw3mgXqKeE">
@@ -55,7 +56,6 @@
         <!-- Scripts -->
         @livewireScripts
         <script src="{{ asset('js/app.js') }}"></script>
-        <script src="https://kit.fontawesome.com/3e5662e9c8.js" crossorigin="anonymous"></script>
 
         @stack('scripts')
     </body>
